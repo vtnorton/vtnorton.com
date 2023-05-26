@@ -1,0 +1,118 @@
+.hero {
+	background: #1b1b1b;
+	height: 85vh;
+	padding: 75px;
+	margin-top: -5px;
+	position: relative;
+	background-attachment: fixed;
+	background-size: cover;
+
+	.hero-app {
+		position: absolute;
+		right: 0;
+		bottom: 145px;
+	}
+
+	.hero-overlay {
+		background: rgba(27, 27, 27, .5);
+		width: 100%;
+		height: 85vh;
+		position: absolute;
+		top: 0;
+		left: 0;
+	}
+
+	.hero-inner {
+		position: absolute;
+		bottom: 225px;
+		width: 1500px;
+		margin: 0 auto;
+		color: #fff;
+		left: 50%;
+		margin-left: -750px;
+		padding: 0 75px;
+
+		h1 {
+			font-size: 3em;
+			line-height: 100%;
+			font-family: 'Consolas', 'Courier New', Courier, monospace;
+			color: #fff;
+			overflow: hidden;
+			padding-right: 10px;
+			border-right: .08em solid #0553C1;
+			white-space: nowrap;
+			letter-spacing: .1em;
+			animation: typing 7s steps(40, end), blink-caret .9s step-end infinite;
+			width: fit-content;
+		}
+
+		h2 {
+			color: #fff !important;
+		}
+
+		p {
+			font-size: 1.5em;
+			line-height: 125%;
+			font-family: 'Neutra Text Alt', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+		}
+	}
+}
+
+.bg-wolf {
+	background-image: linear-gradient(to bottom right, #00782E, #B8C72C) !important;
+}
+
+.page-hero-next-item {
+	margin-top: -180px
+}
+
+@media screen and (max-width: 1200px) {
+	section {
+		&.page-hero-next-item {
+			margin-top: -50px;
+		}
+	}
+
+	.hero .hero-inner {
+		width: 100%;
+		padding: 0 50px;
+		bottom: 90px;
+		left: 0;
+		margin-left: 0
+	}
+}
+
+@media screen and (max-width: 990px) {
+	.hero {
+		height: auto;
+		padding: 150px 0 100px;
+		white-space: normal;
+		width: 100%;
+		overflow: hidden;
+
+		.hero-inner {
+			position: relative !important;
+			padding: 0 30px !important;
+			bottom: 0 !important;
+
+			h1 {
+				font-size: 2.4em;
+				overflow: hidden;
+				padding-right: 0;
+				white-space: normal;
+				letter-spacing: 0;
+				width: auto;
+			}
+		}
+	}
+
+	.page-hero-next-item {
+		margin-top: -60px
+	}
+}
+
+@media screen and (max-width: 480px) {
+	.page-hero-next-item {
+		margin-top: 0 !important
+	}
+}

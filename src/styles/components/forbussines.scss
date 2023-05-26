@@ -1,0 +1,18 @@
+.forbusiness {
+	padding: 50px 75px;
+	background: url('/img/others/forbusiness.jpg') no-repeat;
+	background-size: cover;
+	background-position-x: right;
+	background-color: #0C2744;
+
+	h2,
+	p {
+		color: #fff;
+	}
+}
+
+@media screen and (max-width: 1200px) {}
+
+@media screen and (max-width: 990px) {}
+
+@media screen and (max-width: 480px) {}

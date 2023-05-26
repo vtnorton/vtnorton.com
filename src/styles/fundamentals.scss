@@ -1,0 +1,22 @@
+.sameheight {
+	display: flex;
+	align-items: stretch;
+	padding-bottom: 1rem;
+
+	section {
+		margin-bottom: 0;
+		height: 100%;
+	}
+}
+
+.img-helper {
+	max-width: 100%;
+	width: auto;
+	height: auto;
+}
+
+@media screen and (max-width: 1200px) {}
+
+@media screen and (max-width: 990px) {}
+
+@media screen and (max-width: 480px) {}

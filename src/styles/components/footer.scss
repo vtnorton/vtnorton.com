@@ -1,0 +1,25 @@
+footer {
+	padding: 50px 75px;
+	position: relative;
+	width: 100%;
+	margin: 0 auto 3rem;
+	background: #e9e9e9;
+	font-family: 'Consolas', 'Courier New', Courier, monospace;
+	margin-bottom: 75px !important;
+	box-shadow: 0 4px 30px rgba(0, 0, 0, 0.25);
+
+	img {
+		width: auto
+	}
+}
+
+@media screen and (max-width: 1200px) {}
+
+@media screen and (max-width: 990px) {
+	footer {
+		padding: 35px;
+		margin-bottom: 1rem !important;
+	}
+}
+
+@media screen and (max-width: 480px) {}

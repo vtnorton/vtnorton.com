@@ -1,0 +1,143 @@
+.link-item {
+	margin-left: -75px;
+	width: calc(100% + 150px);
+	padding: 50px 75px;
+
+	.tile-title {
+		display: flex;
+		flex-direction: row;
+		align-items: flex-end;
+
+		img {
+			min-width: 60px;
+			max-width: 60px;
+			padding-right: 1.2rem;
+		}
+	}
+
+	.tile-content {
+		margin-left: 60px;
+	}
+
+	h2 {
+		margin-bottom: 0;
+		font-size: 1.5rem;
+		line-height: 1.6rem;
+	}
+
+	p {
+		margin-bottom: 15px;
+	}
+
+	&.discord {
+		background: rgb(64, 78, 237);
+		background: -moz-linear-gradient(133deg, rgba(64, 78, 237, 1) 0%, rgba(88, 101, 242, 1) 76%, rgba(76, 100, 182, 1) 100%);
+		background: -webkit-linear-gradient(133deg, rgba(64, 78, 237, 1) 0%, rgba(88, 101, 242, 1) 76%, rgba(76, 100, 182, 1) 100%);
+		background: linear-gradient(133deg, rgba(64, 78, 237, 1) 0%, rgba(88, 101, 242, 1) 76%, rgba(76, 100, 182, 1) 100%);
+		filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#404eed", endColorstr="#4c64b6", GradientType=1);
+
+		h2,
+		p,
+		.btn-link {
+			padding: 0;
+			color: #fff !important;
+		}
+	}
+
+	&.instagram {
+		padding-bottom: 0;
+
+		h2 {
+			margin-bottom: 2px;
+		}
+
+		.tile-content {
+			margin-left: -65px;
+			margin-top: 35px;
+			width: calc(100% + 130.5px);
+		}
+
+		.row .col-md-4 {
+			margin: 0;
+			padding: 0;
+			position: relative;
+
+			&:after {
+				content: ' ';
+				display: block;
+				padding-bottom: 100%;
+			}
+
+			img {
+				position: absolute;
+				top: 0;
+				bottom: 0;
+				left: 0;
+				right: 0;
+				width: 100%;
+				height: 100%;
+				object-fit: cover;
+				object-position: center;
+			}
+		}
+	}
+
+	&.maillist {
+		.fui-FluentProvider {
+			background: transparent;
+		}
+
+		.fui-Input {
+			min-width: 50%;
+		}
+
+		.fui-Button {
+			width: fit-content;
+			margin-left: 10px;
+		}
+	}
+
+	&.superprof {
+		background: #ffc8c8;
+
+		.tag {
+			border: 1px solid #ff6363;
+			border-radius: 20px;
+			width: fit-content;
+			font-size: .8rem;
+			padding: 1px 15px;
+			margin-top: 15px;
+			background: rgb(255, 99, 99, .2);
+		}
+
+		.btn-danger {
+			background: #ff6363;
+			border-color: #ff6363;
+
+			&:hover {
+				background: #cc240e;
+				border-color: #cc240e;
+			}
+		}
+	}
+}
+
+@media screen and (max-width: 1200px) {}
+
+@media screen and (max-width: 990px) {
+	.link-item {
+		margin-left: -35px;
+		width: calc(100% + 70px);
+		padding: 50px 35px;
+
+		&.instagram {
+			.tile-content {
+				margin-left: -25px;
+				margin-top: 35px;
+				width: calc(100% + 50.5px);
+			}
+		}
+	}
+}
+
+@media screen and (max-width: 480px) {}

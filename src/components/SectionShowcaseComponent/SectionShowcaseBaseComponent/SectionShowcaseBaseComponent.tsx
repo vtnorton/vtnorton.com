@@ -1,0 +1,16 @@
+import { SectionShowcaseBaseComponentProps } from './SectionShowcaseBaseComponentProps'
+
+export const SectionShowcase = (props: SectionShowcaseBaseComponentProps) => {
+	const classes = props.half ? 'row showcase half' : 'row showcase'
+	return (
+		<section>
+			<div className={classes}>
+				<div className='col-lg-3 col-md-6'>{props.children}</div>
+				<div className='col-lg-6 col-md-5 col-lg-offset-3 col-md-offset-1 showcase-right'>
+					<div className='showcase-bg' style={{ backgroundImage: 'url(' + props.blurImageUrl + ')' }}></div>
+					<img src={props.imageUrl} alt={props.imageAlt} />
+				</div>
+			</div>
+		</section>
+	)
+}
