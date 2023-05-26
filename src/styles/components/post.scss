@@ -246,9 +246,29 @@ article {
 	}
 }
 
-@media screen and (min-width: 1500px) {}
+@media screen and (min-width: 2200px) {
+	article {
+		.header {
+			width: calc(50% - 500px);
 
-@media screen and (max-width: 1200px) {}
+			.see-posts-button {
+				display: none;
+			}
+		}
+
+		section {
+			width: 1000px;
+			margin: auto;
+		}
+	}
+
+	.post-related-list {
+		position: absolute;
+		right: 0;
+		width: calc(50% - 500px);
+		z-index: 10;
+	}
+}
 
 @media screen and (max-width: 990px) {
 	article {
