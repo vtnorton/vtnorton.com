@@ -9,8 +9,6 @@ import {
 	BlogGridItemProps,
 	BookClubComponent,
 	BookClubComponentProps,
-	CursoDevPromoComponent,
-	CursoTechPromoComponent,
 	FooterComponent,
 	BlogComponent,
 	ForBusinessComponent,
@@ -72,8 +70,8 @@ export default function Index(props: IndexBFFProps) {
 				<div className='row'>
 					<div className='col-md-6'>
 						<TilesComponent instagramPhotos={props.instagramPhotos} />
-						<CursoDevPromoComponent half />
-						<CursoTechPromoComponent half />
+						{/* <CursoDevPromoComponent half /> */}
+						{/* <CursoTechPromoComponent half /> */}
 					</div>
 					<div className='col-md-6'>
 						<TwitchComponent />
