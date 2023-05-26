@@ -2,6 +2,8 @@ import type { AppProps } from 'next/app'
 import Head from 'next/head'
 import '../../node_modules/heartthrob/build/heartthrob.css'
 import '../styles/global.scss'
+import { LogoComponent } from '../components'
+import { VtnortonContextProvider } from '../provider/VtnortonContextProvider'
 
 export default function App({ Component, pageProps }: AppProps) {
 	return (
@@ -37,7 +39,10 @@ export default function App({ Component, pageProps }: AppProps) {
 				<meta name='twitter:creator' content='@vt_norton' />
 				<meta name='twitter:site' content='@vt_norton' />
 			</Head>
-			<Component {...pageProps} />
+			<VtnortonContextProvider>
+				<LogoComponent componentName={Component.name} />
+				<Component {...pageProps} />
+			</VtnortonContextProvider>
 		</>
 	)
 }

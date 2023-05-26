@@ -15,6 +15,36 @@
 	height: auto;
 }
 
+.container.logo {
+	position: relative;
+	height: 0;
+	display: block;
+
+	img {
+		max-width: 200px;
+		position: relative;
+		z-index: 20;
+		top: 50px;
+		left: -5px;
+	}
+}
+
+.logo-post {
+	img {
+		position: absolute;
+		z-index: 20;
+		top: 35px;
+		left: 123px;
+		max-width: 170px;
+	}
+
+	&.colorized {
+		img {
+			left: 60px
+		}
+	}
+}
+
 @media screen and (max-width: 1200px) {}
 
 @media screen and (max-width: 990px) {}
