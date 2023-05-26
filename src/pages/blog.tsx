@@ -21,7 +21,7 @@ export default function BlogPage({ posts }: { posts: BlogGridItemProps[] }) {
 		<>
 			<PageHeroComponent title='blog' description='blog: artigos + informativos + releases' backgroundUrl='/img/pages/blog.jpg'>
 				<section>
-					<div className='showcase'>
+					<div className='blog'>
 						<div className='row'>
 							<div className='col-md-10'>
 								<h2>📰 Outras postagens</h2>
