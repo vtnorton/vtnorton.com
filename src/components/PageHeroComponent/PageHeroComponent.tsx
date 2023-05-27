@@ -4,13 +4,20 @@ export const PageHeroComponent = (props: PageHeroComponentProps) => {
 	const heroClass = props.backgroundClass ? `hero ${props.backgroundClass}` : `hero`
 	return (
 		<>
-			<div className={heroClass} style={{ backgroundImage: 'url(' + props.backgroundUrl + ')', backgroundPositionY: props.backgroundPosition }}>
+			<div
+				className={heroClass}
+				style={{
+					backgroundImage: 'url(' + props.backgroundUrl + ')',
+					backgroundPositionY: props.backgroundPosition,
+					backgroundColor: props.backgroundColor ? props.backgroundColor : 'inherit',
+				}}>
 				<div className='hero-overlay'></div>
 				<div className='hero-inner'>
 					<div className='row'>
 						<div className='col-md-8'>
 							<h1>{props.title}</h1>
 							<p>{props.description}</p>
+							{props.innerComponent}
 						</div>
 					</div>
 				</div>

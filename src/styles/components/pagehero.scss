@@ -34,7 +34,7 @@
 
 		h1 {
 			font-size: 3em;
-			line-height: 100%;
+			line-height: 120%;
 			font-family: 'Consolas', 'Courier New', Courier, monospace;
 			color: #fff;
 			overflow: hidden;
@@ -54,6 +54,21 @@
 			font-size: 1.5em;
 			line-height: 125%;
 			font-family: 'Neutra Text Alt', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+		}
+
+		.project-icon {
+			position: absolute;
+			top: 0;
+			right: 75px;
+			max-width: 200px;
+			border-radius: 50%;
+			box-shadow: 0 4px 30px rgba(0, 0, 0, 0.25);
+
+			&:hover {
+				border-radius: 1rem;
+				box-shadow: 0 4px 15px rgba(0, 0, 0, 0.25);
+				transition: all 1s;
+			}
 		}
 	}
 }

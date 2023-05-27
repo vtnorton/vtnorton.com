@@ -16,6 +16,13 @@ export const productsItems: Product[] = [
 		businessCase: true,
 	},
 	{
+		name: 'Conjugar',
+		imageUrl: '/img/projects/conjugar.webp',
+		link: '/project/conjugar',
+		supported: true,
+		businessCase: false,
+	},
+	{
 		name: 'Olá Wolff',
 		imageUrl: '/img/projects/ola-wolff.jpg',
 		link: '/olawolff',

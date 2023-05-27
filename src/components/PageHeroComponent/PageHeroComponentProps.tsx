@@ -5,4 +5,6 @@ export type PageHeroComponentProps = {
 	backgroundClass?: string
 	children: JSX.Element
 	backgroundPosition?: string
+	backgroundColor?: string
+	innerComponent?: JSX.Element
 }
