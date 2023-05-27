@@ -1,5 +1,5 @@
 import { useRouter } from 'next/router'
-import { FooterComponent, NextProjectComponent, PageHeroComponent } from '../components'
+import { FooterComponent, NextProjectComponent, PageHeroComponent, ProductShelfComponent } from '../components'
 import { ThreeColumnItemsComponent } from '../components/others/ThreeColumnItemsComponent/ThreeColumnItemsComponent'
 import { ThreeColumnItem } from '../components/others/ThreeColumnItemsComponent/ThreeColumnItemsComponentProps'
 
@@ -59,7 +59,7 @@ export default function Heartthrob() {
 					<NextProjectComponent path={router.pathname} />
 				</section>
 			</PageHeroComponent>
-
+			<ProductShelfComponent />
 			<FooterComponent />
 		</>
 	)

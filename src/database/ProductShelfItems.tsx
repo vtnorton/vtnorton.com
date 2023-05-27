@@ -22,4 +22,11 @@ export const productsItems: Product[] = [
 		supported: false,
 		businessCase: true,
 	},
+	{
+		name: 'guia definitivo para o onenote',
+		imageUrl: '/img/projects/onenote.jpg',
+		link: '/project/onenote',
+		supported: false,
+		businessCase: false,
+	},
 ]
