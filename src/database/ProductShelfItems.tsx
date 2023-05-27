@@ -65,6 +65,13 @@ export const productsItems: Product[] = [
 		businessCase: false,
 	},
 	{
+		name: 'Random 42',
+		imageUrl: '/img/projects/random42.webp',
+		link: '/project/random42',
+		supported: false,
+		businessCase: false,
+	},
+	{
 		name: 'Tocha Olímpica',
 		imageUrl: '/img/projects/tochaolimpica.webp',
 		link: '/project/tochaolimpica',
