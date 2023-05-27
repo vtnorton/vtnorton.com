@@ -1,10 +1,12 @@
 import React from 'react'
-import { FooterComponent, PageHeroComponent, ProductShelfComponent } from '../components'
+import { FooterComponent, NextProjectComponent, PageHeroComponent, ProductShelfComponent } from '../components'
 import Fancybox from '../components/others/FancyboxComponent/FancyboxComponent'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faChevronRight } from '@fortawesome/free-solid-svg-icons'
+import { useRouter } from 'next/router'
 
 export default function OlaWolff() {
+	const router = useRouter()
 	return (
 		<>
 			<PageHeroComponent
@@ -266,6 +268,7 @@ export default function OlaWolff() {
 							</div>
 						</div>
 					</div>
+					<NextProjectComponent path={router.pathname} />
 				</section>
 			</div>
 			<ProductShelfComponent />

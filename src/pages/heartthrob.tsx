@@ -1,4 +1,5 @@
-import { FooterComponent, PageHeroComponent, ProjectPageComponent } from '../components'
+import { useRouter } from 'next/router'
+import { FooterComponent, NextProjectComponent, PageHeroComponent } from '../components'
 import { ThreeColumnItemsComponent } from '../components/others/ThreeColumnItemsComponent/ThreeColumnItemsComponent'
 import { ThreeColumnItem } from '../components/others/ThreeColumnItemsComponent/ThreeColumnItemsComponentProps'
 
@@ -23,39 +24,40 @@ const benefits: ThreeColumnItem[] = [
 ]
 
 export default function Heartthrob() {
+	const router = useRouter()
+
 	return (
 		<>
 			<PageHeroComponent title='heartthrob' description='Já pensou em entregar um MVP em poucos dias, com qualidade impecável e as melhores práticas da atualidade, e lucrar bastante com isso?' backgroundUrl='/img/pages/desenvolvimento.jpg' backgroundPosition='-250px'>
-				<ProjectPageComponent>
-					<>
-						<div className='row showcase'>
-							<div className='col-md-7'>
-								<h2>O que iremos resolver</h2>
-								<p>
-									Uma das maiores vantagens que a área de programação nos dá é a possibilidade de usar nosso conhecimento em projetos que não demandam uma contratação. Os freelances estão em toda a parte, e cada um de nós já se viu cogitando pegar para complementar nossa renda de
-									alguma forma.
-								</p>
-								<p>
-									E agora ficou mais fácil! Heartthrob é um framework open-source que quer facilitar a criação de suas aplicações. Com bibliotecas para front e back-end, ele visa acelerar o desenvolvimento dos sites, tirando do caminho as tarefas mais demoradas como controle de
-									acesso, login de usuário, design de componentes, etc., para permitir que você possa focar apenas no negócio do seu cliente!
-								</p>
-							</div>
+				<section>
+					<div className='row showcase'>
+						<div className='col-md-7'>
+							<h2>O que iremos resolver</h2>
+							<p>
+								Uma das maiores vantagens que a área de programação nos dá é a possibilidade de usar nosso conhecimento em projetos que não demandam uma contratação. Os freelances estão em toda a parte, e cada um de nós já se viu cogitando pegar para complementar nossa renda de
+								alguma forma.
+							</p>
+							<p>
+								E agora ficou mais fácil! Heartthrob é um framework open-source que quer facilitar a criação de suas aplicações. Com bibliotecas para front e back-end, ele visa acelerar o desenvolvimento dos sites, tirando do caminho as tarefas mais demoradas como controle de
+								acesso, login de usuário, design de componentes, etc., para permitir que você possa focar apenas no negócio do seu cliente!
+							</p>
 						</div>
-						<div className='showcase'>
-							<ThreeColumnItemsComponent items={benefits} />
+					</div>
+					<div className='showcase'>
+						<ThreeColumnItemsComponent items={benefits} />
+					</div>
+					<div className='row showcase'>
+						<div className='col-md-6'>
+							<h2>Frontend</h2>
+							<p>Temos componentes prontos que podem ser apenas inseridos nas suas aplicações, poupando tempo e esforço ao longo do desenvolvimento, além de componentes visuais já configurados e adaptáveis às suas necessidades!</p>
+							<p>Entregamos também páginas já prontas, caso queira utilizar, como páginas de login, registro de usuário, edição de perfil, entre outros... </p>
 						</div>
-						<div className='row showcase'>
-							<div className='col-md-6'>
-								<h2>Frontend</h2>
-								<p>Temos componentes prontos que podem ser apenas inseridos nas suas aplicações, poupando tempo e esforço ao longo do desenvolvimento, além de componentes visuais já configurados e adaptáveis às suas necessidades!</p>
-								<p>Entregamos também páginas já prontas, caso queira utilizar, como páginas de login, registro de usuário, edição de perfil, entre outros... </p>
-							</div>
-							<div className='col-md-5 col-md-offset-1'>
-								<img src='/img/projects/heartthrob/heartthrob-front.jpeg' />
-							</div>
+						<div className='col-md-5 col-md-offset-1'>
+							<img src='/img/projects/heartthrob/heartthrob-front.jpeg' />
 						</div>
-					</>
-				</ProjectPageComponent>
+					</div>
+					<NextProjectComponent path={router.pathname} />
+				</section>
 			</PageHeroComponent>
 
 			<FooterComponent />
