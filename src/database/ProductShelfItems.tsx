@@ -44,9 +44,23 @@ export const productsItems: Product[] = [
 		businessCase: false,
 	},
 	{
+		name: 'Calculadora de tempo',
+		imageUrl: '/img/projects/calculadoradetempo.webp',
+		link: '/project/calculadoradetempo',
+		supported: false,
+		businessCase: false,
+	},
+	{
 		name: '#TrueOrDare',
 		imageUrl: '/img/projects/trueordare.webp',
 		link: '/project/trueordare',
+		supported: false,
+		businessCase: false,
+	},
+	{
+		name: 'Tocha Olímpica',
+		imageUrl: '/img/projects/tochaolimpica.webp',
+		link: '/project/tochaolimpica',
 		supported: false,
 		businessCase: false,
 	},
