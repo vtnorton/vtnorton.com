@@ -58,6 +58,13 @@ export const productsItems: Product[] = [
 		businessCase: false,
 	},
 	{
+		name: '#NeverEver',
+		imageUrl: '/img/projects/neverever.webp',
+		link: '/project/neverever',
+		supported: false,
+		businessCase: false,
+	},
+	{
 		name: 'Tocha Olímpica',
 		imageUrl: '/img/projects/tochaolimpica.webp',
 		link: '/project/tochaolimpica',
