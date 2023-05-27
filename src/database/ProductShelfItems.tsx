@@ -43,4 +43,11 @@ export const productsItems: Product[] = [
 		supported: false,
 		businessCase: false,
 	},
+	{
+		name: '#TrueOrDare',
+		imageUrl: '/img/projects/trueordare.webp',
+		link: '/project/trueordare',
+		supported: false,
+		businessCase: false,
+	},
 ]
