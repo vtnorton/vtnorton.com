@@ -30,6 +30,13 @@ export const productsItems: Product[] = [
 		businessCase: true,
 	},
 	{
+		name: 'True Dark Mode',
+		imageUrl: '/img/projects/truedarkmode.webp',
+		link: '/project/truedarkmode',
+		supported: false,
+		businessCase: false,
+	},
+	{
 		name: 'guia definitivo para o onenote',
 		imageUrl: '/img/projects/onenote.jpg',
 		link: '/project/onenote',
