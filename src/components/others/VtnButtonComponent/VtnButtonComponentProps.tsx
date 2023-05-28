@@ -5,4 +5,5 @@ export interface VtnButtonComponentPros {
 	icon?: IconProp
 	text: string
 	classesNames?: string
+	isLink?: boolean
 }

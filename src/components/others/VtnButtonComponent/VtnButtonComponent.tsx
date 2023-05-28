@@ -1,11 +1,14 @@
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { VtnButtonComponentPros } from './VtnButtonComponentProps'
+import { faChevronRight } from '@fortawesome/free-solid-svg-icons'
 
 export const VtnButtonComponent = (props: VtnButtonComponentPros) => {
-	const classesNames = `btn ${props.classesNames}`
+	const classesNames = !props.isLink ? `btn ${props.classesNames}` : 'btn btn-link'
+	let icon = props.icon ? props.icon : undefined
+	icon = props.isLink ? faChevronRight : props.icon
 	return (
 		<a href={props.url} className={classesNames}>
-			{props.icon && <FontAwesomeIcon icon={props.icon} />}
+			{icon && <FontAwesomeIcon icon={icon} />}
 			{props.text}
 		</a>
 	)

@@ -10,7 +10,7 @@ export const productsItems: Product[] = [
 	},
 	{
 		name: 'Formula - Code Editor',
-		imageUrl: 'https://i0.wp.com/vtnorton.com/wp-content/uploads/2017/10/icon350.png?fit=350%2C350&amp;ssl=1',
+		imageUrl: '/img/projects/formula.webp',
 		link: '/formula',
 		supported: true,
 		businessCase: true,

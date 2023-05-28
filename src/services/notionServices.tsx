@@ -67,7 +67,53 @@ export const getPodcasts = async (): Promise<PodcastEpisode[]> => {
 	return podcasts
 }
 
-export const getPosts = async () => {
+export const getPosts = async (tag?: string) => {
+	const filter = [
+		{
+			property: 'Type',
+			multi_select: {
+				contains: 'Post',
+			},
+		},
+		{
+			property: 'Date',
+			date: {
+				on_or_before: new Date().toISOString(),
+			},
+		},
+		{
+			or: [
+				{
+					property: 'Status-post',
+					select: {
+						equals: 'Query',
+					},
+				},
+				{
+					property: 'Status-post',
+					select: {
+						equals: 'Follow-up',
+					},
+				},
+				{
+					property: 'Status-post',
+					select: {
+						equals: 'Published',
+					},
+				},
+			],
+		},
+	]
+
+	if (tag) {
+		filter.push({
+			property: 'Hashtags',
+			multi_select: {
+				contains: tag,
+			},
+		})
+	}
+
 	const response = await notion.databases.query({
 		database_id: process.env.devrelDb as string,
 		sorts: [
@@ -77,42 +123,7 @@ export const getPosts = async () => {
 			},
 		],
 		filter: {
-			and: [
-				{
-					property: 'Type',
-					multi_select: {
-						contains: 'Post',
-					},
-				},
-				{
-					property: 'Date',
-					date: {
-						on_or_before: new Date().toISOString(),
-					},
-				},
-				{
-					or: [
-						{
-							property: 'Status-post',
-							select: {
-								equals: 'Query',
-							},
-						},
-						{
-							property: 'Status-post',
-							select: {
-								equals: 'Follow-up',
-							},
-						},
-						{
-							property: 'Status-post',
-							select: {
-								equals: 'Published',
-							},
-						},
-					],
-				},
-			],
+			and: filter,
 		},
 	})
 	const { results } = response
@@ -153,10 +164,10 @@ export async function getPostBySlug(slug: string) {
 	return post
 }
 
-export async function getBlogSectionPosts(numberOfPosts: number = 12): Promise<BlogGridItemProps[]> {
+export async function getBlogSectionPosts(numberOfPosts: number = 12, tag?: string): Promise<BlogGridItemProps[]> {
 	let posts: Post[] = cachedPosts
 
-	if (!posts) posts = await getPosts()
+	if (!posts) posts = await getPosts(tag)
 	let blogGridItems: BlogGridItemProps[] = []
 
 	posts.map((post: Post) => {
