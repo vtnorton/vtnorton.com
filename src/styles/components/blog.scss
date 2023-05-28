@@ -131,17 +131,18 @@
 		display: block;
 		position: absolute;
 		bottom: 36px;
-		font-size: 14px;
-		line-height: 1em;
+		font-size: 1rem;
+		line-height: 110%;
 		text-transform: lowercase;
+		font-family: Consolas, 'Courier New', Courier, monospace;
 		padding-top: 56px;
 		height: 56px;
 		overflow: hidden;
-		-webkit-transition: all .7s cubic-bezier(0.55, 0.055, 0.675, 0.19);
-		-moz-transition: all .7s cubic-bezier(0.55, 0.055, 0.675, 0.19);
-		-ms-transition: all .7s cubic-bezier(0.55, 0.055, 0.675, 0.19);
-		-o-transition: all .7s cubic-bezier(0.55, 0.055, 0.675, 0.19);
-		transition: all .7s cubic-bezier(0.55, 0.055, 0.675, 0.19);
+		-webkit-transition: all .3s cubic-bezier(0.55, 0.055, 0.675, 0.19);
+		-moz-transition: all .3s cubic-bezier(0.55, 0.055, 0.675, 0.19);
+		-ms-transition: all .3s cubic-bezier(0.55, 0.055, 0.675, 0.19);
+		-o-transition: all .3s cubic-bezier(0.55, 0.055, 0.675, 0.19);
+		transition: all .3s cubic-bezier(0.55, 0.055, 0.675, 0.19);
 
 		&::before {
 			content: "";
