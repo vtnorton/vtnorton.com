@@ -6,7 +6,7 @@ export const HashtagListComponent = ({ hashtags }: { hashtags: string[] }) => {
 		<>
 			{hashtags.map((hashtag: string, index: number) => {
 				return (
-					<a className='hashtag' key={index} href={`/?hashtags=${hashtag}`}>
+					<a className='hashtag' key={index} href={`/hashtag/${hashtag}`}>
 						#{hashtag}
 					</a>
 				)
