@@ -187,7 +187,7 @@ export const getPage = async (pageId: string) => {
 	return await notionApi.getPage(pageId)
 }
 
-export const getHashtags = async () => {
+export const getHashtags = async (): Promise<Hashtag[]> => {
 	const response = await notion.databases.query({
 		database_id: process.env.devrelDb ?? '',
 	})
@@ -204,7 +204,6 @@ export const getHashtags = async () => {
 			}
 		}
 	}
-	hashtags = hashtags.sort((a, b) => b.count - a.count)
 	return hashtags
 }
 

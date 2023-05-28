@@ -24,9 +24,10 @@ export default function BlogPage({ posts }: { posts: BlogGridItemProps[] }) {
 					<div className='blog'>
 						<div className='row'>
 							<div className='col-md-10'>
-								<h2>📰 Outras postagens</h2>
+								<h2>📰 Todos os posts</h2>
 							</div>
 						</div>
+						<div className='space-low'></div>
 						<BlogGrid posts={posts} />
 					</div>
 				</section>

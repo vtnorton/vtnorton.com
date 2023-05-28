@@ -6,6 +6,7 @@ import { ThreeColumnItemsComponent } from '../components/others/ThreeColumnItems
 import { ThreeColumnItem } from '../components/others/ThreeColumnItemsComponent/ThreeColumnItemsComponentProps'
 import { BlogGrid } from '../components/BlogComponent/BlogGrid/BlogGrid'
 import { getBlogSectionPosts } from '../services/notionServices'
+import { faChevronRight } from '@fortawesome/free-solid-svg-icons'
 
 export const getStaticProps = async () => {
 	try {
@@ -114,6 +115,14 @@ export default function Formula({ posts }: { posts: BlogGridItemProps[] }) {
 						</div>
 						<div className='space-low'></div>
 						<BlogGrid posts={posts} />
+						<div className='right'>
+							<div className='space-long'></div>
+							<a href='/hashtag/formula' className='btn btn-primary'>
+								<FontAwesomeIcon icon={faChevronRight} />
+								get_posts('formula');
+							</a>
+						</div>
+						<div className='clean'></div>
 					</div>
 					<div className='row showcase'>
 						<div className='col-md-6'>
