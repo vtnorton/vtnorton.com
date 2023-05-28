@@ -1,18 +1,21 @@
 import { useRouter } from 'next/router'
-import { BlogGridItemProps, FooterComponent, NextProjectComponent, PageHeroComponent, ProductShelfComponent, SliderComponent, SliderImage, VtnButtonComponent } from '../components'
+import { BlogGridItemProps, ChangelogComponent, FooterComponent, NextProjectComponent, PageHeroComponent, ProductShelfComponent, SliderComponent, SliderImage, VtnButtonComponent } from '../components'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faWindows } from '@fortawesome/free-brands-svg-icons'
 import { ThreeColumnItemsComponent } from '../components/others/ThreeColumnItemsComponent/ThreeColumnItemsComponent'
 import { ThreeColumnItem } from '../components/others/ThreeColumnItemsComponent/ThreeColumnItemsComponentProps'
 import { BlogGrid } from '../components/BlogComponent/BlogGrid/BlogGrid'
-import { getBlogSectionPosts } from '../services/notionServices'
+import { getBlogSectionPosts, getChangelogsForBlogComponent } from '../services/notionServices'
 import { faChevronRight } from '@fortawesome/free-solid-svg-icons'
+
+const projectSlug = 'formula'
 
 export const getStaticProps = async () => {
 	try {
-		let posts = await getBlogSectionPosts(6, 'formula')
+		const posts = await getBlogSectionPosts(6, projectSlug)
+		const changelogs = await getChangelogsForBlogComponent(projectSlug)
 
-		let props = { posts: posts }
+		let props = { posts: posts, changelogs: changelogs }
 		props = JSON.parse(JSON.stringify(props))
 		return { props, revalidate: 60 * 60 * 1 }
 	} catch (err) {
@@ -20,7 +23,7 @@ export const getStaticProps = async () => {
 	}
 }
 
-export default function Formula({ posts }: { posts: BlogGridItemProps[] }) {
+export default function Formula({ posts, changelogs }: { posts: BlogGridItemProps[]; changelogs: BlogGridItemProps[] }) {
 	const router = useRouter()
 	const benefits: ThreeColumnItem[] = [
 		{
@@ -104,6 +107,8 @@ export default function Formula({ posts }: { posts: BlogGridItemProps[] }) {
 			</PageHeroComponent>
 
 			<SliderComponent items={itemsForSlider} />
+
+			<ChangelogComponent posts={changelogs} productSlug={projectSlug} />
 
 			<div className='container'>
 				<section>

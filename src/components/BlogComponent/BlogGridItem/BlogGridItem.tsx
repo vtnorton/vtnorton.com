@@ -13,25 +13,26 @@ export const BlogGridItem = (props: BlogGridItemProps) => {
 	}
 
 	function renderCategories() {
-		return (
-			<div className='meta-categories'>
-				{props.hashtags.map((hashtag: string, index: number) => {
-					const link = `/tag/${hashtag}`
-					if (props.hashtags.length - 1 == props.hashtags.indexOf(hashtag))
-						return (
-							<a key={index} href={link}>
-								{hashtag}{' '}
-							</a>
-						)
-					else
-						return (
-							<a key={index} href={link}>
-								{hashtag},{' '}
-							</a>
-						)
-				})}
-			</div>
-		)
+		if (props.hashtags)
+			return (
+				<div className='meta-categories'>
+					{props.hashtags.map((hashtag: string, index: number) => {
+						const link = `/tag/${hashtag}`
+						if (props.hashtags && props.hashtags.length - 1 == props.hashtags.indexOf(hashtag))
+							return (
+								<a key={index} href={link}>
+									{hashtag}{' '}
+								</a>
+							)
+						else
+							return (
+								<a key={index} href={link}>
+									{hashtag},{' '}
+								</a>
+							)
+					})}
+				</div>
+			)
 	}
 
 	return (

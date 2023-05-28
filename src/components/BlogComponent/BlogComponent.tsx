@@ -1,8 +1,6 @@
 import * as React from 'react'
-import { BlogGridItemProps } from './BlogGridItem/BlogGridItemProps'
 import { faChevronRight } from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { BlogGridItem } from './BlogGridItem/BlogGridItem'
 import { BlogGrid } from './BlogGrid/BlogGrid'
 
 export const BlogComponent = (props: any) => {

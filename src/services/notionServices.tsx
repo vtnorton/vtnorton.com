@@ -4,6 +4,7 @@ import { Post } from '../interfaces/Post'
 import { Hashtag } from '../interfaces/Hashtag'
 import { PodcastEpisode } from '../interfaces/PodcastEpisode'
 import { BlogGridItemProps } from '../components'
+import { Changelog } from '../interfaces/Changelog'
 
 const notion = new Client({
 	auth: process.env.notionSecret,
@@ -157,6 +158,69 @@ export const getPosts = async (tag?: string) => {
 	return posts
 }
 
+export const getChangelogs = async (projectSlug: string) => {
+	const filter = [
+		{
+			property: 'Type',
+			multi_select: {
+				contains: 'Changelog',
+			},
+		},
+		{
+			property: 'ProjectForWebsite',
+			select: {
+				equals: projectSlug,
+			},
+		},
+		{
+			or: [
+				{
+					property: 'Status-post',
+					select: {
+						equals: 'Follow-up',
+					},
+				},
+				{
+					property: 'Status-post',
+					select: {
+						equals: 'Published',
+					},
+				},
+			],
+		},
+	]
+
+	const response = await notion.databases.query({
+		database_id: process.env.devrelDb as string,
+		sorts: [
+			{
+				property: 'Date',
+				direction: 'descending',
+			},
+		],
+		filter: {
+			and: filter,
+		},
+	})
+	const { results } = response
+
+	let logs = results.map((result: any) => {
+		const item: Changelog = {
+			id: result.id,
+			projectSlug: 'result.url',
+			fullSlug: 'ddd',
+			title: result.properties.Name.title[0].text.content,
+			date: result.properties.Date.date.start,
+			featureImage: result.cover ? result.cover.external.url : '',
+			recordMap: {},
+		}
+		console.log(result.properties)
+		return item
+	})
+
+	return logs.filter((log): log is Changelog => typeof log !== 'undefined')
+}
+
 export async function getPostBySlug(slug: string) {
 	const posts = await getPosts()
 	let post: any = posts.find((p: Post) => p.slug === slug) ?? null
@@ -164,10 +228,24 @@ export async function getPostBySlug(slug: string) {
 	return post
 }
 
-export async function getBlogSectionPosts(numberOfPosts: number = 12, tag?: string): Promise<BlogGridItemProps[]> {
-	let posts: Post[] = cachedPosts
+export async function getChangelogsForBlogComponent(projectSlug: string, numberOfPosts: number = 3): Promise<BlogGridItemProps[]> {
+	const logs = await getChangelogs(projectSlug)
+	let blogGridItems: BlogGridItemProps[] = []
 
-	if (!posts) posts = await getPosts(tag)
+	logs.map((log: Changelog) => {
+		blogGridItems.push({
+			id: log.id,
+			image: log.featureImage,
+			link: log.fullSlug,
+			title: log.title,
+		})
+	})
+
+	return blogGridItems.slice(0, numberOfPosts)
+}
+
+export async function getBlogSectionPosts(numberOfPosts: number = 12, tag?: string): Promise<BlogGridItemProps[]> {
+	let posts = await getPosts(tag)
 	let blogGridItems: BlogGridItemProps[] = []
 
 	posts.map((post: Post) => {
