@@ -1,11 +1,11 @@
 import React from 'react'
-import { getBlogSectionPosts } from '../services/notionServices'
+import { getBlogSectionItems } from '../services/notionServices'
 import { BlogGrid } from '../components/BlogComponent/BlogGrid/BlogGrid'
 import { BlogGridItemProps, FooterComponent, PageHeroComponent, ProfileComponent } from '../components'
 
 export const getStaticProps = async () => {
 	try {
-		let posts = await getBlogSectionPosts(100)
+		let posts = await getBlogSectionItems(100)
 
 		let props = { posts: posts }
 		props = JSON.parse(JSON.stringify(props))

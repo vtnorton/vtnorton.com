@@ -1,6 +1,6 @@
 import React from 'react'
 import { IndexBFFProps } from '../interfaces/bff/IndexBFFProps'
-import { getBlogSectionPosts, getPodcasts } from '../services/notionServices'
+import { getBlogSectionItems, getPodcasts } from '../services/notionServices'
 import { getInstagramPosts } from '../services/instagramServices'
 import { getClubeDoLivroEvents } from '../services/calendarServices'
 import { getPlaylistsFromClubeDoLivro } from '../services/youtubeServices'
@@ -25,7 +25,7 @@ import { CalendarItem, InstagramItem, Playlist, PodcastEpisode } from '../interf
 
 export const getStaticProps = async () => {
 	try {
-		const posts: BlogGridItemProps[] = await getBlogSectionPosts()
+		const posts: BlogGridItemProps[] = await getBlogSectionItems()
 		const instagramPhotos: InstagramItem[] = await getInstagramPosts()
 		const podcasts: PodcastEpisode[] = await getPodcasts()
 		const clubeDoLivroSchedule: CalendarItem[] = await getClubeDoLivroEvents()

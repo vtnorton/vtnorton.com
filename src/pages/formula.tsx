@@ -5,15 +5,15 @@ import { faWindows } from '@fortawesome/free-brands-svg-icons'
 import { ThreeColumnItemsComponent } from '../components/others/ThreeColumnItemsComponent/ThreeColumnItemsComponent'
 import { ThreeColumnItem } from '../components/others/ThreeColumnItemsComponent/ThreeColumnItemsComponentProps'
 import { BlogGrid } from '../components/BlogComponent/BlogGrid/BlogGrid'
-import { getBlogSectionPosts, getChangelogsForBlogComponent } from '../services/notionServices'
+import { getBlogSectionItems, getChangelogSectionItems } from '../services/notionServices'
 import { faChevronRight } from '@fortawesome/free-solid-svg-icons'
 
 const projectSlug = 'formula'
 
 export const getStaticProps = async () => {
 	try {
-		const posts = await getBlogSectionPosts(6, projectSlug)
-		const changelogs = await getChangelogsForBlogComponent(projectSlug)
+		const posts = await getBlogSectionItems(6, projectSlug)
+		const changelogs = await getChangelogSectionItems(projectSlug)
 
 		let props = { posts: posts, changelogs: changelogs }
 		props = JSON.parse(JSON.stringify(props))

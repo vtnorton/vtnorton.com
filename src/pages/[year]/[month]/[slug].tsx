@@ -1,6 +1,6 @@
 import { BlogGridItemProps, PostComponent } from '../../../components'
 import { Post } from '../../../interfaces/Post'
-import { getBlogSectionPosts, getPostBySlug, getPosts } from '../../../services/notionServices'
+import { getBlogSectionItems, getPostBySlug, getPosts } from '../../../services/notionServices'
 
 const mountPath = (post: Post) => {
 	const postDate = new Date(post.date)
@@ -24,7 +24,7 @@ export const getStaticPaths = async () => {
 export const getStaticProps = async (context: any) => {
 	const { slug } = context.params
 
-	const posts: BlogGridItemProps[] = await getBlogSectionPosts(42)
+	const posts: BlogGridItemProps[] = await getBlogSectionItems(42)
 	const post: any = await getPostBySlug(slug)
 
 	let props = {

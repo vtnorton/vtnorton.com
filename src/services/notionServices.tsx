@@ -14,9 +14,7 @@ const notionApi = new NotionAPI({
 	authToken: process.env.notionToken,
 })
 
-let cachedPosts: Post[]
-
-export const getPodcasts = async (): Promise<PodcastEpisode[]> => {
+const queryNotion = async (filter: any) => {
 	const response = await notion.databases.query({
 		database_id: process.env.devrelDb as string,
 		sorts: [
@@ -26,29 +24,35 @@ export const getPodcasts = async (): Promise<PodcastEpisode[]> => {
 			},
 		],
 		filter: {
-			and: [
-				{
-					property: 'Type',
-					multi_select: {
-						contains: 'Podcast',
-					},
-				},
-				{
-					property: 'Date',
-					date: {
-						on_or_before: new Date().toISOString(),
-					},
-				},
-				{
-					property: 'Status-podcast',
-					select: {
-						equals: 'Publicado',
-					},
-				},
-			],
+			and: filter,
 		},
 	})
-	const { results } = response
+	return response.results
+}
+
+export const getPodcasts = async (): Promise<PodcastEpisode[]> => {
+	const filter = [
+		{
+			property: 'Type',
+			multi_select: {
+				contains: 'Podcast',
+			},
+		},
+		{
+			property: 'Date',
+			date: {
+				on_or_before: new Date().toISOString(),
+			},
+		},
+		{
+			property: 'Status-podcast',
+			select: {
+				equals: 'Publicado',
+			},
+		},
+	]
+
+	const results = await queryNotion(filter)
 
 	let podcasts = results.map((result: any) => {
 		const item: PodcastEpisode = {
@@ -56,16 +60,14 @@ export const getPodcasts = async (): Promise<PodcastEpisode[]> => {
 			link: result.properties.Link.url,
 			title: result.properties.Name.title[0].text.content,
 			date: result.properties.Date.date.start as string,
-			coverURL: result.cover ? result.cover.external.url : '',
+			coverURL: getFeaturedImage(result.cover),
 			feedName: result.properties.Podcast.select.name,
 		}
 
 		return item
 	})
 
-	podcasts = podcasts.filter((cast): cast is PodcastEpisode => typeof cast !== 'undefined')
-
-	return podcasts
+	return podcasts.filter((cast): cast is PodcastEpisode => typeof cast !== 'undefined')
 }
 
 export const getPosts = async (tag?: string) => {
@@ -115,19 +117,7 @@ export const getPosts = async (tag?: string) => {
 		})
 	}
 
-	const response = await notion.databases.query({
-		database_id: process.env.devrelDb as string,
-		sorts: [
-			{
-				property: 'Date',
-				direction: 'descending',
-			},
-		],
-		filter: {
-			and: filter,
-		},
-	})
-	const { results } = response
+	const results = await queryNotion(filter)
 
 	let posts = results.map((result: any) => {
 		const getHashtags = function () {
@@ -142,10 +132,10 @@ export const getPosts = async (tag?: string) => {
 			id: result.id,
 			url: result.url,
 			slug: result.properties.Slug.rich_text[0].text.content,
-			fullSlug: mountSlug(result),
+			fullSlug: mountPostSlug(result),
 			title: result.properties.Name.title[0].text.content,
 			date: result.properties.Date.date.start,
-			featureImage: result.cover ? result.cover.external.url : '',
+			featureImage: getFeaturedImage(result.cover),
 			hashtags: getHashtags(),
 			recordMap: {},
 		}
@@ -153,9 +143,7 @@ export const getPosts = async (tag?: string) => {
 		return item
 	})
 
-	posts = posts.filter((post): post is Post => typeof post !== 'undefined')
-	cachedPosts = posts
-	return posts
+	return posts.filter((post): post is Post => typeof post !== 'undefined')
 }
 
 export const getChangelogs = async (projectSlug: string) => {
@@ -189,46 +177,32 @@ export const getChangelogs = async (projectSlug: string) => {
 			],
 		},
 	]
-
-	const response = await notion.databases.query({
-		database_id: process.env.devrelDb as string,
-		sorts: [
-			{
-				property: 'Date',
-				direction: 'descending',
-			},
-		],
-		filter: {
-			and: filter,
-		},
-	})
-	const { results } = response
+	const results = await queryNotion(filter)
 
 	let logs = results.map((result: any) => {
 		const item: Changelog = {
 			id: result.id,
-			projectSlug: 'result.url',
+			projectSlug: result.properties.ProjectForWebsite.select.name,
 			fullSlug: 'ddd',
 			title: result.properties.Name.title[0].text.content,
 			date: result.properties.Date.date.start,
-			featureImage: result.cover ? result.cover.external.url : '',
+			featureImage: getFeaturedImage(result.cover),
 			recordMap: {},
 		}
-		console.log(result.properties)
 		return item
 	})
 
 	return logs.filter((log): log is Changelog => typeof log !== 'undefined')
 }
 
-export async function getPostBySlug(slug: string) {
+export const getPostBySlug = async (slug: string) => {
 	const posts = await getPosts()
 	let post: any = posts.find((p: Post) => p.slug === slug) ?? null
 	post.recordMap = await getPage(post.id)
 	return post
 }
 
-export async function getChangelogsForBlogComponent(projectSlug: string, numberOfPosts: number = 3): Promise<BlogGridItemProps[]> {
+export const getChangelogSectionItems = async (projectSlug: string, numberOfPosts: number = 3): Promise<BlogGridItemProps[]> => {
 	const logs = await getChangelogs(projectSlug)
 	let blogGridItems: BlogGridItemProps[] = []
 
@@ -244,7 +218,7 @@ export async function getChangelogsForBlogComponent(projectSlug: string, numberO
 	return blogGridItems.slice(0, numberOfPosts)
 }
 
-export async function getBlogSectionPosts(numberOfPosts: number = 12, tag?: string): Promise<BlogGridItemProps[]> {
+export const getBlogSectionItems = async (numberOfPosts: number = 12, tag?: string): Promise<BlogGridItemProps[]> => {
 	let posts = await getPosts(tag)
 	let blogGridItems: BlogGridItemProps[] = []
 
@@ -285,11 +259,17 @@ export const getHashtags = async (): Promise<Hashtag[]> => {
 	return hashtags
 }
 
-function mountSlug(result: any): string {
+const mountPostSlug = (result: any): string => {
 	const postDate = new Date(result.properties.Date.date.start)
 	const pageSlug = result.properties.Slug.rich_text[0].text.content
 	const year = postDate.getFullYear().toString()
 	const month = postDate.getMonth().toString().padStart(2, '0')
 
 	return `${year}/${month}/${pageSlug}`
+}
+
+const getFeaturedImage = (notionResult: any) => {
+	if (!notionResult) return ''
+
+	return notionResult.external ? notionResult.external.url : notionResult.file.url
 }
