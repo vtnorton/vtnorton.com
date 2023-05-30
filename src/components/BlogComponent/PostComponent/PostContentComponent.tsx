@@ -28,7 +28,7 @@ const Tweet = ({ id }: { id: string }) => {
 	return <TweetEmbed tweetId={id} />
 }
 
-export const PostContentComponent = ({ title, content, hashtags }: { title: string; content: any; hashtags: string[] }) => {
+export const PostContentComponent = ({ title, content, hashtags }: { title: string; content: any; hashtags?: string[] }) => {
 	return (
 		<section>
 			<div className='article-content'>
@@ -44,9 +44,7 @@ export const PostContentComponent = ({ title, content, hashtags }: { title: stri
 					}}
 				/>
 			</div>
-			<div className='article-footer'>
-				<HashtagListComponent hashtags={hashtags} />
-			</div>
+			<div className='article-footer'>{hashtags && <HashtagListComponent hashtags={hashtags} />}</div>
 		</section>
 	)
 }

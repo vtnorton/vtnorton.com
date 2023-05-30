@@ -146,18 +146,12 @@ export const getPosts = async (tag?: string) => {
 	return posts.filter((post): post is Post => typeof post !== 'undefined')
 }
 
-export const getChangelogs = async (projectSlug: string) => {
+export const getChangelogs = async (projectSlug?: string) => {
 	const filter = [
 		{
 			property: 'Type',
 			multi_select: {
 				contains: 'Changelog',
-			},
-		},
-		{
-			property: 'ProjectForWebsite',
-			select: {
-				equals: projectSlug,
 			},
 		},
 		{
@@ -177,14 +171,24 @@ export const getChangelogs = async (projectSlug: string) => {
 			],
 		},
 	]
+
+	if (projectSlug) {
+		filter.push({
+			property: 'Hashtags',
+			multi_select: {
+				contains: projectSlug,
+			},
+		})
+	}
 	const results = await queryNotion(filter)
 
 	let logs = results.map((result: any) => {
+		const versionName = result.properties.Name.title[0].text.content
 		const item: Changelog = {
 			id: result.id,
-			projectSlug: result.properties.ProjectForWebsite.select.name,
-			fullSlug: 'ddd',
-			title: result.properties.Name.title[0].text.content,
+			projectSlug: projectSlug ? projectSlug : result.properties.Hashtags.multi_select[0].name,
+			fullSlug: `/release/${projectSlug}/${versionName}`,
+			title: versionName,
 			date: result.properties.Date.date.start,
 			featureImage: getFeaturedImage(result.cover),
 			recordMap: {},
@@ -202,7 +206,14 @@ export const getPostBySlug = async (slug: string) => {
 	return post
 }
 
-export const getChangelogSectionItems = async (projectSlug: string, numberOfPosts: number = 3): Promise<BlogGridItemProps[]> => {
+export const getChangelogByVersion = async (projectName: string, version: string) => {
+	const logs = await getChangelogs(projectName)
+	let log: any = logs.find((l: Changelog) => l.title === version) ?? null
+	log.recordMap = await getPage(log.id)
+	return log
+}
+
+export const getChangelogSectionItems = async (projectSlug?: string, numberOfPosts: number = 3): Promise<BlogGridItemProps[]> => {
 	const logs = await getChangelogs(projectSlug)
 	let blogGridItems: BlogGridItemProps[] = []
 
@@ -212,15 +223,16 @@ export const getChangelogSectionItems = async (projectSlug: string, numberOfPost
 			image: log.featureImage,
 			link: log.fullSlug,
 			title: log.title,
+			date: log.date,
 		})
 	})
 
 	return blogGridItems.slice(0, numberOfPosts)
 }
 
-export const getBlogSectionItems = async (numberOfPosts: number = 12, tag?: string): Promise<BlogGridItemProps[]> => {
-	let posts = await getPosts(tag)
-	let blogGridItems: BlogGridItemProps[] = []
+export const getBlogSectionItems = async (numberOfPosts: number = 12, tag?: string, showChangelogs: boolean = true): Promise<BlogGridItemProps[]> => {
+	const posts = await getPosts(tag)
+	const blogGridItems: BlogGridItemProps[] = []
 
 	posts.map((post: Post) => {
 		blogGridItems.push({
@@ -229,9 +241,15 @@ export const getBlogSectionItems = async (numberOfPosts: number = 12, tag?: stri
 			link: post.fullSlug,
 			title: post.title,
 			hashtags: post.hashtags,
+			date: post.date,
 		})
 	})
 
+	if (showChangelogs) {
+		const changelogs = await getChangelogSectionItems(undefined, 100)
+		blogGridItems.push(...changelogs)
+	}
+	blogGridItems.sort((a, b) => (b.date && a.date ? new Date(b.date).getTime() - new Date(a.date).getTime() : new Date().getTime()))
 	return blogGridItems.slice(0, numberOfPosts)
 }
 

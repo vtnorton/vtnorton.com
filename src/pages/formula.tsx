@@ -12,7 +12,7 @@ const projectSlug = 'formula'
 
 export const getStaticProps = async () => {
 	try {
-		const posts = await getBlogSectionItems(6, projectSlug)
+		const posts = await getBlogSectionItems(6, projectSlug, false)
 		const changelogs = await getChangelogSectionItems(projectSlug)
 
 		let props = { posts: posts, changelogs: changelogs }

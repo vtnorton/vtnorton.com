@@ -4,4 +4,5 @@ export type BlogGridItemProps = {
 	image: string
 	hashtags?: string[]
 	link: string
+	date?: string
 }

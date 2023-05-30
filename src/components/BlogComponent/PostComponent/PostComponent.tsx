@@ -7,8 +7,9 @@ import { PostContentComponent } from './PostContentComponent'
 import { PostRelatedContentWrapperComponent } from './PostRelatedContentWrapperComponent'
 import { BlogGridItemProps } from '../BlogGridItem/BlogGridItemProps'
 import { VtnortonContext } from '../../../provider/VtnortonContextProvider'
+import { Changelog } from '../../../interfaces/Changelog'
 
-export const PostComponent = ({ post, posts }: { post: Post; posts: BlogGridItemProps[] }) => {
+export const PostComponent = ({ post, posts }: { post: Post | Changelog; posts: BlogGridItemProps[] }) => {
 	const { relatedPostVisibility, setRelatedPostVisibility } = useContext(VtnortonContext)
 	const date = new Date(post.date)
 	const formatedDate = `${date.getDate().toString().padStart(2, '0')}/${date.getMonth().toString().padStart(2, '0')} às ${date.getHours().toString().padStart(2, '0')}h${date.getMinutes().toString().padStart(2, '0')}`
@@ -26,14 +27,15 @@ export const PostComponent = ({ post, posts }: { post: Post; posts: BlogGridItem
 						</div>
 						<div className='info-title'>
 							<h1>{post.title}</h1>
-							<HashtagListComponent hashtags={post.hashtags} />
+							{'hashtags' in post && <HashtagListComponent hashtags={post.hashtags} />}
 							<div className='meta'>
 								por vítor norton, em <span className='meta-date'>{formatedDate}</span>
 							</div>
 						</div>
 					</div>
 				</div>
-				<PostContentComponent title={post.title} content={post.recordMap} hashtags={post.hashtags} />
+				{'hashtags' in post && <PostContentComponent title={post.title} content={post.recordMap} hashtags={post.hashtags} />}
+				{'projectSlug' in post && <PostContentComponent title={post.title} content={post.recordMap} />}
 			</article>
 		</>
 	)
