@@ -1,6 +1,7 @@
-import { fa1 } from '@fortawesome/free-solid-svg-icons'
 import { VtnButtonComponentPros } from '../components'
 import { faEdge, faTwitch, faTwitter, faYoutube } from '@fortawesome/free-brands-svg-icons'
+import { GetProfile } from './SocialMedias'
+import { SocialMedias } from '../interfaces'
 
 export const primaryLinks: VtnButtonComponentPros[] = [
 	{
@@ -10,18 +11,18 @@ export const primaryLinks: VtnButtonComponentPros[] = [
 	},
 	{
 		text: 'live na twitch',
-		url: 'https://twitch.tv/vt_norton',
-		icon: faTwitch,
+		url: GetProfile(SocialMedias.Twitch)?.url as string,
+		icon: GetProfile(SocialMedias.Twitch)?.icon,
 	},
 	{
 		text: '@vt_norton no twitter',
-		url: 'https://twitter.com/vt_norton',
-		icon: faTwitter,
+		url: GetProfile(SocialMedias.Twitter)?.url as string,
+		icon: GetProfile(SocialMedias.Twitter)?.icon,
 	},
 	{
 		text: 'canal no youtube',
-		url: 'https://www.youtube.com/channel/UCMM0acsrwNvI0tEML8-vAjw',
-		icon: faYoutube,
+		url: GetProfile(SocialMedias.YouTube)?.url as string,
+		icon: GetProfile(SocialMedias.YouTube)?.icon,
 	},
 ]
 
@@ -29,7 +30,7 @@ export const secondaryLinks: VtnButtonComponentPros[] = [
 	{ text: 'formula app', url: 'https://vtnorton.com/formula?utm_source=instagramlinks&utm_campaign=fixed_link' },
 	{ text: 'heartthrob', url: 'https://vtnorton.com/heartthrob?utm_source=instagramlinks&utm_campaign=fixed_link' },
 	{ text: 'blog', url: 'https://vtnorton.com/blog?utm_source=instagramlinks&utm_campaign=fixed_link' },
-	{ text: 'portfolio', url: 'https://vtnorton.com/portfolio' },
-	{ text: '@vt_norton', url: 'https://instagram.com/vt_norton' },
+	{ text: 'github', url: GetProfile(SocialMedias.GitHub)?.url as string },
+	{ text: '@vt_norton', url: GetProfile(SocialMedias.Instagram)?.url as string },
 	{ text: '@vtn_showcase', url: 'https://instagram.com/vtn_showcase' },
 ]

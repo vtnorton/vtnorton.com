@@ -1,11 +1,27 @@
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { SocialProfiles } from '../../database/SocialMedias'
+import { SocialProfile } from '../../interfaces'
+
 export const FooterComponent = () => {
+	const renderSocialMedia = () => {
+		return (
+			<div className='social'>
+				{SocialProfiles.map((item: SocialProfile, index: number) => (
+					<a key={index} href={item.url} target='_blank'>
+						<FontAwesomeIcon icon={item.icon} />
+					</a>
+				))}
+			</div>
+		)
+	}
+
 	return (
 		<footer className='container'>
 			<div className='text-center showcase'>
 				<a href='/'>
 					<img src='/img/logo-color.png' alt='vtnorton' />
 				</a>
-				<br />
+				{renderSocialMedia()}
 				<p>
 					no downtime for hustle-as-a-service - <a href='mailto:contato@vtnorton.com'>contato@vtnorton.com</a> <br />
 				</p>

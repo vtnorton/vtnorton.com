@@ -1,5 +1,7 @@
 import { NextSeo, NextSeoProps } from 'next-seo'
 import { useRouter } from 'next/router'
+import { GetProfile } from './SocialMedias'
+import { SocialMedias } from '../interfaces'
 
 interface Props {
 	title: string
@@ -28,8 +30,8 @@ export const SeoProps = (props: Props) => {
 		themeColor: '#0078d7',
 		twitter: {
 			cardType: 'summary_large_image',
-			site: '@vt_norton',
-			handle: '@vt_norton',
+			site: GetProfile(SocialMedias.Twitter)?.url,
+			handle: GetProfile(SocialMedias.Twitter)?.url,
 		},
 	}
 	const router = useRouter()
@@ -48,7 +50,7 @@ export const SeoProps = (props: Props) => {
 			profile: {
 				firstName: 'Vítor',
 				lastName: 'Norton',
-				username: '@vt_norton',
+				username: GetProfile(SocialMedias.Twitter)?.url,
 				gender: 'male',
 			},
 			article:
