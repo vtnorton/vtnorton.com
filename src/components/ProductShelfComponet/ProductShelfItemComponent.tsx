@@ -1,6 +1,7 @@
 import { Product } from '../../interfaces/Product'
 
 export const ProductShelfItemComponent = (props: Product) => {
+	console.log('item', props)
 	return (
 		<div className='blog-item'>
 			<a href={props.link}>
@@ -11,6 +12,7 @@ export const ProductShelfItemComponent = (props: Product) => {
 			</a>
 			<a href={props.link}>
 				<h3>{props.name}</h3>
+				{!props.supported && <p className='post-date'>Atualmente não dou suporte a este projeto. 🥲</p>}
 				<span className='blog-item-more'>saiba_mais;</span>
 			</a>
 		</div>

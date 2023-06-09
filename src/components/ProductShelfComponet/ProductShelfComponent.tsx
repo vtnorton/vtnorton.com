@@ -24,7 +24,7 @@ export const ProductShelfComponent = (props: ProductShelfComponentProps) => {
 					{productsItems
 						.filter((x) => (showUnsupportedProjects ? x.name !== null : x.supported))
 						.map((item: Product, index: number) => {
-							return <ProductShelfItemComponent key={index} name={item.name} link={item.link} imageUrl={item.imageUrl} />
+							return <ProductShelfItemComponent key={index} name={item.name} link={item.link} imageUrl={item.imageUrl} supported={item.supported} />
 						})}
 				</div>
 			</section>
