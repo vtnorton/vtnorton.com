@@ -1,6 +1,7 @@
 import { FooterComponent, PageHeroComponent, ProductShelfComponent, ProfileComponent } from '../../components'
 import { ThreeColumnItemsComponent } from '../../components/others/ThreeColumnItemsComponent/ThreeColumnItemsComponent'
 import { ThreeColumnItem } from '../../components/others/ThreeColumnItemsComponent/ThreeColumnItemsComponentProps'
+import { SeoProps } from '../../database/SEOProps'
 
 const benefits: ThreeColumnItem[] = [
 	{
@@ -56,6 +57,11 @@ const benefits: ThreeColumnItem[] = [
 export default function Desenvolvimento() {
 	return (
 		<>
+			<SeoProps
+				title='desenvolvimento'
+				description='50% das empresas na Fortune 500 desapareceram. São as Kodaks, Blockbusters. 50% é muito! A boa notícia é que o fato de estar aqui significa que você quer evitar que isso aconteça na sua organização. Desenvolver com qualidade impacta diretamente na forma como você e sua empresa são vistos no mercado. Uma boa interface, um sistema responsivo, imagens de alta qualidade: todos esses são fatores decisivos para o cliente escolher a sua marca. Invista em um forte desenvolvimento de sistemas e venda mais e melhor.'
+				featureImage='/img/pages/desenvolvimento.jpg'
+			/>
 			<PageHeroComponent
 				title='desenvolvimento'
 				description='50% das empresas na Fortune 500 desapareceram. São as Kodaks, Blockbusters. 50% é muito! A boa notícia é que o fato de estar aqui significa que você quer evitar que isso aconteça na sua organização. Desenvolver com qualidade impacta diretamente na forma como você e sua empresa são vistos no mercado. Uma boa interface, um sistema responsivo, imagens de alta qualidade: todos esses são fatores decisivos para o cliente escolher a sua marca. Invista em um forte desenvolvimento de sistemas e venda mais e melhor.'

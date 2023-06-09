@@ -7,6 +7,7 @@ import { ThreeColumnItem } from '../components/others/ThreeColumnItemsComponent/
 import { BlogGrid } from '../components/BlogComponent/BlogGrid/BlogGrid'
 import { getBlogSectionItems, getChangelogSectionItems } from '../services/notionServices'
 import { faChevronRight } from '@fortawesome/free-solid-svg-icons'
+import { SeoProps } from '../database/SEOProps'
 
 const projectSlug = 'formula'
 
@@ -94,6 +95,11 @@ export default function Formula({ posts, changelogs }: { posts: BlogGridItemProp
 
 	return (
 		<>
+			<SeoProps
+				title='Formula - Code Editor'
+				description='Quantas vezes você não saiu do escritório e se lembrou daquela linha de código que pode consertar o maior bug que você tem? Adivinha! Você vai se esquecer daquela linha de codigo, você simplesmente tem que escrever ela agora. Não da para esperar você chegar no escritório. É por isso que o Formula está aqui! Você pode usar o Formula no seu celular, tablet e desktop.'
+				featureImage='/img/projects/formula/surface.webp'
+			/>
 			<PageHeroComponent
 				innerComponent={buttons()}
 				backgroundColor='#16499a'

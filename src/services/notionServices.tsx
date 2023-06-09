@@ -139,7 +139,6 @@ export const getPosts = async (tag?: string) => {
 			hashtags: getHashtags(),
 			recordMap: {},
 		}
-
 		return item
 	})
 
@@ -184,9 +183,10 @@ export const getChangelogs = async (projectSlug?: string) => {
 
 	let logs = results.map((result: any) => {
 		const versionName = result.properties.Name.title[0].text.content
+		projectSlug = projectSlug ? projectSlug : result.properties.Hashtags.multi_select[0].name
 		const item: Changelog = {
 			id: result.id,
-			projectSlug: projectSlug ? projectSlug : result.properties.Hashtags.multi_select[0].name,
+			projectSlug: projectSlug as string,
 			fullSlug: `/release/${projectSlug}/${versionName}`,
 			title: versionName,
 			date: result.properties.Date.date.start,

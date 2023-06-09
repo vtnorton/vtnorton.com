@@ -2,6 +2,7 @@ import { useRouter } from 'next/router'
 import { FooterComponent, NextProjectComponent, PageHeroComponent, ProductShelfComponent } from '../../components'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faGithub } from '@fortawesome/free-brands-svg-icons'
+import { SeoProps } from '../../database/SEOProps'
 export default function TrueDarkMode() {
 	const router = useRouter()
 
@@ -19,6 +20,7 @@ export default function TrueDarkMode() {
 
 	return (
 		<>
+			<SeoProps title='True Dark Mode' description='Não importa se o seu Windows está no modo escuro ou no modo claro. Os sites que você visita não estão, esta extensão do Microsoft Edge irá mudar isso.' featureImage='/img/projects/truedarkmode.webp' />
 			<PageHeroComponent innerComponent={buttons()} backgroundColor='#3b3b3b' title='True Dark Mode' description='Não importa se o seu Windows está no modo escuro ou no modo claro. Os sites que você visita não estão, esta extensão do Microsoft Edge irá mudar isso.'>
 				<section>
 					<div className='row showcase'>

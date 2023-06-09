@@ -1,6 +1,8 @@
+import { useRouter } from 'next/router'
 import { ConsultingShowcaseComponent, DevelopmentShowcaseComponent, FooterComponent, PageHeroComponent, ProductShelfComponent, ProfileComponent } from '../components'
 import { ThreeColumnItemsComponent } from '../components/others/ThreeColumnItemsComponent/ThreeColumnItemsComponent'
 import { ThreeColumnItem } from '../components/others/ThreeColumnItemsComponent/ThreeColumnItemsComponentProps'
+import { SeoProps } from '../database/SEOProps'
 
 const benefits: ThreeColumnItem[] = [
 	{
@@ -38,6 +40,11 @@ const benefits: ThreeColumnItem[] = [
 export default function ParaEmpresas() {
 	return (
 		<>
+			<SeoProps
+				title='para-empresas'
+				description='Queremos o seu sucesso: A principal métrica de caso é o sucesso digital do seu negócio. Não é a única métrica, mas é a mais importante, e o raciocínio é lógico: se o cliente tiver uma experiência negativa usando o seu produto ou serviço, ele não vai utilizar novamente. Simples. Vamos te ajudar a oferecer a melhor experiência possível para o seu cliente.'
+				featureImage='/img/pages/for-business.jpg'
+			/>
 			<PageHeroComponent
 				title='vtnorton: para empresas'
 				description='Queremos o seu sucesso: A principal métrica de caso é o sucesso digital do seu negócio. Não é a única métrica, mas é a mais importante, e o raciocínio é lógico: se o cliente tiver uma experiência negativa usando o seu produto ou serviço, ele não vai utilizar novamente. Simples. Vamos te ajudar a oferecer a melhor experiência possível para o seu cliente.'

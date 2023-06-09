@@ -1,4 +1,5 @@
 import { BlogGridItemProps, PostComponent } from '../../../components'
+import { SeoProps } from '../../../database/SEOProps'
 import { Changelog } from '../../../interfaces/Changelog'
 import { getBlogSectionItems, getChangelogByVersion, getChangelogs } from '../../../services/notionServices'
 
@@ -42,5 +43,10 @@ export default function PostDetail({ changelog, posts }: { changelog: Changelog;
 		// TODO: adicionar página 404 aqui
 		return <div />
 	}
-	return <PostComponent post={changelog} posts={posts} />
+	return (
+		<>
+			<SeoProps title={changelog.title} description='' featureImage={changelog.featureImage} ogType='article' publishedTime={changelog.date} tags={[changelog.projectSlug]} />
+			<PostComponent post={changelog} posts={posts} />
+		</>
+	)
 }

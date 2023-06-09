@@ -23,21 +23,8 @@ export default function App({ Component, pageProps }: AppProps) {
 				<meta name='msapplication-TileColor' content='#2b5797' />
 				<meta name='msapplication-TileImage' content='/favicon/mstile-144x144.png?v=10' />
 				<meta name='msapplication-config' content='/favicon/browserconfig.xml?v=10' />
-				<meta name='theme-color' content='#ffffff' />
-				<link rel='shortcut icon' href='/favicon/favicon-32x32.png' />
 
-				<meta name='robots' content='index, follow' />
-				<meta name='googlebot' content='index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1' />
-				<meta name='bingbot' content='index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1' />
-				<link rel='canonical' href='https://vtnorton.com/' />
-				<meta property='og:locale' content='pt_BR' />
-				<meta property='og:locale:alternate' content='en_US' />
-				<meta property='og:type' content='website' />
-				<meta property='og:url' content='https://vtnorton.com/' />
-				<meta property='og:site_name' content='v&iacute;tor norton' />
-				<meta name='twitter:card' content='summary_large_image' />
-				<meta name='twitter:creator' content='@vt_norton' />
-				<meta name='twitter:site' content='@vt_norton' />
+				<link rel='shortcut icon' href='/favicon/favicon-32x32.png' />
 			</Head>
 			<VtnortonContextProvider>
 				<LogoComponent componentName={Component.name} />

@@ -2,6 +2,7 @@ import { useRouter } from 'next/router'
 import { FooterComponent, NextProjectComponent, PageHeroComponent, ProductShelfComponent } from '../../components'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faWindows } from '@fortawesome/free-brands-svg-icons'
+import { SeoProps } from '../../database/SEOProps'
 export default function OneNote() {
 	const router = useRouter()
 
@@ -19,6 +20,7 @@ export default function OneNote() {
 
 	return (
 		<>
+			<SeoProps title='Conjugar' description='Conjugue verbos regulares e irregulares da nossa língua portuguesa em todos os tempos verbais.' featureImage='/img/projects/conjugar.webp' />
 			<PageHeroComponent innerComponent={buttons()} backgroundColor='#199900' title='Conjugar' description='Conjugue verbos regulares e irregulares da nossa língua portuguesa em todos os tempos verbais.'>
 				<section>
 					<div className='row showcase'>

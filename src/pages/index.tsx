@@ -22,6 +22,7 @@ import {
 	TwitchComponent,
 } from '../components'
 import { CalendarItem, InstagramItem, Playlist, PodcastEpisode } from '../interfaces'
+import { SeoProps } from '../database/SEOProps'
 
 export const getStaticProps = async () => {
 	try {
@@ -52,6 +53,7 @@ export const getStaticProps = async () => {
 export default function Index(props: IndexBFFProps) {
 	return (
 		<>
+			<SeoProps title='vítor norton | developer relations | 🤘🚀🥑' description='Lives na Twitch, clube do livro, desenvolvimento de apps e web, mitologia grega, música e séries de TV. Um compilado do que eu sou e do que eu faço, chega mais!' featureImage='/img/pages/404.jpg' />
 			<PageHeroComponent title='vítor norton' description='Lives na Twitch, clube do livro, desenvolvimento de apps e web, mitologia grega, música e séries de TV. Um compilado do que eu sou e do que eu faço, chega mais!' backgroundUrl='/img/pages/404.jpg'>
 				<div className='row'>
 					<div className='col-md-6 col-sm-12'>

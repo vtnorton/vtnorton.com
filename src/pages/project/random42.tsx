@@ -2,6 +2,7 @@ import { useRouter } from 'next/router'
 import { FooterComponent, NextProjectComponent, PageHeroComponent, ProductShelfComponent, SliderComponent, SliderImage } from '../../components'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faWindows } from '@fortawesome/free-brands-svg-icons'
+import { SeoProps } from '../../database/SEOProps'
 
 export default function Random42() {
 	const router = useRouter()
@@ -34,6 +35,7 @@ export default function Random42() {
 
 	return (
 		<>
+			<SeoProps title='Random 42' description='Não é raro ocasiões onde precisamos sortear alguém, com esse aplicativo fica fácil. Basta adicionar a faixa de números a serem sorteados e ele fará o trabalho para você. Experimente.' featureImage='/img/projects/random42.webp' />
 			<PageHeroComponent
 				innerComponent={buttons()}
 				backgroundColor='#5f37be'

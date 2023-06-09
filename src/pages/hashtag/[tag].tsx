@@ -1,5 +1,6 @@
 import { BlogComponent, BlogGridItemProps, FooterComponent, PageHeroComponent, PostComponent, ProfileComponent } from '../../components'
 import { BlogGrid } from '../../components/BlogComponent/BlogGrid/BlogGrid'
+import { SeoProps } from '../../database/SEOProps'
 import { Hashtag, Post } from '../../interfaces'
 import { getBlogSectionItems, getHashtags } from '../../services/notionServices'
 
@@ -39,6 +40,7 @@ export default function PostDetail({ posts, tag }: { posts: BlogGridItemProps[];
 	const pageTitle = 'Posts sobre ' + tag
 	return (
 		<>
+			<SeoProps title={pageTitle} description={pageTitle} featureImage='/img/pages/blog.jpg' />
 			<PageHeroComponent title={pageTitle} backgroundUrl='/img/pages/blog.jpg'>
 				<section>
 					<div className='blog'>

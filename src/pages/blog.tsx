@@ -2,6 +2,7 @@ import React from 'react'
 import { getBlogSectionItems } from '../services/notionServices'
 import { BlogGrid } from '../components/BlogComponent/BlogGrid/BlogGrid'
 import { BlogGridItemProps, FooterComponent, PageHeroComponent, ProfileComponent } from '../components'
+import { SeoProps } from '../database/SEOProps'
 
 export const getStaticProps = async () => {
 	try {
@@ -19,6 +20,7 @@ export const getStaticProps = async () => {
 export default function BlogPage({ posts }: { posts: BlogGridItemProps[] }) {
 	return (
 		<>
+			<SeoProps title='Blog' description='blog: artigos + informativos + releases' featureImage='/img/pages/blog.jpg' />
 			<PageHeroComponent title='blog' description='blog: artigos + informativos + releases' backgroundUrl='/img/pages/blog.jpg'>
 				<section>
 					<div className='blog'>

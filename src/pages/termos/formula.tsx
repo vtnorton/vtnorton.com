@@ -1,9 +1,11 @@
 import React from 'react'
 import { FooterComponent, PageHeroComponent } from '../../components'
+import { SeoProps } from '../../database/SEOProps'
 
 export default function TermosFormula() {
 	return (
 		<>
+			<SeoProps title='Termo de uso e política de privacidade' description='Este termo de uso e política de privacidade se aplica ao aplicativo Formula - Code Editor' featureImage='/img/pages/blog.jpg' />
 			<PageHeroComponent backgroundUrl='/img/pages/blog.jpg' title='Termo de uso e política de privacidade' description='Este termo de uso e política de privacidade se aplica ao aplicativo Formula - Code Editor'>
 				<section>
 					<div className='showcase'>

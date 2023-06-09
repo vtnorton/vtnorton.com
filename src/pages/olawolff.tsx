@@ -4,11 +4,17 @@ import Fancybox from '../components/others/FancyboxComponent/FancyboxComponent'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faChevronRight } from '@fortawesome/free-solid-svg-icons'
 import { useRouter } from 'next/router'
+import { SeoProps } from '../database/SEOProps'
 
 export default function OlaWolff() {
 	const router = useRouter()
 	return (
 		<>
+			<SeoProps
+				title='olá wolff: contador online'
+				description='Dentro da startup estive em posição privilegiada aonde consegui colocar a ideia de desburocratização da abertura de uma empresa em menos de 24 horas na prática. Veja como foi o processo de realizar isso e ainda sim garantir uma excelente experiência de usuário.'
+				featureImage='/img/projects/olawolff/guia/p1.jpg'
+			/>
 			<PageHeroComponent
 				title='olá wolff: contador online'
 				description='Dentro da startup estive em posição privilegiada aonde consegui colocar a ideia de desburocratização da abertura de uma empresa em menos de 24 horas na prática. Veja como foi o processo de realizar isso e ainda sim garantir uma excelente experiência de usuário.'

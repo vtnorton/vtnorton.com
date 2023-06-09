@@ -2,6 +2,7 @@ import { useRouter } from 'next/router'
 import { FooterComponent, NextProjectComponent, PageHeroComponent, ProductShelfComponent } from '../components'
 import { ThreeColumnItemsComponent } from '../components/others/ThreeColumnItemsComponent/ThreeColumnItemsComponent'
 import { ThreeColumnItem } from '../components/others/ThreeColumnItemsComponent/ThreeColumnItemsComponentProps'
+import { SeoProps } from '../database/SEOProps'
 
 const benefits: ThreeColumnItem[] = [
 	{
@@ -28,6 +29,7 @@ export default function Heartthrob() {
 
 	return (
 		<>
+			<SeoProps title='heartthrob' description='Já pensou em entregar um MVP em poucos dias, com qualidade impecável e as melhores práticas da atualidade, e lucrar bastante com isso?' featureImage='/img/pages/desenvolvimento.jpg' />
 			<PageHeroComponent title='heartthrob' description='Já pensou em entregar um MVP em poucos dias, com qualidade impecável e as melhores práticas da atualidade, e lucrar bastante com isso?' backgroundUrl='/img/pages/desenvolvimento.jpg' backgroundPosition='-250px'>
 				<section>
 					<div className='row showcase'>

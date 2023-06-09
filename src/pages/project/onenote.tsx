@@ -1,10 +1,12 @@
 import { useRouter } from 'next/router'
 import { FooterComponent, NextProjectComponent, PageHeroComponent } from '../../components'
+import { SeoProps } from '../../database/SEOProps'
 export default function OneNote() {
 	const router = useRouter()
 
 	return (
 		<>
+			<SeoProps title='guia definitivo para o onenote' description='Trabalhe em equipes, em todos os lugares com essa incrível ferramenta.' featureImage='/img/projects/onenote/hero.webp' />
 			<PageHeroComponent title='guia definitivo para o onenote' description='Trabalhe em equipes, em todos os lugares com essa incrível ferramenta.' backgroundUrl='/img/projects/onenote/hero.webp' backgroundPosition='-250px'>
 				<section>
 					<div className='showcase'>

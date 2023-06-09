@@ -1,4 +1,5 @@
 import { BlogGridItemProps, PostComponent } from '../../../components'
+import { SeoProps } from '../../../database/SEOProps'
 import { Post } from '../../../interfaces/Post'
 import { getBlogSectionItems, getPostBySlug, getPosts } from '../../../services/notionServices'
 
@@ -45,5 +46,10 @@ export default function PostDetail({ post, posts }: { post: Post; posts: BlogGri
 		return <div />
 	}
 
-	return <PostComponent post={post} posts={posts} />
+	return (
+		<>
+			<SeoProps title={post.title} description='' featureImage={post.featureImage} ogType='article' publishedTime={post.date} tags={post.hashtags} />
+			<PostComponent post={post} posts={posts} />
+		</>
+	)
 }

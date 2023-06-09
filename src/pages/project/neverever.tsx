@@ -1,5 +1,6 @@
 import { useRouter } from 'next/router'
 import { FooterComponent, NextProjectComponent, PageHeroComponent, ProductShelfComponent, SliderComponent, SliderImage } from '../../components'
+import { SeoProps } from '../../database/SEOProps'
 
 export default function NeverEver() {
 	const router = useRouter()
@@ -28,6 +29,7 @@ export default function NeverEver() {
 
 	return (
 		<>
+			<SeoProps title='#NeverEver' description='Pegue a bebida mais forte, ou a que esteja mais perto de você, e venha jogar o famoso ‘Eu Nunca’, onde toda vez que você já fez algo mostrado na tela você deve beber um gole.' featureImage='/img/projects/neverever.webp' />
 			<PageHeroComponent
 				innerComponent={buttons()}
 				backgroundColor='#FE7C22'
