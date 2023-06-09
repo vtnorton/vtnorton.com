@@ -11,6 +11,19 @@ footer {
 	img {
 		width: auto
 	}
+
+	.creative-commons {
+		max-width: 680px;
+		margin: -2rem auto;
+		font-size: .8rem;
+		line-height: 125%;
+
+		img {
+			height: 22px !important;
+			margin-left: 3px;
+			vertical-align: text-bottom;
+		}
+	}
 }
 
 @media screen and (max-width: 1200px) {}
