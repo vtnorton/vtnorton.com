@@ -29,5 +29,5 @@ export async function getServerSchedule(): Promise<CalendarItem[]> {
 		console.error(error)
 	}
 
-	return events
+	return events.sort((a, b) => (b.date && a.date ? new Date(b.date).getTime() - new Date(a.date).getTime() : new Date().getTime()))
 }

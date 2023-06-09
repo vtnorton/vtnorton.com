@@ -6,7 +6,7 @@ export const BlogGrid = ({ posts }: { posts: BlogGridItemProps[] }) => {
 	return (
 		<div className='blog-grid row'>
 			{posts.map((post: BlogGridItemProps) => (
-				<BlogGridItem key={post.id} id={post.id} title={post.title} image={post.image} link={post.link} hashtags={post.hashtags} />
+				<BlogGridItem key={post.id} id={post.id} title={post.title} image={post.image} link={post.link} hashtags={post.hashtags} date={post.date} />
 			))}
 		</div>
 	)

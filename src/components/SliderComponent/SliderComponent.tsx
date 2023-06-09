@@ -42,8 +42,8 @@ export const SliderComponent = (props: SliderComponnetProps) => {
 			autoPlaySpeed={3000}
 			transitionDuration={1000}
 			removeArrowOnDeviceType={['tablet', 'mobile', 'desktop']}>
-			{props.items.map((item) => (
-				<div className='item'>
+			{props.items.map((item, index: number) => (
+				<div className='item' key={index}>
 					<img src={item.imageUrl} alt={item.imageAlt} />
 				</div>
 			))}

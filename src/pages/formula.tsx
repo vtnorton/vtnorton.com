@@ -92,7 +92,6 @@ export default function Formula({ posts, changelogs }: { posts: BlogGridItemProp
 			</>
 		)
 	}
-
 	return (
 		<>
 			<SeoProps

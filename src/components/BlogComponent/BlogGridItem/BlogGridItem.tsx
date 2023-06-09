@@ -35,12 +35,21 @@ export const BlogGridItem = (props: BlogGridItemProps) => {
 			)
 	}
 
+	const renderDate = () => {
+		if (props.date) {
+			const date = new Date(props.date)
+			const formatedDate = `${date.getDate().toString().padStart(2, '0')}/${date.getMonth().toString().padStart(2, '0')}`
+			return <p className='post-date'>Lançado em: {formatedDate}</p>
+		}
+	}
+
 	return (
 		<div className='blog-item col-lg-4 col-sm-6 col-xs-12'>
 			{renderFeatureImage()}
 			{renderCategories()}
 			<a href={props.link}>
 				<h3>{props.title}</h3>
+				{renderDate()}
 			</a>
 			<span className='blog-item-more'>leia mais</span>
 		</div>
