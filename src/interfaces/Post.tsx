@@ -8,4 +8,5 @@ export type Post = {
 	featureImage: string
 	hashtags: string[]
 	recordMap: any
+	description: string
 }

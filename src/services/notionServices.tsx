@@ -138,6 +138,7 @@ export const getPosts = async (tag?: string) => {
 			featureImage: getFeaturedImage(result.cover),
 			hashtags: getHashtags(),
 			recordMap: {},
+			description: '',
 		}
 		return item
 	})
@@ -203,6 +204,7 @@ export const getPostBySlug = async (slug: string) => {
 	const posts = await getPosts()
 	let post: any = posts.find((p: Post) => p.slug === slug) ?? null
 	post.recordMap = await getPage(post.id)
+	post.description = getFirstParagraph(post.recordMap)
 	return post
 }
 
@@ -276,6 +278,13 @@ export const getHashtags = async (): Promise<Hashtag[]> => {
 		}
 	}
 	return hashtags
+}
+
+export const getFirstParagraph = (recordMap: any) => {
+	const blocks = Object.values(recordMap.block)
+	const firstParagraphBlock: any = blocks.find((block: any) => block.value?.type === 'text' && block.value.properties.title)
+	const firstParagraphText = firstParagraphBlock ? firstParagraphBlock.value.properties.title[0][0] : ''
+	return firstParagraphText
 }
 
 const mountPostSlug = (result: any): string => {

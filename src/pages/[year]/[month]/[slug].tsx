@@ -1,7 +1,7 @@
 import { BlogGridItemProps, PostComponent } from '../../../components'
 import { SeoProps } from '../../../database/SEOProps'
 import { Post } from '../../../interfaces/Post'
-import { getBlogSectionItems, getPostBySlug, getPosts } from '../../../services/notionServices'
+import { getBlogSectionItems, getFirstParagraph, getPostBySlug, getPosts } from '../../../services/notionServices'
 
 const mountPath = (post: Post) => {
 	const postDate = new Date(post.date)
@@ -48,7 +48,7 @@ export default function PostDetail({ post, posts }: { post: Post; posts: BlogGri
 
 	return (
 		<>
-			<SeoProps title={post.title} description='' featureImage={post.featureImage} ogType='article' publishedTime={post.date} tags={post.hashtags} />
+			<SeoProps title={post.title} description={post.description} featureImage={post.featureImage} ogType='article' publishedTime={post.date} tags={post.hashtags} />
 			<PostComponent post={post} posts={posts} />
 		</>
 	)
