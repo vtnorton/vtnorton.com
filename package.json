@@ -1,6 +1,6 @@
 {
   "name": "vtnorton.com",
-  "version": "3.0.0",
+  "version": "10.1.0",
   "private": true,
   "scripts": {
     "build": "next build",
