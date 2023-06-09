@@ -22,6 +22,7 @@
     "@notionhq/client": "^2.2.3",
     "@popperjs/core": "^2.11.7",
     "axios": "^1.4.0",
+    "fs": "^0.0.1-security",
     "heartthrob": "3.0.0-beta.18",
     "heartthrob-react": "3.0.0-beta.47",
     "next": "^13.3.0",
@@ -34,6 +35,7 @@
     "react-multi-carousel": "^2.8.3",
     "react-notion-x": "^6.16.0",
     "react-tweet-embed": "^2.0.0",
+    "rss": "^1.2.2",
     "youtube-v3-api": "^1.1.1"
   },
   "devDependencies": {

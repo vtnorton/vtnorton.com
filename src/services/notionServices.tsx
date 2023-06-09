@@ -250,6 +250,7 @@ export const getBlogSectionItems = async (numberOfPosts: number = 12, tag?: stri
 		blogGridItems.push(...changelogs)
 	}
 	blogGridItems.sort((a, b) => (b.date && a.date ? new Date(b.date).getTime() - new Date(a.date).getTime() : new Date().getTime()))
+
 	return blogGridItems.slice(0, numberOfPosts)
 }
 

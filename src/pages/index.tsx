@@ -23,14 +23,17 @@ import {
 } from '../components'
 import { CalendarItem, InstagramItem, Playlist, PodcastEpisode } from '../interfaces'
 import { SeoProps } from '../database/SEOProps'
+import { generateRssFeed } from '../services/rssServices'
 
 export const getStaticProps = async () => {
 	try {
-		const posts: BlogGridItemProps[] = await getBlogSectionItems()
+		const allItems = await getBlogSectionItems(100, undefined, true)
+		const posts: BlogGridItemProps[] = allItems.slice(0, 12)
 		const instagramPhotos: InstagramItem[] = await getInstagramPosts()
 		const podcasts: PodcastEpisode[] = await getPodcasts()
 		const clubeDoLivroSchedule: CalendarItem[] = await getClubeDoLivroEvents()
 		const playlists: Playlist[] = await getPlaylistsFromClubeDoLivro()
+		await generateRssFeed(allItems)
 
 		const clubeDoLivroProps: BookClubComponentProps = {
 			playlists: playlists,

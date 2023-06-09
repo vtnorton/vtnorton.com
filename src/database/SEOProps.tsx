@@ -13,27 +13,28 @@ interface Props {
 	publishedTime?: string
 }
 
+export const SEOMetaData: NextSeoProps = {
+	titleTemplate: '%s | vítor norton 🤘🚀🥑',
+	defaultTitle: 'vítor norton | developer relations | 🤘🚀🥑',
+	description: 'Lives na Twitch, clube do livro, desenvolvimento de apps e web, mitologia grega, música e séries de TV. Um compilado do que eu sou e do que eu faço, chega mais!',
+	robotsProps: {
+		nosnippet: false,
+		notranslate: false,
+		noimageindex: false,
+		noarchive: false,
+		maxSnippet: -1,
+		maxImagePreview: 'none',
+		maxVideoPreview: -1,
+	},
+	themeColor: '#0078d7',
+	twitter: {
+		cardType: 'summary_large_image',
+		site: GetProfile(SocialMedias.Twitter)?.url,
+		handle: GetProfile(SocialMedias.Twitter)?.url,
+	},
+}
+
 export const SeoProps = (props: Props) => {
-	const SEOMetaData: NextSeoProps = {
-		titleTemplate: '%s | vítor norton 🤘🚀🥑',
-		defaultTitle: 'vítor norton | developer relations | 🤘🚀🥑',
-		description: 'Lives na Twitch, clube do livro, desenvolvimento de apps e web, mitologia grega, música e séries de TV. Um compilado do que eu sou e do que eu faço, chega mais!',
-		robotsProps: {
-			nosnippet: false,
-			notranslate: false,
-			noimageindex: false,
-			noarchive: false,
-			maxSnippet: -1,
-			maxImagePreview: 'none',
-			maxVideoPreview: -1,
-		},
-		themeColor: '#0078d7',
-		twitter: {
-			cardType: 'summary_large_image',
-			site: GetProfile(SocialMedias.Twitter)?.url,
-			handle: GetProfile(SocialMedias.Twitter)?.url,
-		},
-	}
 	const router = useRouter()
 	const pageUrl = `https://vtnorton.com${router.pathname}`
 	const nextSeoProps: NextSeoProps = {

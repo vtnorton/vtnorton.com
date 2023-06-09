@@ -1,0 +1,554 @@
+<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
+    <channel>
+        <title><![CDATA[vítor norton | developer relations | 🤘🚀🥑]]></title>
+        <description><![CDATA[Lives na Twitch, clube do livro, desenvolvimento de apps e web, mitologia grega, música e séries de TV. Um compilado do que eu sou e do que eu faço, chega mais!]]></description>
+        <link>https://vtnorton.com</link>
+        <image>
+            <url>https://vtnorton.com/img/logo-color.png</url>
+            <title>vítor norton | developer relations | 🤘🚀🥑</title>
+            <link>https://vtnorton.com</link>
+        </image>
+        <generator>RSS for Node</generator>
+        <lastBuildDate>Fri, 09 Jun 2023 23:39:56 GMT</lastBuildDate>
+        <atom:link href="https://vtnorton.com/rss.xml" rel="self" type="application/rss+xml"/>
+        <pubDate>Fri, 09 Jun 2023 23:39:56 GMT</pubDate>
+        <copyright><![CDATA[Attribution-NonCommercial-ShareAlike 4.0 (CC BY-NC-SA 4.0) International]]></copyright>
+        <language><![CDATA[pt-BR]]></language>
+        <managingEditor><![CDATA[Vítor Norton]]></managingEditor>
+        <webMaster><![CDATA[Vítor Norton]]></webMaster>
+        <item>
+            <title><![CDATA[Carga de trabalho vs Vida cotidiana ]]></title>
+            <link>https://vtnorton.com/2023/03/carga-de-trabalho-vs-vida-cotidiana</link>
+            <guid isPermaLink="true">https://vtnorton.com/2023/03/carga-de-trabalho-vs-vida-cotidiana</guid>
+            <pubDate>Thu, 20 Apr 2023 00:00:00 GMT</pubDate>
+        </item>
+        <item>
+            <title><![CDATA[Burnout, pela segunda vez.]]></title>
+            <link>https://vtnorton.com/2023/03/burnout-pela-segunda-vez</link>
+            <guid isPermaLink="true">https://vtnorton.com/2023/03/burnout-pela-segunda-vez</guid>
+            <pubDate>Thu, 13 Apr 2023 00:00:00 GMT</pubDate>
+        </item>
+        <item>
+            <title><![CDATA[São Paulo vai te comer vivo ]]></title>
+            <link>https://vtnorton.com/2023/03/sao-paulo-vai-te-comer-vivo</link>
+            <guid isPermaLink="true">https://vtnorton.com/2023/03/sao-paulo-vai-te-comer-vivo</guid>
+            <pubDate>Thu, 06 Apr 2023 00:00:00 GMT</pubDate>
+        </item>
+        <item>
+            <title><![CDATA[Celine Dion: seus shows são pioneiros no que há de mais novo com tech]]></title>
+            <link>https://vtnorton.com/2023/02/celine-dion-seus-shows-sao-pioneiros-no-que-ha-de-mais-novo-com-tech</link>
+            <guid isPermaLink="true">https://vtnorton.com/2023/02/celine-dion-seus-shows-sao-pioneiros-no-que-ha-de-mais-novo-com-tech</guid>
+            <pubDate>Thu, 30 Mar 2023 00:00:00 GMT</pubDate>
+        </item>
+        <item>
+            <title><![CDATA[Aprenda Kubernetes comigo em uma série de lives na Twitch!]]></title>
+            <link>https://vtnorton.com/2023/02/aprenda-kubernetes-comigo-em-uma-serie-de-lives-na-twitch</link>
+            <guid isPermaLink="true">https://vtnorton.com/2023/02/aprenda-kubernetes-comigo-em-uma-serie-de-lives-na-twitch</guid>
+            <pubDate>Mon, 06 Mar 2023 00:00:00 GMT</pubDate>
+        </item>
+        <item>
+            <title><![CDATA[Windows Insider MVP de novo? De novo! Mais um ano!]]></title>
+            <link>https://vtnorton.com/2023/00/windows-insider-mvp-de-novo-de-novo-mais-um-ano</link>
+            <guid isPermaLink="true">https://vtnorton.com/2023/00/windows-insider-mvp-de-novo-de-novo-mais-um-ano</guid>
+            <pubDate>Tue, 24 Jan 2023 00:00:00 GMT</pubDate>
+        </item>
+        <item>
+            <title><![CDATA[Como dividir inteiros no C#?]]></title>
+            <link>https://vtnorton.com/2022/07/como-dividir-inteiros-no-c</link>
+            <guid isPermaLink="true">https://vtnorton.com/2022/07/como-dividir-inteiros-no-c</guid>
+            <pubDate>Mon, 22 Aug 2022 00:00:00 GMT</pubDate>
+        </item>
+        <item>
+            <title><![CDATA[Por que usar o ambiente de desenvolvimento em inglês?]]></title>
+            <link>https://vtnorton.com/2022/04/por-que-usar-o-ambiente-de-desenvolvimento-em-ingles</link>
+            <guid isPermaLink="true">https://vtnorton.com/2022/04/por-que-usar-o-ambiente-de-desenvolvimento-em-ingles</guid>
+            <pubDate>Wed, 25 May 2022 00:00:00 GMT</pubDate>
+        </item>
+        <item>
+            <title><![CDATA[Tire um tempo para se adaptar]]></title>
+            <link>https://vtnorton.com/2022/04/tire-um-tempo-para-se-adaptar</link>
+            <guid isPermaLink="true">https://vtnorton.com/2022/04/tire-um-tempo-para-se-adaptar</guid>
+            <pubDate>Thu, 05 May 2022 00:00:00 GMT</pubDate>
+        </item>
+        <item>
+            <title><![CDATA[O problema de cada rede! Sem Twitter, o que resta para nós?]]></title>
+            <link>https://vtnorton.com/2022/03/o-problema-de-cada-rede-sem-twitter-o-que-resta-para-nos</link>
+            <guid isPermaLink="true">https://vtnorton.com/2022/03/o-problema-de-cada-rede-sem-twitter-o-que-resta-para-nos</guid>
+            <pubDate>Tue, 26 Apr 2022 00:00:00 GMT</pubDate>
+        </item>
+        <item>
+            <title><![CDATA[O derradeiro “JavaScript que me deu”]]></title>
+            <link>https://vtnorton.com/2022/02/o-derradeiro-javascript-que-me-deu</link>
+            <guid isPermaLink="true">https://vtnorton.com/2022/02/o-derradeiro-javascript-que-me-deu</guid>
+            <pubDate>Mon, 21 Mar 2022 00:00:00 GMT</pubDate>
+        </item>
+        <item>
+            <title><![CDATA[Qual a motivação por trás das comunidades?]]></title>
+            <link>https://vtnorton.com/2022/02/qual-a-motivacao-por-tras-das-comunidades</link>
+            <guid isPermaLink="true">https://vtnorton.com/2022/02/qual-a-motivacao-por-tras-das-comunidades</guid>
+            <pubDate>Wed, 16 Mar 2022 00:00:00 GMT</pubDate>
+        </item>
+        <item>
+            <title><![CDATA[Como eu lido com ansiedade vs o FOMO (Fear of missing out)]]></title>
+            <link>https://vtnorton.com/2022/02/como-eu-lido-com-ansiedade-vs-o-fomo-fear-of-missing-out</link>
+            <guid isPermaLink="true">https://vtnorton.com/2022/02/como-eu-lido-com-ansiedade-vs-o-fomo-fear-of-missing-out</guid>
+            <pubDate>Fri, 11 Mar 2022 00:00:00 GMT</pubDate>
+        </item>
+        <item>
+            <title><![CDATA[Minha experiência como Dev Relations]]></title>
+            <link>https://vtnorton.com/2022/01/minha-experiencia-como-developer-relations</link>
+            <guid isPermaLink="true">https://vtnorton.com/2022/01/minha-experiencia-como-developer-relations</guid>
+            <pubDate>Mon, 14 Feb 2022 00:00:00 GMT</pubDate>
+        </item>
+        <item>
+            <title><![CDATA[Novo clico se inicia: Dev Relations]]></title>
+            <link>https://vtnorton.com/2021/07/novo-clico-se-inicia-dev-relations</link>
+            <guid isPermaLink="true">https://vtnorton.com/2021/07/novo-clico-se-inicia-dev-relations</guid>
+            <pubDate>Sat, 28 Aug 2021 00:00:00 GMT</pubDate>
+        </item>
+        <item>
+            <title><![CDATA[Uma manifestação democrática e patriota]]></title>
+            <link>https://vtnorton.com/2021/05/uma-manifestacao-democratica-e-patriota</link>
+            <guid isPermaLink="true">https://vtnorton.com/2021/05/uma-manifestacao-democratica-e-patriota</guid>
+            <pubDate>Sat, 19 Jun 2021 00:00:00 GMT</pubDate>
+        </item>
+        <item>
+            <title><![CDATA[Opinião e gatilhos sobre Mythic Quest da Apple TV]]></title>
+            <link>https://vtnorton.com/2021/03/opiniao-e-gatilhos-sobre-mythic-quest-da-apple-tv</link>
+            <guid isPermaLink="true">https://vtnorton.com/2021/03/opiniao-e-gatilhos-sobre-mythic-quest-da-apple-tv</guid>
+            <pubDate>Sat, 01 May 2021 00:00:00 GMT</pubDate>
+        </item>
+        <item>
+            <title><![CDATA[Dia após o deploy, hora do sono dos justos]]></title>
+            <link>https://vtnorton.com/2021/03/dia-apos-o-deploy-hora-do-sono-dos-justos</link>
+            <guid isPermaLink="true">https://vtnorton.com/2021/03/dia-apos-o-deploy-hora-do-sono-dos-justos</guid>
+            <pubDate>Sun, 18 Apr 2021 00:00:00 GMT</pubDate>
+        </item>
+        <item>
+            <title><![CDATA[Ter um site para sua empresa não é barato, e você pode se prejudicar muito com isso, saiba os motivos]]></title>
+            <link>https://vtnorton.com/2020/09/ter-um-site-para-sua-empresa-nao-e-barato-e-voce-pode-se-prejudicar-muito-com-isso-saiba-os-motivos</link>
+            <guid isPermaLink="true">https://vtnorton.com/2020/09/ter-um-site-para-sua-empresa-nao-e-barato-e-voce-pode-se-prejudicar-muito-com-isso-saiba-os-motivos</guid>
+            <pubDate>Wed, 21 Oct 2020 00:00:00 GMT</pubDate>
+        </item>
+        <item>
+            <title><![CDATA[v4.0.14-preview]]></title>
+            <link>https://vtnorton.com//release/formula/v4.0.14-preview</link>
+            <guid isPermaLink="true">https://vtnorton.com//release/formula/v4.0.14-preview</guid>
+            <pubDate>Fri, 19 Jun 2020 00:00:00 GMT</pubDate>
+        </item>
+        <item>
+            <title><![CDATA[Organizando a marca e este site no Figma]]></title>
+            <link>https://vtnorton.com/2020/04/organizando-a-marca-e-este-site-no-figma</link>
+            <guid isPermaLink="true">https://vtnorton.com/2020/04/organizando-a-marca-e-este-site-no-figma</guid>
+            <pubDate>Sun, 24 May 2020 00:00:00 GMT</pubDate>
+        </item>
+        <item>
+            <title><![CDATA[Building Formula: changing the core and moving forward]]></title>
+            <link>https://vtnorton.com/2020/03/building-formula-changing-the-core-and-moving-forward</link>
+            <guid isPermaLink="true">https://vtnorton.com/2020/03/building-formula-changing-the-core-and-moving-forward</guid>
+            <pubDate>Mon, 20 Apr 2020 00:00:00 GMT</pubDate>
+        </item>
+        <item>
+            <title><![CDATA[3 projetos serveless agora com código aberto]]></title>
+            <link>https://vtnorton.com/2020/01/3-projetos-serveless-agora-com-codigo-aberto</link>
+            <guid isPermaLink="true">https://vtnorton.com/2020/01/3-projetos-serveless-agora-com-codigo-aberto</guid>
+            <pubDate>Mon, 24 Feb 2020 00:00:00 GMT</pubDate>
+        </item>
+        <item>
+            <title><![CDATA[Um ano se passou, uma nova vida]]></title>
+            <link>https://vtnorton.com/2019/11/um-ano-se-passou-uma-nova-vida</link>
+            <guid isPermaLink="true">https://vtnorton.com/2019/11/um-ano-se-passou-uma-nova-vida</guid>
+            <pubDate>Fri, 06 Dec 2019 00:00:00 GMT</pubDate>
+        </item>
+        <item>
+            <title><![CDATA[Heartthrob v2.0: SCSS > CSS && –jQuery]]></title>
+            <link>https://vtnorton.com/2019/09/heartthrob-v2-0</link>
+            <guid isPermaLink="true">https://vtnorton.com/2019/09/heartthrob-v2-0</guid>
+            <pubDate>Mon, 28 Oct 2019 00:00:00 GMT</pubDate>
+        </item>
+        <item>
+            <title><![CDATA[heartthrob-vision: fazendo a web mais acessível]]></title>
+            <link>https://vtnorton.com/2019/05/heartthrob-vision-fazendo-a-web-mais-acessivel</link>
+            <guid isPermaLink="true">https://vtnorton.com/2019/05/heartthrob-vision-fazendo-a-web-mais-acessivel</guid>
+            <pubDate>Mon, 24 Jun 2019 00:00:00 GMT</pubDate>
+        </item>
+        <item>
+            <title><![CDATA[Olá, São Paulo]]></title>
+            <link>https://vtnorton.com/2019/05/ola-sao-paulo</link>
+            <guid isPermaLink="true">https://vtnorton.com/2019/05/ola-sao-paulo</guid>
+            <pubDate>Thu, 13 Jun 2019 00:00:00 GMT</pubDate>
+        </item>
+        <item>
+            <title><![CDATA[Adeus Cachoeiro, ES]]></title>
+            <link>https://vtnorton.com/2019/05/adeus-cachoeiro-es</link>
+            <guid isPermaLink="true">https://vtnorton.com/2019/05/adeus-cachoeiro-es</guid>
+            <pubDate>Fri, 07 Jun 2019 00:00:00 GMT</pubDate>
+        </item>
+        <item>
+            <title><![CDATA[heartthrob: o framework para o fluent design na web]]></title>
+            <link>https://vtnorton.com/2019/04/heartthrob-o-framework-para-o-fluent-design-na-web</link>
+            <guid isPermaLink="true">https://vtnorton.com/2019/04/heartthrob-o-framework-para-o-fluent-design-na-web</guid>
+            <pubDate>Tue, 28 May 2019 00:00:00 GMT</pubDate>
+        </item>
+        <item>
+            <title><![CDATA[Existe esse tal de desenvolvedor de palco?]]></title>
+            <link>https://vtnorton.com/2019/04/existe-esse-tal-de-desenvolvedor-de-palco</link>
+            <guid isPermaLink="true">https://vtnorton.com/2019/04/existe-esse-tal-de-desenvolvedor-de-palco</guid>
+            <pubDate>Thu, 23 May 2019 00:00:00 GMT</pubDate>
+        </item>
+        <item>
+            <title><![CDATA[N]]></title>
+            <link>https://vtnorton.com/2019/03/novo-site-mais-intuitivo-mais-realista</link>
+            <guid isPermaLink="true">https://vtnorton.com/2019/03/novo-site-mais-intuitivo-mais-realista</guid>
+            <pubDate>Wed, 01 May 2019 00:00:00 GMT</pubDate>
+        </item>
+        <item>
+            <title><![CDATA[Ontem foi louco: correndo para lançar um serviço enquanto estava no carro indo pra reunião]]></title>
+            <link>https://vtnorton.com/2018/04/ontem-foi-louco-correndo-para-lancar-um-servico-enquanto-estava-no-carro-indo-pra-reuniao</link>
+            <guid isPermaLink="true">https://vtnorton.com/2018/04/ontem-foi-louco-correndo-para-lancar-um-servico-enquanto-estava-no-carro-indo-pra-reuniao</guid>
+            <pubDate>Thu, 10 May 2018 00:00:00 GMT</pubDate>
+        </item>
+        <item>
+            <title><![CDATA[Disponibilidade, segurança, praticidade e tudo o que um produto como serviço pode me oferecer]]></title>
+            <link>https://vtnorton.com/2018/04/disponibilidade-seguranca-praticidade-e-tudo-o-que-um-produto-como-servico-pode-me-oferecer</link>
+            <guid isPermaLink="true">https://vtnorton.com/2018/04/disponibilidade-seguranca-praticidade-e-tudo-o-que-um-produto-como-servico-pode-me-oferecer</guid>
+            <pubDate>Thu, 03 May 2018 00:00:00 GMT</pubDate>
+        </item>
+        <item>
+            <title><![CDATA[A melhor parte do Summit fica para depois]]></title>
+            <link>https://vtnorton.com/2018/02/a-melhor-parte-do-summit-fica-para-depois</link>
+            <guid isPermaLink="true">https://vtnorton.com/2018/02/a-melhor-parte-do-summit-fica-para-depois</guid>
+            <pubDate>Sat, 10 Mar 2018 00:00:00 GMT</pubDate>
+        </item>
+        <item>
+            <title><![CDATA[O]]></title>
+            <link>https://vtnorton.com/2017/11/o-que-tem-de-tao-especial-na-build-17063</link>
+            <guid isPermaLink="true">https://vtnorton.com/2017/11/o-que-tem-de-tao-especial-na-build-17063</guid>
+            <pubDate>Thu, 21 Dec 2017 00:00:00 GMT</pubDate>
+        </item>
+        <item>
+            <title><![CDATA[v3.1710.371]]></title>
+            <link>https://vtnorton.com//release/formula/v3.1710.371</link>
+            <guid isPermaLink="true">https://vtnorton.com//release/formula/v3.1710.371</guid>
+            <pubDate>Thu, 14 Dec 2017 00:00:00 GMT</pubDate>
+        </item>
+        <item>
+            <title><![CDATA[Você tem o direito de definir as regras para o seu negócio]]></title>
+            <link>https://vtnorton.com/2017/10/voce-tem-o-direito-de-definir-as-regras-para-o-seu-negocio</link>
+            <guid isPermaLink="true">https://vtnorton.com/2017/10/voce-tem-o-direito-de-definir-as-regras-para-o-seu-negocio</guid>
+            <pubDate>Tue, 28 Nov 2017 00:00:00 GMT</pubDate>
+        </item>
+        <item>
+            <title><![CDATA[v3.1710.363]]></title>
+            <link>https://vtnorton.com//release/formula/v3.1710.363</link>
+            <guid isPermaLink="true">https://vtnorton.com//release/formula/v3.1710.363</guid>
+            <pubDate>Sat, 21 Oct 2017 00:00:00 GMT</pubDate>
+        </item>
+        <item>
+            <title><![CDATA[Construindo Formula: um olhar detalhado no ícone]]></title>
+            <link>https://vtnorton.com/2017/06/building-formula-close-look-at-the-icon</link>
+            <guid isPermaLink="true">https://vtnorton.com/2017/06/building-formula-close-look-at-the-icon</guid>
+            <pubDate>Wed, 05 Jul 2017 00:00:00 GMT</pubDate>
+        </item>
+        <item>
+            <title><![CDATA[Conheça Nome-PC: minha nova máquina]]></title>
+            <link>https://vtnorton.com/2017/06/conheca-nome-pc-minha-nova-maquina</link>
+            <guid isPermaLink="true">https://vtnorton.com/2017/06/conheca-nome-pc-minha-nova-maquina</guid>
+            <pubDate>Mon, 03 Jul 2017 00:00:00 GMT</pubDate>
+        </item>
+        <item>
+            <title><![CDATA[Olá WordPress, tudo bem?]]></title>
+            <link>https://vtnorton.com/2017/05/ola-wordpress-tudo-bem</link>
+            <guid isPermaLink="true">https://vtnorton.com/2017/05/ola-wordpress-tudo-bem</guid>
+            <pubDate>Mon, 26 Jun 2017 00:00:00 GMT</pubDate>
+        </item>
+        <item>
+            <title><![CDATA[v2.1705.190]]></title>
+            <link>https://vtnorton.com//release/formula/v2.1705.190</link>
+            <guid isPermaLink="true">https://vtnorton.com//release/formula/v2.1705.190</guid>
+            <pubDate>Mon, 15 May 2017 00:00:00 GMT</pubDate>
+        </item>
+        <item>
+            <title><![CDATA[Respondendo feedbacks #02: Formula ]]></title>
+            <link>https://vtnorton.com/2017/04/developer-note-the-difference-of-v2-1705-188-to-v2-1705-189</link>
+            <guid isPermaLink="true">https://vtnorton.com/2017/04/developer-note-the-difference-of-v2-1705-188-to-v2-1705-189</guid>
+            <pubDate>Tue, 09 May 2017 00:00:00 GMT</pubDate>
+        </item>
+        <item>
+            <title><![CDATA[I]]></title>
+            <link>https://vtnorton.com/2017/04/indo-alem-de-melhorar-a-traducao-dos-sites</link>
+            <guid isPermaLink="true">https://vtnorton.com/2017/04/indo-alem-de-melhorar-a-traducao-dos-sites</guid>
+            <pubDate>Sun, 07 May 2017 00:00:00 GMT</pubDate>
+        </item>
+        <item>
+            <title><![CDATA[v2.1705.189]]></title>
+            <link>https://vtnorton.com//release/formula/v2.1705.189</link>
+            <guid isPermaLink="true">https://vtnorton.com//release/formula/v2.1705.189</guid>
+            <pubDate>Mon, 01 May 2017 00:00:00 GMT</pubDate>
+        </item>
+        <item>
+            <title><![CDATA[As novidades do Windows 10 Creators Update]]></title>
+            <link>https://vtnorton.com/2017/03/windows10creators</link>
+            <guid isPermaLink="true">https://vtnorton.com/2017/03/windows10creators</guid>
+            <pubDate>Tue, 11 Apr 2017 00:00:00 GMT</pubDate>
+        </item>
+        <item>
+            <title><![CDATA[Alterações de planos: Formula, Conjugar, #Programação e outros]]></title>
+            <link>https://vtnorton.com/2017/02/alteracoes-de-planos-formula-conjugar-programacao-e-outros</link>
+            <guid isPermaLink="true">https://vtnorton.com/2017/02/alteracoes-de-planos-formula-conjugar-programacao-e-outros</guid>
+            <pubDate>Mon, 27 Mar 2017 00:00:00 GMT</pubDate>
+        </item>
+        <item>
+            <title><![CDATA[Seria a build 15063 a RTM?]]></title>
+            <link>https://vtnorton.com/2017/02/seria-a-build-15063-a-rtm</link>
+            <guid isPermaLink="true">https://vtnorton.com/2017/02/seria-a-build-15063-a-rtm</guid>
+            <pubDate>Tue, 21 Mar 2017 00:00:00 GMT</pubDate>
+        </item>
+        <item>
+            <title><![CDATA[Mais informações sobre os novos aplicativos: regiões e compatibilidade]]></title>
+            <link>https://vtnorton.com/2017/00/mais-informacoes-sobre-os-novos-aplicativos-regioes-e-compatibilidade</link>
+            <guid isPermaLink="true">https://vtnorton.com/2017/00/mais-informacoes-sobre-os-novos-aplicativos-regioes-e-compatibilidade</guid>
+            <pubDate>Mon, 16 Jan 2017 00:00:00 GMT</pubDate>
+        </item>
+        <item>
+            <title><![CDATA[v2.1.167]]></title>
+            <link>https://vtnorton.com//release/formula/v2.1.167</link>
+            <guid isPermaLink="true">https://vtnorton.com//release/formula/v2.1.167</guid>
+            <pubDate>Sun, 01 Jan 2017 00:00:00 GMT</pubDate>
+        </item>
+        <item>
+            <title><![CDATA[Começando o ano bem, tecnologicamente falando]]></title>
+            <link>https://vtnorton.com/2016/11/comecando-o-ano-bem-tecnologicamente-falando</link>
+            <guid isPermaLink="true">https://vtnorton.com/2016/11/comecando-o-ano-bem-tecnologicamente-falando</guid>
+            <pubDate>Thu, 22 Dec 2016 00:00:00 GMT</pubDate>
+        </item>
+        <item>
+            <title><![CDATA[Mencionado pelo Terry Myerson no #WinHec2016]]></title>
+            <link>https://vtnorton.com/2016/11/mencionado-pelo-terry-myerson-no-winhec2016</link>
+            <guid isPermaLink="true">https://vtnorton.com/2016/11/mencionado-pelo-terry-myerson-no-winhec2016</guid>
+            <pubDate>Thu, 08 Dec 2016 00:00:00 GMT</pubDate>
+        </item>
+        <item>
+            <title><![CDATA[Vamos criar uma web toda escura com True Dark Mode para o Edge]]></title>
+            <link>https://vtnorton.com/2016/10/lets-create-a-dark-web-with-true-dark-mode-for-edge</link>
+            <guid isPermaLink="true">https://vtnorton.com/2016/10/lets-create-a-dark-web-with-true-dark-mode-for-edge</guid>
+            <pubDate>Tue, 22 Nov 2016 00:00:00 GMT</pubDate>
+        </item>
+        <item>
+            <title><![CDATA[MVP Summit 2016 – Eu fui, eu tava]]></title>
+            <link>https://vtnorton.com/2016/10/mvp-summit-2016-eu-fui-eu-tava</link>
+            <guid isPermaLink="true">https://vtnorton.com/2016/10/mvp-summit-2016-eu-fui-eu-tava</guid>
+            <pubDate>Mon, 14 Nov 2016 00:00:00 GMT</pubDate>
+        </item>
+        <item>
+            <title><![CDATA[v1.2.151]]></title>
+            <link>https://vtnorton.com//release/formula/v1.2.151</link>
+            <guid isPermaLink="true">https://vtnorton.com//release/formula/v1.2.151</guid>
+            <pubDate>Fri, 14 Oct 2016 00:00:00 GMT</pubDate>
+        </item>
+        <item>
+            <title><![CDATA[Respondendo feedbacks #01: Formula v2.0.144]]></title>
+            <link>https://vtnorton.com/2016/09/answering-feedback-01-formula-v2-0-144</link>
+            <guid isPermaLink="true">https://vtnorton.com/2016/09/answering-feedback-01-formula-v2-0-144</guid>
+            <pubDate>Mon, 10 Oct 2016 00:00:00 GMT</pubDate>
+        </item>
+        <item>
+            <title><![CDATA[Dois anos – orgulhosamente – como Insider]]></title>
+            <link>https://vtnorton.com/2016/08/dois-anos-orgulhosamente-como-insider</link>
+            <guid isPermaLink="true">https://vtnorton.com/2016/08/dois-anos-orgulhosamente-como-insider</guid>
+            <pubDate>Sat, 01 Oct 2016 00:00:00 GMT</pubDate>
+        </item>
+        <item>
+            <title><![CDATA[v2.0.62]]></title>
+            <link>https://vtnorton.com//release/formula/v2.0.62</link>
+            <guid isPermaLink="true">https://vtnorton.com//release/formula/v2.0.62</guid>
+            <pubDate>Fri, 30 Sep 2016 00:00:00 GMT</pubDate>
+        </item>
+        <item>
+            <title><![CDATA[Brasil tem grande representatividade no Windows Insider]]></title>
+            <link>https://vtnorton.com/2016/08/brasil-tem-grande-representatividade-no-windows-insider</link>
+            <guid isPermaLink="true">https://vtnorton.com/2016/08/brasil-tem-grande-representatividade-no-windows-insider</guid>
+            <pubDate>Sat, 17 Sep 2016 00:00:00 GMT</pubDate>
+        </item>
+        <item>
+            <title><![CDATA[#DevNasNuvens 2016]]></title>
+            <link>https://vtnorton.com/2016/07/devnasnuvens-2016</link>
+            <guid isPermaLink="true">https://vtnorton.com/2016/07/devnasnuvens-2016</guid>
+            <pubDate>Wed, 24 Aug 2016 00:00:00 GMT</pubDate>
+        </item>
+        <item>
+            <title><![CDATA[O que é Terre? O que mudou?]]></title>
+            <link>https://vtnorton.com/2016/07/what-is-terre-what-is-changed</link>
+            <guid isPermaLink="true">https://vtnorton.com/2016/07/what-is-terre-what-is-changed</guid>
+            <pubDate>Mon, 15 Aug 2016 00:00:00 GMT</pubDate>
+        </item>
+        <item>
+            <title><![CDATA[Windows 10: As novidades da atualização de aniversário]]></title>
+            <link>https://vtnorton.com/2016/06/windows-10-as-novidades-da-atualizacao-de-aniversario</link>
+            <guid isPermaLink="true">https://vtnorton.com/2016/06/windows-10-as-novidades-da-atualizacao-de-aniversario</guid>
+            <pubDate>Tue, 26 Jul 2016 00:00:00 GMT</pubDate>
+        </item>
+        <item>
+            <title><![CDATA[Festa de lançamento do Windows 10, eu fui eu tava!]]></title>
+            <link>https://vtnorton.com/2016/06/umanoatras-festa-de-lancamento-do-widnows-10-eu-fui-eu-tava</link>
+            <guid isPermaLink="true">https://vtnorton.com/2016/06/umanoatras-festa-de-lancamento-do-widnows-10-eu-fui-eu-tava</guid>
+            <pubDate>Sat, 16 Jul 2016 00:00:00 GMT</pubDate>
+        </item>
+        <item>
+            <title><![CDATA[v1.2.62]]></title>
+            <link>https://vtnorton.com//release/formula/v1.2.62</link>
+            <guid isPermaLink="true">https://vtnorton.com//release/formula/v1.2.62</guid>
+            <pubDate>Fri, 08 Jul 2016 00:00:00 GMT</pubDate>
+        </item>
+        <item>
+            <title><![CDATA[Pra você que vive postando no Instagram, fique atento]]></title>
+            <link>https://vtnorton.com/2016/06/pra-voce-que-vive-postando-no-instagram-fique-atento</link>
+            <guid isPermaLink="true">https://vtnorton.com/2016/06/pra-voce-que-vive-postando-no-instagram-fique-atento</guid>
+            <pubDate>Thu, 07 Jul 2016 00:00:00 GMT</pubDate>
+        </item>
+        <item>
+            <title><![CDATA[Sendo um Insider MVP]]></title>
+            <link>https://vtnorton.com/2016/06/sendo-um-insider-mvp</link>
+            <guid isPermaLink="true">https://vtnorton.com/2016/06/sendo-um-insider-mvp</guid>
+            <pubDate>Wed, 06 Jul 2016 00:00:00 GMT</pubDate>
+        </item>
+        <item>
+            <title><![CDATA[Já pensou em se desconectar de tudo da Internet, esse site pode te ajudar]]></title>
+            <link>https://vtnorton.com/2016/06/ja-pensou-em-se-desconectar-de-tudo-da-internet-esse-site-pode-te-ajudar</link>
+            <guid isPermaLink="true">https://vtnorton.com/2016/06/ja-pensou-em-se-desconectar-de-tudo-da-internet-esse-site-pode-te-ajudar</guid>
+            <pubDate>Tue, 05 Jul 2016 00:00:00 GMT</pubDate>
+        </item>
+        <item>
+            <title><![CDATA[Instalando o Visual Studio 2015]]></title>
+            <link>https://vtnorton.com/2016/05/instalando-o-visual-studio-2015</link>
+            <guid isPermaLink="true">https://vtnorton.com/2016/05/instalando-o-visual-studio-2015</guid>
+            <pubDate>Fri, 01 Jul 2016 00:00:00 GMT</pubDate>
+        </item>
+        <item>
+            <title><![CDATA[Notícia triste (e óbvia): fim do vNext]]></title>
+            <link>https://vtnorton.com/2016/05/noticia-triste-e-obvia-fim-do-vnext</link>
+            <guid isPermaLink="true">https://vtnorton.com/2016/05/noticia-triste-e-obvia-fim-do-vnext</guid>
+            <pubDate>Mon, 27 Jun 2016 00:00:00 GMT</pubDate>
+        </item>
+        <item>
+            <title><![CDATA[v1.1.62]]></title>
+            <link>https://vtnorton.com//release/formula/v1.1.62</link>
+            <guid isPermaLink="true">https://vtnorton.com//release/formula/v1.1.62</guid>
+            <pubDate>Wed, 01 Jun 2016 00:00:00 GMT</pubDate>
+        </item>
+        <item>
+            <title><![CDATA[v1.0.54]]></title>
+            <link>https://vtnorton.com//release/formula/v1.0.54</link>
+            <guid isPermaLink="true">https://vtnorton.com//release/formula/v1.0.54</guid>
+            <pubDate>Tue, 31 May 2016 00:00:00 GMT</pubDate>
+        </item>
+        <item>
+            <title><![CDATA[v1.0.51]]></title>
+            <link>https://vtnorton.com//release/formula/v1.0.51</link>
+            <guid isPermaLink="true">https://vtnorton.com//release/formula/v1.0.51</guid>
+            <pubDate>Mon, 30 May 2016 00:00:00 GMT</pubDate>
+        </item>
+        <item>
+            <title><![CDATA[v1.0.50]]></title>
+            <link>https://vtnorton.com//release/formula/v1.0.50</link>
+            <guid isPermaLink="true">https://vtnorton.com//release/formula/v1.0.50</guid>
+            <pubDate>Sun, 29 May 2016 00:00:00 GMT</pubDate>
+        </item>
+        <item>
+            <title><![CDATA[Sobre a tal da terceira onda de Alvin Toffler]]></title>
+            <link>https://vtnorton.com/2016/04/sobre-a-tal-da-terceira-onda-de-alvin-toffler</link>
+            <guid isPermaLink="true">https://vtnorton.com/2016/04/sobre-a-tal-da-terceira-onda-de-alvin-toffler</guid>
+            <pubDate>Fri, 27 May 2016 00:00:00 GMT</pubDate>
+        </item>
+        <item>
+            <title><![CDATA[OneNote – eBook gratuito]]></title>
+            <link>https://vtnorton.com/2016/04/onenote-ebook-gratuito</link>
+            <guid isPermaLink="true">https://vtnorton.com/2016/04/onenote-ebook-gratuito</guid>
+            <pubDate>Mon, 09 May 2016 00:00:00 GMT</pubDate>
+        </item>
+        <item>
+            <title><![CDATA[v1.0.48]]></title>
+            <link>https://vtnorton.com//release/formula/v1.0.48</link>
+            <guid isPermaLink="true">https://vtnorton.com//release/formula/v1.0.48</guid>
+            <pubDate>Thu, 05 May 2016 00:00:00 GMT</pubDate>
+        </item>
+        <item>
+            <title><![CDATA[Final do Imagine Cup em BH]]></title>
+            <link>https://vtnorton.com/2016/03/final-do-imagine-cup-em-bh</link>
+            <guid isPermaLink="true">https://vtnorton.com/2016/03/final-do-imagine-cup-em-bh</guid>
+            <pubDate>Fri, 29 Apr 2016 00:00:00 GMT</pubDate>
+        </item>
+        <item>
+            <title><![CDATA[#UmAnoAtras – Visitando o Microsoft Campus]]></title>
+            <link>https://vtnorton.com/2016/03/umanoatras-visitando-o-microsoft-campus</link>
+            <guid isPermaLink="true">https://vtnorton.com/2016/03/umanoatras-visitando-o-microsoft-campus</guid>
+            <pubDate>Mon, 25 Apr 2016 00:00:00 GMT</pubDate>
+        </item>
+        <item>
+            <title><![CDATA[#UmAnoAtras – Primeiro dia nos EUA]]></title>
+            <link>https://vtnorton.com/2016/03/umanoatras-primeiro-dia-nos-eua</link>
+            <guid isPermaLink="true">https://vtnorton.com/2016/03/umanoatras-primeiro-dia-nos-eua</guid>
+            <pubDate>Fri, 22 Apr 2016 00:00:00 GMT</pubDate>
+        </item>
+        <item>
+            <title><![CDATA[#UmAnoAtras – Preparação, corre que dá certo!]]></title>
+            <link>https://vtnorton.com/2016/03/umanoatras-preparacao-corre-que-da-certo</link>
+            <guid isPermaLink="true">https://vtnorton.com/2016/03/umanoatras-preparacao-corre-que-da-certo</guid>
+            <pubDate>Thu, 21 Apr 2016 00:00:00 GMT</pubDate>
+        </item>
+        <item>
+            <title><![CDATA[#UmAnoAtras – O melhor pior dia da minha vida]]></title>
+            <link>https://vtnorton.com/2016/03/umanoatras-o-melhor-pior-dia-da-minha-vida</link>
+            <guid isPermaLink="true">https://vtnorton.com/2016/03/umanoatras-o-melhor-pior-dia-da-minha-vida</guid>
+            <pubDate>Wed, 20 Apr 2016 00:00:00 GMT</pubDate>
+        </item>
+        <item>
+            <title><![CDATA[#UmAnoAtras – Sobre a série]]></title>
+            <link>https://vtnorton.com/2016/03/umanoatras-sobre-a-serie</link>
+            <guid isPermaLink="true">https://vtnorton.com/2016/03/umanoatras-sobre-a-serie</guid>
+            <pubDate>Tue, 19 Apr 2016 00:00:00 GMT</pubDate>
+        </item>
+        <item>
+            <title><![CDATA[Partiu Open Source]]></title>
+            <link>https://vtnorton.com/2016/03/lets-go-opensource</link>
+            <guid isPermaLink="true">https://vtnorton.com/2016/03/lets-go-opensource</guid>
+            <pubDate>Fri, 08 Apr 2016 00:00:00 GMT</pubDate>
+        </item>
+        <item>
+            <title><![CDATA[Construindo o Formula – Universal Code Editor]]></title>
+            <link>https://vtnorton.com/2016/03/construindo-o-formula-universal-code-editor</link>
+            <guid isPermaLink="true">https://vtnorton.com/2016/03/construindo-o-formula-universal-code-editor</guid>
+            <pubDate>Thu, 07 Apr 2016 00:00:00 GMT</pubDate>
+        </item>
+        <item>
+            <title><![CDATA[Terminando suporte para Windows 8.1 e Windows Phone 8.1]]></title>
+            <link>https://vtnorton.com/2016/02/dropping-support-windows-8-1-windows-phone-8-1-apps</link>
+            <guid isPermaLink="true">https://vtnorton.com/2016/02/dropping-support-windows-8-1-windows-phone-8-1-apps</guid>
+            <pubDate>Mon, 28 Mar 2016 00:00:00 GMT</pubDate>
+        </item>
+        <item>
+            <title><![CDATA[De TortoiseSVN para o Visual Studio Team Service]]></title>
+            <link>https://vtnorton.com/2016/01/tortoisesvn-visual-studio-team-services</link>
+            <guid isPermaLink="true">https://vtnorton.com/2016/01/tortoisesvn-visual-studio-team-services</guid>
+            <pubDate>Wed, 10 Feb 2016 00:00:00 GMT</pubDate>
+        </item>
+        <item>
+            <title><![CDATA[Projetinho Open Source: PeopleTileInsiderApp]]></title>
+            <link>https://vtnorton.com/2016/01/opensource-project-peopletileinsideapp</link>
+            <guid isPermaLink="true">https://vtnorton.com/2016/01/opensource-project-peopletileinsideapp</guid>
+            <pubDate>Mon, 08 Feb 2016 00:00:00 GMT</pubDate>
+        </item>
+        <item>
+            <title><![CDATA[Indo do .NET para WordPress: o motivo]]></title>
+            <link>https://vtnorton.com/2016/01/moving-on</link>
+            <guid isPermaLink="true">https://vtnorton.com/2016/01/moving-on</guid>
+            <pubDate>Wed, 03 Feb 2016 00:00:00 GMT</pubDate>
+        </item>
+        <item>
+            <title><![CDATA[Quizz: sistema de perguntas e respostas para Universal Apps]]></title>
+            <link>https://vtnorton.com/2016/00/quizz-sistema-de-perguntas-e-respostas-para-universal-apps</link>
+            <guid isPermaLink="true">https://vtnorton.com/2016/00/quizz-sistema-de-perguntas-e-respostas-para-universal-apps</guid>
+            <pubDate>Wed, 27 Jan 2016 00:00:00 GMT</pubDate>
+        </item>
+    </channel>
+</rss>

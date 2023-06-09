@@ -1,7 +1,6 @@
 import { Product } from '../../interfaces/Product'
 
 export const ProductShelfItemComponent = (props: Product) => {
-	console.log('item', props)
 	return (
 		<div className='blog-item'>
 			<a href={props.link}>
