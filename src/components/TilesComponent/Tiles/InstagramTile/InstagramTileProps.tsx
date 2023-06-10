@@ -1,4 +1,4 @@
-import { InstagramItem } from '../../../interfaces/InstagramItem'
+import { InstagramItem } from '../../../../interfaces'
 
 export type InstagramTileProps = {
 	photos: InstagramItem[]
