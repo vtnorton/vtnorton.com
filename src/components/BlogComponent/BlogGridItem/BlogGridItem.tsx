@@ -17,7 +17,7 @@ export const BlogGridItem = (props: BlogGridItemProps) => {
 			return (
 				<div className='meta-categories'>
 					{props.hashtags.map((hashtag: string, index: number) => {
-						const link = `/tag/${hashtag}`
+						const link = `/hashtag/${hashtag}`
 						if (props.hashtags && props.hashtags.length - 1 == props.hashtags.indexOf(hashtag))
 							return (
 								<a key={index} href={link}>

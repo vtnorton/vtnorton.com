@@ -1,7 +1,7 @@
-import { BlogComponent, BlogGridItemProps, FooterComponent, PageHeroComponent, PostComponent, ProfileComponent } from '../../components'
+import { BlogGridItemProps, FooterComponent, PageHeroComponent, ProfileComponent } from '../../components'
 import { BlogGrid } from '../../components/BlogComponent/BlogGrid/BlogGrid'
 import { SeoProps } from '../../database/SEOProps'
-import { Hashtag, Post } from '../../interfaces'
+import { Hashtag } from '../../interfaces'
 import { getBlogSectionItems, getHashtags } from '../../services/notionServices'
 
 const mountPath = (tag: Hashtag) => {
@@ -14,6 +14,7 @@ const mountPath = (tag: Hashtag) => {
 
 export const getStaticPaths = async () => {
 	const tags: Hashtag[] = await getHashtags()
+	console.log('tags', tags)
 	return {
 		paths: tags.map((tag: Hashtag) => mountPath(tag)),
 		fallback: true,
