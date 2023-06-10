@@ -225,7 +225,7 @@ export default function OlaWolff() {
 				</section>
 			</div>
 
-			<div className='container'>
+			<div className='container text-center'>
 				<img className='img-helper' src='/img/projects/olawolff/pages.png' />
 			</div>
 
