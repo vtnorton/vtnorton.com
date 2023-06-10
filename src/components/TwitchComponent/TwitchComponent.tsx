@@ -2,12 +2,14 @@ import { faChevronRight } from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 
 export const TwitchComponent = () => {
+	const twitchParent = process.env.HOST
+	const twitchHost = `https://player.twitch.tv/?channel=vt_norton&parent=${twitchParent}`
 	return (
 		<section>
 			<div className='showcase twitch'>
 				<div className='twitch-container'>
 					<div className='video-container'>
-						<iframe title='Twitch vtnorton' src='https://player.twitch.tv/?channel=vt_norton&parent=localhost' allowFullScreen scrolling='no'></iframe>
+						<iframe title='Twitch vtnorton' src={twitchHost} allowFullScreen scrolling='no'></iframe>
 					</div>
 					<div className='twitch-content'>
 						<h2>👀 siga-me na twitch</h2>
