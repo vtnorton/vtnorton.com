@@ -7,7 +7,7 @@ export const TwitchComponent = () => {
 			<div className='showcase twitch'>
 				<div className='twitch-container'>
 					<div className='video-container'>
-						<iframe title='Twitch vtnorton' src='https://player.twitch.tv/?channel=vt_norton&parent=localhost' frameborder='0' allowfullscreen='true' scrolling='no'></iframe>
+						<iframe title='Twitch vtnorton' src='https://player.twitch.tv/?channel=vt_norton&parent=localhost' allowFullScreen scrolling='no'></iframe>
 					</div>
 					<div className='twitch-content'>
 						<h2>👀 siga-me na twitch</h2>
