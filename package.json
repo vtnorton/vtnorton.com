@@ -43,6 +43,7 @@
     "@types/react": "^18.0.33",
     "discord-api-types": "^0.37.39",
     "sass": "^1.61.0",
-    "typescript": "^5.0.3"
+    "typescript": "^5.0.3",
+    "eslint": "^8.42.0"
   }
 }
