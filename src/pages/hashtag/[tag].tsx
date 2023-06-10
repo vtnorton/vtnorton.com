@@ -1,3 +1,4 @@
+import { useRouter } from 'next/router'
 import { BlogGridItemProps, FooterComponent, PageHeroComponent, ProfileComponent } from '../../components'
 import { BlogGrid } from '../../components/BlogComponent/BlogGrid/BlogGrid'
 import { SeoProps } from '../../database/SEOProps'
@@ -38,6 +39,10 @@ export const getStaticProps = async (context: any) => {
 }
 
 export default function PostDetail({ posts, tag }: { posts: BlogGridItemProps[]; tag: string }) {
+	const router = useRouter()
+	if (router.isFallback) {
+		return <p>Carregando...</p>
+	}
 	const pageTitle = 'Posts sobre ' + tag
 	return (
 		<>
