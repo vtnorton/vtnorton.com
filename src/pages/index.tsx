@@ -47,7 +47,7 @@ export const getStaticProps = async () => {
 			podcasts: podcasts,
 		}
 		props = JSON.parse(JSON.stringify(props))
-		return { props, revalidate: 0 }
+		return { props, revalidate: 1 }
 	} catch (err) {
 		throw err
 	}
