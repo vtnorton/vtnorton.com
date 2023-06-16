@@ -1,3 +1,5 @@
+import { PostType } from '../../../interfaces'
+
 export type BlogGridItemProps = {
 	id: string
 	title: string
@@ -5,4 +7,5 @@ export type BlogGridItemProps = {
 	hashtags?: string[]
 	link: string
 	date?: string
+	type: PostType
 }

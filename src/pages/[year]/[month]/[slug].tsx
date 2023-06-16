@@ -5,11 +5,13 @@ import { getBlogSectionItems, getFirstParagraph, getPostBySlug, getPosts } from 
 
 const mountPath = (post: Post) => {
 	const postDate = new Date(post.date)
+	const monthNumber = postDate.getMonth() + 1
+	const month = monthNumber.toString().padStart(2, '0')
 	return {
 		params: {
 			slug: post.slug,
 			year: postDate.getFullYear().toString(),
-			month: postDate.getMonth().toString().padStart(2, '0'),
+			month: month,
 		},
 	}
 }
