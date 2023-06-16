@@ -4,7 +4,6 @@ import { LogoComponentProps } from './LogoComponentProps'
 
 export const LogoComponent = (props: LogoComponentProps) => {
 	const { relatedPostVisibility } = useContext(VtnortonContext)
-	console.log('componentName: ', props.componentName)
 	let classesName = props.componentName === 'PostDetail' ? 'logo-post' : 'container logo'
 	if (relatedPostVisibility) classesName = 'logo-post colorized'
 
