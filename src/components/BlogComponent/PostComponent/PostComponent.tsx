@@ -10,8 +10,7 @@ import { VtnortonContext } from '../../../provider/VtnortonContextProvider'
 import { Changelog } from '../../../interfaces/Changelog'
 
 export const PostComponent = ({ post, posts }: { post: Post | Changelog; posts: BlogGridItemProps[] }) => {
-	const { relatedPostVisibility, setRelatedPostVisibility, setPostPage } = useContext(VtnortonContext)
-	setPostPage(true)
+	const { relatedPostVisibility, setRelatedPostVisibility } = useContext(VtnortonContext)
 	const date = new Date(post.date)
 	const formatedDate = `${date.getDate().toString().padStart(2, '0')}/${date.getMonth().toString().padStart(2, '0')} às ${date.getHours().toString().padStart(2, '0')}h${date.getMinutes().toString().padStart(2, '0')}`
 
