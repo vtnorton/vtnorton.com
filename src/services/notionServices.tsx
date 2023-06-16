@@ -5,6 +5,7 @@ import { Hashtag } from '../interfaces/Hashtag'
 import { PodcastEpisode } from '../interfaces/PodcastEpisode'
 import { BlogGridItemProps } from '../components'
 import { Changelog } from '../interfaces/Changelog'
+import { PostType } from '../interfaces'
 
 const notion = new Client({
 	auth: process.env.notionSecret,
@@ -226,6 +227,7 @@ export const getChangelogSectionItems = async (projectSlug?: string, numberOfPos
 			link: log.fullSlug,
 			title: log.title,
 			date: log.date,
+			type: PostType.Changelog,
 		})
 	})
 
@@ -244,6 +246,7 @@ export const getBlogSectionItems = async (numberOfPosts: number = 12, tag?: stri
 			title: post.title,
 			hashtags: post.hashtags,
 			date: post.date,
+			type: PostType.Post,
 		})
 	})
 
@@ -291,7 +294,8 @@ const mountPostSlug = (result: any): string => {
 	const postDate = new Date(result.properties.Date.date.start)
 	const pageSlug = result.properties.Slug.rich_text[0].text.content
 	const year = postDate.getFullYear().toString()
-	const month = postDate.getMonth().toString().padStart(2, '0')
+	const monthNumber = postDate.getMonth() + 1
+	const month = monthNumber.toString().padStart(2, '0')
 
 	return `/${year}/${month}/${pageSlug}`
 }

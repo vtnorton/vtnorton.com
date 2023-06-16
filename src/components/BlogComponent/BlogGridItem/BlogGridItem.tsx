@@ -1,3 +1,4 @@
+import { PostType } from '../../../interfaces'
 import { BlogGridItemProps } from './BlogGridItemProps'
 
 export const BlogGridItem = (props: BlogGridItemProps) => {
@@ -38,8 +39,13 @@ export const BlogGridItem = (props: BlogGridItemProps) => {
 	const renderDate = () => {
 		if (props.date) {
 			const date = new Date(props.date)
-			const formatedDate = `${date.getDate().toString().padStart(2, '0')}/${date.getMonth().toString().padStart(2, '0')}`
-			return <p className='post-date'>Lançado em: {formatedDate}</p>
+
+			const monthNumber = date.getMonth() + 1
+			const month = monthNumber.toString().padStart(2, '0')
+			const formatedDate = `${date.getDate().toString().padStart(2, '0')}/${month}`
+
+			if (props.type == PostType.Post) return <p className='post-date'>Postado em: {formatedDate}</p>
+			if (props.type == PostType.Changelog) return <p className='post-date'>Lançado em: {formatedDate}</p>
 		}
 	}
 

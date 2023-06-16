@@ -5,7 +5,10 @@ const renderLive = (items: CalendarItem[]) => {
 	const today = new Date()
 	return items.map((item: CalendarItem) => {
 		const date = new Date(item.date)
-		const formatedDate = `${date.getDate().toString().padStart(2, '0')}/${date.getMonth().toString().padStart(2, '0')} às ${date.getHours().toString().padStart(2, '0')}h${date.getMinutes().toString().padStart(2, '0')}`
+
+		const monthNumber = date.getMonth() + 1
+		const month = monthNumber.toString().padStart(2, '0')
+		const formatedDate = `${date.getDate().toString().padStart(2, '0')}/${month} às ${date.getHours().toString().padStart(2, '0')}h${date.getMinutes().toString().padStart(2, '0')}`
 		let eventNameAndDescription = `${item.name.replace('[CLUBE DO LIVRO]', '')} - ${formatedDate}`
 
 		if (date.getFullYear() === today.getFullYear() && date.getMonth() === today.getMonth() && date.getDate() === today.getDate()) {
