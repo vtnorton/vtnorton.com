@@ -54,8 +54,20 @@
 	box-sizing: content-box;
 }
 
-@media screen and (max-width: 1200px) {}
+@media screen and (max-width: 1200px) {
+	.container.logo {
+		img {
+			left: 25px;
+		}
+	}
+}
 
-@media screen and (max-width: 990px) {}
+@media screen and (max-width: 990px) {
+	.logo-post {
+		img {
+			left: 105px;
+		}
+	}
+}
 
 @media screen and (max-width: 480px) {}
