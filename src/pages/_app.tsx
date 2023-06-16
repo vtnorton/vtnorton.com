@@ -27,7 +27,7 @@ export default function App({ Component, pageProps }: AppProps) {
 				<link rel='shortcut icon' href='/favicon/favicon-32x32.png' />
 			</Head>
 			<VtnortonContextProvider>
-				<LogoComponent componentName={Component.displayName} />
+				<LogoComponent componentName={Component.name} />
 				<Component {...pageProps} />
 			</VtnortonContextProvider>
 		</>

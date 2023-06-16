@@ -9,6 +9,10 @@ const nextConfig = {
 		discordToken: process.env.DISCORD_TOKEN,
 		youtubeKey: process.env.YOUTUBE_KEY,
 	},
+	webpack: (config) => {
+		config.optimization.minimize = false
+		return config
+	},
 }
 
 module.exports = nextConfig
