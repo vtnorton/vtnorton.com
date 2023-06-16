@@ -293,7 +293,7 @@ const mountPostSlug = (result: any): string => {
 	const year = postDate.getFullYear().toString()
 	const month = postDate.getMonth().toString().padStart(2, '0')
 
-	return `${year}/${month}/${pageSlug}`
+	return `/${year}/${month}/${pageSlug}`
 }
 
 const getFeaturedImage = (notionResult: any) => {

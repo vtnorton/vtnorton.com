@@ -272,7 +272,8 @@ article {
 
 @media screen and (max-width: 990px) {
 	article {
-		overflow: auto;
+		overflow: visible;
+		position: absolute;
 
 		&.is--pushed-right {
 			-webkit-transform: translate3d(80%, 0, 0);
@@ -318,29 +319,32 @@ article {
 }
 
 @media screen and (max-width: 540px) {
+	article {
 
-	.header,
-	section {
-		padding: 35px;
-	}
+		.header,
+		section {
+			padding: 35px;
+			z-index: 10;
+		}
 
-	article.is--pushed-right {
-		.header {
-			.see-posts-button {
-				margin-left: -40px;
-			}
+		article.is--pushed-right {
+			.header {
+				.see-posts-button {
+					margin-left: -40px;
+				}
 
-			.info-title {
-				margin-left: 13px;
+				.info-title {
+					margin-left: 13px;
+				}
 			}
 		}
-	}
 
-	.post-related-list {
-		padding: 35px;
+		.post-related-list {
+			padding: 35px;
 
-		.blog-item {
-			width: 100%;
+			.blog-item {
+				width: 100%;
+			}
 		}
 	}
 }

@@ -4,7 +4,8 @@
   "private": true,
   "scripts": {
     "build": "next build",
-    "start": "next dev"
+    "start": "next dev",
+    "start:prod": "next start"
   },
   "repository": {
     "type": "git",

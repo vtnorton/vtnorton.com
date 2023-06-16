@@ -1,3 +1,3 @@
 export interface LogoComponentProps {
-	componentName: string
+	componentName: string | undefined
 }

@@ -1,6 +1,5 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-    target: 'serverless',
 	reactStrictMode: true,
 	env: {
 		notionToken: process.env.NOTION_TOKEN,
@@ -9,6 +8,10 @@ const nextConfig = {
 		instagramAccessToken: process.env.INSTAGRAM_TOKEN,
 		discordToken: process.env.DISCORD_TOKEN,
 		youtubeKey: process.env.YOUTUBE_KEY,
+	},
+	webpack: (config) => {
+		config.optimization.minimize = false
+		return config
 	},
 }
 
