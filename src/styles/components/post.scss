@@ -345,6 +345,14 @@ article {
 	}
 }
 
+@media screen and (max-width: 1300px) {
+	article {
+		.post-related-list {
+			padding: 50px 40px;
+		}
+	}
+}
+
 @media screen and (max-width: 990px) {
 	article {
 		overflow: visible;
@@ -386,6 +394,7 @@ article {
 
 	.post-related-list {
 		width: 80%;
+		padding: 50px 35px;
 
 		h2 {
 			margin-top: calc(6rem + 10px);
@@ -421,5 +430,9 @@ article {
 				width: 100%;
 			}
 		}
+	}
+
+	.post-related-list {
+		padding: 50px 20px;
 	}
 }

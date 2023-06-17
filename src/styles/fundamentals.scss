@@ -54,6 +54,14 @@
 	box-sizing: content-box;
 }
 
+@media screen and (max-width: 1300px) {
+	.logo-post {
+		&.colorized img {
+			left: 42px;
+		}
+	}
+}
+
 @media screen and (max-width: 1200px) {
 	.container.logo {
 		img {
@@ -67,7 +75,17 @@
 		img {
 			left: 105px;
 		}
+
+		&.colorized img {
+			left: 32px;
+		}
 	}
 }
 
-@media screen and (max-width: 480px) {}
+@media screen and (max-width: 480px) {
+	.logo-post {
+		&.colorized img {
+			left: 22px;
+		}
+	}
+}

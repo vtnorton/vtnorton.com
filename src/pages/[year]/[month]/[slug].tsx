@@ -44,7 +44,6 @@ export const getStaticProps = async (context: any) => {
 
 export default function PostDetail({ post, posts }: { post: Post; posts: BlogGridItemProps[] }) {
 	if (!post) {
-		// TODO: adicionar página 404 aqui
 		return <div />
 	}
 
