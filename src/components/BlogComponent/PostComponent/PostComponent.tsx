@@ -5,12 +5,10 @@ import { faArrowLeft, faArrowRight } from '@fortawesome/free-solid-svg-icons'
 import { HashtagListComponent } from './HashtagListComponent'
 import { PostContentComponent } from './PostContentComponent'
 import { PostRelatedContentWrapperComponent } from './PostRelatedContentWrapperComponent'
-import { BlogGridItemProps } from '../BlogGridItem/BlogGridItemProps'
 import { VtnortonContext } from '../../../provider/VtnortonContextProvider'
 import { Changelog } from '../../../interfaces/Changelog'
-import axios from 'axios'
 
-export const PostComponent = ({ post, posts }: { post: Post | Changelog; posts: BlogGridItemProps[] }) => {
+export const PostComponent = ({ post }: { post: Post | Changelog }) => {
 	const { relatedPostVisibility, setRelatedPostVisibility } = useContext(VtnortonContext)
 	const date = new Date(post.date)
 	const monthNumber = date.getMonth() + 1
@@ -18,22 +16,9 @@ export const PostComponent = ({ post, posts }: { post: Post | Changelog; posts: 
 	const formatedDate = `${date.getDate().toString().padStart(2, '0')}/${month} às ${date.getHours().toString().padStart(2, '0')}h${date.getMinutes().toString().padStart(2, '0')}`
 	setRelatedPostVisibility(true)
 
-	const [ps, setps] = useState<BlogGridItemProps[]>([])
-
-	useEffect(() => {
-		axios
-			.get('/api/post')
-			.then((response) => {
-				setps(response.data)
-			})
-			.catch((error) => {
-				console.log('Erro ao obter os dados da API:', error)
-			})
-	}, [ps.length])
-
 	return (
 		<>
-			<PostRelatedContentWrapperComponent posts={ps} />
+			<PostRelatedContentWrapperComponent />
 			<article key={`${post.id}_content`} className={relatedPostVisibility ? 'is--pushed-right' : ''}>
 				<div className='header'>
 					<img src={post.featureImage} alt={post.title} />

@@ -27,12 +27,10 @@ export const getStaticPaths = async () => {
 export const getStaticProps = async (context: any) => {
 	const { slug } = context.params
 
-	const posts: BlogGridItemProps[] = await getBlogSectionItems(42)
 	const post: any = await getPostBySlug(slug)
 
 	let props = {
 		post: post,
-		posts: posts,
 	}
 
 	props = JSON.parse(JSON.stringify(props))
@@ -42,7 +40,7 @@ export const getStaticProps = async (context: any) => {
 	}
 }
 
-export default function PostDetail({ post, posts }: { post: Post; posts: BlogGridItemProps[] }) {
+export default function PostDetail({ post }: { post: Post }) {
 	if (!post) {
 		return <div />
 	}
@@ -50,7 +48,7 @@ export default function PostDetail({ post, posts }: { post: Post; posts: BlogGri
 	return (
 		<>
 			<SeoProps title={post.title} description={post.description} featureImage={post.featureImage} ogType='article' publishedTime={post.date} tags={post.hashtags} />
-			<PostComponent post={post} posts={posts} />
+			<PostComponent post={post} />
 		</>
 	)
 }

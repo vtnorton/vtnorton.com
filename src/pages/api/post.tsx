@@ -13,7 +13,7 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse<
 	}
 
 	const posts: BlogGridItemProps[] = await getBlogSectionItems(42)
-	await kv.setex(cacheKey, 300, posts)
+	await kv.setex(cacheKey, 60 * 60 * 8, posts)
 
 	console.log('returned actual data')
 	res.status(200).json(posts)
