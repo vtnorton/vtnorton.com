@@ -230,6 +230,20 @@ article {
 	overflow-y: scroll;
 	padding: 50px 75px;
 
+	.fui-FluentProvider {
+		background: transparent;
+
+		.skeleton{
+			display: grid;
+			grid-template-columns: 1fr 1fr;
+			gap: 5px;
+
+			.fui-SkeletonItem{
+				height: 300px;
+			}
+		}
+	}
+
 	h2 {
 		line-height: 3.75rem;
 		margin-top: calc(15vh - 50px);

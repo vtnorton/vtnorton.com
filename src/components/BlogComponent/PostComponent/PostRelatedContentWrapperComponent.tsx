@@ -4,7 +4,7 @@ import { BlogGridItemProps } from '../BlogGridItem/BlogGridItemProps'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faChevronRight } from '@fortawesome/free-solid-svg-icons'
 import axios from 'axios'
-import { FluentProvider, Skeleton, SkeletonItem, webLightTheme } from '@fluentui/react-components'
+import { BlogGridItemSkeleton } from '../BlogGrid/BlogGridItemSkeleton'
 
 export const PostRelatedContentWrapperComponent = () => {
 	const [posts, setPosts] = useState<BlogGridItemProps[]>([])
@@ -26,19 +26,7 @@ export const PostRelatedContentWrapperComponent = () => {
 	const renderPosts = () => {
 		if (posts.length !== 0) return <BlogGrid posts={posts} />
 
-		return (
-			<FluentProvider theme={webLightTheme}>
-				<Skeleton as='div' animation='wave' appearance='opaque'>
-					<div className='row blog-grid'>
-						<div className='col-lg-4 col-sm-6 col-xs-12'>
-							<SkeletonItem size={128} />
-							<SkeletonItem size={128} />
-							<SkeletonItem size={128} />
-						</div>
-					</div>
-				</Skeleton>
-			</FluentProvider>
-		)
+		return <BlogGridItemSkeleton />
 	}
 
 	return (
