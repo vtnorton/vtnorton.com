@@ -1,7 +1,7 @@
-import { BlogGridItemProps, PostComponent } from '../../../components'
+import { PostComponent } from '../../../components'
 import { SeoProps } from '../../../database/SEOProps'
 import { Post } from '../../../interfaces/Post'
-import { getBlogSectionItems, getFirstParagraph, getPostBySlug, getPosts } from '../../../services/notionServices'
+import { getPostBySlug, getPosts } from '../../../services/notionServices'
 
 const mountPath = (post: Post) => {
 	const postDate = new Date(post.date)

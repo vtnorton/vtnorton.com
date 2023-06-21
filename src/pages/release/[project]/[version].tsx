@@ -13,7 +13,6 @@ const mountPath = (log: Changelog) => {
 }
 
 export const getStaticPaths = async () => {
-	// TODO: Pegar changelogs
 	const changelogs: Changelog[] = await getChangelogs()
 	return {
 		paths: changelogs.map((log: Changelog) => mountPath(log)),
@@ -46,7 +45,7 @@ export default function PostDetail({ changelog, posts }: { changelog: Changelog;
 	return (
 		<>
 			<SeoProps title={changelog.title} description='' featureImage={changelog.featureImage} ogType='article' publishedTime={changelog.date} tags={[changelog.projectSlug]} />
-			<PostComponent post={changelog} posts={posts} />
+			<PostComponent post={changelog} />
 		</>
 	)
 }
