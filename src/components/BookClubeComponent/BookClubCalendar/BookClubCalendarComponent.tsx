@@ -1,8 +1,11 @@
+import { useEffect, useState } from 'react'
 import { CalendarItem } from '../../../interfaces/CalendarItem'
 import { BookClubCalendarComponentProps } from './BookClubCalendarComponentProps'
+import axios from 'axios'
 
 const renderLive = (items: CalendarItem[]) => {
 	const today = new Date()
+
 	return items.map((item: CalendarItem) => {
 		const date = new Date(item.date)
 
@@ -26,7 +29,22 @@ const renderLive = (items: CalendarItem[]) => {
 	})
 }
 
-const render = (items: CalendarItem[]) => {
+const render = () => {
+	const [items, setItems] = useState<CalendarItem[]>([])
+
+	useEffect(() => {
+		if (items.length === 0) {
+			axios
+				.get('/api/bookclub')
+				.then((response) => {
+					setItems(response.data)
+				})
+				.catch((error) => {
+					console.error('Erro ao obter os dados da API:', error)
+				})
+		}
+	}, [])
+
 	if (items.length == 0) {
 		return (
 			<div className='col-md-12'>
@@ -38,11 +56,11 @@ const render = (items: CalendarItem[]) => {
 	return renderLive(items)
 }
 
-export const BookClubCalendarComponent = (props: BookClubCalendarComponentProps) => {
+export const BookClubCalendarComponent = () => {
 	return (
 		<div className='clube-item'>
 			<h3>➡️ Próximas lives </h3>
-			<div className='row sameheight'>{render(props.calendarItems)}</div>
+			<div className='row sameheight'>{render()}</div>
 		</div>
 	)
 }

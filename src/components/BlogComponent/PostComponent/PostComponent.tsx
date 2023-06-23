@@ -14,7 +14,6 @@ export const PostComponent = ({ post }: { post: Post | Changelog }) => {
 	const monthNumber = date.getMonth() + 1
 	const month = monthNumber.toString().padStart(2, '0')
 	const formatedDate = `${date.getDate().toString().padStart(2, '0')}/${month} às ${date.getHours().toString().padStart(2, '0')}h${date.getMinutes().toString().padStart(2, '0')}`
-	setRelatedPostVisibility(true)
 
 	return (
 		<>

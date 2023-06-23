@@ -12,14 +12,17 @@ export const PostRelatedContentWrapperComponent = () => {
 	useEffect(() => {
 		if (posts.length === 0) {
 			axios
-				.get('/api/post')
+				.get('/api/post', {
+					headers: {
+						vtnPostQuantity: 42,
+					},
+				})
 				.then((response) => {
-					// setPosts(response.data)
+					setPosts(response.data)
 				})
 				.catch((error) => {
-					console.log('Erro ao obter os dados da API:', error)
+					console.error('Erro ao obter os dados da API:', error)
 				})
-			console.log('bateu na api')
 		}
 	}, [])
 

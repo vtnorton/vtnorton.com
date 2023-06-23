@@ -15,7 +15,7 @@ export const BookClubComponent = (props: BookClubComponentProps) => {
 					</a>
 					.
 				</p>
-				<BookClubCalendarComponent calendarItems={props.calendarItems} />
+				<BookClubCalendarComponent />
 				<BookClubLatestVideosProps playlists={props.playlists} />
 			</div>
 		</section>
