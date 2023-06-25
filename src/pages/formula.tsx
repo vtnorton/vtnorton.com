@@ -7,7 +7,6 @@ import { useEffect, useState } from 'react'
 
 import { BlogGridItemProps, ChangelogComponent, FooterComponent, NextProjectComponent, PageHeroComponent, ProductShelfComponent, SliderComponent, SliderImage, VtnButtonComponent } from '../components'
 import { BlogGrid } from '../components/BlogComponent/BlogGrid/BlogGrid'
-import { BlogGridItemSkeleton } from '../components/BlogComponent/BlogGrid/BlogGridItemSkeleton'
 import { ThreeColumnItemsComponent } from '../components/others/ThreeColumnItemsComponent/ThreeColumnItemsComponent'
 import { ThreeColumnItem } from '../components/others/ThreeColumnItemsComponent/ThreeColumnItemsComponentProps'
 import { SeoProps } from '../database/SEOProps'

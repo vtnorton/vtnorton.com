@@ -81,3 +81,18 @@
 .project-next[data-scrolled-into-view="true"] {
 	transform: matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1);
 }
+
+@media screen and (max-width: 480px) {
+	.project-next {
+		padding: 35px;
+		margin: 0 -35px;
+
+		img {
+			max-width: 80px;
+		}
+
+		.meta-project h1 {
+			font-size: 2rem;
+		}
+	}
+}
