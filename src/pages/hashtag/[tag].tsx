@@ -4,6 +4,8 @@ import { BlogGrid } from '../../components/BlogComponent/BlogGrid/BlogGrid'
 import { SeoProps } from '../../database/SEOProps'
 import { Hashtag } from '../../interfaces'
 import { getBlogSectionItems, getHashtags } from '../../services/notionServices'
+import { useEffect, useState } from 'react'
+import axios from 'axios'
 
 const mountPath = (tag: Hashtag) => {
 	return {
@@ -24,10 +26,8 @@ export const getStaticPaths = async () => {
 
 export const getStaticProps = async (context: any) => {
 	const { tag } = context.params
-	const posts: BlogGridItemProps[] = await getBlogSectionItems(100, tag)
 
 	let props = {
-		posts: posts,
 		tag: tag,
 	}
 
@@ -38,8 +38,28 @@ export const getStaticProps = async (context: any) => {
 	}
 }
 
-export default function PostDetail({ posts, tag }: { posts: BlogGridItemProps[]; tag: string }) {
+export default function Hashtag({ tag }: { tag: string }) {
 	const router = useRouter()
+		const [posts, setPosts] = useState<BlogGridItemProps[]>([])
+
+	useEffect(() => {
+		if (posts.length === 0) {
+			axios
+				.get('/api/post', {
+					params: {
+						quantity: 150,
+						tag: tag
+					},
+				})
+				.then((response) => {
+					setPosts(response.data)
+				})
+				.catch((error) => {
+					console.error('Erro ao obter os dados da API:', error)
+				})
+		}
+	}, [])
+	
 	if (router.isFallback) {
 		return <p>Carregando...</p>
 	}

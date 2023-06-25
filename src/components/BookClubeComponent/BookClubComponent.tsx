@@ -1,8 +1,7 @@
 import { BookClubCalendarComponent } from './BookClubCalendar/BookClubCalendarComponent'
-import { BookClubComponentProps } from './BookClubComponentProps'
-import { BookClubLatestVideosProps } from './YoutubeBookClubComponent/BookClubLatestVideosProps'
+import { BookClubLatestVideos } from './YoutubeBookClubComponent/BookClubLatestVideos'
 
-export const BookClubComponent = (props: BookClubComponentProps) => {
+export const BookClubComponent = () => {
 	return (
 		<section>
 			<div className='clube-livro'>
@@ -16,7 +15,7 @@ export const BookClubComponent = (props: BookClubComponentProps) => {
 					.
 				</p>
 				<BookClubCalendarComponent />
-				<BookClubLatestVideosProps playlists={props.playlists} />
+				<BookClubLatestVideos />
 			</div>
 		</section>
 	)

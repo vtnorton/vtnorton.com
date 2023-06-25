@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from 'react'
-import { getBlogSectionItems } from '../services/notionServices'
 import { BlogGrid } from '../components/BlogComponent/BlogGrid/BlogGrid'
 import { BlogGridItemProps, FooterComponent, PageHeroComponent, ProfileComponent } from '../components'
 import { SeoProps } from '../database/SEOProps'
@@ -12,8 +11,9 @@ export default function BlogPage() {
 		if (posts.length === 0) {
 			axios
 				.get('/api/post', {
-					headers: {
-						vtnPostQuantity: 150,
+					params: {
+						// TODO: fazer esquema de paginação
+						quantity: 150,
 					},
 				})
 				.then((response) => {

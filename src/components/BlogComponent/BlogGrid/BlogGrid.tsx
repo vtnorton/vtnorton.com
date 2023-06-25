@@ -1,8 +1,12 @@
 import React from 'react'
-import { BlogGridItemProps } from '../BlogGridItem/BlogGridItemProps'
+
 import { BlogGridItem } from '../BlogGridItem/BlogGridItem'
+import { BlogGridItemProps } from '../BlogGridItem/BlogGridItemProps'
+import { BlogGridItemSkeleton } from './BlogGridItemSkeleton'
 
 export const BlogGrid = ({ posts }: { posts: BlogGridItemProps[] }) => {
+	if (posts.length === 0) return <BlogGridItemSkeleton />
+
 	return (
 		<div className='blog-grid row'>
 			{posts.map((post: BlogGridItemProps) => (

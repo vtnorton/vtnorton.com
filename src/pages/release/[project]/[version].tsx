@@ -1,7 +1,7 @@
-import { BlogGridItemProps, PostComponent } from '../../../components'
+import { PostComponent } from '../../../components'
 import { SeoProps } from '../../../database/SEOProps'
 import { Changelog } from '../../../interfaces/Changelog'
-import { getBlogSectionItems, getChangelogByVersion, getChangelogs } from '../../../services/notionServices'
+import { getChangelogByVersion, getChangelogs } from '../../../services/notionServices'
 
 const mountPath = (log: Changelog) => {
 	return {
@@ -22,13 +22,10 @@ export const getStaticPaths = async () => {
 
 export const getStaticProps = async (context: any) => {
 	const { project, version } = context.params
-
-	const posts: BlogGridItemProps[] = await getBlogSectionItems(42, project)
 	const changelog: any = await getChangelogByVersion(project, version)
 
 	let props = {
 		changelog: changelog,
-		posts: posts,
 	}
 
 	props = JSON.parse(JSON.stringify(props))
@@ -37,7 +34,7 @@ export const getStaticProps = async (context: any) => {
 		revalidate: 60 * 60 * 1,
 	}
 }
-export default function PostDetail({ changelog, posts }: { changelog: Changelog; posts: BlogGridItemProps[] }) {
+export default function PostDetail({ changelog }: { changelog: Changelog }) {
 	if (!changelog) {
 		// TODO: adicionar página 404 aqui
 		return <div />

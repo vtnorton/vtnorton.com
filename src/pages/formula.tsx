@@ -1,31 +1,20 @@
-import { useRouter } from 'next/router'
-import { BlogGridItemProps, ChangelogComponent, FooterComponent, NextProjectComponent, PageHeroComponent, ProductShelfComponent, SliderComponent, SliderImage, VtnButtonComponent } from '../components'
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faWindows } from '@fortawesome/free-brands-svg-icons'
+import { faChevronRight } from '@fortawesome/free-solid-svg-icons'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import axios from 'axios'
+import { useRouter } from 'next/router'
+import { useEffect, useState } from 'react'
+
+import { BlogGridItemProps, ChangelogComponent, FooterComponent, NextProjectComponent, PageHeroComponent, ProductShelfComponent, SliderComponent, SliderImage, VtnButtonComponent } from '../components'
+import { BlogGrid } from '../components/BlogComponent/BlogGrid/BlogGrid'
+import { BlogGridItemSkeleton } from '../components/BlogComponent/BlogGrid/BlogGridItemSkeleton'
 import { ThreeColumnItemsComponent } from '../components/others/ThreeColumnItemsComponent/ThreeColumnItemsComponent'
 import { ThreeColumnItem } from '../components/others/ThreeColumnItemsComponent/ThreeColumnItemsComponentProps'
-import { BlogGrid } from '../components/BlogComponent/BlogGrid/BlogGrid'
-import { getBlogSectionItems, getChangelogSectionItems } from '../services/notionServices'
-import { faChevronRight } from '@fortawesome/free-solid-svg-icons'
 import { SeoProps } from '../database/SEOProps'
 
-const projectSlug = 'formula'
-
-export const getStaticProps = async () => {
-	try {
-		const posts = await getBlogSectionItems(6, projectSlug, false)
-		const changelogs = await getChangelogSectionItems(projectSlug)
-
-		let props = { posts: posts, changelogs: changelogs }
-		props = JSON.parse(JSON.stringify(props))
-		return { props, revalidate: 60 * 60 * 1 }
-	} catch (err) {
-		throw err
-	}
-}
-
-export default function Formula({ posts, changelogs }: { posts: BlogGridItemProps[]; changelogs: BlogGridItemProps[] }) {
+export default function Formula() {
 	const router = useRouter()
+	const projectSlug = 'formula'
 	const benefits: ThreeColumnItem[] = [
 		{
 			title: '🌃 Fluent Design + Dark Mode',
@@ -57,7 +46,6 @@ export default function Formula({ posts, changelogs }: { posts: BlogGridItemProp
 			),
 		},
 	]
-
 	const itemsForSlider: SliderImage[] = [
 		{
 			imageUrl: '/img/projects/formula/001.webp',
@@ -80,6 +68,27 @@ export default function Formula({ posts, changelogs }: { posts: BlogGridItemProp
 			imageAlt: 'Captura de tela do aplicativo',
 		},
 	]
+
+	const [posts, setPosts] = useState<BlogGridItemProps[]>([])
+
+	useEffect(() => {
+		if (posts.length === 0) {
+			axios
+				.get('/api/post', {
+					params: {
+						quantity: 6,
+						tag: projectSlug,
+						hideChangelogs: true,
+					},
+				})
+				.then((response) => {
+					setPosts(response.data)
+				})
+				.catch((error) => {
+					console.error('Erro ao obter os dados da API:', error)
+				})
+		}
+	}, [])
 
 	const buttons = () => {
 		return (
@@ -113,7 +122,7 @@ export default function Formula({ posts, changelogs }: { posts: BlogGridItemProp
 
 			<SliderComponent items={itemsForSlider} />
 
-			<ChangelogComponent posts={changelogs} productSlug={projectSlug} />
+			<ChangelogComponent productSlug={projectSlug} />
 
 			<div className='container'>
 				<section>

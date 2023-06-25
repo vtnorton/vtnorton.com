@@ -1,4 +1,3 @@
-import { useRouter } from 'next/router'
 import { ConsultingShowcaseComponent, DevelopmentShowcaseComponent, FooterComponent, PageHeroComponent, ProductShelfComponent, ProfileComponent } from '../components'
 import { ThreeColumnItemsComponent } from '../components/others/ThreeColumnItemsComponent/ThreeColumnItemsComponent'
 import { ThreeColumnItem } from '../components/others/ThreeColumnItemsComponent/ThreeColumnItemsComponentProps'

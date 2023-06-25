@@ -1,8 +1,9 @@
 import Carousel from 'react-multi-carousel'
 import { PodcastEpisode } from '../../interfaces/PodcastEpisode'
 import { PodcastItem } from './PodcastItem'
-import { PodcastsComponentProps } from './PodcastsComponentProps'
 import 'react-multi-carousel/lib/styles.css'
+import { useEffect, useState } from 'react'
+import axios from 'axios'
 
 const renderPodcastList = (items: PodcastEpisode[]) => {
 	const responsive = {
@@ -31,7 +32,22 @@ const renderPodcastList = (items: PodcastEpisode[]) => {
 	)
 }
 
-export const PodcastsComponent = (props: PodcastsComponentProps) => {
+export const PodcastsComponent = () => {
+	const [items, setItems] = useState<PodcastEpisode[]>([])
+
+	useEffect(() => {
+		if (items.length === 0) {
+			axios
+				.get('/api/podcast')
+				.then((response) => {
+					setItems(response.data)
+				})
+				.catch((error) => {
+					console.error('Erro ao obter os dados da API:', error)
+				})
+		}
+	}, [])
+
 	return (
 		<>
 			<div className='container podcasts'>
@@ -45,7 +61,7 @@ export const PodcastsComponent = (props: PodcastsComponentProps) => {
 					</div>
 				</section>
 			</div>
-			<div className='podcast-list-wrapper'>{renderPodcastList(props.items)}</div>
+			<div className='podcast-list-wrapper'>{renderPodcastList(items)}</div>
 		</>
 	)
 }

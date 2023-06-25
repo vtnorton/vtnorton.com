@@ -1,10 +1,11 @@
-import React, { useEffect, useState } from 'react'
-import { BlogGrid } from '../BlogGrid/BlogGrid'
-import { BlogGridItemProps } from '../BlogGridItem/BlogGridItemProps'
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faChevronRight } from '@fortawesome/free-solid-svg-icons'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import axios from 'axios'
+import React, { useEffect, useState } from 'react'
+
+import { BlogGrid } from '../BlogGrid/BlogGrid'
 import { BlogGridItemSkeleton } from '../BlogGrid/BlogGridItemSkeleton'
+import { BlogGridItemProps } from '../BlogGridItem/BlogGridItemProps'
 
 export const PostRelatedContentWrapperComponent = () => {
 	const [posts, setPosts] = useState<BlogGridItemProps[]>([])
@@ -13,8 +14,8 @@ export const PostRelatedContentWrapperComponent = () => {
 		if (posts.length === 0) {
 			axios
 				.get('/api/post', {
-					headers: {
-						vtnPostQuantity: 42,
+					params: {
+						quantity: 42,
 					},
 				})
 				.then((response) => {
@@ -26,12 +27,6 @@ export const PostRelatedContentWrapperComponent = () => {
 		}
 	}, [])
 
-	const renderPosts = () => {
-		if (posts.length !== 0) return <BlogGrid posts={posts} />
-
-		return <BlogGridItemSkeleton />
-	}
-
 	return (
 		<div className='post-related-list'>
 			<div className='row'>
@@ -40,7 +35,7 @@ export const PostRelatedContentWrapperComponent = () => {
 				</div>
 			</div>
 
-			{renderPosts()}
+			<BlogGrid posts={posts} />
 
 			<div className='row'>
 				<div className='right'>

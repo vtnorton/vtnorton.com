@@ -1,6 +1,5 @@
 import { useEffect, useState } from 'react'
 import { CalendarItem } from '../../../interfaces/CalendarItem'
-import { BookClubCalendarComponentProps } from './BookClubCalendarComponentProps'
 import axios from 'axios'
 
 const renderLive = (items: CalendarItem[]) => {
