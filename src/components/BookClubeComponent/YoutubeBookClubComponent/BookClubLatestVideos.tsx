@@ -1,8 +1,9 @@
+import { FluentProvider, Spinner, webLightTheme } from '@fluentui/react-components'
+import axios from 'axios'
 import { useEffect, useState } from 'react'
+
 import { Playlist } from '../../../interfaces/YouTube/Playlist'
 import { BookClubPlaylistCardComponent } from './BookClubPlaylistCardComponent'
-import axios from 'axios'
-import { FluentProvider, Spinner, webLightTheme } from '@fluentui/react-components'
 
 export const BookClubLatestVideos = () => {
 	const [items, setItems] = useState<Playlist[]>([])

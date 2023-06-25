@@ -1,7 +1,8 @@
-import React from 'react'
 import dynamic from 'next/dynamic'
-import TweetEmbed from 'react-tweet-embed'
+import React from 'react'
 import { NotionRenderer } from 'react-notion-x'
+import TweetEmbed from 'react-tweet-embed'
+
 import { HashtagListComponent } from './HashtagListComponent'
 
 const Code = dynamic(() =>

@@ -1,6 +1,8 @@
 import { useRouter } from 'next/router'
+
 import { FooterComponent, NextProjectComponent, PageHeroComponent } from '../../components'
 import { SeoProps } from '../../database/SEOProps'
+
 export default function OneNote() {
 	const router = useRouter()
 

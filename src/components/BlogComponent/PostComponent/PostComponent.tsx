@@ -1,12 +1,13 @@
-import React, { useContext, useEffect, useState } from 'react'
-import { Post } from '../../../interfaces/Post'
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faArrowLeft, faArrowRight } from '@fortawesome/free-solid-svg-icons'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import React, { useContext } from 'react'
+
+import { Changelog } from '../../../interfaces/Changelog'
+import { Post } from '../../../interfaces/Post'
+import { VtnortonContext } from '../../../provider/VtnortonContextProvider'
 import { HashtagListComponent } from './HashtagListComponent'
 import { PostContentComponent } from './PostContentComponent'
 import { PostRelatedContentWrapperComponent } from './PostRelatedContentWrapperComponent'
-import { VtnortonContext } from '../../../provider/VtnortonContextProvider'
-import { Changelog } from '../../../interfaces/Changelog'
 
 export const PostComponent = ({ post }: { post: Post | Changelog }) => {
 	const { relatedPostVisibility, setRelatedPostVisibility } = useContext(VtnortonContext)

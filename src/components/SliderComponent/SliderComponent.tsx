@@ -1,6 +1,7 @@
-import Carousel from 'react-multi-carousel'
-import { SliderComponnetProps } from './SliderComponentProps'
 import React from 'react'
+import Carousel from 'react-multi-carousel'
+
+import { SliderComponnetProps } from './SliderComponentProps'
 
 export const SliderComponent = (props: SliderComponnetProps) => {
 	const CustomDot = ({ onClick, active, index, carouselState }: { onClick: any; active: boolean; index: number; carouselState: any }) => {

@@ -1,6 +1,7 @@
 import axios from 'axios'
-import { CalendarItem } from '../interfaces/CalendarItem'
 import { APIGuildScheduledEvent } from 'discord-api-types/v10'
+
+import { CalendarItem } from '../interfaces/CalendarItem'
 
 const guildId = '828792462453112862'
 const discordToken = process.env.discordToken

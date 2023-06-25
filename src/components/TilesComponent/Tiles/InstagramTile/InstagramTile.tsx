@@ -1,8 +1,9 @@
+import { FluentProvider, Spinner, webLightTheme } from '@fluentui/react-components'
+import axios from 'axios'
 import { useEffect, useState } from 'react'
+
 import { InstagramItem } from '../../../../interfaces'
 import { InstagramTileProps } from './InstagramTileProps'
-import axios from 'axios'
-import { FluentProvider, Spinner, webLightTheme } from '@fluentui/react-components'
 
 export const InstagramTile = (props: InstagramTileProps) => {
 	const [items, setItems] = useState<InstagramItem[]>([])

@@ -1,4 +1,5 @@
 import { useRouter } from 'next/router'
+
 import { FooterComponent, NextProjectComponent, PageHeroComponent, ProductShelfComponent, SliderComponent, SliderImage } from '../../components'
 import { SeoProps } from '../../database/SEOProps'
 

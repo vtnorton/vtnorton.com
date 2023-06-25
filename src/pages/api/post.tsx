@@ -1,7 +1,8 @@
 import { kv } from '@vercel/kv'
 import type { NextApiRequest, NextApiResponse } from 'next'
-import { getBlogSectionItems } from '../../services/notionServices'
+
 import { BlogGridItemProps } from '../../components'
+import { getBlogSectionItems } from '../../services/notionServices'
 import { generateRssFeed } from '../../services/rssServices'
 
 export default async function handler(req: NextApiRequest, res: NextApiResponse<BlogGridItemProps[]>) {

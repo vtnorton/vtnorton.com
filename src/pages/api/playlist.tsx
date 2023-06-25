@@ -1,5 +1,6 @@
-import type { NextApiRequest, NextApiResponse } from 'next'
 import { kv } from '@vercel/kv'
+import type { NextApiRequest, NextApiResponse } from 'next'
+
 import { Playlist } from '../../interfaces'
 import { getPlaylistsFromClubeDoLivro } from '../../services/youtubeServices'
 

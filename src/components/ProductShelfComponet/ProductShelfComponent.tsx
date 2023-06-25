@@ -1,10 +1,11 @@
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { Product } from '../../interfaces/Product'
-import { ProductShelfItemComponent } from './ProductShelfItemComponent'
-import { productsItems } from '../../database/ProductShelfItems'
 import { faChevronRight } from '@fortawesome/free-solid-svg-icons'
-import { ProductShelfComponentProps } from './ProductShelfComponentProps'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { useState } from 'react'
+
+import { productsItems } from '../../database/ProductShelfItems'
+import { Product } from '../../interfaces/Product'
+import { ProductShelfComponentProps } from './ProductShelfComponentProps'
+import { ProductShelfItemComponent } from './ProductShelfItemComponent'
 
 export const ProductShelfComponent = (props: ProductShelfComponentProps) => {
 	const [showUnsupportedProjects, setShowUnsupportedProjects] = useState(false)

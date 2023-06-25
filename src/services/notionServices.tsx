@@ -1,11 +1,12 @@
 import { Client } from '@notionhq/client'
 import { NotionAPI } from 'notion-client'
-import { Post } from '../interfaces/Post'
+
+import { BlogGridItemProps } from '../components'
+import { PostType } from '../interfaces'
+import { Changelog } from '../interfaces/Changelog'
 import { Hashtag } from '../interfaces/Hashtag'
 import { PodcastEpisode } from '../interfaces/PodcastEpisode'
-import { BlogGridItemProps } from '../components'
-import { Changelog } from '../interfaces/Changelog'
-import { PostType } from '../interfaces'
+import { Post } from '../interfaces/Post'
 
 const notion = new Client({
 	auth: process.env.notionSecret,

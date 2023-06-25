@@ -1,4 +1,5 @@
 import axios from 'axios'
+
 import { InstagramItem } from '../interfaces/InstagramItem'
 
 async function fetchInstagramMedia(userId: string, accessToken: string): Promise<any> {

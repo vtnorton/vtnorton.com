@@ -5,7 +5,6 @@ import * as React from 'react'
 import { useEffect, useState } from 'react'
 
 import { BlogGrid } from './BlogGrid/BlogGrid'
-import { BlogGridItemSkeleton } from './BlogGrid/BlogGridItemSkeleton'
 import { BlogGridItemProps } from './BlogGridItem/BlogGridItemProps'
 
 export const BlogComponent = () => {

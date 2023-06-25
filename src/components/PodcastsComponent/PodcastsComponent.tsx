@@ -1,9 +1,10 @@
+import axios from 'axios'
+import { useEffect, useState } from 'react'
 import Carousel from 'react-multi-carousel'
+import 'react-multi-carousel/lib/styles.css'
+
 import { PodcastEpisode } from '../../interfaces/PodcastEpisode'
 import { PodcastItem } from './PodcastItem'
-import 'react-multi-carousel/lib/styles.css'
-import { useEffect, useState } from 'react'
-import axios from 'axios'
 
 const renderPodcastList = (items: PodcastEpisode[]) => {
 	const responsive = {

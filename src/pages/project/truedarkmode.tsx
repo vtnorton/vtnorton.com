@@ -1,8 +1,10 @@
-import { useRouter } from 'next/router'
-import { FooterComponent, NextProjectComponent, PageHeroComponent, ProductShelfComponent } from '../../components'
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faGithub } from '@fortawesome/free-brands-svg-icons'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { useRouter } from 'next/router'
+
+import { FooterComponent, NextProjectComponent, PageHeroComponent, ProductShelfComponent } from '../../components'
 import { SeoProps } from '../../database/SEOProps'
+
 export default function TrueDarkMode() {
 	const router = useRouter()
 

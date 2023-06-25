@@ -1,8 +1,9 @@
-import React, { useEffect, useState } from 'react'
-import { BlogGrid } from '../components/BlogComponent/BlogGrid/BlogGrid'
-import { BlogGridItemProps, FooterComponent, PageHeroComponent, ProfileComponent } from '../components'
-import { SeoProps } from '../database/SEOProps'
 import axios from 'axios'
+import React, { useEffect, useState } from 'react'
+
+import { BlogGridItemProps, FooterComponent, PageHeroComponent, ProfileComponent } from '../components'
+import { BlogGrid } from '../components/BlogComponent/BlogGrid/BlogGrid'
+import { SeoProps } from '../database/SEOProps'
 
 export default function BlogPage() {
 	const [posts, setPosts] = useState<BlogGridItemProps[]>([])

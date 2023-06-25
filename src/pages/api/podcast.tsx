@@ -1,5 +1,6 @@
-import type { NextApiRequest, NextApiResponse } from 'next'
 import { kv } from '@vercel/kv'
+import type { NextApiRequest, NextApiResponse } from 'next'
+
 import { PodcastEpisode } from '../../interfaces'
 import { getPodcasts } from '../../services/notionServices'
 

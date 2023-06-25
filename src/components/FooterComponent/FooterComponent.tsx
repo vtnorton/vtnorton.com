@@ -1,4 +1,5 @@
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+
 import { SocialProfiles } from '../../database/SocialMedias'
 import { SocialProfile } from '../../interfaces'
 

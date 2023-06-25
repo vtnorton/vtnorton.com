@@ -1,9 +1,10 @@
 import React from 'react'
+
 import {
 	AthenaPromoComponent,
+	BlogComponent,
 	BookClubComponent,
 	FooterComponent,
-	BlogComponent,
 	ForBusinessComponent,
 	FormulaPromoComponent,
 	HeartthrobPromoComponent,

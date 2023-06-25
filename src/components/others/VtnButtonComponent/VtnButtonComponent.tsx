@@ -1,6 +1,7 @@
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { VtnButtonComponentPros } from './VtnButtonComponentProps'
 import { faChevronRight } from '@fortawesome/free-solid-svg-icons'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+
+import { VtnButtonComponentPros } from './VtnButtonComponentProps'
 
 export const VtnButtonComponent = (props: VtnButtonComponentPros) => {
 	const classesNames = !props.isLink ? `btn ${props.classesNames}` : 'btn btn-link'

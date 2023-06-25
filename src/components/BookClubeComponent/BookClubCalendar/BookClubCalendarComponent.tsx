@@ -1,6 +1,7 @@
-import { useEffect, useState } from 'react'
-import { CalendarItem } from '../../../interfaces/CalendarItem'
 import axios from 'axios'
+import { useEffect, useState } from 'react'
+
+import { CalendarItem } from '../../../interfaces/CalendarItem'
 
 const renderLive = (items: CalendarItem[]) => {
 	const today = new Date()

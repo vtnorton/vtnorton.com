@@ -1,7 +1,8 @@
-import type { NextApiRequest, NextApiResponse } from 'next'
 import { kv } from '@vercel/kv'
-import { getClubeDoLivroEvents } from '../../services/calendarServices'
+import type { NextApiRequest, NextApiResponse } from 'next'
+
 import { CalendarItem } from '../../interfaces'
+import { getClubeDoLivroEvents } from '../../services/calendarServices'
 
 export default async function handler(req: NextApiRequest, res: NextApiResponse<CalendarItem[]>) {
 	const cacheKey = 'bookclub'

@@ -5,7 +5,6 @@ import { useEffect, useState } from 'react'
 
 import { BlogGridItemProps } from '../BlogComponent'
 import { BlogGrid } from '../BlogComponent/BlogGrid/BlogGrid'
-import { BlogGridItemSkeleton } from '../BlogComponent/BlogGrid/BlogGridItemSkeleton'
 
 export const ChangelogComponent = ({ productSlug }: { productSlug: string }) => {
 	const [posts, setPosts] = useState<BlogGridItemProps[]>([])
