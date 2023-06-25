@@ -1,10 +1,31 @@
-import React from 'react'
+import { faChevronRight } from '@fortawesome/free-solid-svg-icons'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import axios from 'axios'
+import React, { useEffect, useState } from 'react'
+
 import { BlogGrid } from '../BlogGrid/BlogGrid'
 import { BlogGridItemProps } from '../BlogGridItem/BlogGridItemProps'
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faChevronRight } from '@fortawesome/free-solid-svg-icons'
 
-export const PostRelatedContentWrapperComponent = ({ posts }: { posts: BlogGridItemProps[] }) => {
+export const PostRelatedContentWrapperComponent = () => {
+	const [posts, setPosts] = useState<BlogGridItemProps[]>([])
+
+	useEffect(() => {
+		if (posts.length === 0) {
+			axios
+				.get('/api/post', {
+					params: {
+						quantity: 42,
+					},
+				})
+				.then((response) => {
+					setPosts(response.data)
+				})
+				.catch((error) => {
+					console.error('Erro ao obter os dados da API:', error)
+				})
+		}
+	}, [])
+
 	return (
 		<div className='post-related-list'>
 			<div className='row'>
@@ -12,6 +33,7 @@ export const PostRelatedContentWrapperComponent = ({ posts }: { posts: BlogGridI
 					<h2>📰 Outras postagens</h2>
 				</div>
 			</div>
+
 			<BlogGrid posts={posts} />
 
 			<div className='row'>

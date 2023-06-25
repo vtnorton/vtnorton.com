@@ -1,4 +1,5 @@
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+
 import { SocialProfiles } from '../../database/SocialMedias'
 import { SocialProfile } from '../../interfaces'
 
@@ -7,7 +8,7 @@ export const FooterComponent = () => {
 		return (
 			<div className='social'>
 				{SocialProfiles.map((item: SocialProfile, index: number) => (
-					<a key={index} href={item.url} target='_blank'>
+					<a key={index} href={item.url} target='_blank' rel='noopener noreferrer'>
 						<FontAwesomeIcon icon={item.icon} />
 					</a>
 				))}

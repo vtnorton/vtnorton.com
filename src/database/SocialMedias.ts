@@ -1,6 +1,7 @@
 import { faGithub, faInstagram, faLinkedin, faTwitch, faTwitter, faYoutube } from '@fortawesome/free-brands-svg-icons'
-import { SocialMedias, SocialProfile } from '../interfaces'
 import { faRss } from '@fortawesome/free-solid-svg-icons'
+
+import { SocialMedias, SocialProfile } from '../interfaces'
 
 export const SocialProfiles: SocialProfile[] = [
 	{

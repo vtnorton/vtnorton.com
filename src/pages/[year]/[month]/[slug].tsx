@@ -1,7 +1,7 @@
-import { BlogGridItemProps, PostComponent } from '../../../components'
+import { PostComponent } from '../../../components'
 import { SeoProps } from '../../../database/SEOProps'
 import { Post } from '../../../interfaces/Post'
-import { getBlogSectionItems, getFirstParagraph, getPostBySlug, getPosts } from '../../../services/notionServices'
+import { getPostBySlug, getPosts } from '../../../services/notionServices'
 
 const mountPath = (post: Post) => {
 	const postDate = new Date(post.date)
@@ -27,12 +27,10 @@ export const getStaticPaths = async () => {
 export const getStaticProps = async (context: any) => {
 	const { slug } = context.params
 
-	const posts: BlogGridItemProps[] = await getBlogSectionItems(42)
 	const post: any = await getPostBySlug(slug)
 
 	let props = {
 		post: post,
-		posts: posts,
 	}
 
 	props = JSON.parse(JSON.stringify(props))
@@ -42,16 +40,15 @@ export const getStaticProps = async (context: any) => {
 	}
 }
 
-export default function PostDetail({ post, posts }: { post: Post; posts: BlogGridItemProps[] }) {
+export default function PostDetail({ post }: { post: Post }) {
 	if (!post) {
-		// TODO: adicionar página 404 aqui
 		return <div />
 	}
 
 	return (
 		<>
 			<SeoProps title={post.title} description={post.description} featureImage={post.featureImage} ogType='article' publishedTime={post.date} tags={post.hashtags} />
-			<PostComponent post={post} posts={posts} />
+			<PostComponent post={post} />
 		</>
 	)
 }

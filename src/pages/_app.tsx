@@ -1,9 +1,10 @@
 import type { AppProps } from 'next/app'
 import Head from 'next/head'
+
 import '../../node_modules/heartthrob/build/heartthrob.css'
-import '../styles/global.scss'
 import { LogoComponent } from '../components'
 import { VtnortonContextProvider } from '../provider/VtnortonContextProvider'
+import '../styles/global.scss'
 
 export default function App({ Component, pageProps }: AppProps) {
 	return (

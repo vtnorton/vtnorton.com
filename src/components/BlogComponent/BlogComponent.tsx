@@ -1,15 +1,38 @@
-import * as React from 'react'
 import { faChevronRight } from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { BlogGrid } from './BlogGrid/BlogGrid'
+import axios from 'axios'
+import * as React from 'react'
+import { useEffect, useState } from 'react'
 
-export const BlogComponent = (props: any) => {
+import { BlogGrid } from './BlogGrid/BlogGrid'
+import { BlogGridItemProps } from './BlogGridItem/BlogGridItemProps'
+
+export const BlogComponent = () => {
+	const [posts, setPosts] = useState<BlogGridItemProps[]>([])
+
+	useEffect(() => {
+		if (posts.length === 0) {
+			axios
+				.get('/api/post', {
+					params: {
+						quantity: 12,
+					},
+				})
+				.then((response) => {
+					setPosts(response.data)
+				})
+				.catch((error) => {
+					console.error('Erro ao obter os dados da API:', error)
+				})
+		}
+	}, [])
+
 	return (
 		<div className='container'>
 			<section>
 				<div className='blog'>
 					<h1>📰 artigos do blog</h1>
-					<BlogGrid posts={props.posts} />
+					<BlogGrid posts={posts} />
 					<div className='right'>
 						<div className='space-long'></div>
 						<a href='/blog' className='btn btn-primary'>

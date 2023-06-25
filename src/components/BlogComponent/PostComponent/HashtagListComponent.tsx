@@ -1,5 +1,4 @@
 import React from 'react'
-import { Hashtag } from '../../../interfaces'
 
 export const HashtagListComponent = ({ hashtags }: { hashtags: string[] }) => {
 	return (

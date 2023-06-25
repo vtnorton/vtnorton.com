@@ -1,7 +1,8 @@
 import { NextSeo, NextSeoProps } from 'next-seo'
 import { useRouter } from 'next/router'
-import { GetProfile } from './SocialMedias'
+
 import { SocialMedias } from '../interfaces'
+import { GetProfile } from './SocialMedias'
 
 interface Props {
 	title: string

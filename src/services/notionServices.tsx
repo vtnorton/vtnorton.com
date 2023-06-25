@@ -1,11 +1,12 @@
 import { Client } from '@notionhq/client'
 import { NotionAPI } from 'notion-client'
-import { Post } from '../interfaces/Post'
+
+import { BlogGridItemProps } from '../components'
+import { PostType } from '../interfaces'
+import { Changelog } from '../interfaces/Changelog'
 import { Hashtag } from '../interfaces/Hashtag'
 import { PodcastEpisode } from '../interfaces/PodcastEpisode'
-import { BlogGridItemProps } from '../components'
-import { Changelog } from '../interfaces/Changelog'
-import { PostType } from '../interfaces'
+import { Post } from '../interfaces/Post'
 
 const notion = new Client({
 	auth: process.env.notionSecret,
@@ -216,7 +217,7 @@ export const getChangelogByVersion = async (projectName: string, version: string
 	return log
 }
 
-export const getChangelogSectionItems = async (projectSlug?: string, numberOfPosts: number = 3): Promise<BlogGridItemProps[]> => {
+export const getChangelogSectionItems = async (projectSlug?: string): Promise<BlogGridItemProps[]> => {
 	const logs = await getChangelogs(projectSlug)
 	let blogGridItems: BlogGridItemProps[] = []
 
@@ -231,10 +232,10 @@ export const getChangelogSectionItems = async (projectSlug?: string, numberOfPos
 		})
 	})
 
-	return blogGridItems.slice(0, numberOfPosts)
+	return blogGridItems
 }
 
-export const getBlogSectionItems = async (numberOfPosts: number = 12, tag?: string, showChangelogs: boolean = true): Promise<BlogGridItemProps[]> => {
+export const getBlogSectionItems = async (tag?: string, showChangelogs: boolean = true): Promise<BlogGridItemProps[]> => {
 	const posts = await getPosts(tag)
 	const blogGridItems: BlogGridItemProps[] = []
 
@@ -251,12 +252,12 @@ export const getBlogSectionItems = async (numberOfPosts: number = 12, tag?: stri
 	})
 
 	if (showChangelogs) {
-		const changelogs = await getChangelogSectionItems(undefined, 100)
+		const changelogs = await getChangelogSectionItems(undefined)
 		blogGridItems.push(...changelogs)
 	}
 	blogGridItems.sort((a, b) => (b.date && a.date ? new Date(b.date).getTime() - new Date(a.date).getTime() : new Date().getTime()))
 
-	return blogGridItems.slice(0, numberOfPosts)
+	return blogGridItems
 }
 
 export const getPage = async (pageId: string) => {

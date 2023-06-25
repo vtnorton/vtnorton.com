@@ -1,23 +1,30 @@
-import React from 'react'
-import { getBlogSectionItems } from '../services/notionServices'
-import { BlogGrid } from '../components/BlogComponent/BlogGrid/BlogGrid'
+import axios from 'axios'
+import React, { useEffect, useState } from 'react'
+
 import { BlogGridItemProps, FooterComponent, PageHeroComponent, ProfileComponent } from '../components'
+import { BlogGrid } from '../components/BlogComponent/BlogGrid/BlogGrid'
 import { SeoProps } from '../database/SEOProps'
 
-export const getStaticProps = async () => {
-	try {
-		let posts = await getBlogSectionItems(100)
+export default function BlogPage() {
+	const [posts, setPosts] = useState<BlogGridItemProps[]>([])
 
-		let props = { posts: posts }
-		props = JSON.parse(JSON.stringify(props))
-
-		return { props, revalidate: 60 * 60 * 1 }
-	} catch (err) {
-		throw err
-	}
-}
-
-export default function BlogPage({ posts }: { posts: BlogGridItemProps[] }) {
+	useEffect(() => {
+		if (posts.length === 0) {
+			axios
+				.get('/api/post', {
+					params: {
+						// TODO: fazer esquema de paginação
+						quantity: 150,
+					},
+				})
+				.then((response) => {
+					setPosts(response.data)
+				})
+				.catch((error) => {
+					console.error('Erro ao obter os dados da API:', error)
+				})
+		}
+	}, [])
 	return (
 		<>
 			<SeoProps title='Blog' description='blog: artigos + informativos + releases' featureImage='/img/pages/blog.jpg' />

@@ -1,9 +1,10 @@
+import { faChevronRight } from '@fortawesome/free-solid-svg-icons'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { useRouter } from 'next/router'
 import React from 'react'
+
 import { FooterComponent, NextProjectComponent, PageHeroComponent, ProductShelfComponent } from '../components'
 import Fancybox from '../components/others/FancyboxComponent/FancyboxComponent'
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faChevronRight } from '@fortawesome/free-solid-svg-icons'
-import { useRouter } from 'next/router'
 import { SeoProps } from '../database/SEOProps'
 
 export default function OlaWolff() {

@@ -1,7 +1,8 @@
-import RSS from 'rss'
 import fs from 'fs'
-import { SEOMetaData } from '../database/SEOProps'
+import RSS from 'rss'
+
 import { BlogGridItemProps } from '../components'
+import { SEOMetaData } from '../database/SEOProps'
 
 export const generateRssFeed = async (items: BlogGridItemProps[]) => {
 	const site_url = 'https://vtnorton.com'

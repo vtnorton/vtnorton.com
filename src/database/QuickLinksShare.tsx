@@ -1,7 +1,8 @@
+import { faEdge } from '@fortawesome/free-brands-svg-icons'
+
 import { VtnButtonComponentPros } from '../components'
-import { faEdge, faTwitch, faTwitter, faYoutube } from '@fortawesome/free-brands-svg-icons'
-import { GetProfile } from './SocialMedias'
 import { SocialMedias } from '../interfaces'
+import { GetProfile } from './SocialMedias'
 
 export const primaryLinks: VtnButtonComponentPros[] = [
 	{

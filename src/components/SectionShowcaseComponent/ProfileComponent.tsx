@@ -1,7 +1,8 @@
+import { faChevronRight } from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+
 import { SectionShowcase } from './SectionShowcaseBaseComponent/SectionShowcaseBaseComponent'
 import { SectionShowcaseComponentProps } from './SectionShowcaseComponentProps'
-import { faChevronRight } from '@fortawesome/free-solid-svg-icons'
 
 export const ProfileComponent = (props: SectionShowcaseComponentProps) => {
 	return (

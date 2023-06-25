@@ -8,5 +8,12 @@
 	"jsxSingleQuote": true,
 	"bracketSameLine": true,
 	"arrowParens": "always",
-	"singleAttributePerLine": false
+	"singleAttributePerLine": false,
+	"importOrder": [
+		"^components/(.*)$",
+		"^services/(.*)$",
+		"^[./]"
+	],
+	"importOrderSeparation": true,
+	"importOrderSortSpecifiers": true
 }
