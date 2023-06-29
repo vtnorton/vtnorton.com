@@ -23,13 +23,18 @@ import { generateRssFeed } from '../services/rssServices'
 export const getStaticProps = async (context: any) => {
 	const posts: BlogGridItemProps[] = await getBlogSectionItems()
 	await generateRssFeed(posts)
+
+	let props = {
+		rss: true,
+	}
+	props = JSON.parse(JSON.stringify(props))
 	return {
-		undefined,
+		props,
 		revalidate: 60 * 60 * 1,
 	}
 }
 
-export default function Index() {
+export default function Index({ rss }: { rss: boolean }) {
 	return (
 		<>
 			<SeoProps title='vítor norton | developer relations | 🤘🚀🥑' description='Lives na Twitch, clube do livro, desenvolvimento de apps e web, mitologia grega, música e séries de TV. Um compilado do que eu sou e do que eu faço, chega mais!' featureImage='/img/pages/404.jpg' />
