@@ -30,5 +30,5 @@ export const generateRssFeed = async (items: BlogGridItemProps[]) => {
 		})
 	})
 
-	fs.writeFileSync('/rss.xml', feed.xml({ indent: true }))
+	fs.writeFileSync('./public/rss.xml', feed.xml({ indent: true }))
 }

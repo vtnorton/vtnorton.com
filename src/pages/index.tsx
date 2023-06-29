@@ -3,6 +3,7 @@ import React from 'react'
 import {
 	AthenaPromoComponent,
 	BlogComponent,
+	BlogGridItemProps,
 	BookClubComponent,
 	FooterComponent,
 	ForBusinessComponent,
@@ -16,6 +17,17 @@ import {
 	TwitchComponent,
 } from '../components'
 import { SeoProps } from '../database/SEOProps'
+import { getBlogSectionItems } from '../services/notionServices'
+import { generateRssFeed } from '../services/rssServices'
+
+export const getStaticProps = async (context: any) => {
+	const posts: BlogGridItemProps[] = await getBlogSectionItems()
+	await generateRssFeed(posts)
+	return {
+		undefined,
+		revalidate: 60 * 60 * 1,
+	}
+}
 
 export default function Index() {
 	return (
