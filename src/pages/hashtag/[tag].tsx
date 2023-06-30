@@ -20,7 +20,7 @@ export const getStaticPaths = async () => {
 	console.log('tags', tags)
 	return {
 		paths: tags.map((tag: Hashtag) => mountPath(tag)),
-		fallback: true,
+		fallback: false,
 	}
 }
 
