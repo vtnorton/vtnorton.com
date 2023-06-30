@@ -10,7 +10,7 @@ import axios from 'axios'
 const mountPath = (tag: Hashtag) => {
 	return {
 		params: {
-			tag: tag.name,
+			projectSlug: tag.name,
 		},
 	}
 }
@@ -24,10 +24,10 @@ export const getStaticPaths = async () => {
 }
 
 export const getStaticProps = async (context: any) => {
-	const { tag } = context.params
+	const { projectSlug } = context.params
 
 	let props = {
-		tag: tag,
+		projectSlug: projectSlug,
 	}
 
 	props = JSON.parse(JSON.stringify(props))
@@ -37,17 +37,17 @@ export const getStaticProps = async (context: any) => {
 	}
 }
 
-export default function Hashtag({ tag }: { tag: string }) {
+export default function Hashtag({ projectSlug }: { projectSlug: string }) {
 	const router = useRouter()
 		const [posts, setPosts] = useState<BlogGridItemProps[]>([])
 
 	useEffect(() => {
 		if (posts.length === 0) {
 			axios
-				.get('/api/post', {
+				.get('/api/changelog', {
 					params: {
 						quantity: 150,
-						tag: tag
+						projectSlug: projectSlug
 					},
 				})
 				.then((response) => {
@@ -62,7 +62,7 @@ export default function Hashtag({ tag }: { tag: string }) {
 	if (router.isFallback) {
 		return <p>Carregando...</p>
 	}
-	const pageTitle = 'Posts sobre ' + tag
+	const pageTitle = '🚀 Novidades do ' + projectSlug
 	return (
 		<>
 			<SeoProps title={pageTitle} description={pageTitle} featureImage='/img/pages/blog.jpg' />

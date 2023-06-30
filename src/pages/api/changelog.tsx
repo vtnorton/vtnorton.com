@@ -10,7 +10,7 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse<
 	const postQuantity = req.query.quantity ? parseInt(req.query.quantity.toString()) : 3
 	const projectSlug = req.query.projectSlug ? req.query.projectSlug.toString() : undefined
 
-	if (cachedEvents) return res.status(200).json(cachedEvents)
+	if (cachedEvents) return res.status(200).json(cachedEvents.slice(0, postQuantity))
 
 	const changelogs: BlogGridItemProps[] = await getChangelogSectionItems(projectSlug)
 	await kv.setex(cacheKey, 60 * 60 * 12, changelogs)
