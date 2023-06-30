@@ -16,7 +16,7 @@ export const getStaticPaths = async () => {
 	const changelogs: Changelog[] = await getChangelogs()
 	return {
 		paths: changelogs.map((log: Changelog) => mountPath(log)),
-		fallback: true,
+		fallback: false,
 	}
 }
 
@@ -34,11 +34,9 @@ export const getStaticProps = async (context: any) => {
 		revalidate: 60 * 60 * 1,
 	}
 }
-export default function PostDetail({ changelog }: { changelog: Changelog }) {
-	if (!changelog) {
-		// TODO: adicionar página 404 aqui
-		return <div />
-	}
+export default function ChangelogDetail({ changelog }: { changelog: Changelog }) {
+	if (!changelog) return <div />
+
 	return (
 		<>
 			<SeoProps title={changelog.title} description='' featureImage={changelog.featureImage} ogType='article' publishedTime={changelog.date} tags={[changelog.projectSlug]} />
