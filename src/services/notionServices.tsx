@@ -235,7 +235,7 @@ export const getChangelogSectionItems = async (projectSlug?: string): Promise<Bl
 	return blogGridItems
 }
 
-export const getBlogSectionItems = async (tag?: string, showChangelogs: boolean = true): Promise<BlogGridItemProps[]> => {
+export const getBlogSectionItems = async (tag?: string): Promise<BlogGridItemProps[]> => {
 	const posts = await getPosts(tag)
 	const blogGridItems: BlogGridItemProps[] = []
 
@@ -251,10 +251,8 @@ export const getBlogSectionItems = async (tag?: string, showChangelogs: boolean 
 		})
 	})
 
-	if (showChangelogs) {
-		const changelogs = await getChangelogSectionItems(undefined)
-		blogGridItems.push(...changelogs)
-	}
+	const changelogs = await getChangelogSectionItems()
+	blogGridItems.push(...changelogs)
 	blogGridItems.sort((a, b) => (b.date && a.date ? new Date(b.date).getTime() - new Date(a.date).getTime() : new Date().getTime()))
 
 	return blogGridItems
