@@ -5,6 +5,7 @@ import '../../node_modules/heartthrob/build/heartthrob.css'
 import { LogoComponent } from '../components'
 import { VtnortonContextProvider } from '../provider/VtnortonContextProvider'
 import '../styles/global.scss'
+import Script from 'next/script'
 
 export default function App({ Component, pageProps }: AppProps) {
 	return (
@@ -25,6 +26,16 @@ export default function App({ Component, pageProps }: AppProps) {
 				<meta name='msapplication-TileImage' content='/favicon/mstile-144x144.png?v=10' />
 				<meta name='msapplication-config' content='/favicon/browserconfig.xml?v=10' />
 
+				<Script async src="https://www.googletagmanager.com/gtag/js?id=G-3GCRXEKYLS" />
+				<Script id='google-analytics'>
+					{`
+						window.dataLayer = window.dataLayer || [];
+						function gtag(){dataLayer.push(arguments)}
+						gtag('js', new Date());
+
+						gtag('config', 'G-3GCRXEKYLS');
+					`}
+				</Script>
 				<link rel='shortcut icon' href='/favicon/favicon-32x32.png' />
 			</Head>
 			<VtnortonContextProvider>
