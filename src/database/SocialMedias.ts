@@ -22,7 +22,7 @@ export const SocialProfiles: SocialProfile[] = [
 	{
 		media: SocialMedias.RSS,
 		icon: faRss,
-		url: 'https://vtnorton.com/rss.xml',
+		url: 'https://vtnorton.com/rss',
 	},
 	{
 		media: SocialMedias.Twitch,

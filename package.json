@@ -24,7 +24,6 @@
     "@popperjs/core": "^2.11.8",
     "@vercel/kv": "^0.2.1",
     "axios": "^1.4.0",
-    "fs": "^0.0.1-security",
     "heartthrob": "3.0.0-beta.18",
     "heartthrob-react": "3.0.0-beta.47",
     "next": "^13.4.6",
