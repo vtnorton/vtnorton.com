@@ -14,10 +14,14 @@ const nextConfig = {
 		config.optimization.minimize = false
 		return config
 	},
-	webpack: (config) => {
-		config.optimization.minimize = false
-		return config
-	},
+	async rewrites() {
+		return [
+			{
+				source: "/rss",
+				destination: "/api/rss.tsx"
+			}
+		]
+	}
 }
 
 module.exports = nextConfig
