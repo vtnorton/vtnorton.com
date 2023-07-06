@@ -1,8 +1,10 @@
-import fs from 'fs'
-import RSS from 'rss'
+import RSS from 'rss';
 
-import { BlogGridItemProps } from '../components'
-import { SEOMetaData } from '../database/SEOProps'
+
+
+import { BlogGridItemProps } from '../components';
+import { SEOMetaData } from '../database/SEOProps';
+
 
 export const generateRssFeed = async (items: BlogGridItemProps[]) => {
 	const site_url = 'https://vtnorton.com'
@@ -30,5 +32,5 @@ export const generateRssFeed = async (items: BlogGridItemProps[]) => {
 		})
 	})
 
-	fs.writeFileSync('./public/rss.xml', feed.xml({ indent: true }))
+	return feed.xml({ indent: true })
 }
