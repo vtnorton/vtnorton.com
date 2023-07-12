@@ -25,8 +25,9 @@ export default function App({ Component, pageProps }: AppProps) {
 				<meta name='msapplication-config' content='/favicon/browserconfig.xml?v=10' />
 				<link rel='shortcut icon' href='/favicon/favicon-32x32.png' />
 			</Head>
-			<Script async src='https://www.googletagmanager.com/gtag/js?id=G-3GCRXEKYLS' />
-			<Script id='google-analytics'>
+			<Script strategy='beforeInteractive' async src='https://www.googletagmanager.com/gtag/js?id=G-3GCRXEKYLS' />
+
+			<Script strategy='beforeInteractive' id='google-analytics'>
 				{`
 					window.dataLayer = window.dataLayer || [];
 					function gtag(){dataLayer.push(arguments)}
