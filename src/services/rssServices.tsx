@@ -1,7 +1,5 @@
 import RSS from 'rss';
 
-
-
 import { BlogGridItemProps } from '../components';
 import { SEOMetaData } from '../database/SEOProps';
 
