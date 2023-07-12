@@ -14,7 +14,7 @@ export const HeartthrobPromoComponent = (props: SectionShowcaseComponentProps) =
 
 				<a href='/heartthrob ' className='btn btn-primary'>
 					<FontAwesomeIcon icon={faChevronRight} />
-					conheça;
+					conheça o framework;
 				</a>
 			</>
 		</SectionShowcase>

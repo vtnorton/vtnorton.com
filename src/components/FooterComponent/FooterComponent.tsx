@@ -10,6 +10,7 @@ export const FooterComponent = () => {
 				{SocialProfiles.map((item: SocialProfile, index: number) => (
 					<a key={index} href={item.url} target='_blank' rel='noopener noreferrer'>
 						<FontAwesomeIcon icon={item.icon} />
+						<p className='hide'>Ir para {item.media}</p>
 					</a>
 				))}
 			</div>

@@ -15,7 +15,7 @@ export const FormulaPromoComponent = (props: SectionShowcaseComponentProps) => {
 				</p>
 				<a href='/formula ' className='btn btn-primary'>
 					<FontAwesomeIcon icon={faChevronRight} />
-					conheça;
+					conheça o app;
 				</a>
 			</>
 		</SectionShowcase>
