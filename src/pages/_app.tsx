@@ -6,7 +6,6 @@ import '../../node_modules/heartthrob/build/heartthrob.css'
 import { LogoComponent } from '../components'
 import { VtnortonContextProvider } from '../provider/VtnortonContextProvider'
 import '../styles/global.scss'
-import Script from 'next/script'
 
 export default function App({ Component, pageProps }: AppProps) {
 	return (
