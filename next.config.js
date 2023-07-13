@@ -14,14 +14,18 @@ const nextConfig = {
 		config.optimization.minimize = false
 		return config
 	},
+	i18n: {
+		locales: ['pt-BR'],
+		defaultLocale: 'pt-BR',
+	},
 	async rewrites() {
 		return [
 			{
-				source: "/rss",
-				destination: "/api/rss.tsx"
-			}
+				source: '/rss',
+				destination: '/api/rss.tsx',
+			},
 		]
-	}
+	},
 }
 
 module.exports = nextConfig

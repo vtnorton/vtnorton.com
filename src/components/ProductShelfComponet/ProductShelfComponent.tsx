@@ -16,7 +16,7 @@ export const ProductShelfComponent = (props: ProductShelfComponentProps) => {
 				<div className='shalf-explain'>
 					<h2>📑 apps + extensões + projetinhos</h2>
 					<p>Construir algo do nada é o que faz o meu mundo girar. Aqui está todos os projetos que eu já fiz, tô fazendo ou vou fazer ainda.</p>
-					<a onClick={() => setShowUnsupportedProjects(!showUnsupportedProjects)} className='btn btn-link'>
+					<a onClick={() => setShowUnsupportedProjects(!showUnsupportedProjects)} className='btn btn-link' rel='noopener noreferrer'>
 						<FontAwesomeIcon icon={faChevronRight} />
 						mostrar projetos finalizados
 					</a>
