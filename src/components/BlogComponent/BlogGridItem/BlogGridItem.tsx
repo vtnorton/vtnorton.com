@@ -53,7 +53,7 @@ export const BlogGridItem = (props: BlogGridItemProps) => {
 		<div className='blog-item col-lg-4 col-sm-6 col-xs-12'>
 			{renderFeatureImage()}
 			{renderCategories()}
-			<a href={props.link}>
+			<a href={props.link} aria-label={props.title}>
 				<h3>{props.title}</h3>
 				{renderDate()}
 			</a>

@@ -19,7 +19,7 @@ export const ProfileComponent = (props: SectionShowcaseComponentProps) => {
 						<FontAwesomeIcon icon={faChevronRight} />
 						LinkedIn
 					</a>
-					<a className='btn btn-link'>
+					<a className='btn btn-link' target='_blank' href='https://www.polywork.com/vtnorton'>
 						<FontAwesomeIcon icon={faChevronRight} />
 						Polywork
 					</a>
