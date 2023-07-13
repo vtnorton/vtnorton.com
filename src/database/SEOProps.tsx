@@ -37,7 +37,7 @@ export const SEOMetaData: NextSeoProps = {
 
 export const SeoProps = (props: Props) => {
 	const router = useRouter()
-	const pageUrl = `https://vtnorton.com${router.pathname}`
+	const pageUrl = `https://vtnorton.com${router.asPath}`
 	const nextSeoProps: NextSeoProps = {
 		...SEOMetaData,
 		title: props.title,
