@@ -233,12 +233,12 @@ article {
 	.fui-FluentProvider {
 		background: transparent;
 
-		.skeleton{
+		.skeleton {
 			display: grid;
 			grid-template-columns: 1fr 1fr;
 			gap: 5px;
 
-			.fui-SkeletonItem{
+			.fui-SkeletonItem {
 				height: 300px;
 			}
 		}
@@ -257,6 +257,14 @@ article {
 		h3 {
 			line-height: 115%;
 		}
+	}
+}
+
+.notion-row {
+	display: flex;
+
+	.notion-column {
+		margin-right: 1rem;
 	}
 }
 
