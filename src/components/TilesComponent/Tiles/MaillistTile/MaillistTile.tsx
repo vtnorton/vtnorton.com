@@ -9,7 +9,7 @@ export const MaillistTile = () => {
 				<h2>Entre na minha newsletter</h2>
 			</div>
 			<div className='tile-content'>
-				<p>Na news eu compartilho quando vai rolar as próximas lives do clube do livro, um resumo das postagens aqui do blog, atualições dos meus apps e projetos e muito mais.</p>
+				<p>Na news eu compartilho quando vai rolar as próximas lives do clube do livro "Bora ler", um resumo das postagens aqui do blog, atualições dos meus apps e projetos e muito mais.</p>
 				<FluentProvider theme={webLightTheme}>
 					<Input placeholder='e-mail' type='email' />
 					<Button appearance='primary' icon={<SignatureRegular />}>

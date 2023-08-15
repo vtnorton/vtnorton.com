@@ -26,7 +26,7 @@ async function getPlaylistItems(playlistId: string): Promise<PlaylistItem[]> {
 export async function getPlaylistsFromClubeDoLivro(): Promise<Playlist[]> {
 	const playlists: Playlist[] = []
 	const youtubePlaylistsResult = (await youtubeService.searchPlaylist(channelId, 10)) as any
-	const youtubePlaylistsFromClubeDoLivro = youtubePlaylistsResult.items.filter((playlist: any) => playlist.snippet.title.includes('CLUBE DO LIVRO'))
+	const youtubePlaylistsFromClubeDoLivro = youtubePlaylistsResult.items.filter((playlist: any) => playlist.snippet.title.includes('CLUBE DO LIVRO') || playlist.snippet.title.includes('BORA LER'))
 
 	for (const item in youtubePlaylistsFromClubeDoLivro) {
 		const playlistItems = await getPlaylistItems(youtubePlaylistsFromClubeDoLivro[item].id)

@@ -9,7 +9,7 @@ export const DiscordTile = () => {
 				<h2>Discord</h2>
 			</div>
 			<div className='tile-content'>
-				<p>Dentro do server do Discord temos clube do livro, beta de testers do Formula/Athena/Heartthrob, mentoiras, lives outros rolês. Chega mais e bora bater um papo!</p>
+				<p>Dentro do server do Discord temos o clube do livro "Bora Ler", beta de testers do Formula/Athena/Heartthrob, mentoiras, lives outros rolês. Chega mais e bora bater um papo!</p>
 				<a target='_blank' className='btn btn-link' href='https://discord.gg/hY3pTjMxmG'>
 					<FontAwesomeIcon icon={faChevronRight} />
 					entrar();

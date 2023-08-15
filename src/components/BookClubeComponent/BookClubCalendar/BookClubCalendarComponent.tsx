@@ -12,7 +12,7 @@ const renderLive = (items: CalendarItem[]) => {
 		const monthNumber = date.getMonth() + 1
 		const month = monthNumber.toString().padStart(2, '0')
 		const formatedDate = `${date.getDate().toString().padStart(2, '0')}/${month} às ${date.getHours().toString().padStart(2, '0')}h${date.getMinutes().toString().padStart(2, '0')}`
-		let eventNameAndDescription = `${item.name.replace('[CLUBE DO LIVRO]', '')} - ${formatedDate}`
+		let eventNameAndDescription = `${item.name.replace('[BORA LER]', '')} - ${formatedDate}`
 
 		if (date.getFullYear() === today.getFullYear() && date.getMonth() === today.getMonth() && date.getDate() === today.getDate()) {
 			eventNameAndDescription = '🔴 ' + eventNameAndDescription
