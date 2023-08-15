@@ -422,6 +422,14 @@ article {
 			margin-top: calc(6rem + 10px);
 		}
 	}
+
+	.notion-row {
+		display: block !important;
+
+		.notion-column {
+			margin-right: 0 !important;
+		}
+	}
 }
 
 @media screen and (max-width: 540px) {

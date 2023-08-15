@@ -42,11 +42,11 @@ export default function Index() {
 						<TilesComponent />
 						{/* <CursoDevPromoComponent half /> */}
 						{/* <CursoTechPromoComponent half /> */}
+						<ForBusinessComponent />
 					</div>
 					<div className='col-md-6'>
 						<TwitchComponent />
 						<BookClubComponent />
-						<ForBusinessComponent />
 					</div>
 				</div>
 			</div>
