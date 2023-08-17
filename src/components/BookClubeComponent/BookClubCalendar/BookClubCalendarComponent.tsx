@@ -22,7 +22,7 @@ const renderLive = (items: CalendarItem[]) => {
 				<div className='calendar-item shadow-middle'>
 					<img src={item.imageHash} alt={eventNameAndDescription} />
 					<h4>{eventNameAndDescription}</h4>
-					<small>{item.description}</small>
+					<p>{item.description}</p>
 				</div>
 			</div>
 		)

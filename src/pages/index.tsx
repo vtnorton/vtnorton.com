@@ -39,13 +39,13 @@ export default function Index() {
 			<div className='container'>
 				<div className='row'>
 					<div className='col-md-6'>
+						<TwitchComponent />
 						<TilesComponent />
 						{/* <CursoDevPromoComponent half /> */}
 						{/* <CursoTechPromoComponent half /> */}
 						<ForBusinessComponent />
 					</div>
 					<div className='col-md-6'>
-						<TwitchComponent />
 						<BookClubComponent />
 					</div>
 				</div>
