@@ -7,7 +7,7 @@ export const BookClubPlaylistCardComponent = (props: Playlist) => {
 		<div className='col-md-6'>
 			<div className='video-card shadow-middle'>
 				<img src={props.thumbnailUrl} alt='Capa da playlist' />
-				<h4>{props.title.replace('[CLUBE DO LIVRO]', '').replace('[BORA LER]', '')}</h4>
+				<h4>{props.title}</h4>
 				<small>Veja as gravações ⬇️</small>
 				<div className='video-card-scroller'>
 					{props.items.map((video: PlaylistItem, index: number) => {
