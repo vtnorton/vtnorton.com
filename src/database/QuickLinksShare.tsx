@@ -16,7 +16,12 @@ export const primaryLinks: VtnButtonComponentPros[] = [
 		icon: GetProfile(SocialMedias.Twitch)?.icon,
 	},
 	{
-		text: '@vt_norton no twitter',
+		text: 'server no discord',
+		url: GetProfile(SocialMedias.Discord)?.url as string,
+		icon: GetProfile(SocialMedias.Discord)?.icon,
+	},
+	{
+		text: '@vt_norton no twitter/x',
 		url: GetProfile(SocialMedias.Twitter)?.url as string,
 		icon: GetProfile(SocialMedias.Twitter)?.icon,
 	},

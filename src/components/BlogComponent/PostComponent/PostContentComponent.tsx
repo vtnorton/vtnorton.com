@@ -32,7 +32,7 @@ const Tweet = ({ id }: { id: string }) => {
 export const PostContentComponent = ({ title, content, hashtags }: { title: string; content: any; hashtags?: string[] }) => {
 	return (
 		<section>
-			<div className='article-content'>
+			<article className='article-content'>
 				<h1>{title}</h1>
 				<NotionRenderer
 					recordMap={content}
@@ -44,7 +44,7 @@ export const PostContentComponent = ({ title, content, hashtags }: { title: stri
 						Modal,
 					}}
 				/>
-			</div>
+			</article>
 			<div className='article-footer'>{hashtags && <HashtagListComponent hashtags={hashtags} />}</div>
 		</section>
 	)

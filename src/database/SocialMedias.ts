@@ -1,4 +1,4 @@
-import { faGithub, faInstagram, faLinkedin, faTwitch, faTwitter, faYoutube } from '@fortawesome/free-brands-svg-icons'
+import { faDiscord, faGithub, faInstagram, faLinkedin, faTwitch, faTwitter, faYoutube } from '@fortawesome/free-brands-svg-icons'
 import { faRss } from '@fortawesome/free-solid-svg-icons'
 
 import { SocialMedias, SocialProfile } from '../interfaces'
@@ -13,6 +13,11 @@ export const SocialProfiles: SocialProfile[] = [
 		media: SocialMedias.Instagram,
 		icon: faInstagram,
 		url: 'https://instagram.com/vt_norton',
+	},
+	{
+		media: SocialMedias.Discord,
+		icon: faDiscord,
+		url: 'https://discord.gg/hY3pTjMxmG',
 	},
 	{
 		media: SocialMedias.LinkedIn,

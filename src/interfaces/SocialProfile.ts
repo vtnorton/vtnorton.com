@@ -8,6 +8,7 @@ export enum SocialMedias {
 	RSS,
 	LinkedIn,
 	Twitter,
+	Discord,
 }
 
 export interface SocialProfile {

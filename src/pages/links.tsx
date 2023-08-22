@@ -1,7 +1,12 @@
+import { useContext } from 'react'
+
 import { VtnButtonComponent, VtnButtonComponentPros } from '../components'
 import { primaryLinks, secondaryLinks } from '../database/QuickLinksShare'
+import { VtnortonContext } from '../provider/VtnortonContextProvider'
 
 export default function Links() {
+	const { showLogo, setShowLogo } = useContext(VtnortonContext)
+	setShowLogo(false)
 	return (
 		<div className='links'>
 			<div className='overlay'></div>
@@ -14,8 +19,8 @@ export default function Links() {
 				<div className='row'>
 					{secondaryLinks.map((item: VtnButtonComponentPros, index: number) => {
 						return (
-							<div className='col-xs-6'>
-								<VtnButtonComponent key={index} text={item.text} icon={item.icon} url={item.url} />
+							<div key={index} className='col-xs-6'>
+								<VtnButtonComponent text={item.text} icon={item.icon} url={item.url} />
 							</div>
 						)
 					})}

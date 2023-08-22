@@ -21,7 +21,7 @@
 	.links-wrapper {
 		width: 300px;
 		margin: 0 auto;
-		margin-top: 2rem;
+		margin-top: 3rem;
 	}
 
 	.btn {
@@ -45,6 +45,29 @@
 
 		img {
 			max-width: 100px;
+		}
+	}
+}
+
+@media screen and (min-width: 480px) {
+	.links {
+		.links-wrapper {
+			.row {
+				display: grid;
+				grid-template-columns: 1fr 1fr;
+
+				&::before {
+					content: none;
+				}
+
+				.col-xs-6 {
+					width: calc(100% - 10px);
+
+					&:nth-child(odd) {
+						margin-right: 17px;
+					}
+				}
+			}
 		}
 	}
 }
