@@ -52,7 +52,16 @@
 	}
 }
 
-@media screen and (max-width: 1200px) {}
+@media screen and (max-width: 1200px) {
+	.twitch .twitch-container {
+		margin-left: -50px;
+		width: calc(100% + 100px);
+
+		.twitch-content {
+			padding: 50px;
+		}
+	}
+}
 
 @media screen and (max-width: 990px) {
 	.twitch {

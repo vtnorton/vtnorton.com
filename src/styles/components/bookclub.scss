@@ -88,7 +88,19 @@
 	}
 }
 
-@media screen and (max-width: 1200px) {}
+@media screen and (max-width: 1200px) {
+	.clube-item {
+		width: calc(100% + 100px);
+		margin-left: -50px;
+		padding: 20px 50px;
+
+		&.youtube {
+			.video-card {
+				margin-bottom: 1.5rem;
+			}
+		}
+	}
+}
 
 @media screen and (max-width: 990px) {
 	.clube-livro {
@@ -102,6 +114,10 @@
 
 		&.youtube {
 			padding-bottom: 35px;
+
+			.video-card {
+				margin-bottom: 1.5rem;
+			}
 		}
 	}
 }

@@ -64,7 +64,11 @@
 	}
 }
 
-@media screen and (max-width: 1200px) {}
+@media screen and (max-width: 1200px) {
+	.podcast-list-wrapper {
+		margin-left: 2rem;
+	}
+}
 
 @media screen and (max-width: 990px) {
 	.podcasts .showcase {

@@ -32,9 +32,7 @@ export default function Index() {
 					</div>
 				</div>
 			</PageHeroComponent>
-			<div className='container'>
-				<HeartthrobPromoComponent></HeartthrobPromoComponent>
-			</div>
+
 			<BlogComponent></BlogComponent>
 			<div className='container'>
 				<div className='row'>
@@ -54,6 +52,10 @@ export default function Index() {
 			<PodcastsComponent />
 
 			<ProductShelfComponent showBusinessCases={false} />
+
+			<div className='container'>
+				<HeartthrobPromoComponent></HeartthrobPromoComponent>
+			</div>
 
 			<ProfileComponent />
 

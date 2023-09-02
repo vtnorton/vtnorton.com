@@ -3,7 +3,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 
 export const SuperProfTile = () => {
 	return (
-		<div className='link-item superprof'>
+		<div className='link-item superprof section-full-width'>
 			<div className='tile-title'>
 				<img src='/img/icons/superprof.png' alt='Sinal de paz e amor feito com a mãeo' />
 				<h2>superprof - aulas particulares</h2>

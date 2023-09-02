@@ -8,6 +8,13 @@ section {
 }
 
 section {
+
+	&.section-full-width,
+	.section-full-width {
+		margin-left: -75px;
+		width: calc(100% + 150px);
+	}
+
 	.showcase:not(.half) {
 		height: 100%;
 		position: relative;
@@ -18,7 +25,7 @@ section {
 				position: absolute;
 				z-index: 0;
 				margin-top: -50px;
-				width: calc(50% + 75px);
+				width: calc(50% + 75px) !important;
 				height: 100%;
 				margin-left: -20px;
 				background-attachment: fixed;
@@ -46,13 +53,16 @@ section {
 			margin: 0;
 
 			&.showcase-bg {
-				margin-left: -75px;
-				width: calc(100% + 150px);
 				height: 16rem;
 				background-attachment: fixed;
 				background-repeat: no-repeat;
 				background-size: cover;
 				background-position-x: right;
+
+				&.section-full-width {
+					margin-left: -75px;
+					width: calc(100% + 150px);
+				}
 			}
 
 			img {
@@ -98,20 +108,40 @@ section .container p {
 		width: 100%;
 		padding: 0 50px;
 	}
+
+	footer {
+		padding: 40px 50px 70px !important
+	}
 }
 
-@media screen and (max-width: 1200px) {}
+@media screen and (max-width: 1200px) {
+	section {
+		padding-left: 50px;
+		padding-right: 50px;
+
+		.section-full-width {
+			margin-left: -50px !important;
+			width: calc(100% + 100px) !important;
+			padding-left: 50px;
+			padding-right: 50px;
+		}
+
+		.showcase:not(.half) .showcase-right {
+			div {
+				width: calc(50% + 11px) !important;
+			}
+
+			img {
+				right: 4rem;
+			}
+		}
+	}
+}
 
 @media screen and (max-width: 990px) {
 	.container {
 		max-width: 940px;
 		width: 100%;
-		/*	.row {
-			.col-md-6 {
-				padding: 0;
-				margin: 0;
-			}
-		} */
 	}
 
 	.wrapper {
@@ -119,7 +149,15 @@ section .container p {
 	}
 
 	section {
-		padding: 0 35px;
+		padding-left: 35px;
+		padding-right: 35px;
+
+		.section-full-width {
+			margin-left: -35px !important;
+			width: calc(100% + 70px) !important;
+			padding-left: 35px;
+			padding-right: 35px;
+		}
 
 		.showcase {
 			display: flex;
@@ -150,6 +188,10 @@ section .container p {
 					right: unset !important;
 				}
 			}
+		}
+
+		.showcase:not(.half) .showcase-right div {
+			width: calc(100% + 70px) !important;
 		}
 	}
 }
