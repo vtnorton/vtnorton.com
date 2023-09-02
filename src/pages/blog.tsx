@@ -13,7 +13,6 @@ export default function BlogPage() {
 			axios
 				.get('/api/post', {
 					params: {
-						// TODO: fazer esquema de paginação
 						quantity: 150,
 					},
 				})

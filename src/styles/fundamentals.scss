@@ -69,7 +69,7 @@
 @media screen and (max-width: 1200px) {
 	.container.logo {
 		img {
-			left: 25px;
+			left: 0;
 		}
 	}
 }
@@ -82,6 +82,14 @@
 
 		&.colorized img {
 			left: 32px;
+		}
+	}
+
+	.sameheight {
+		display: block;
+
+		section {
+			margin-bottom: 2rem;
 		}
 	}
 }
