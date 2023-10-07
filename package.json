@@ -26,7 +26,7 @@
     "axios": "^1.4.0",
     "heartthrob": "3.0.0-beta.18",
     "heartthrob-react": "3.0.0-beta.47",
-    "next": "^13.4.6",
+    "next": "^13.5.4",
     "next-seo": "^6.0.0",
     "notion-client": "^6.16.0",
     "prismjs": "^1.29.0",
