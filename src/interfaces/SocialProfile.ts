@@ -9,6 +9,7 @@ export enum SocialMedias {
 	LinkedIn,
 	Twitter,
 	Discord,
+	Dev,
 }
 
 export interface SocialProfile {
