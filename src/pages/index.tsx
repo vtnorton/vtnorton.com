@@ -23,17 +23,10 @@ export default function Index() {
 		<>
 			<SeoProps title='vítor norton | developer relations | 🤘🚀🥑' description='Lives na Twitch, clube do livro, desenvolvimento de apps e web, mitologia grega, música e séries de TV. Um compilado do que eu sou e do que eu faço, chega mais!' featureImage='/img/pages/404.jpg' />
 			<PageHeroComponent title='vítor norton' description='Lives na Twitch, clube do livro, desenvolvimento de apps e web, mitologia grega, música e séries de TV. Um compilado do que eu sou e do que eu faço, chega mais!' backgroundUrl='/img/pages/404.jpg'>
-				<div className='row'>
-					<div className='col-md-6 col-sm-12'>
-						<FormulaPromoComponent half></FormulaPromoComponent>
-					</div>
-					<div className='col-md-6 col-sm-12'>
-						<AthenaPromoComponent half></AthenaPromoComponent>
-					</div>
-				</div>
+				<BlogComponent></BlogComponent>
 			</PageHeroComponent>
 
-			<BlogComponent></BlogComponent>
+			
 			<div className='container'>
 				<div className='row'>
 					<div className='col-md-6'>
@@ -51,6 +44,17 @@ export default function Index() {
 
 			<PodcastsComponent />
 
+			<div className='container'>
+				<div className='row'>
+						<div className='col-md-6 col-sm-12'>
+							<FormulaPromoComponent half></FormulaPromoComponent>
+						</div>
+						<div className='col-md-6 col-sm-12'>
+							<AthenaPromoComponent half></AthenaPromoComponent>
+						</div>
+				</div>
+			</div>
+			
 			<ProductShelfComponent showBusinessCases={false} />
 
 			<div className='container'>
