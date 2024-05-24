@@ -8,18 +8,17 @@ import { ProductShelfComponentProps } from "./ProductShelfComponentProps";
 import { ProductShelfItemComponent } from "./ProductShelfItemComponent";
 
 export const ProductShelfComponent = (props: ProductShelfComponentProps) => {
-  const [showUnsupportedProjects, setShowUnsupportedProjects] = useState(false);
+  const [showUnsupportedProjects, setShowUnsupportedProjects] = useState(true);
   const [projectsToDisplay, setProjectsToDisplay] = useState<Product[]>(
     productsItems.filter((x) => x.supported),
   );
 
   const updateList = () => {
-    setShowUnsupportedProjects(!showUnsupportedProjects);
     const products = productsItems.filter((x) =>
       showUnsupportedProjects ? x.name !== null : x.supported,
     );
-
     setProjectsToDisplay(products);
+    setShowUnsupportedProjects(!showUnsupportedProjects);
   };
 
   return (
