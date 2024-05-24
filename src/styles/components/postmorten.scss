@@ -1,22 +1,27 @@
 .post-morten {
 	.post-morten-list {
-		padding: 20px 0;
-		margin: 0 -10px;
-		display: flex;
+		padding: 20px 0 50px;
+		display: grid;
 		gap: 1rem;
+		grid-template-columns: repeat(3, 1fr);
+		align-items: stretch;
 
 		.post-morten-item {
-			width: 330px;
+			display: flex;
+			flex-direction: column;
 
 			img {
-				height: 10rem;
+				height: 13rem;
+				object-fit: cover;
 			}
 
 			.post-morten-item-content {
 				border: 1px solid #ccc;
 				border-top: none;
-				margin-top: -9px;
 				padding: 10px 20px 15px;
+				height: calc(100% - 13rem);
+				display: flex;
+				flex-direction: column;
 
 				h3 {
 					margin: 0;
@@ -27,6 +32,10 @@
 					line-height: 135%;
 					text-align: justify;
 					margin: 0;
+				}
+
+				.btn {
+					margin-top: auto;
 				}
 			}
 		}
