@@ -7,7 +7,7 @@ import {
   BookClubComponent,
   FooterComponent,
   ForBusinessComponent,
-  FormulaPromoComponent,
+  PostMortemComponent,
   HeartthrobPromoComponent,
   PageHeroComponent,
   PodcastsComponent,
@@ -52,6 +52,7 @@ export default function Index() {
       </div>
 
       <ProductShelfComponent showBusinessCases={false} />
+      <PostMortemComponent />
 
       <div className="container">
         <HeartthrobPromoComponent></HeartthrobPromoComponent>
