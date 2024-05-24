@@ -5,8 +5,8 @@ export const SectionShowcase = (props: SectionShowcaseBaseComponentProps) => {
 	return (
 		<section>
 			<div className={classes}>
-				<div className='col-lg-3 col-md-6'>{props.children}</div>
-				<div className='col-lg-6 col-md-5 col-lg-offset-3 col-md-offset-1 showcase-right'>
+				<div className='col-lg-4 col-md-6'>{props.children}</div>
+				<div className='col-lg-6 col-md-5 col-lg-offset-2 col-md-offset-1 showcase-right'>
 					<div className='showcase-bg section-full-width' style={{ backgroundImage: 'url(' + props.blurImageUrl + ')' }}></div>
 					<img src={props.imageUrl} alt={props.imageAlt} />
 				</div>

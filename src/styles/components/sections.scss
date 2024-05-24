@@ -17,17 +17,16 @@ section {
 
 	.showcase:not(.half) {
 		height: 100%;
-		position: relative;
 		padding: 50px 0;
 
 		.showcase-right {
 			div {
 				position: absolute;
 				z-index: 0;
+				right: 0;
 				margin-top: -50px;
-				width: calc(50% + 75px) !important;
+				width: 50% !important;
 				height: 100%;
-				margin-left: -20px;
 				background-attachment: fixed;
 				background-repeat: no-repeat;
 				background-size: cover;
@@ -105,8 +104,20 @@ section .container p {
 
 @media screen and (max-width: 1500px) {
 	.container {
+		max-width: 1400px;
 		width: 100%;
-		padding: 0 50px;
+	}
+
+	.container {
+		width: 100%;
+	}
+
+	section {
+		.showcase:not(.half) .showcase-right {
+			img {
+				right: 4rem !important;
+			}
+		}
 	}
 
 	footer {
@@ -114,7 +125,19 @@ section .container p {
 	}
 }
 
+@media screen and (max-width: 1400px) {
+	.container {
+		max-width: 1300px;
+		width: 100%;
+	}
+}
+
 @media screen and (max-width: 1200px) {
+	.container {
+		max-width: 1040px;
+		width: 100%;
+	}
+
 	section {
 		padding-left: 50px;
 		padding-right: 50px;
@@ -127,10 +150,6 @@ section .container p {
 		}
 
 		.showcase:not(.half) .showcase-right {
-			div {
-				width: calc(50% + 11px) !important;
-			}
-
 			img {
 				right: 4rem;
 			}
@@ -138,10 +157,11 @@ section .container p {
 	}
 }
 
-@media screen and (max-width: 990px) {
+@media screen and (max-width: 1100px) {
 	.container {
 		max-width: 940px;
 		width: 100%;
+		margin: 0 auto;
 	}
 
 	.wrapper {
@@ -193,6 +213,14 @@ section .container p {
 		.showcase:not(.half) .showcase-right div {
 			width: calc(100% + 70px) !important;
 		}
+	}
+}
+
+@media screen and (max-width: 1000px) {
+	.container {
+		width: 100%;
+		max-width: auto;
+		padding: 0 35px;
 	}
 }
 
