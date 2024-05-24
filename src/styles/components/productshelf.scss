@@ -13,12 +13,35 @@
 
 		.blog-item {
 			float: right;
-			width: 25%;
-			max-height: 250px;
-			padding: 35px;
+			width: 20%;
+			max-height: 200px;
+			padding: 20px;
+			position: relative;
 
 			h3 {
 				display: block;
+				font-size: 1.3rem;
+				line-height: 110%;
+			}
+
+			.post-date {
+				position: absolute;
+				width: 100%;
+				text-align: center;
+				top: 88px;
+				left: 0;
+				margin: 0;
+				background: rgba(0, 0, 0, 0.4);
+				padding: 4px 20px;
+				height: 24px;
+			}
+		}
+
+		&.blog-grid-big {
+			.blog-item {
+				width: 40%;
+				padding: 35px;
+				min-height: 240px;
 			}
 		}
 	}
