@@ -38,11 +38,12 @@ export default function Index() {
 					</div>
 					<div className='col-md-6'>
 						<BookClubComponent />
+						<PodcastsComponent />
 					</div>
 				</div>
 			</div>
 
-			<PodcastsComponent />
+			
 
 			<div className='container'>
 				<div className='row'>

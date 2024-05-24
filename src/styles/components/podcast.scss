@@ -1,56 +1,68 @@
-.podcasts .showcase {
-	padding-top: 50px !important;
-}
-
-.podcast-list-wrapper {
-	margin-left: 197px;
-
-	&::before {
-		content: ' ';
-		position: absolute;
-		width: 200px;
-		height: 105px;
-		margin-top: -110px;
-		margin-left: 65px;
-		background: url(/img/card-to-outside.png) no-repeat;
-	}
+.podcast {
+	padding-top: 50px;
 }
 
 .podcast-list {
-	padding-left: calc(75px - 15px);
-	padding-bottom: 50px;
-
-	&:hover .podcast-item:not(:hover) {
-		-webkit-filter: grayscale(60%) blur(2px);
-		-moz-filter: grayscale(60%) blur(2px);
-		-ms-filter: grayscale(60%) blur(2px);
-		-o-filter: grayscale(60%) blur(2px);
-		filter: grayscale(60%) blur(2px);
-		transition: all .8s
-	}
+	height: 30rem;
+	overflow-y: scroll;
+	padding: 10px 75px 0;
 
 	.podcast-item {
-		margin: 1rem;
+		position: relative;
+		display: flex;
+		margin-bottom: 1.5rem;
 
-		&:hover {
-			a::before {
-				content: '▶️';
-				position: absolute;
-				font-size: 3rem;
-				width: calc(100% - 2rem);
-				text-align: center;
-				display: flex;
-				align-items: center;
-				justify-content: center;
-				height: 60.5%;
-				background: rgb(50, 50, 50, .5);
-				transition: all .8s;
+		.podcast-item-cover {
+			position: relative;
+			margin-right: 1rem;
+			max-height: 100px;
+
+			img {
+				width: 100px;
 			}
 		}
 
-		h4 {
-			margin: 1rem 0 3px;
-			line-height: 133%;
+		.podcast-item-detail {
+			display: flex;
+			flex-direction: column;
+
+			h3 {
+				font-size: 1.2rem;
+				line-height: 125%;
+				margin: 0
+			}
+
+			.btn {
+				margin: auto 0 0;
+				min-height: 0;
+				line-height: 100%;
+
+				span {
+					display: inline-block;
+					position: relative;
+					top: -.2rem;
+				}
+
+				svg {
+					font-size: 1.2rem !important;
+				}
+			}
+		}
+
+		&:hover {
+			.podcast-item-cover img {
+				-webkit-filter: grayscale(100%);
+				-moz-filter: grayscale(100%);
+				-ms-filter: grayscale(100%);
+				-o-filter: grayscale(100%);
+				filter: grayscale(100%);
+				transition: all .4s
+			}
+
+			.btn {
+				color: #1db954 !important;
+				transition: all .4s
+			}
 		}
 
 		small {
@@ -59,24 +71,16 @@
 		}
 
 		img {
-			box-shadow: 0 0 1rem #666;
+			box-shadow: 0 0 .6rem #666;
 		}
 	}
 }
 
-@media screen and (max-width: 1200px) {
-	.podcast-list-wrapper {
-		margin-left: 2rem;
-	}
-}
+@media screen and (max-width: 1200px) {}
 
 @media screen and (max-width: 990px) {
 	.podcasts .showcase {
 		padding-top: 35px !important;
-	}
-
-	.podcast-list-wrapper {
-		margin-left: 0;
 	}
 }
 

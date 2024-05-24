@@ -13,6 +13,7 @@
     "url": "git+https://github.com/vtnorton/vtnorton.com.git"
   },
   "author": "Vítor Norton",
+  "prettier": {},
   "dependencies": {
     "@fancyapps/ui": "^5.0.36",
     "@fluentui/react-components": "^9.53.0",
