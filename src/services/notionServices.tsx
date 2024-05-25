@@ -47,7 +47,7 @@ export const getPodcasts = async (): Promise<PodcastEpisode[]> => {
     },
     {
       property: "Status-podcast",
-      select: {
+      status: {
         equals: "Publicado",
       },
     },
