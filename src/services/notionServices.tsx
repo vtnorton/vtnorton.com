@@ -58,7 +58,7 @@ export const getPodcasts = async (): Promise<PodcastEpisode[]> => {
   let podcasts = results.map((result: any) => {
     const item: PodcastEpisode = {
       id: result.id,
-      link: result.properties.Link.url,
+      link: result.properties.Slug.rich_text[0].href,
       title: result.properties.Name.title[0].text.content,
       date: result.properties.Date.date.start as string,
       coverURL: getFeaturedImage(result.cover),
@@ -91,19 +91,19 @@ export const getPosts = async (tag?: string) => {
       or: [
         {
           property: "Status-post",
-          select: {
+          status: {
             equals: "Query",
           },
         },
         {
           property: "Status-post",
-          select: {
+          status: {
             equals: "Follow-up",
           },
         },
         {
           property: "Status-post",
-          select: {
+          status: {
             equals: "Published",
           },
         },
@@ -161,13 +161,13 @@ export const getChangelogs = async (projectSlug?: string) => {
       or: [
         {
           property: "Status-post",
-          select: {
+          status: {
             equals: "Follow-up",
           },
         },
         {
           property: "Status-post",
-          select: {
+          status: {
             equals: "Published",
           },
         },
