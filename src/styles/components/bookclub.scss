@@ -34,6 +34,11 @@
 		p {
 			font-size: .8rem;
 			line-height: 150%;
+			margin-bottom: .7rem;
+
+			&:last-of-type {
+				margin-bottom: 0;
+			}
 		}
 	}
 

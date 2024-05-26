@@ -12,7 +12,7 @@ const renderLive = (items: CalendarItem[]) => {
 		const monthNumber = date.getMonth() + 1
 		const month = monthNumber.toString().padStart(2, '0')
 		const formatedDate = `${date.getDate().toString().padStart(2, '0')}/${month} às ${date.getHours().toString().padStart(2, '0')}h${date.getMinutes().toString().padStart(2, '0')}`
-		let eventNameAndDescription = `${item.name.replace('[BORA LER]', '')} - ${formatedDate}`
+		let eventNameAndDescription = `${item.name.replace('[BORA LER]', '')}`
 
 		if (date.getFullYear() === today.getFullYear() && date.getMonth() === today.getMonth() && date.getDate() === today.getDate()) {
 			eventNameAndDescription = '🔴 ' + eventNameAndDescription
@@ -23,6 +23,13 @@ const renderLive = (items: CalendarItem[]) => {
 					<img src={item.imageHash} alt={eventNameAndDescription} />
 					<h4>{eventNameAndDescription}</h4>
 					<p>{item.description}</p>
+					<p>
+						📅 {formatedDate} <br />
+						📺{' '}
+						<a href={item.location} target='_blank' rel='noreferrer'>
+							Twitch @vt_norton
+						</a>
+					</p>
 				</div>
 			</div>
 		)
