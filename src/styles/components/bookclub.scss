@@ -19,6 +19,8 @@
 	.calendar-item {
 		background: #fff;
 		padding: 20px;
+		box-shadow: none;
+		border: 1px solid #ccc;
 
 		h4 {
 			margin-top: 5px;
@@ -48,6 +50,8 @@
 
 		.video-card {
 			background: #fff;
+			box-shadow: none;
+			border: 1px solid #ccc;
 
 			h4 {
 				padding: 10px 20px 0;
