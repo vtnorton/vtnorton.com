@@ -6,14 +6,14 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next dev",
-    "start:prod": "next start"
+    "start:prod": "next start",
+    "lint": "eslint . --ext ts,tsx --report-unused-disable-directives --max-warnings 0"
   },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/vtnorton/vtnorton.com.git"
   },
   "author": "Vítor Norton",
-  "prettier": {},
   "dependencies": {
     "@fancyapps/ui": "^5.0.36",
     "@fluentui/react-components": "^9.53.0",
@@ -49,6 +49,8 @@
     "discord-api-types": "^0.37.85",
     "eslint": "^8.52.0",
     "eslint-plugin-prettier": "^5.1.3",
+    "eslint-config-prettier": "^9.1.0",
+    "eslint-plugin-react": "^7.34.2",
     "prettier": "^3.2.5",
     "prettier-eslint": "^16.3.0",
     "sass": "^1.77.2",

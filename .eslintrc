@@ -5,6 +5,7 @@
     "prettier"
   ],
   "extends": [
+    "plugin:@typescript-eslint/recommended",
     "plugin:prettier/recommended",
     "plugin:react/recommended"
   ],
@@ -14,21 +15,10 @@
   },
   "settings": {
     "react": {
-      "version": "17"
+      "version": "18"
     }
   },
   "rules": {
-    "prettier/prettier": [
-      "error",
-      {
-        "trailingComma": "es5",
-        "singleQuote": true,
-        "printWidth": 200,
-        "tabWidth": 2,
-        "useTabs": true,
-        "semi": false
-      }
-    ],
     "@typescript-eslint/consistent-type-definitions": [
       "error",
       "interface"
@@ -40,7 +30,7 @@
       "error"
     ],
     "@typescript-eslint/no-use-before-define": [
-      "error"
+      "error",
     ],
     "react/jsx-one-expression-per-line": [
       0
@@ -59,11 +49,8 @@
       0
     ],
     "react/jsx-closing-bracket-location": [
-      "error",
-      {
-        "selfClosing": "after-props",
-        "nonEmpty": "after-props"
-      }
+      1,
+      "line-aligned"
     ],
     "jsx-quotes": [
       "error",
@@ -85,6 +72,7 @@
     "import/extensions": [
       0
     ],
+    "linebreak-style": "off",
     "no-shadow": "off",
     "no-use-before-define": "off",
     "max-len": "off",
@@ -95,10 +83,6 @@
     "nonblock-statement-body-position": [
       "error",
       "below"
-    ],
-    "quotes": [
-      "error",
-      "single"
     ]
   }
 }
