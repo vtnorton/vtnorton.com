@@ -58,11 +58,11 @@ export const SeoProps = (props: Props) => {
 			article:
 				props.ogType == 'article'
 					? {
-							tags: props.tags,
-							section: 'blog',
-							authors: ['Vítor Norton'],
-							publishedTime: props.publishedTime,
-					  }
+						tags: props.tags,
+						section: 'blog',
+						authors: ['Vítor Norton'],
+						publishedTime: props.publishedTime,
+					}
 					: undefined,
 			images: [
 				{

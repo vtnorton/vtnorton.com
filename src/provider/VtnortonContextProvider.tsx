@@ -7,9 +7,9 @@ export const VtnortonContext = createContext<{
 	setShowLogo: Dispatch<SetStateAction<boolean>>
 }>({
 	relatedPostVisibility: false,
-	setRelatedPostVisibility: () => {},
+	setRelatedPostVisibility: () => { },
 	showLogo: true,
-	setShowLogo: () => {},
+	setShowLogo: () => { },
 })
 
 export const VtnortonContextProvider = ({ children }: any) => {

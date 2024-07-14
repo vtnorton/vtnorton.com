@@ -1,36 +1,14 @@
 {
-  "root": true,
   "parser": "@typescript-eslint/parser",
-  "plugins": [
-    "prettier"
-  ],
   "extends": [
+    "next/core-web-vitals", 
     "plugin:@typescript-eslint/recommended",
-    "plugin:prettier/recommended",
     "plugin:react/recommended"
   ],
-  "env": {
-    "browser": true,
-    "es6": true
-  },
-  "settings": {
-    "react": {
-      "version": "18"
-    }
-  },
   "rules": {
     "@typescript-eslint/consistent-type-definitions": [
       "error",
       "interface"
-    ],
-    "@typescript-eslint/explicit-module-boundary-types": [
-      0
-    ],
-    "@typescript-eslint/no-shadow": [
-      "error"
-    ],
-    "@typescript-eslint/no-use-before-define": [
-      "error",
     ],
     "react/jsx-one-expression-per-line": [
       0
@@ -48,14 +26,14 @@
     "react/jsx-indent": [
       0
     ],
+    "react/no-unescaped-entities": [
+      0
+    ],
     "react/jsx-closing-bracket-location": [
       1,
-      "line-aligned"
+      "after-props"
     ],
-    "jsx-quotes": [
-      "error",
-      "prefer-single"
-    ],
+    "quotes": ["error", "single"],
     "newline-per-chained-call": [
       "error",
       {
