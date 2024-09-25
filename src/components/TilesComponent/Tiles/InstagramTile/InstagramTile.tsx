@@ -1,4 +1,4 @@
-import { FluentProvider, Spinner, webLightTheme } from '@fluentui/react-components'
+import { Spinner } from '@fluentui/react-components'
 import axios from 'axios'
 import { useEffect, useState } from 'react'
 
@@ -32,12 +32,12 @@ export const InstagramTile = (props: InstagramTileProps) => {
 			})
 
 		return (
-			<FluentProvider theme={webLightTheme}>
+			<>
 				<div className='space-medium'></div>
 				<Spinner size='medium' label='Carregando...' />
 				<div className='space-medium'></div>
 				<div className='space-long'></div>
-			</FluentProvider>
+			</>
 		)
 	}
 

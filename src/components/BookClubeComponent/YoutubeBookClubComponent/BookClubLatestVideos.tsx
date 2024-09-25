@@ -1,4 +1,4 @@
-import { FluentProvider, Spinner, webLightTheme } from '@fluentui/react-components'
+import { Spinner } from '@fluentui/react-components'
 import axios from 'axios'
 import { useEffect, useState } from 'react'
 
@@ -26,10 +26,10 @@ export const BookClubLatestVideos = () => {
 			return items.map((playlist: Playlist, index: number) => <BookClubPlaylistCardComponent key={index} thumbnailUrl={playlist.thumbnailUrl} items={playlist.items} title={playlist.title} id={playlist.id} description={playlist.description} />)
 
 		return (
-			<FluentProvider theme={webLightTheme}>
+			<>
 				<div className='space-long'></div>
 				<Spinner size='medium' label='Carregando...' />
-			</FluentProvider>
+			</>
 		)
 	}
 

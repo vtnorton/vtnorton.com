@@ -1,4 +1,4 @@
-import { Button, FluentProvider, Input, webLightTheme } from '@fluentui/react-components'
+import { Button, Input } from '@fluentui/react-components'
 import { SignatureRegular } from '@fluentui/react-icons'
 
 export const MaillistTile = () => {
@@ -10,12 +10,10 @@ export const MaillistTile = () => {
 			</div>
 			<div className='tile-content'>
 				<p>Na news eu compartilho quando vai rolar as próximas lives do clube do livro "Bora ler", um resumo das postagens aqui do blog, atualições dos meus apps e projetos e muito mais.</p>
-				<FluentProvider theme={webLightTheme}>
-					<Input placeholder='e-mail' type='email' />
-					<Button appearance='primary' icon={<SignatureRegular />}>
-						cadastrar();
-					</Button>
-				</FluentProvider>
+				<Input placeholder='e-mail' type='email' />
+				<Button appearance='primary' icon={<SignatureRegular />}>
+					cadastrar();
+				</Button>
 			</div>
 		</div>
 	)
