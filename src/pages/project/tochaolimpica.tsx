@@ -38,7 +38,7 @@ export default function TochaOlimipica() {
 			</PageHeroComponent>
 
 			<div className='container'>
-				<section>
+				<section className='section'>
 					<NextProjectComponent path={router.pathname} />
 				</section>
 			</div>

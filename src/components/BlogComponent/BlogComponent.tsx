@@ -28,7 +28,7 @@ export const BlogComponent = () => {
 	}, [])
 
 	return (
-		<section>
+		<section className='section'>
 			<div className='blog'>
 				<h1>📰 artigos do blog</h1>
 				<BlogGrid posts={posts} />

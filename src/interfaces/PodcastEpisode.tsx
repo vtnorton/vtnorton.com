@@ -1,4 +1,4 @@
-export type PodcastEpisode = {
+export interface PodcastEpisode {
 	id: string
 	title: string
 	link: string

@@ -111,11 +111,6 @@ button {
         cursor: not-allowed;
     }
 
-    svg {
-        font-size: 12px;
-        margin-right: 5px;
-    }
-
     &.btn-primary {
         background: #0078d7;
         border-color: #0078d7;
@@ -140,3 +135,7 @@ a.btn-link {
     text-shadow: 0 4px 15px rgba(0, 0, 0, 0.25);
     box-shadow: none;
 }
+
+// a:visited {
+//     color: unset
+// }

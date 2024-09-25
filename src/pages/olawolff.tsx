@@ -20,7 +20,7 @@ export default function OlaWolff() {
 				title='olá wolff: contador online'
 				description='Dentro da startup estive em posição privilegiada aonde consegui colocar a ideia de desburocratização da abertura de uma empresa em menos de 24 horas na prática. Veja como foi o processo de realizar isso e ainda sim garantir uma excelente experiência de usuário.'
 				backgroundClass='bg-wolf'>
-				<section>
+				<section className='section'>
 					<div className='row showcase'>
 						<div className='col-lg-4 col-md-4'>
 							<img className='center' src='/img/projects/olawolff/iphone.png' />
@@ -35,7 +35,7 @@ export default function OlaWolff() {
 				</section>
 			</PageHeroComponent>
 			<div className='container'>
-				<section>
+				<section className='section'>
 					<div className='showcase'>
 						<div className='row'>
 							<div className='col-md-12'>
@@ -102,7 +102,7 @@ export default function OlaWolff() {
 			</div>
 
 			<div className='container'>
-				<section>
+				<section className='section'>
 					<div className='row showcase'>
 						<div className='col-lg-4 col-md-4'>
 							<div className='row'>
@@ -149,7 +149,7 @@ export default function OlaWolff() {
 			</div>
 
 			<div className='container'>
-				<section>
+				<section className='section'>
 					<div className='row showcase'>
 						<div className='col-lg-6 col-md-8'>
 							<h2>Usabilidade do chat</h2>
@@ -176,7 +176,7 @@ export default function OlaWolff() {
 					</div>
 				</section>
 
-				<section>
+				<section className='section'>
 					<div className='showcase'>
 						<div className='row'>
 							<div className='col-md-6'>
@@ -231,7 +231,7 @@ export default function OlaWolff() {
 			</div>
 
 			<div className='container'>
-				<section>
+				<section className='section'>
 					<div className='showcase'>
 						<div className='row'>
 							<div className='col-sm-12'>

@@ -29,7 +29,7 @@ export const ChangelogComponent = ({ productSlug }: { productSlug: string }) => 
 
 	return (
 		<div className='container'>
-			<section>
+			<section className='section'>
 				<div className='blog'>
 					<h1>🚀 Últimas versões</h1>
 					<BlogGrid posts={posts} />

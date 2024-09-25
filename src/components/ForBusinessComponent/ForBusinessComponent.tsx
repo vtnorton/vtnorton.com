@@ -3,7 +3,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 
 export const ForBusinessComponent = () => {
 	return (
-		<section className='forbusiness '>
+		<section className='forbusiness section'>
 			<div className='row'>
 				<div className='col-lg-8 col-md-9'>
 					<h2>💼 para empresas</h2>

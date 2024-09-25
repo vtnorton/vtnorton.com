@@ -2,12 +2,36 @@ import type { AppProps } from 'next/app'
 import Head from 'next/head'
 import Script from 'next/script'
 
-import '../../node_modules/heartthrob/build/heartthrob.css'
 import { LogoComponent } from '../components'
 import { VtnortonContextProvider } from '../provider/VtnortonContextProvider'
+import { BrandVariants, createLightTheme, FluentProvider, Theme } from '@fluentui/react-components'
+import '../styles/heatthrob.scss'
 import '../styles/global.scss'
 
 export default function App({ Component, pageProps }: AppProps) {
+	const myNewTheme: BrandVariants = {
+		10: '#020206',
+		20: '#121627',
+		30: '#172447',
+		40: '#1A2F61',
+		50: '#193B7C',
+		60: '#164899',
+		70: '#0C54B6',
+		80: '#2B61C5',
+		90: '#496FCB',
+		100: '#617CD1',
+		110: '#768BD6',
+		120: '#8999DC',
+		130: '#9CA8E2',
+		140: '#AEB7E7',
+		150: '#C0C6ED',
+		160: '#D2D6F2',
+	}
+
+	const lightTheme: Theme = {
+		...createLightTheme(myNewTheme),
+	}
+
 	return (
 		<>
 			<Head>
@@ -36,10 +60,12 @@ export default function App({ Component, pageProps }: AppProps) {
 					gtag('config', 'G-3GCRXEKYLS');
 				`}
 			</Script>
-			<VtnortonContextProvider>
-				<LogoComponent componentName={Component.name} />
-				<Component {...pageProps} />
-			</VtnortonContextProvider>
+			<FluentProvider theme={lightTheme}>
+				<VtnortonContextProvider>
+					<LogoComponent componentName={Component.name} />
+					<Component {...pageProps} />
+				</VtnortonContextProvider>
+			</FluentProvider>
 		</>
 	)
 }

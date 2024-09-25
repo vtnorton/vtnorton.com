@@ -112,7 +112,7 @@ export default function Formula() {
 				backgroundColor='#16499a'
 				title='Formula - Code Editor'
 				description='Quantas vezes você não saiu do escritório e se lembrou daquela linha de código que pode consertar o maior bug que você tem? Adivinha! Você vai se esquecer daquela linha de codigo, você simplesmente tem que escrever ela agora. Não da para esperar você chegar no escritório. É por isso que o Formula está aqui! Você pode usar o Formula no seu celular, tablet e desktop.'>
-				<section>
+				<section className='section'>
 					<div className='showcase'>
 						<ThreeColumnItemsComponent items={benefits} />
 					</div>
@@ -124,7 +124,7 @@ export default function Formula() {
 			<ChangelogComponent productSlug={projectSlug} />
 
 			<div className='container'>
-				<section>
+				<section className='section'>
 					<div className='blog'>
 						<div className='row'>
 							<div className='col-md-10'>

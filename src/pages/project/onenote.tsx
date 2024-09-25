@@ -10,7 +10,7 @@ export default function OneNote() {
 		<>
 			<SeoProps title='guia definitivo para o onenote' description='Trabalhe em equipes, em todos os lugares com essa incrível ferramenta.' featureImage='/img/projects/onenote/hero.webp' />
 			<PageHeroComponent title='guia definitivo para o onenote' description='Trabalhe em equipes, em todos os lugares com essa incrível ferramenta.' backgroundUrl='/img/projects/onenote/hero.webp' backgroundPosition='-250px'>
-				<section>
+				<section className='section'>
 					<div className='showcase'>
 						<div className='row'>
 							<div className='col-md-7'>

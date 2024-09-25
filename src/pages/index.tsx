@@ -1,4 +1,4 @@
-import React from "react";
+import React from 'react'
 
 import {
   AthenaPromoComponent,
@@ -14,8 +14,9 @@ import {
   ProfileComponent,
   TilesComponent,
   TwitchComponent,
-} from "../components";
-import { SeoProps } from "../database/SEOProps";
+} from '../components'
+import { SeoProps } from '../database/SEOProps'
+import { EventsSection } from '../sections/EventsSection'
 
 export default function Index() {
   return (
@@ -23,13 +24,11 @@ export default function Index() {
       <SeoProps
         title="vítor norton | developer relations | 🤘🚀🥑"
         description="Lives na Twitch, clube do livro, desenvolvimento de apps e web, mitologia grega, música e séries de TV. Um compilado do que eu sou e do que eu faço, chega mais!"
-        featureImage="/img/pages/404.jpg"
-      />
+        featureImage="/img/pages/404.jpg" />
       <PageHeroComponent
         title="vítor norton"
         description="Lives na Twitch, clube do livro, desenvolvimento de apps e web, mitologia grega, música e séries de TV. Um compilado do que eu sou e do que eu faço, chega mais!"
-        backgroundUrl="/img/pages/404.jpg"
-      >
+        backgroundUrl="/img/pages/404.jpg">
         <BlogComponent></BlogComponent>
       </PageHeroComponent>
 
@@ -37,11 +36,10 @@ export default function Index() {
         <div className="row">
           <div className="col-md-6">
             <TwitchComponent />
+            <EventsSection />
             <TilesComponent />
             {/* <CursoDevPromoComponent half /> */}
             {/* <CursoTechPromoComponent half /> */}
-            <ForBusinessComponent />
-            <AthenaPromoComponent half></AthenaPromoComponent>
           </div>
           <div className="col-md-6">
             <BookClubComponent />
@@ -54,6 +52,17 @@ export default function Index() {
       <PostMortemComponent />
 
       <div className="container">
+        <div className="row">
+          <div className="col-md-6">
+            <ForBusinessComponent />
+          </div>
+          <div className="col-md-6">
+            <AthenaPromoComponent half />
+          </div>
+        </div>
+      </div>
+
+      <div className="container">
         <HeartthrobPromoComponent></HeartthrobPromoComponent>
       </div>
 
@@ -61,5 +70,5 @@ export default function Index() {
 
       <FooterComponent />
     </>
-  );
+  )
 }

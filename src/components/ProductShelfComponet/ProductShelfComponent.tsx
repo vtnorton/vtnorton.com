@@ -1,29 +1,29 @@
-import { faChevronRight } from "@fortawesome/free-solid-svg-icons";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { useState } from "react";
+import { faChevronRight } from '@fortawesome/free-solid-svg-icons'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { useState } from 'react'
 
-import { productsItems } from "../../database/ProductShelfItems";
-import { Product } from "../../interfaces/Product";
-import { ProductShelfComponentProps } from "./ProductShelfComponentProps";
-import { ProductShelfItemComponent } from "./ProductShelfItemComponent";
+import { productsItems } from '../../database/ProductShelfItems'
+import { Product } from '../../interfaces/Product'
+import { ProductShelfComponentProps } from './ProductShelfComponentProps'
+import { ProductShelfItemComponent } from './ProductShelfItemComponent'
 
 export const ProductShelfComponent = (props: ProductShelfComponentProps) => {
-  const [showUnsupportedProjects, setShowUnsupportedProjects] = useState(true);
+  const [showUnsupportedProjects, setShowUnsupportedProjects] = useState(true)
   const [projectsToDisplay, setProjectsToDisplay] = useState<Product[]>(
     productsItems.filter((x) => x.supported),
-  );
+  )
 
   const updateList = () => {
     const products = productsItems.filter((x) =>
       showUnsupportedProjects ? x.name !== null : x.supported,
-    );
-    setProjectsToDisplay(products);
-    setShowUnsupportedProjects(!showUnsupportedProjects);
-  };
+    )
+    setProjectsToDisplay(products)
+    setShowUnsupportedProjects(!showUnsupportedProjects)
+  }
 
   return (
     <div className="container">
-      <section className="shalf">
+      <section className="shalf section">
         <div className="shalf-explain">
           <h2>📑 apps + extensões + projetinhos</h2>
           <p>
@@ -33,17 +33,15 @@ export const ProductShelfComponent = (props: ProductShelfComponentProps) => {
           <a
             onClick={() => updateList()}
             className="btn btn-link"
-            rel="noopener noreferrer"
-          >
+            rel="noopener noreferrer">
             <FontAwesomeIcon icon={faChevronRight} />
             {showUnsupportedProjects
-              ? "mostrar projetos finalizados"
-              : "mostrar apenas projetos suportados"}
+              ? 'mostrar projetos finalizados'
+              : 'mostrar apenas projetos suportados'}
           </a>
         </div>
         <div
-          className={`blog-grid shalf-content ${projectsToDisplay.length < 4 ? "blog-grid-big" : ""}`}
-        >
+          className={`blog-grid shalf-content ${projectsToDisplay.length < 4 ? 'blog-grid-big' : ''}`}>
           {projectsToDisplay.map((item: Product, index: number) => {
             return (
               <ProductShelfItemComponent
@@ -51,12 +49,11 @@ export const ProductShelfComponent = (props: ProductShelfComponentProps) => {
                 name={item.name}
                 link={item.link}
                 imageUrl={item.imageUrl}
-                supported={item.supported}
-              />
-            );
+                supported={item.supported} />
+            )
           })}
         </div>
       </section>
     </div>
-  );
-};
+  )
+}

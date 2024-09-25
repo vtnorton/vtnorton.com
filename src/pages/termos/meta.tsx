@@ -8,7 +8,7 @@ export default function TermosMeta() {
 		<>
 			<SeoProps title='Termo de uso e política de privacidade' description='Este termo de uso e política de privacidade se aplica ao aplicativo e conexões do Bot do Meta' featureImage='/img/pages/blog.jpg' />
 			<PageHeroComponent backgroundUrl='/img/pages/blog.jpg' title='Termo de uso e política de privacidade' description='Este termo de uso e política de privacidade se aplica ao aplicativo e conexões do Bot do Meta'>
-				<section>
+				<section className='section'>
 					<div className='row showcase'>
 						<div className='col-lg-8'>
 							<h2>Política de Privacidade:</h2>

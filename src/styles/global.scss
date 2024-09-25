@@ -1,7 +1,9 @@
+@import 'fluentui-adapter.scss';
 @import 'typography.scss';
 @import 'fundamentals.scss';
 @import 'components/post.scss';
 @import 'components/sections.scss';
+@import 'components/sections-old.scss';
 @import 'components/pagehero.scss';
 @import 'components/blog.scss';
 @import 'components/tiles.scss';
@@ -15,4 +17,5 @@
 @import 'links.scss';
 @import 'components/projects.scss';
 @import 'components/slidercomponent.scss';
-@import 'components/postmorten.scss'
+@import 'components/postmorten.scss';
+@import 'sections/events.scss';

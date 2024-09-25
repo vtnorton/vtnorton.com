@@ -24,7 +24,7 @@ export default function OneNote() {
 		<>
 			<SeoProps title='Conjugar' description='Conjugue verbos regulares e irregulares da nossa língua portuguesa em todos os tempos verbais.' featureImage='/img/projects/conjugar.webp' />
 			<PageHeroComponent innerComponent={buttons()} backgroundColor='#199900' title='Conjugar' description='Conjugue verbos regulares e irregulares da nossa língua portuguesa em todos os tempos verbais.'>
-				<section>
+				<section className='section'>
 					<div className='row showcase'>
 						<div className='col-md-6'>
 							<h2>Conjugações</h2>

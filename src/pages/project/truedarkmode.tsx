@@ -24,7 +24,7 @@ export default function TrueDarkMode() {
 		<>
 			<SeoProps title='True Dark Mode' description='Não importa se o seu Windows está no modo escuro ou no modo claro. Os sites que você visita não estão, esta extensão do Microsoft Edge irá mudar isso.' featureImage='/img/projects/truedarkmode.webp' />
 			<PageHeroComponent innerComponent={buttons()} backgroundColor='#3b3b3b' title='True Dark Mode' description='Não importa se o seu Windows está no modo escuro ou no modo claro. Os sites que você visita não estão, esta extensão do Microsoft Edge irá mudar isso.'>
-				<section>
+				<section className='section'>
 					<div className='row showcase'>
 						<div className='col-md-6'>
 							<h2>Sua extenção do Edge para colocar tudo no modo escuro</h2>

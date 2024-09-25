@@ -3,7 +3,7 @@ import { SignatureRegular } from '@fluentui/react-icons'
 
 export const MaillistTile = () => {
 	return (
-		<div className='link-item maillist section-full-width'>
+		<div className='link-item maillist sc-full-width'>
 			<div className='tile-title'>
 				<img src='/img/icons/list.png' alt='Sinal de paz e amor feito com a mãeo' />
 				<h2>Entre na minha newsletter</h2>

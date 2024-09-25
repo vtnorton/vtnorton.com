@@ -32,7 +32,7 @@ export default function Heartthrob() {
 		<>
 			<SeoProps title='heartthrob' description='Já pensou em entregar um MVP em poucos dias, com qualidade impecável e as melhores práticas da atualidade, e lucrar bastante com isso?' featureImage='/img/pages/desenvolvimento.jpg' />
 			<PageHeroComponent title='heartthrob' description='Já pensou em entregar um MVP em poucos dias, com qualidade impecável e as melhores práticas da atualidade, e lucrar bastante com isso?' backgroundUrl='/img/pages/desenvolvimento.jpg' backgroundPosition='-250px'>
-				<section>
+				<section className='section'>
 					<div className='row showcase'>
 						<div className='col-md-7'>
 							<h2>O que iremos resolver</h2>

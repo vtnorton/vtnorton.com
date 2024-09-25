@@ -55,7 +55,7 @@ const render = () => {
 	if (items.length == 0) {
 		return (
 			<div className='col-md-12'>
-				<small>Não há nenhuma live agendada por hora, fique atento aqui ou lá no Discord para saber quando teremos mais uma live.</small>
+				<p>Não há nenhuma live agendada por hora, fique atento aqui ou lá no Discord para saber quando teremos mais uma live.</p>
 			</div>
 		)
 	}

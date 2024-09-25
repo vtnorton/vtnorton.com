@@ -1,0 +1,54 @@
+.events {
+	h1 {
+		font-size: 3.5rem;
+		line-height: 110%;
+		margin: 0 0 2rem;
+		text-align: center;
+	}
+
+	.event {
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		padding-bottom: 5rem;
+
+		&:last-of-type {
+			padding-bottom: 0;
+		}
+
+		h3 {
+			font-size: 2rem;
+			line-height: 110%;
+			text-transform: uppercase;
+			margin: 0;
+
+			div:last-of-type {
+				font-family: "Neutra Text Alt Bold", "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+				position: relative;
+
+				&::before {
+					content: "//";
+					position: absolute;
+					left: -2rem;
+					color: #333;
+				}
+			}
+		}
+
+		.event-line {
+			display: flex;
+			flex-direction: row;
+			width: 100%;
+
+			div:last-of-type {
+				text-align: right;
+				min-width: 10rem;
+				margin-left: auto;
+			}
+		}
+
+		p {
+			margin: 0;
+		}
+	}
+}

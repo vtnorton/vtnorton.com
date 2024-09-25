@@ -76,7 +76,7 @@ export default function Hashtag({ tag }: { tag: string }) {
         featureImage="/img/pages/blog.jpg"
       />
       <PageHeroComponent title={pageTitle} backgroundUrl="/img/pages/blog.jpg">
-        <section>
+        <section className='section'>
           <div className="blog">
             <div className="row">
               <div className="col-md-10">

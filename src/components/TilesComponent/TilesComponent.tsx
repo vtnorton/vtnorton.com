@@ -4,7 +4,7 @@ import { InstagramTile } from './Tiles/InstagramTile/InstagramTile'
 // <MaillistTile />
 export const TilesComponent = () => {
 	return (
-		<section>
+		<section className='section'>
 			<div>
 				{/*<InstagramTile username='@vt_norton' />*/}
 				{/* <SuperProfTile /> */}

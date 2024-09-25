@@ -8,6 +8,7 @@ const nextConfig = {
 		instagramAccessToken: process.env.INSTAGRAM_TOKEN,
 		discordToken: process.env.DISCORD_TOKEN,
 		youtubeKey: process.env.YOUTUBE_KEY,
+		talksDb: process.env.TALKS_DB,
 		host: process.env.HOST,
 	},
 	webpack: (config) => {

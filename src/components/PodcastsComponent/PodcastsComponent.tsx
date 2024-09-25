@@ -1,27 +1,27 @@
-import axios from "axios";
-import { useEffect, useState } from "react";
+import axios from 'axios'
+import { useEffect, useState } from 'react'
 
-import { PodcastEpisode } from "../../interfaces/PodcastEpisode";
-import { PodcastItem } from "./PodcastItem";
+import { PodcastEpisode } from '../../interfaces/PodcastEpisode'
+import { PodcastItem } from './PodcastItem'
 
 export const PodcastsComponent = () => {
-  const [items, setItems] = useState<PodcastEpisode[]>([]);
+  const [items, setItems] = useState<PodcastEpisode[]>([])
 
   useEffect(() => {
     if (items.length === 0) {
       axios
-        .get("/api/podcast")
+        .get('/api/podcast')
         .then((response) => {
-          setItems(response.data);
+          setItems(response.data)
         })
         .catch((error) => {
-          console.error("Erro ao obter os dados da API:", error);
-        });
+          console.error('Erro ao obter os dados da API:', error)
+        })
     }
-  }, []);
+  }, [])
 
   return (
-    <section className="podcast">
+    <section className="podcast section">
       <h2>🎙️ Podcasts</h2>
       <p>
         Ocasionalmente eu acabo participando de algum cast, na grande maioria
@@ -29,7 +29,7 @@ export const PodcastsComponent = () => {
         estão na interwebs a mais tempo, qr tc?]
       </p>
 
-      <div className="podcast-list section-full-width">
+      <div className="podcast-list sc-full-width">
         {items.map((item: PodcastEpisode, index: number) => {
           return (
             <PodcastItem
@@ -39,11 +39,10 @@ export const PodcastsComponent = () => {
               coverURL={item.coverURL}
               date={item.date}
               id={item.id}
-              feedName={item.feedName}
-            />
-          );
+              feedName={item.feedName} />
+          )
         })}
       </div>
     </section>
-  );
-};
+  )
+}

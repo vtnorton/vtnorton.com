@@ -42,7 +42,7 @@ export const InstagramTile = (props: InstagramTileProps) => {
 	}
 
 	return (
-		<div className='link-item instagram section-full-width'>
+		<div className='link-item instagram sc-full-width'>
 			<div className='tile-title'>
 				<img src='/img/icons/instagram.png' alt='Ícone do Instagram' />
 				<h2>{props.username}</h2>

@@ -67,13 +67,13 @@ export default function Desenvolvimento() {
 				description='50% das empresas na Fortune 500 desapareceram. São as Kodaks, Blockbusters. 50% é muito! A boa notícia é que o fato de estar aqui significa que você quer evitar que isso aconteça na sua organização. Desenvolver com qualidade impacta diretamente na forma como você e sua empresa são vistos no mercado. Uma boa interface, um sistema responsivo, imagens de alta qualidade: todos esses são fatores decisivos para o cliente escolher a sua marca. Invista em um forte desenvolvimento de sistemas e venda mais e melhor.'
 				backgroundUrl='/img/pages/desenvolvimento.jpg'
 				backgroundPosition='-250px'>
-				<section>
+				<section className='section'>
 					<ThreeColumnItemsComponent items={benefits} />
 				</section>
 			</PageHeroComponent>
 
 			<div className='container'>
-				<section>
+				<section className='section'>
 					<div className='row showcase'>
 						<div className='col-md-6 col-sm-8'>
 							<h2>desenvolvimento focado no seu cliente</h2>

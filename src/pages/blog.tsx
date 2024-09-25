@@ -28,7 +28,7 @@ export default function BlogPage() {
 		<>
 			<SeoProps title='Blog' description='blog: artigos + informativos + releases' featureImage='/img/pages/blog.jpg' />
 			<PageHeroComponent title='blog' description='blog: artigos + informativos + releases' backgroundUrl='/img/pages/blog.jpg'>
-				<section>
+				<section className='section'>
 					<div className='blog'>
 						<div className='row'>
 							<div className='col-md-10'>

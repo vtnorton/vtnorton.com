@@ -22,7 +22,8 @@ export const BookClubLatestVideos = () => {
 	}, [])
 
 	const renderPlaylists = () => {
-		if (items.length !== 0) return items.map((playlist: Playlist, index: number) => <BookClubPlaylistCardComponent key={index} thumbnailUrl={playlist.thumbnailUrl} items={playlist.items} title={playlist.title} id={playlist.id} description={playlist.description} />)
+		if (items.length !== 0)
+			return items.map((playlist: Playlist, index: number) => <BookClubPlaylistCardComponent key={index} thumbnailUrl={playlist.thumbnailUrl} items={playlist.items} title={playlist.title} id={playlist.id} description={playlist.description} />)
 
 		return (
 			<FluentProvider theme={webLightTheme}>
@@ -34,7 +35,7 @@ export const BookClubLatestVideos = () => {
 
 	return (
 		<div className='clube-item youtube'>
-			<h3>📹 Últimas lives </h3>
+			<h3>🔴 Histórico de lives </h3>
 			<div className='row'>{renderPlaylists()}</div>
 		</div>
 	)

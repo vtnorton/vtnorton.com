@@ -1,10 +1,10 @@
-import { faChevronRight } from "@fortawesome/free-solid-svg-icons";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faChevronRight } from '@fortawesome/free-solid-svg-icons'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 
 export const PostMortemComponent = () => {
   return (
     <div className="container">
-      <section className="post-morten">
+      <section className="post-morten section">
         <div className="row">
           <div className="col-md-6">
             <div className="space-medium"></div>
@@ -65,5 +65,5 @@ export const PostMortemComponent = () => {
         </div>
       </section>
     </div>
-  );
-};
+  )
+}

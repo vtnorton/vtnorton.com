@@ -137,7 +137,7 @@ article {
 		}
 	}
 
-	section {
+	.section {
 		width: 55%;
 		margin-left: 45%;
 		padding: 15vh 75px 50px;
@@ -353,7 +353,7 @@ article {
 			}
 		}
 
-		section {
+		.section {
 			width: 1000px;
 			margin: auto;
 		}
@@ -389,7 +389,7 @@ article {
 		}
 
 		.header,
-		section {
+		.section {
 			width: 100%;
 			position: relative;
 			height: auto;
@@ -406,7 +406,7 @@ article {
 			}
 		}
 
-		section {
+		.section {
 			margin-left: 0;
 			overflow: visible;
 			box-shadow: none;
@@ -436,7 +436,7 @@ article {
 	article {
 
 		.header,
-		section {
+		.section {
 			padding: 35px;
 			z-index: 10;
 		}

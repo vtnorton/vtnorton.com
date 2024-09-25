@@ -5,7 +5,7 @@ export const TwitchComponent = () => {
 	const twitchParent = process.env.host
 	const twitchHost = `https://player.twitch.tv/?channel=vt_norton&parent=${twitchParent}`
 	return (
-		<section>
+		<section className='section'>
 			<div className='showcase twitch'>
 				<div className='twitch-container'>
 					<div className='video-container'>

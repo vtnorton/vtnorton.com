@@ -8,7 +8,7 @@ export default function TermosSite() {
 		<>
 			<SeoProps title='Termo de uso e política de privacidade' description='Este termo de uso e política de privacidade se aplica ao site vtnorton.com' featureImage='/img/pages/blog.jpg' />
 			<PageHeroComponent backgroundUrl='/img/pages/blog.jpg' title='Termo de uso e política de privacidade' description='Este termo de uso e política de privacidade se aplica ao site vtnorton.com'>
-				<section>
+				<section className='section'>
 					<div className='row showcase'>
 						<div className='col-lg-8'>
 							<h1>Política de Privacidade e Termos de Uso do site vtnorton.com</h1>

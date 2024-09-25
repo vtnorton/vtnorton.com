@@ -59,7 +59,7 @@ export default function ParaEmpresas() {
 			</PageHeroComponent>
 
 			<div className='container'>
-				<section>
+				<section className='section'>
 					<ThreeColumnItemsComponent items={benefits} />
 				</section>
 			</div>

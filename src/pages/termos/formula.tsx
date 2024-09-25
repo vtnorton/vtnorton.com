@@ -8,7 +8,7 @@ export default function TermosFormula() {
 		<>
 			<SeoProps title='Termo de uso e política de privacidade' description='Este termo de uso e política de privacidade se aplica ao aplicativo Formula - Code Editor' featureImage='/img/pages/blog.jpg' />
 			<PageHeroComponent backgroundUrl='/img/pages/blog.jpg' title='Termo de uso e política de privacidade' description='Este termo de uso e política de privacidade se aplica ao aplicativo Formula - Code Editor'>
-				<section>
+				<section className='section'>
 					<div className='showcase'>
 						<p>
 							Formula – Universal Code Editor repeita totalmente sua privacidade. Nós coletamos informações padrões da industria (como, o sistema operacional que você está utilizando) para permitir que nós entreguemos o melhor produto possível. Os próximos parágrafos explicam

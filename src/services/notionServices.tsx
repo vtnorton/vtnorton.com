@@ -1,61 +1,69 @@
-import { Client } from "@notionhq/client";
-import { NotionAPI } from "notion-client";
+import { Client } from '@notionhq/client'
+import { NotionAPI } from 'notion-client'
 
-import { BlogGridItemProps } from "../components";
-import { PostType, Tag } from "../interfaces";
-import { Changelog } from "../interfaces/Changelog";
-import { PodcastEpisode } from "../interfaces/PodcastEpisode";
-import { Post } from "../interfaces/Post";
+import { BlogGridItemProps } from '../components'
+import { PostType, Tag } from '../interfaces'
+import { Changelog } from '../interfaces/Changelog'
+import { PodcastEpisode } from '../interfaces/PodcastEpisode'
+import { Post } from '../interfaces/Post'
+import { Event, EventType } from '../interfaces/Event'
+import { Talk } from '../interfaces/Talk'
+import { kv } from '@vercel/kv'
+
+const NOTION_DB_DEVREL = process.env.devrelDb as string
+const NOTION_DB_TALKS = process.env.talksDb as string
+const NOTION_SECRET = process.env.notionSecret as string
+const NOTION_TOKEN = process.env.notionToken as string
 
 const notion = new Client({
-  auth: process.env.notionSecret,
-});
+  auth: NOTION_SECRET,
+})
 
 const notionApi = new NotionAPI({
-  authToken: process.env.notionToken,
-});
+  authToken: NOTION_TOKEN,
+})
 
-const queryNotion = async (filter: any) => {
+const queryNotion = async (filter: any, database?: string) => {
+  const sort = database ? [] : [{
+    property: 'Date',
+    direction: 'descending',
+  }]
+
   const response = await notion.databases.query({
-    database_id: process.env.devrelDb as string,
-    sorts: [
-      {
-        property: "Date",
-        direction: "descending",
-      },
-    ],
+    database_id: database || NOTION_DB_DEVREL,
+    sorts: sort as any,
     filter: {
       and: filter,
     },
-  });
-  return response.results;
-};
+  })
+  return response.results
+}
 
 export const getPodcasts = async (): Promise<PodcastEpisode[]> => {
   const filter = [
     {
-      property: "Type",
+      property: 'Type',
       multi_select: {
-        contains: "Podcast",
+        contains: 'Podcast',
       },
     },
     {
-      property: "Date",
+      property: 'Date',
       date: {
         on_or_before: new Date().toISOString(),
       },
     },
     {
-      property: "Status-podcast",
+      property: 'Status-podcast',
       status: {
-        equals: "Publicado",
+        equals: 'Publicado',
       },
     },
-  ];
+  ]
 
-  const results = await queryNotion(filter);
+  const results = await queryNotion(filter)
 
-  let podcasts = results.map((result: any) => {
+  const podcasts = results.map((result: any) => {
     const item: PodcastEpisode = {
       id: result.id,
       link: result.properties.Slug.rich_text[0].href,
@@ -63,26 +71,119 @@ export const getPodcasts = async (): Promise<PodcastEpisode[]> => {
       date: result.properties.Date.date.start as string,
       coverURL: getFeaturedImage(result.cover),
       feedName: result.properties.Podcast.select.name,
-    };
+    }
 
-    return item;
-  });
+    return item
+  })
 
   return podcasts.filter(
-    (cast): cast is PodcastEpisode => typeof cast !== "undefined",
-  );
-};
+    (cast): cast is PodcastEpisode => typeof cast !== 'undefined',
+  )
+}
+
+export const getEvents = async (): Promise<Event[]> => {
+  const filter = [
+    {
+      property: 'Type',
+      multi_select: {
+        contains: 'Evento',
+      },
+    },
+    {
+      property: 'Date',
+      date: {
+        on_or_after: new Date().toISOString(),
+      },
+    },
+    {
+      or: [
+        {
+          property: 'Status-evento',
+          status: {
+            equals: 'Produzindo',
+          },
+        },
+        {
+          property: 'Status-evento',
+          status: {
+            equals: 'Enjoy',
+          },
+        },
+        {
+          property: 'Status-evento',
+          status: {
+            equals: 'Follow up',
+          },
+        },
+      ],
+    },
+  ]
+
+  const results = await queryNotion(filter)
+
+  return Promise.all(results.map(async (result: any) => {
+    const item: Event = {
+      id: result.id,
+      link: result.properties.Slug.rich_text[0]?.href,
+      title: result.properties.Name.title[0].text.content,
+      date: result.properties.Date.date.start as string,
+      place: result.properties.Local.rich_text[0]?.text.content,
+      type: EventType.SPEAKER,
+      talk: await getTalk(result.properties.Palestra.relation[0]?.id),
+    }
+
+    console.log(item.title, item.link)
+
+    return item
+  })).then((events) => {
+    return events.filter(
+      (event): event is Event => typeof event !== 'undefined',
+    )
+  })
+}
+
+const getTalk = async (talkId: string) => {
+  if (!talkId)
+    return undefined
+
+  const cacheKey = 'talks'
+  const cachedEvents = (await kv.get(cacheKey)) as Talk[]
+
+  if (cachedEvents)
+    cachedEvents.find((talk) => talk.id === talkId)?.title
+
+  const talks: Talk[] = await getTalks()
+  await kv.setex(cacheKey, 60 * 60 * 24, talks)
+
+  return talks.find((talk) => talk.id === talkId)?.title
+}
+
+export const getTalks = async () => {
+  const result = await queryNotion([], NOTION_DB_TALKS)
+  const talks = result.map((result: any) => {
+    const item: Talk = {
+      id: result.id,
+      title: result.properties.Name.title[0].text.content,
+    }
+
+    return item
+  })
+
+  return talks.filter(
+    (talk): talk is Talk => typeof talk !== 'undefined',
+  )
+}
 
 export const getPosts = async (tag?: string) => {
   const filter = [
     {
-      property: "Type",
+      property: 'Type',
       multi_select: {
-        contains: "Post",
+        contains: 'Post',
       },
     },
     {
-      property: "Date",
+      property: 'Date',
       date: {
         on_or_before: new Date().toISOString(),
       },
@@ -90,46 +191,46 @@ export const getPosts = async (tag?: string) => {
     {
       or: [
         {
-          property: "Status-post",
+          property: 'Status-post',
           status: {
-            equals: "Query",
+            equals: 'Query',
           },
         },
         {
-          property: "Status-post",
+          property: 'Status-post',
           status: {
-            equals: "Follow-up",
+            equals: 'Follow-up',
           },
         },
         {
-          property: "Status-post",
+          property: 'Status-post',
           status: {
-            equals: "Published",
+            equals: 'Published',
           },
         },
       ],
     },
-  ];
+  ]
 
   if (tag) {
     filter.push({
-      property: "Hashtags",
+      property: 'Hashtags',
       multi_select: {
         contains: tag,
       },
-    });
+    })
   }
 
-  const results = await queryNotion(filter);
+  const results = await queryNotion(filter)
 
-  let posts = results.map((result: any) => {
+  const posts = results.map((result: any) => {
     const getHashtags = function () {
-      let hashtags: string[] = [];
+      const hashtags: string[] = []
       result.properties.Hashtags.multi_select.map((item: any) => {
-        hashtags.push(item.name);
-      });
-      return hashtags;
-    };
+        hashtags.push(item.name)
+      })
+      return hashtags
+    }
 
     const item: Post = {
       id: result.id,
@@ -141,55 +242,55 @@ export const getPosts = async (tag?: string) => {
       featureImage: getFeaturedImage(result.cover),
       hashtags: getHashtags(),
       recordMap: {},
-      description: "",
-    };
-    return item;
-  });
+      description: '',
+    }
+    return item
+  })
 
-  return posts.filter((post): post is Post => typeof post !== "undefined");
-};
+  return posts.filter((post): post is Post => typeof post !== 'undefined')
+}
 
 export const getChangelogs = async (projectSlug?: string) => {
   const filter = [
     {
-      property: "Type",
+      property: 'Type',
       multi_select: {
-        contains: "Changelog",
+        contains: 'Changelog',
       },
     },
     {
       or: [
         {
-          property: "Status-post",
+          property: 'Status-post',
           status: {
-            equals: "Follow-up",
+            equals: 'Follow-up',
           },
         },
         {
-          property: "Status-post",
+          property: 'Status-post',
           status: {
-            equals: "Published",
+            equals: 'Published',
           },
         },
       ],
     },
-  ];
+  ]
 
   if (projectSlug) {
     filter.push({
-      property: "Hashtags",
+      property: 'Hashtags',
       multi_select: {
         contains: projectSlug,
       },
-    });
+    })
   }
-  const results = await queryNotion(filter);
+  const results = await queryNotion(filter)
 
-  let logs = results.map((result: any) => {
-    const versionName = result.properties.Name.title[0].text.content;
+  const logs = results.map((result: any) => {
+    const versionName = result.properties.Name.title[0].text.content
     projectSlug = projectSlug
       ? projectSlug
-      : result.properties.Hashtags.multi_select[0].name;
+      : result.properties.Hashtags.multi_select[0].name
     const item: Changelog = {
       id: result.id,
       projectSlug: projectSlug as string,
@@ -198,36 +299,36 @@ export const getChangelogs = async (projectSlug?: string) => {
       date: result.properties.Date.date.start,
       featureImage: getFeaturedImage(result.cover),
       recordMap: {},
-    };
-    return item;
-  });
+    }
+    return item
+  })
 
-  return logs.filter((log): log is Changelog => typeof log !== "undefined");
-};
+  return logs.filter((log): log is Changelog => typeof log !== 'undefined')
+}
 
 export const getPostBySlug = async (slug: string) => {
-  const posts = await getPosts();
-  let post: any = posts.find((p: Post) => p.slug === slug) ?? null;
-  post.recordMap = await getPage(post.id);
-  post.description = getFirstParagraph(post.recordMap);
-  return post;
-};
+  const posts = await getPosts()
+  const post: any = posts.find((p: Post) => p.slug === slug) ?? null
+  post.recordMap = await getPage(post.id)
+  post.description = getFirstParagraph(post.recordMap)
+  return post
+}
 
 export const getChangelogByVersion = async (
   projectName: string,
   version: string,
 ) => {
-  const logs = await getChangelogs(projectName);
-  let log: any = logs.find((l: Changelog) => l.title === version) ?? null;
-  log.recordMap = await getPage(log.id);
-  return log;
-};
+  const logs = await getChangelogs(projectName)
+  const log: any = logs.find((l: Changelog) => l.title === version) ?? null
+  log.recordMap = await getPage(log.id)
+  return log
+}
 
 export const getChangelogSectionItems = async (
   projectSlug?: string,
 ): Promise<BlogGridItemProps[]> => {
-  const logs = await getChangelogs(projectSlug);
-  let blogGridItems: BlogGridItemProps[] = [];
+  const logs = await getChangelogs(projectSlug)
+  const blogGridItems: BlogGridItemProps[] = []
 
   logs.map((log: Changelog) => {
     blogGridItems.push({
@@ -237,17 +338,17 @@ export const getChangelogSectionItems = async (
       title: log.title,
       date: log.date,
       type: PostType.Changelog,
-    });
-  });
+    })
+  })
 
-  return blogGridItems;
-};
+  return blogGridItems
+}
 
 export const getBlogSectionItems = async (
   tag?: string,
 ): Promise<BlogGridItemProps[]> => {
-  const posts = await getPosts(tag);
-  const blogGridItems: BlogGridItemProps[] = [];
+  const posts = await getPosts(tag)
+  const blogGridItems: BlogGridItemProps[] = []
 
   posts.map((post: Post) => {
     blogGridItems.push({
@@ -258,70 +359,71 @@ export const getBlogSectionItems = async (
       hashtags: post.hashtags,
       date: post.date,
       type: PostType.Post,
-    });
-  });
+    })
+  })
 
-  const changelogs = await getChangelogSectionItems();
-  blogGridItems.push(...changelogs);
+  const changelogs = await getChangelogSectionItems()
+  blogGridItems.push(...changelogs)
   blogGridItems.sort((a, b) =>
     b.date && a.date
       ? new Date(b.date).getTime() - new Date(a.date).getTime()
       : new Date().getTime(),
-  );
+  )
 
-  return blogGridItems;
-};
+  return blogGridItems
+}
 
 export const getPage = async (pageId: string) => {
-  return await notionApi.getPage(pageId);
-};
+  return await notionApi.getPage(pageId)
+}
 
 export const getHashtags = async (): Promise<Tag[]> => {
   const response = await notion.databases.query({
-    database_id: process.env.devrelDb ?? "",
-  });
-  const { results } = response as any;
+    database_id: process.env.devrelDb ?? '',
+  })
+  const { results } = response as any
 
-  let hashtags: Tag[] = [];
+  const hashtags: Tag[] = []
   for (const result of results) {
-    const d = result.properties! as any;
+    const d = result.properties! as any
     for (const select of d.Hashtags.multi_select) {
       if (!hashtags.filter((hashtag) => hashtag.name == select.name).length) {
-        hashtags.push({ name: select.name, color: select.color, count: 1 });
+        hashtags.push({ name: select.name, color: select.color, count: 1 })
       } else {
-        hashtags.filter((hashtag) => hashtag.name == select.name)[0].count += 1;
+        hashtags.filter((hashtag) => hashtag.name == select.name)[0].count += 1
       }
     }
   }
-  return hashtags;
-};
+  return hashtags
+}
 
 export const getFirstParagraph = (recordMap: any) => {
-  const blocks = Object.values(recordMap.block);
+  const blocks = Object.values(recordMap.block)
   const firstParagraphBlock: any = blocks.find(
     (block: any) =>
-      block.value?.type === "text" && block.value.properties.title,
-  );
+      block.value?.type === 'text' && block.value.properties.title,
+  )
   const firstParagraphText = firstParagraphBlock
     ? firstParagraphBlock.value.properties.title[0][0]
-    : "";
-  return firstParagraphText;
-};
+    : ''
+  return firstParagraphText
+}
 
 const mountPostSlug = (result: any): string => {
-  const postDate = new Date(result.properties.Date.date.start);
-  const pageSlug = result.properties.Slug.rich_text[0].text.content;
-  const year = postDate.getFullYear().toString();
-  const monthNumber = postDate.getMonth() + 1;
-  const month = monthNumber.toString().padStart(2, "0");
+  const postDate = new Date(result.properties.Date.date.start)
+  const pageSlug = result.properties.Slug.rich_text[0].text.content
+  const year = postDate.getFullYear().toString()
+  const monthNumber = postDate.getMonth() + 1
+  const month = monthNumber.toString().padStart(2, '0')
 
-  return `/${year}/${month}/${pageSlug}`;
-};
+  return `/${year}/${month}/${pageSlug}`
+}
 
 const getFeaturedImage = (notionResult: any) => {
-  if (!notionResult) return "";
+  if (!notionResult)
+    return ''
 
   return notionResult.external
     ? notionResult.external.url
-    : notionResult.file.url;
-};
+    : notionResult.file.url
+}
