@@ -60,8 +60,7 @@ export default function Desenvolvimento() {
 			<SeoProps
 				title='desenvolvimento'
 				description='50% das empresas na Fortune 500 desapareceram. São as Kodaks, Blockbusters. 50% é muito! A boa notícia é que o fato de estar aqui significa que você quer evitar que isso aconteça na sua organização. Desenvolver com qualidade impacta diretamente na forma como você e sua empresa são vistos no mercado. Uma boa interface, um sistema responsivo, imagens de alta qualidade: todos esses são fatores decisivos para o cliente escolher a sua marca. Invista em um forte desenvolvimento de sistemas e venda mais e melhor.'
-				featureImage='/img/pages/desenvolvimento.jpg'
-			/>
+				featureImage='/img/pages/desenvolvimento.jpg' />
 			<PageHeroComponent
 				title='desenvolvimento'
 				description='50% das empresas na Fortune 500 desapareceram. São as Kodaks, Blockbusters. 50% é muito! A boa notícia é que o fato de estar aqui significa que você quer evitar que isso aconteça na sua organização. Desenvolver com qualidade impacta diretamente na forma como você e sua empresa são vistos no mercado. Uma boa interface, um sistema responsivo, imagens de alta qualidade: todos esses são fatores decisivos para o cliente escolher a sua marca. Invista em um forte desenvolvimento de sistemas e venda mais e melhor.'
@@ -89,7 +88,7 @@ export default function Desenvolvimento() {
 				</section>
 			</div>
 
-			<ProductShelfComponent showBusinessCases />
+			<ProductShelfComponent />
 
 			<ProfileComponent />
 

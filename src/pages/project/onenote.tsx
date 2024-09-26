@@ -2,6 +2,8 @@ import { useRouter } from 'next/router'
 
 import { FooterComponent, NextProjectComponent, PageHeroComponent } from '../../components'
 import { SeoProps } from '../../database/SEOProps'
+import { Button } from '@fluentui/react-components'
+import { ArrowDownload20Regular } from '@fluentui/react-icons'
 
 export default function OneNote() {
 	const router = useRouter()
@@ -16,9 +18,7 @@ export default function OneNote() {
 							<div className='col-md-7'>
 								<h2>OneNote, o básico</h2>
 								<p>OneNote é um caderno virtual de anotações que permite que os usuários criem anotações escritas ou desenhadas e compartilhar elas!</p>
-								<a href='/pdf/Guia-definitivo-para-o-OneNote-v1.0.pdf' target='_blank' className='btn btn-primary'>
-									baixar_ebook();
-								</a>
+								<Button as='a' href='/pdf/Guia-definitivo-para-o-OneNote-v1.0.pdf' icon={<ArrowDownload20Regular />} size='large' appearance='primary' shape='square'>baixar_ebook();</Button>
 							</div>
 						</div>
 						<div className='space-long'></div>

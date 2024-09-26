@@ -1,13 +1,13 @@
-import { faChevronRight } from '@fortawesome/free-solid-svg-icons'
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { Button } from '@fluentui/react-components'
+import { ChevronRight20Regular } from '@fluentui/react-icons'
+import { Section } from '../../components/Section'
 
-export const PostMortemComponent = () => {
+export const PostMortemSection = () => {
   return (
     <div className="container">
-      <section className="post-morten section">
+      <Section className="post-morten">
         <div className="row">
-          <div className="col-md-6">
-            <div className="space-medium"></div>
+          <div className="col-md-7">
             <h2>🪦 Post Mortem</h2>
             <p>
               Infelizmente alguns projetos não vão para a frente por motivos
@@ -34,10 +34,7 @@ export const PostMortemComponent = () => {
                 projeto e como ele me inspirou a ser um desenvolvedor melhor, e
                 o porquê me orgulho tanto dele.
               </p>
-              <a href="/formula" className="btn btn-link">
-                <FontAwesomeIcon icon={faChevronRight} />
-                read_more();
-              </a>
+              <Button as='a' href="/formula" icon={<ChevronRight20Regular />} size='small'>read_more();</Button>
             </div>
           </div> */}
 
@@ -56,14 +53,11 @@ export const PostMortemComponent = () => {
                 ao desenvolvimento, projetos open source e detalhes do
                 funcionamento da aplicação.
               </p>
-              <a href="/olawolff" className="btn btn-link">
-                <FontAwesomeIcon icon={faChevronRight} />
-                read_more();
-              </a>
+              <Button as='a' href="/olawolff" icon={<ChevronRight20Regular />} size='small'>read_more();</Button>
             </div>
           </div>
         </div>
-      </section>
+      </Section>
     </div>
   )
 }

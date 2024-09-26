@@ -1,8 +1,7 @@
-import { faChevronRight } from '@fortawesome/free-solid-svg-icons'
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-
 import { SectionShowcase } from './SectionShowcaseBaseComponent/SectionShowcaseBaseComponent'
 import { SectionShowcaseComponentProps } from './SectionShowcaseComponentProps'
+import { ChevronRight20Regular } from '@fluentui/react-icons'
+import { Button } from '@fluentui/react-components'
 
 export const ProfileComponent = (props: SectionShowcaseComponentProps) => {
 	return (
@@ -17,10 +16,7 @@ export const ProfileComponent = (props: SectionShowcaseComponentProps) => {
 						Já escrevi documentações, organizei eventos, apresentei palestras em grandes eventos como TDC, Microsoft Ignite, Campus Party, vários posts no blog, podcasts, criei apps pro Windows (e Windows Phone) e hoje sigo criando ferramentas para devs. Tudo isso pensando em
 						acessibilidade, democracia, diversidade e inclusão.
 					</p>
-					<a href='https://www.linkedin.com/in/vtnorton/' target='_blank' className='btn btn-link' rel='noreferrer'>
-						<FontAwesomeIcon icon={faChevronRight} />
-						LinkedIn
-					</a>
+					<Button as='a' href='https://www.linkedin.com/in/vtnorton/' icon={<ChevronRight20Regular />} size='large' appearance='primary' shape='square'>LinkedIn;</Button>
 				</>
 			</SectionShowcase>
 		</div>

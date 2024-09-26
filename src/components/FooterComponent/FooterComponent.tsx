@@ -2,6 +2,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 
 import { SocialProfiles } from '../../database/SocialMedias'
 import { SocialProfile } from '../../interfaces'
+import Link from 'next/link'
 
 export const FooterComponent = () => {
 	const renderSocialMedia = () => {
@@ -20,16 +21,16 @@ export const FooterComponent = () => {
 	return (
 		<footer className='container'>
 			<div className='text-center showcase'>
-				<a href='/'>
+				<Link href='/'>
 					<img src='/img/logo-color.png' alt='vtnorton' />
-				</a>
+				</Link>
 				{renderSocialMedia()}
 
 				<p>
 					no downtime for hustle-as-a-service - <a href='mailto:contato@vtnorton.com'>contato@vtnorton.com</a> <br />
 				</p>
 				<p className='creative-commons'>
-					Acesse a <a href='/termos/site'>política de privacidade e termos de uso do site</a>. <br />O conteúdo deste site é licenciado sob a licença:{' '}
+					Acesse a <Link href='/termos/site'>política de privacidade e termos de uso do site</Link>. <br />O conteúdo deste site é licenciado sob a licença:{' '}
 					<a href='http://creativecommons.org/licenses/by-nc-sa/4.0/?ref=chooser-v1' target='_blank' rel='license noopener noreferrer'>
 						<br />(CC BY-NC-SA 4.0)<br />
 						<img src='https://mirrors.creativecommons.org/presskit/icons/cc.svg?ref=chooser-v1' alt='CC: Creative Commons' />

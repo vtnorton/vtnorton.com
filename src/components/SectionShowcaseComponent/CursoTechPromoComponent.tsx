@@ -1,8 +1,7 @@
-import { faChevronRight } from '@fortawesome/free-solid-svg-icons'
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-
 import { SectionShowcase } from './SectionShowcaseBaseComponent/SectionShowcaseBaseComponent'
 import { SectionShowcaseComponentProps } from './SectionShowcaseComponentProps'
+import { Button } from '@fluentui/react-components'
+import { ChevronRight20Regular } from '@fluentui/react-icons'
 
 export const CursoTechPromoComponent = (props: SectionShowcaseComponentProps) => {
 	return (
@@ -14,10 +13,7 @@ export const CursoTechPromoComponent = (props: SectionShowcaseComponentProps) =>
 					Este curso é voltado para pessoas sem conhecimento prévio em tech e que entenderam que várias novas profissões foram e estão sendo criadas constantemente e, mesmo não sendo uma pessoa desenvolvedora, é importante alguns conceitos. Profissões como tech recruiter, tech
 					writer ou dev relations. O objetivo é apresentar conceitos básicos de tecnologia, ferramentas e processos utilizados na área. Venha fazer parte do mundo da tecnologia e expanda seus horizontes profissionais!
 				</p>
-				<a href='/curso/tech-nao-tech ' className='btn btn-primary'>
-					<FontAwesomeIcon icon={faChevronRight} />
-					matricule_agora();
-				</a>
+				<Button as='a' href='/curso/tech-nao-tech' icon={<ChevronRight20Regular />} size='large' appearance='primary' shape='square'>matricule_agora();</Button>
 			</>
 		</SectionShowcase>
 	)

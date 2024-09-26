@@ -1,11 +1,11 @@
-import { faChevronRight } from '@fortawesome/free-solid-svg-icons'
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { useRouter } from 'next/router'
 import React from 'react'
 
 import { FooterComponent, NextProjectComponent, PageHeroComponent, ProductShelfComponent } from '../components'
 import Fancybox from '../components/others/FancyboxComponent/FancyboxComponent'
 import { SeoProps } from '../database/SEOProps'
+import { Button } from '@fluentui/react-components'
+import { Code20Regular } from '@fluentui/react-icons'
 
 export default function OlaWolff() {
 	const router = useRouter()
@@ -14,8 +14,7 @@ export default function OlaWolff() {
 			<SeoProps
 				title='olá wolff: contador online'
 				description='Dentro da startup estive em posição privilegiada aonde consegui colocar a ideia de desburocratização da abertura de uma empresa em menos de 24 horas na prática. Veja como foi o processo de realizar isso e ainda sim garantir uma excelente experiência de usuário.'
-				featureImage='/img/projects/olawolff/guia/p1.jpg'
-			/>
+				featureImage='/img/projects/olawolff/guia/p1.jpg' />
 			<PageHeroComponent
 				title='olá wolff: contador online'
 				description='Dentro da startup estive em posição privilegiada aonde consegui colocar a ideia de desburocratização da abertura de uma empresa em menos de 24 horas na prática. Veja como foi o processo de realizar isso e ainda sim garantir uma excelente experiência de usuário.'
@@ -163,9 +162,7 @@ export default function OlaWolff() {
 							</p>
 							<p>O front-end do chat foi desenvolvido com React e comunicava com os serviços cognitivos do Azure e nossa API interna para outras informações além do diálogo. Lançamos o projeto como open-source em licença MIT. </p>
 
-							<a rel='noreferrer' href='https://github.com/vtnorton/WolffChat' className='btn btn-link'>
-								<FontAwesomeIcon icon={faChevronRight} /> veja o projeto no github
-							</a>
+							<Button as='a' href='https://github.com/vtnorton/WolffChat' icon={<Code20Regular />} size='large' shape='square'>source_code;</Button>
 						</div>
 						<div className='col-lg-5 col-lg-offset-1 col-md-3 col-md-offset-1'>
 							<img className='center img-helper' src='/img/projects/olawolff/mobile.jpg' />

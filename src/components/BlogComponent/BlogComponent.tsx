@@ -1,11 +1,11 @@
-import { faChevronRight } from '@fortawesome/free-solid-svg-icons'
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import axios from 'axios'
 import * as React from 'react'
 import { useEffect, useState } from 'react'
 
 import { BlogGrid } from './BlogGrid/BlogGrid'
 import { BlogGridItemProps } from './BlogGridItem/BlogGridItemProps'
+import { Button } from '@fluentui/react-components'
+import { News20Regular } from '@fluentui/react-icons'
 
 export const BlogComponent = () => {
 	const [posts, setPosts] = useState<BlogGridItemProps[]>([])
@@ -34,10 +34,7 @@ export const BlogComponent = () => {
 				<BlogGrid posts={posts} />
 				<div className='right'>
 					<div className='space-long'></div>
-					<a href='/blog' className='btn btn-primary'>
-						<FontAwesomeIcon icon={faChevronRight} />
-						ver_tudo;
-					</a>
+					<Button as='a' href='/blog' icon={<News20Regular />} size='large' appearance='primary' shape='square'>ver_tudo();</Button>
 				</div>
 				<div className='clean'></div>
 			</div>

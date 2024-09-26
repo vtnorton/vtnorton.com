@@ -1,13 +1,12 @@
-import { faChevronRight } from '@fortawesome/free-solid-svg-icons'
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { useState } from 'react'
 
 import { productsItems } from '../../database/ProductShelfItems'
 import { Product } from '../../interfaces/Product'
-import { ProductShelfComponentProps } from './ProductShelfComponentProps'
 import { ProductShelfItemComponent } from './ProductShelfItemComponent'
+import { Button } from '@fluentui/react-components'
+import { ToggleLeft48Regular, ToggleRight48Regular } from '@fluentui/react-icons'
 
-export const ProductShelfComponent = (props: ProductShelfComponentProps) => {
+export const ProductShelfComponent = () => {
   const [showUnsupportedProjects, setShowUnsupportedProjects] = useState(true)
   const [projectsToDisplay, setProjectsToDisplay] = useState<Product[]>(
     productsItems.filter((x) => x.supported),
@@ -30,15 +29,11 @@ export const ProductShelfComponent = (props: ProductShelfComponentProps) => {
             Construir algo do nada é o que faz o meu mundo girar. Aqui está
             todos os projetos que eu já fiz, tô fazendo ou vou fazer ainda.
           </p>
-          <a
-            onClick={() => updateList()}
-            className="btn btn-link"
-            rel="noopener noreferrer">
-            <FontAwesomeIcon icon={faChevronRight} />
-            {showUnsupportedProjects
-              ? 'mostrar projetos finalizados'
-              : 'mostrar apenas projetos suportados'}
-          </a>
+          <Button onClick={() => updateList()} appearance='transparent' icon={showUnsupportedProjects
+            ? <ToggleLeft48Regular />
+            : <ToggleRight48Regular />} shape='square' size='large'>{showUnsupportedProjects
+              ? 'show(\'all\');'
+              : 'show(\'supported\');'}</Button>
         </div>
         <div
           className={`blog-grid shalf-content ${projectsToDisplay.length < 4 ? 'blog-grid-big' : ''}`}>
@@ -53,7 +48,7 @@ export const ProductShelfComponent = (props: ProductShelfComponentProps) => {
             )
           })}
         </div>
-      </section>
-    </div>
+      </section >
+    </div >
   )
 }

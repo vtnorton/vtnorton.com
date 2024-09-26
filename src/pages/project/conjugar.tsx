@@ -1,9 +1,9 @@
-import { faWindows } from '@fortawesome/free-brands-svg-icons'
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { useRouter } from 'next/router'
 
 import { FooterComponent, NextProjectComponent, PageHeroComponent, ProductShelfComponent } from '../../components'
 import { SeoProps } from '../../database/SEOProps'
+import { Button } from '@fluentui/react-components'
+import { StoreMicrosoft24Regular } from '@fluentui/react-icons'
 
 export default function OneNote() {
 	const router = useRouter()
@@ -11,10 +11,7 @@ export default function OneNote() {
 	const buttons = () => {
 		return (
 			<>
-				<a href='https://www.microsoft.com/pt-br/p/conjugar/9nblggh63n89' target='_blank' className='btn btn-primary'>
-					<FontAwesomeIcon icon={faWindows} />
-					download;
-				</a>
+				<Button as='a' href='https://www.microsoft.com/pt-br/p/conjugar/9nblggh63n89' icon={<StoreMicrosoft24Regular />} size='large' appearance='primary' shape='square'>download();</Button>
 				<img className='project-icon' src='/img/projects/conjugar.webp' alt='logo do aplicativo conjugar' />
 			</>
 		)

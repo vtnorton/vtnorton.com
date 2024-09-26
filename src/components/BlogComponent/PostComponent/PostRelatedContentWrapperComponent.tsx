@@ -1,10 +1,10 @@
-import { faChevronRight } from '@fortawesome/free-solid-svg-icons'
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import axios from 'axios'
 import React, { useEffect, useState } from 'react'
 
 import { BlogGrid } from '../BlogGrid/BlogGrid'
 import { BlogGridItemProps } from '../BlogGridItem/BlogGridItemProps'
+import { News20Regular } from '@fluentui/react-icons'
+import { Button } from '@fluentui/react-components'
 
 export const PostRelatedContentWrapperComponent = () => {
 	const [posts, setPosts] = useState<BlogGridItemProps[]>([])
@@ -28,22 +28,13 @@ export const PostRelatedContentWrapperComponent = () => {
 
 	return (
 		<div className='post-related-list'>
-			<div className='row'>
-				<div className='col-md-10'>
-					<h2>📰 Outras postagens</h2>
-				</div>
-			</div>
+			<h2>📰 Outras postagens</h2>
 
 			<BlogGrid posts={posts} />
 
-			<div className='row'>
-				<div className='right'>
-					<div className='space-long'></div>
-					<a href='/blog' className='btn btn-primary'>
-						<FontAwesomeIcon icon={faChevronRight} />
-						ver_tudo;
-					</a>
-				</div>
+			<div className='space-long'></div>
+			<div className='aling-itens-to-right'>
+				<Button as='a' href='/blog' icon={<News20Regular />} size='large' appearance='primary' shape='square'>ver_tudo();</Button>
 			</div>
 		</div>
 	)

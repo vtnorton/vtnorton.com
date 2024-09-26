@@ -1,5 +1,5 @@
-import { faChevronRight } from '@fortawesome/free-solid-svg-icons'
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { Button } from '@fluentui/react-components'
+import { Live24Regular } from '@fluentui/react-icons'
 
 export const TwitchComponent = () => {
 	const twitchParent = process.env.host
@@ -14,10 +14,7 @@ export const TwitchComponent = () => {
 					<div className='twitch-content'>
 						<h2>👀 siga-me na twitch</h2>
 						<p>No canal da twitch eu vivo passando dicas de programação enquanto eu faço livecodings e usabilidade do Windows, além é claro de jogar vem ou outra! Siga-me por lá, não perca as novidades e fique por dentro do que tem de mais atual no campo da tecnologia.</p>
-						<a rel='noreferrer' href='https://twitch.tv/vt_norton/' className='btn btn-danger'>
-							<FontAwesomeIcon icon={faChevronRight} />
-							inscreva_se;
-						</a>
+						<Button as='a' href='https://twitch.tv/vt_norton/' icon={<Live24Regular />} size='large' appearance='primary' shape='square'>watch();</Button>
 					</div>
 				</div>
 			</div>

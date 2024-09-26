@@ -1,15 +1,14 @@
-import { faWindows } from '@fortawesome/free-brands-svg-icons'
-import { faChevronRight } from '@fortawesome/free-solid-svg-icons'
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import axios from 'axios'
 import { useRouter } from 'next/router'
 import { useEffect, useState } from 'react'
 
-import { BlogGridItemProps, ChangelogComponent, FooterComponent, NextProjectComponent, PageHeroComponent, ProductShelfComponent, SliderComponent, SliderImage, VtnButtonComponent } from '../components'
+import { BlogGridItemProps, ChangelogComponent, FooterComponent, NextProjectComponent, PageHeroComponent, ProductShelfComponent, SliderComponent, SliderImage } from '../components'
 import { BlogGrid } from '../components/BlogComponent/BlogGrid/BlogGrid'
 import { ThreeColumnItemsComponent } from '../components/others/ThreeColumnItemsComponent/ThreeColumnItemsComponent'
 import { ThreeColumnItem } from '../components/others/ThreeColumnItemsComponent/ThreeColumnItemsComponentProps'
 import { SeoProps } from '../database/SEOProps'
+import { Button } from '@fluentui/react-components'
+import { ChevronRight20Filled, ChevronRight20Regular, StoreMicrosoft24Regular } from '@fluentui/react-icons'
 
 export default function Formula() {
 	const router = useRouter()
@@ -92,10 +91,7 @@ export default function Formula() {
 	const buttons = () => {
 		return (
 			<>
-				<a href='https://www.microsoft.com/pt-br/p/conjugar/9nblggh63n89' target='_blank' className='btn btn-primary'>
-					<FontAwesomeIcon icon={faWindows} />
-					download;
-				</a>
+				<Button as='a' href='https://www.microsoft.com/pt-br/p/conjugar/9nblggh63n89' icon={<StoreMicrosoft24Regular />} size='large' appearance='primary' shape='square'>download();</Button>
 				<img className='project-icon' src='/img/projects/formula.webp' alt='logo do aplicativo conjugar' />
 			</>
 		)
@@ -105,8 +101,7 @@ export default function Formula() {
 			<SeoProps
 				title='Formula - Code Editor'
 				description='Quantas vezes você não saiu do escritório e se lembrou daquela linha de código que pode consertar o maior bug que você tem? Adivinha! Você vai se esquecer daquela linha de codigo, você simplesmente tem que escrever ela agora. Não da para esperar você chegar no escritório. É por isso que o Formula está aqui! Você pode usar o Formula no seu celular, tablet e desktop.'
-				featureImage='/img/projects/formula/surface.webp'
-			/>
+				featureImage='/img/projects/formula/surface.webp' />
 			<PageHeroComponent
 				innerComponent={buttons()}
 				backgroundColor='#16499a'
@@ -135,10 +130,7 @@ export default function Formula() {
 						<BlogGrid posts={posts} />
 						<div className='right'>
 							<div className='space-long'></div>
-							<a href='/hashtag/formula' className='btn btn-primary'>
-								<FontAwesomeIcon icon={faChevronRight} />
-								get_posts('formula');
-							</a>
+							<Button as='a' href='/hashtag/formula' icon={<ChevronRight20Regular />} size='large' appearance='primary' shape='square'>get_posts('formula');</Button>
 						</div>
 						<div className='clean'></div>
 					</div>
@@ -151,11 +143,17 @@ export default function Formula() {
 							</p>
 							<div className='space-low'></div>
 							<h2>links</h2>
-							{/* <VtnButtonComponent isLink text='Formula para MVPs' url='/' /> */}
-							{/* <VtnButtonComponent isLink text='Programa de beta tester' url='/' /> */}
-							<VtnButtonComponent isLink text='Política de Privacidade' url='/termos/formula' />
-							<br />
-							<VtnButtonComponent isLink text='@Formula4Windows no Twitter' url='https://twitter.com/formula4windows' />
+							<Button as='a'
+								href='/termos/formula'
+								icon={<ChevronRight20Filled />}
+								size='large'
+								appearance='transparent'
+								shape='square'
+								style={{
+									marginLeft: '-23px',
+								}}>
+								Política de Privacidade
+							</Button>
 						</div>
 						<div className='col-md-5 col-md-offset-1'>
 							<img src='/img/projects/formula/surface.webp' alt='Aplicativo Formula rodando em um Surface Pro' />

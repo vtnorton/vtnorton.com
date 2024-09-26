@@ -1,9 +1,9 @@
-import { faGithub } from '@fortawesome/free-brands-svg-icons'
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { useRouter } from 'next/router'
 
 import { FooterComponent, NextProjectComponent, PageHeroComponent, ProductShelfComponent } from '../../components'
 import { SeoProps } from '../../database/SEOProps'
+import { Button } from '@fluentui/react-components'
+import { StoreMicrosoft24Regular } from '@fluentui/react-icons'
 
 export default function TrueDarkMode() {
 	const router = useRouter()
@@ -11,10 +11,7 @@ export default function TrueDarkMode() {
 	const buttons = () => {
 		return (
 			<>
-				<a href='https://github.com/vtnorton/TrueDarkMode' target='_blank' className='btn btn-primary'>
-					<FontAwesomeIcon icon={faGithub} />
-					ver código;
-				</a>
+				<Button as='a' href='https://github.com/vtnorton/TrueDarkMode' icon={<StoreMicrosoft24Regular />} size='large' appearance='primary' shape='square'>download();</Button>
 				<img className='project-icon' src='/img/projects/truedarkmode.webp' alt='logo da extensão true dark mode' />
 			</>
 		)

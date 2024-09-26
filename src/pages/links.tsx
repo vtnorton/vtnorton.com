@@ -5,7 +5,7 @@ import { primaryLinks, secondaryLinks } from '../database/QuickLinksShare'
 import { VtnortonContext } from '../provider/VtnortonContextProvider'
 
 export default function Links() {
-	const { showLogo, setShowLogo } = useContext(VtnortonContext)
+	const { setShowLogo } = useContext(VtnortonContext)
 	setShowLogo(false)
 	return (
 		<div className='links'>

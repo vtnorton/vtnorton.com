@@ -1,12 +1,12 @@
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { PodcastEpisode } from "../../interfaces/PodcastEpisode";
-import { faSpotify } from "@fortawesome/free-brands-svg-icons";
+import { PodcastEpisode } from '../../interfaces/PodcastEpisode'
+import { Button } from '@fluentui/react-components'
+import { SoundSource20Regular } from '@fluentui/react-icons'
 
 export const PodcastItem = (props: PodcastEpisode) => {
-  const date = new Date(props.date);
-  const monthNumber = date.getMonth() + 1;
-  const month = monthNumber.toString().padStart(2, "0");
-  const formatedDate = `${date.getDate().toString().padStart(2, "0")}/${month}/${date.getFullYear()}`;
+  const date = new Date(props.date)
+  const monthNumber = date.getMonth() + 1
+  const month = monthNumber.toString().padStart(2, '0')
+  const formatedDate = `${date.getDate().toString().padStart(2, '0')}/${month}/${date.getFullYear()}`
 
   return (
     <>
@@ -19,12 +19,9 @@ export const PodcastItem = (props: PodcastEpisode) => {
           <small>
             {formatedDate} @ {props.feedName}
           </small>
-          <a href={props.link} className="btn btn-link">
-            <FontAwesomeIcon icon={faSpotify} />
-            <span>ouça_agora();</span>
-          </a>
+          <Button as='a' href={props.link} size='small' shape='square' icon={<SoundSource20Regular />} >ouça_agora();</Button>
         </div>
       </div>
     </>
-  );
-};
+  )
+}

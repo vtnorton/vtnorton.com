@@ -1,5 +1,3 @@
-import { faArrowLeft, faArrowRight } from '@fortawesome/free-solid-svg-icons'
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import React, { useContext } from 'react'
 
 import { Changelog } from '../../../interfaces/Changelog'
@@ -8,6 +6,7 @@ import { VtnortonContext } from '../../../provider/VtnortonContextProvider'
 import { HashtagListComponent } from './HashtagListComponent'
 import { PostContentComponent } from './PostContentComponent'
 import { PostRelatedContentWrapperComponent } from './PostRelatedContentWrapperComponent'
+import { ArrowLeft32Regular, ArrowRight32Regular } from '@fluentui/react-icons'
 
 export const PostComponent = ({ post }: { post: Post | Changelog }) => {
 	const { relatedPostVisibility, setRelatedPostVisibility } = useContext(VtnortonContext)
@@ -25,7 +24,7 @@ export const PostComponent = ({ post }: { post: Post | Changelog }) => {
 					<div className='overlay' />
 					<div className='info'>
 						<div onClick={() => setRelatedPostVisibility(!relatedPostVisibility)} className={relatedPostVisibility ? 'see-posts-button active' : 'see-posts-button'}>
-							<FontAwesomeIcon icon={relatedPostVisibility ? faArrowLeft : faArrowRight} />
+							{relatedPostVisibility ? <ArrowLeft32Regular /> : <ArrowRight32Regular />}
 						</div>
 						<div className='info-title'>
 							<h1>{post.title}</h1>

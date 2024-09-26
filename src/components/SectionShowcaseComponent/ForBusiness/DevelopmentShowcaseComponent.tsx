@@ -1,8 +1,7 @@
-import { faChevronRight } from '@fortawesome/free-solid-svg-icons'
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-
 import { SectionShowcase } from '../SectionShowcaseBaseComponent/SectionShowcaseBaseComponent'
 import { SectionShowcaseComponentProps } from '../SectionShowcaseComponentProps'
+import { ChevronRight20Regular } from '@fluentui/react-icons'
+import { Button } from '@fluentui/react-components'
 
 export const DevelopmentShowcaseComponent = (props: SectionShowcaseComponentProps) => {
 	return (
@@ -14,10 +13,7 @@ export const DevelopmentShowcaseComponent = (props: SectionShowcaseComponentProp
 					Tecnologia é o que vai fazer sua organização permanecer viva, permanecer inovando. Todas empresas que substituíram as 50% da Fortune500 são empresas de tecnologia. E todas elas, como a Ford e a Walmart, estão se transformando e dizendo: “somos uma empresa de
 					tecnologia”.
 				</p>
-				<a href='/para-empresas/desenvolvimento' className='btn btn-primary'>
-					<FontAwesomeIcon icon={faChevronRight} />
-					conheça();
-				</a>
+				<Button as='a' href='/para-empresas/desenvolvimento' icon={<ChevronRight20Regular />} size='large' appearance='primary' shape='square'>conheça();</Button>
 			</>
 		</SectionShowcase>
 	)

@@ -73,8 +73,7 @@ blockquote p {
     text-align: left
 }
 
-.btn,
-button {
+.btn {
     border: 0.067em solid #c3c3c3;
     font-family: 'Consolas', 'Courier New';
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.25);
@@ -135,7 +134,3 @@ a.btn-link {
     text-shadow: 0 4px 15px rgba(0, 0, 0, 0.25);
     box-shadow: none;
 }
-
-// a:visited {
-//     color: unset
-// }

@@ -1,9 +1,9 @@
-import { faWindows } from '@fortawesome/free-brands-svg-icons'
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { useRouter } from 'next/router'
 
 import { FooterComponent, NextProjectComponent, PageHeroComponent, ProductShelfComponent, SliderComponent, SliderImage } from '../../components'
 import { SeoProps } from '../../database/SEOProps'
+import { StoreMicrosoft24Regular } from '@fluentui/react-icons'
+import { Button } from '@fluentui/react-components'
 
 export default function CalculdadoraDeTempo() {
 	const router = useRouter()
@@ -25,10 +25,7 @@ export default function CalculdadoraDeTempo() {
 	const buttons = () => {
 		return (
 			<>
-				<a href='https://www.microsoft.com/store/apps/9wzdncrdfvzn' target='_blank' className='btn btn-primary'>
-					<FontAwesomeIcon icon={faWindows} />
-					download;
-				</a>
+				<Button as='a' href='https://www.microsoft.com/store/apps/9wzdncrdfvzn' icon={<StoreMicrosoft24Regular />} size='large' appearance='primary' shape='square'>download();</Button>
 				<img className='project-icon' src='/img/projects/calculadoradetempo.webp' alt='logo do aplicativo' />
 			</>
 		)
@@ -39,8 +36,7 @@ export default function CalculdadoraDeTempo() {
 			<SeoProps
 				title='Calculadora de Tempo'
 				description='Não é raro ocasiões onde precisamos sortear alguém, com esse aplicativo fica fácil. Basta adicionar a faixa de números a serem sorteados e ele fará o trabalho para você. Experimente.'
-				featureImage='/img/projects/calculadoradetempo.webp'
-			/>
+				featureImage='/img/projects/calculadoradetempo.webp' />
 			<PageHeroComponent
 				innerComponent={buttons()}
 				backgroundColor='#5f37be'

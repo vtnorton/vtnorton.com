@@ -1,6 +1,6 @@
 .post-morten {
 	.post-morten-list {
-		padding: 20px 0 50px;
+		padding: 20px 0 0;
 		display: grid;
 		gap: 1rem;
 		grid-template-columns: repeat(3, 1fr);
@@ -33,10 +33,10 @@
 					line-height: 135%;
 					text-align: justify;
 					margin: 0;
-				}
 
-				.btn {
-					margin-top: auto;
+					&:last-of-type {
+						margin-bottom: 1rem;
+					}
 				}
 			}
 		}

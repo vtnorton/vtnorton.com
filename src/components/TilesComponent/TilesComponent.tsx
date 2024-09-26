@@ -1,5 +1,4 @@
 import { DiscordTile } from './Tiles/DiscordTile/DiscordTile'
-import { InstagramTile } from './Tiles/InstagramTile/InstagramTile'
 
 // <MaillistTile />
 export const TilesComponent = () => {

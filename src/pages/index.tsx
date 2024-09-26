@@ -6,7 +6,6 @@ import {
   BookClubComponent,
   FooterComponent,
   ForBusinessComponent,
-  PostMortemComponent,
   HeartthrobPromoComponent,
   PageHeroComponent,
   PodcastsComponent,
@@ -16,7 +15,7 @@ import {
   TwitchComponent,
 } from '../components'
 import { SeoProps } from '../database/SEOProps'
-import { EventsSection } from '../sections/EventsSection'
+import { EventsSection, PostMortemSection } from '../sections'
 
 export default function Index() {
   return (
@@ -48,8 +47,8 @@ export default function Index() {
         </div>
       </div>
 
-      <ProductShelfComponent showBusinessCases={false} />
-      <PostMortemComponent />
+      <ProductShelfComponent />
+      <PostMortemSection />
 
       <div className="container">
         <div className="row">

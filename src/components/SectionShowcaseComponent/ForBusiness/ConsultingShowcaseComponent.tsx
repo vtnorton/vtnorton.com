@@ -1,8 +1,7 @@
-import { faChevronRight } from '@fortawesome/free-solid-svg-icons'
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-
 import { SectionShowcase } from '../SectionShowcaseBaseComponent/SectionShowcaseBaseComponent'
 import { SectionShowcaseComponentProps } from '../SectionShowcaseComponentProps'
+import { ChevronRight20Regular } from '@fluentui/react-icons'
+import { Button } from '@fluentui/react-components'
 
 export const ConsultingShowcaseComponent = (props: SectionShowcaseComponentProps) => {
 	return (
@@ -14,10 +13,7 @@ export const ConsultingShowcaseComponent = (props: SectionShowcaseComponentProps
 					sistema elimina o desperdício e aperfeiçoa os detalhes que te atrapalham a crescer.
 				</p>
 				<p>Venha conhecer as soluções rápidas e eficientes que oferecemos a você e à sua empresa.</p>
-				<a href='/para-empresas/consultoria' className='btn btn-primary'>
-					<FontAwesomeIcon icon={faChevronRight} />
-					conheça();
-				</a>
+				<Button as='a' href='/para-empresas/consultoria' icon={<ChevronRight20Regular />} size='large' appearance='primary' shape='square'>conheça();</Button>
 			</>
 		</SectionShowcase>
 	)

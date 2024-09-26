@@ -27,25 +27,14 @@
 			flex-direction: column;
 
 			h3 {
-				font-size: 1.2rem;
-				line-height: 125%;
-				margin: 0
+				font-size: 1.5rem;
+				line-height: 120%;
+				margin: -.3rem 0 0
 			}
 
-			.btn {
-				margin: auto 0 0;
-				min-height: 0;
-				line-height: 100%;
-
-				span {
-					display: inline-block;
-					position: relative;
-					top: -.2rem;
-				}
-
-				svg {
-					font-size: 1.2rem !important;
-				}
+			.fui-Button {
+				margin: .5rem 0 0;
+				width: fit-content;
 			}
 		}
 
@@ -58,15 +47,11 @@
 				filter: grayscale(100%);
 				transition: all .4s
 			}
-
-			.btn {
-				color: #1db954 !important;
-				transition: all .4s
-			}
 		}
 
 		small {
 			color: #666;
+			font-size: 1rem;
 			line-height: 167%;
 		}
 

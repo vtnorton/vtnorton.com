@@ -1,9 +1,9 @@
-import { faWindows } from '@fortawesome/free-brands-svg-icons'
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { useRouter } from 'next/router'
 
 import { FooterComponent, NextProjectComponent, PageHeroComponent, ProductShelfComponent, SliderComponent, SliderImage } from '../../components'
 import { SeoProps } from '../../database/SEOProps'
+import { Button } from '@fluentui/react-components'
+import { StoreMicrosoft24Regular } from '@fluentui/react-icons'
 
 export default function TrueOrDare() {
 	const router = useRouter()
@@ -25,10 +25,7 @@ export default function TrueOrDare() {
 	const buttons = () => {
 		return (
 			<>
-				<a href='https://www.microsoft.com/store/apps/9nblggh5xcm8' target='_blank' className='btn btn-primary'>
-					<FontAwesomeIcon icon={faWindows} />
-					download;
-				</a>
+				<Button as='a' href='https://www.microsoft.com/store/apps/9nblggh5xcm8' icon={<StoreMicrosoft24Regular />} size='large' appearance='primary' shape='square'>download();</Button>
 				<img className='project-icon' src='/img/projects/trueordare.webp' alt='logo do aplicativo' />
 			</>
 		)

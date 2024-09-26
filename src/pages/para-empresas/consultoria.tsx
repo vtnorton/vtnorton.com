@@ -35,8 +35,7 @@ export default function Consultoria() {
 			<SeoProps
 				title='consultoria de produto'
 				description='Com a consultoria ofereço a você um trabalho pontual para otimizar um produto que você já tem, seja site, aplicativo, sistema, time de desenvolvimento. Faço uma análise das potencialidades e pontos fracos, escolho as melhores estratégias e ferramentas aplicadas para consertar o que não está funcionando e aprimorar o que já está bom. Venha conhecer as soluções rápidas e eficientes que oferecemos a você e à sua empresa.'
-				featureImage='/img/pages/consultoria.jpg'
-			/>
+				featureImage='/img/pages/consultoria.jpg' />
 			<PageHeroComponent
 				title='consultoria de produto'
 				description='Com a consultoria ofereço a você um trabalho pontual para otimizar um produto que você já tem, seja site, aplicativo, sistema, time de desenvolvimento. Faço uma análise das potencialidades e pontos fracos, escolho as melhores estratégias e ferramentas aplicadas para consertar o que não está funcionando e aprimorar o que já está bom. Venha conhecer as soluções rápidas e eficientes que oferecemos a você e à sua empresa.'
@@ -64,7 +63,7 @@ export default function Consultoria() {
 				</section>
 			</div>
 
-			<ProductShelfComponent showBusinessCases />
+			<ProductShelfComponent />
 
 			<ProfileComponent />
 

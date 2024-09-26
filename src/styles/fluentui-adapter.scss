@@ -3,11 +3,12 @@
 	--fontFamilyBase: inherit !important;
 	--fontWeightRegular: inherit !important;
 	--colorNeutralForeground1: inherit !important;
-	--colorNeutralForegroundOnBrand: #fff !important; // remover quando tirar o a:visited do heartthrob
+	--colorNeutralForegroundOnBrand: #fff !important;
 	background: transparent !important;
 }
 
 .fui-Button {
 	font-family: Consolas, "Courier New", monospace !important;
 	font-weight: normal !important;
+	width: fit-content;
 }
