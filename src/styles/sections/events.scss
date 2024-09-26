@@ -1,16 +1,21 @@
 .events {
+	background: url('/img/section-bg/line-up.jpg') no-repeat;
+	background-attachment: local;
+	background-size: cover;
+
 	h1 {
 		font-size: 3.5rem;
 		line-height: 110%;
 		margin: 0 0 2rem;
 		text-align: center;
+		color: #fff;
 	}
 
 	.event {
 		display: flex;
 		flex-direction: column;
 		align-items: center;
-		padding-bottom: 5rem;
+		padding-bottom: 3.5rem;
 
 		&:last-of-type {
 			padding-bottom: 0;
@@ -21,6 +26,16 @@
 			line-height: 110%;
 			text-transform: uppercase;
 			margin: 0;
+			color: #fff;
+
+			a {
+				color: #fff;
+			}
+
+			&:hover a {
+				color: #1d5bbc;
+				transition: none;
+			}
 
 			div:last-of-type {
 				font-family: "Neutra Text Alt Bold", "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
@@ -30,7 +45,7 @@
 					content: "//";
 					position: absolute;
 					left: -2rem;
-					color: #333;
+					color: #ccc;
 				}
 			}
 		}
@@ -49,6 +64,11 @@
 
 		p {
 			margin: 0;
+			color: #fff;
+		}
+
+		.fui-Button {
+			color: #fff;
 		}
 	}
 }

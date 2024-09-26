@@ -23,10 +23,10 @@ const notionApi = new NotionAPI({
   authToken: NOTION_TOKEN,
 })
 
-const queryNotion = async (filter: any, database?: string) => {
+const queryNotion = async (filter: any, database?: string, sortByAsc?: string) => {
   const sort = database ? [] : [{
     property: 'Date',
-    direction: 'descending',
+    direction: sortByAsc ? 'ascending' : 'descending',
   }]
 
   const response = await notion.databases.query({
@@ -119,7 +119,7 @@ export const getEvents = async (): Promise<Event[]> => {
     },
   ]
 
-  const results = await queryNotion(filter)
+  const results = await queryNotion(filter, undefined, 'asc')
 
   return Promise.all(results.map(async (result: any) => {
     const item: Event = {
