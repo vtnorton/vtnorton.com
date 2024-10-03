@@ -35,7 +35,7 @@ export default function Index() {
         <div className="row">
           <div className="col-md-6">
             <TwitchComponent />
-            <EventsSection />
+            {/* <EventsSection /> */}
             <TilesComponent />
             {/* <CursoDevPromoComponent half /> */}
             {/* <CursoTechPromoComponent half /> */}
