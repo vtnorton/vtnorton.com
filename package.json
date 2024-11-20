@@ -35,6 +35,7 @@
     "react-final-form": "^6.5.9",
     "react-multi-carousel": "^2.8.5",
     "react-notion-x": "^6.16.0",
+    "react-simple-typewriter": "^5.0.1",
     "react-tweet-embed": "^2.0.0",
     "rss": "^1.2.2",
     "youtube-v3-api": "^1.1.1"

@@ -1,11 +1,10 @@
-import { SectionShowcase } from '../SectionShowcaseBaseComponent/SectionShowcaseBaseComponent'
-import { SectionShowcaseComponentProps } from '../SectionShowcaseComponentProps'
+import { SectionBase } from '../../SectionBaseComponent/SectionBase'
 import { ChevronRight20Regular } from '@fluentui/react-icons'
 import { Button } from '@fluentui/react-components'
 
-export const ConsultingShowcaseComponent = (props: SectionShowcaseComponentProps) => {
+export const ConsultingShowcaseComponent = ({ half }: { half?: boolean }) => {
 	return (
-		<SectionShowcase half={props.half} imageAlt='Logo do app Formula, um </> dentro de um octogono.' imageUrl='/img/showcases/consulting.jpg' blurImageUrl='/img/showcases/consulting-blur.jpg'>
+		<SectionBase half={half} imageAlt='Logo do app Formula, um </> dentro de um octogono.' imageUrl='/img/showcases/consulting.jpg' blurImageUrl='/img/showcases/consulting-blur.jpg'>
 			<>
 				<h2>serviço de consultoria</h2>
 				<p>
@@ -15,6 +14,6 @@ export const ConsultingShowcaseComponent = (props: SectionShowcaseComponentProps
 				<p>Venha conhecer as soluções rápidas e eficientes que oferecemos a você e à sua empresa.</p>
 				<Button as='a' href='/para-empresas/consultoria' icon={<ChevronRight20Regular />} size='large' appearance='primary' shape='square'>conheça();</Button>
 			</>
-		</SectionShowcase>
+		</SectionBase>
 	)
 }

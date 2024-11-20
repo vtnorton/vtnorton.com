@@ -2,7 +2,7 @@ import axios from 'axios'
 import { useEffect, useState } from 'react'
 
 import { EventItem } from './EventItem'
-import { Section } from '../../components/Section'
+import { Section } from '../../components/SectionComponent'
 import { Event } from '../../interfaces/Event'
 
 export const EventsSection = () => {

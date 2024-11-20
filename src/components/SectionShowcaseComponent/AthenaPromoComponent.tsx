@@ -1,13 +1,12 @@
-import { SectionShowcase } from './SectionShowcaseBaseComponent/SectionShowcaseBaseComponent'
-import { SectionShowcaseComponentProps } from './SectionShowcaseComponentProps'
+import { SectionBase } from '../SectionBaseComponent/SectionBase'
 
-export const AthenaPromoComponent = (props: SectionShowcaseComponentProps) => {
+export const AthenaPromoComponent = ({ half }: { half?: boolean }) => {
 	return (
-		<SectionShowcase half={props.half} imageAlt='Imagem com diversas cores aleatoriamente' imageUrl='/img/showcases/heartthrob.jpg' blurImageUrl='/img/showcases/heartthrob-blur.jpg'>
+		<SectionBase half={half} imageAlt='Imagem com diversas cores aleatoriamente' imageUrl='/img/showcases/heartthrob.jpg' blurImageUrl='/img/showcases/heartthrob-blur.jpg'>
 			<>
 				<h2>Athena</h2>
 				<p>Projeto sob contrução: fique ligado, muito em breve!</p>
 			</>
-		</SectionShowcase>
+		</SectionBase>
 	)
 }

@@ -1,9 +1,11 @@
+'use client'
 import { CSSProperties } from 'react'
+import { Typewriter } from 'react-simple-typewriter'
 
 import { PageHeroComponentProps } from './PageHeroComponentProps'
 
 export const PageHeroComponent = (props: PageHeroComponentProps) => {
-	const heroClass = props.backgroundClass ? `hero ${props.backgroundClass}` : `hero`
+	const heroClass = props.backgroundClass ? `hero ${props.backgroundClass}` : 'hero'
 	let styles: CSSProperties
 
 	if (props.backgroundUrl)
@@ -23,7 +25,9 @@ export const PageHeroComponent = (props: PageHeroComponentProps) => {
 				<div className='hero-inner'>
 					<div className='row'>
 						<div className='col-md-8'>
-							<h1>{props.title}</h1>
+							<h1>
+								<Typewriter words={[props.title]} typeSpeed={100} cursor={true} />
+							</h1>
 							<p>{props.description}</p>
 							{props.innerComponent}
 						</div>

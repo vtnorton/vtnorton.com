@@ -1,11 +1,10 @@
-import { SectionShowcase } from '../SectionShowcaseBaseComponent/SectionShowcaseBaseComponent'
-import { SectionShowcaseComponentProps } from '../SectionShowcaseComponentProps'
+import { SectionBase } from '../../SectionBaseComponent/SectionBase'
 import { ChevronRight20Regular } from '@fluentui/react-icons'
 import { Button } from '@fluentui/react-components'
 
-export const DevelopmentShowcaseComponent = (props: SectionShowcaseComponentProps) => {
+export const DevelopmentShowcaseComponent = ({ half }: { half?: boolean }) => {
 	return (
-		<SectionShowcase half={props.half} imageAlt='Logo do app Formula, um </> dentro de um octogono.' imageUrl='/img/showcases/development.jpg' blurImageUrl='/img/showcases/development-blur.jpg'>
+		<SectionBase half={half} imageAlt='Logo do app Formula, um </> dentro de um octogono.' imageUrl='/img/showcases/development.jpg' blurImageUrl='/img/showcases/development-blur.jpg'>
 			<>
 				<h2>desenvolvimento</h2>
 				<p>50% das empresas listadas na Fortune500 desapareceram. São gigantes como a Kodak e Blockbuster. 50% é muito! A boa notícia é que o fato de estar aqui significa que você quer evitar que isso aconteça na sua organização.</p>
@@ -15,6 +14,6 @@ export const DevelopmentShowcaseComponent = (props: SectionShowcaseComponentProp
 				</p>
 				<Button as='a' href='/para-empresas/desenvolvimento' icon={<ChevronRight20Regular />} size='large' appearance='primary' shape='square'>conheça();</Button>
 			</>
-		</SectionShowcase>
+		</SectionBase>
 	)
 }

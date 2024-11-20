@@ -1,6 +1,6 @@
 import { Button } from '@fluentui/react-components'
 import { ChevronRight20Regular } from '@fluentui/react-icons'
-import { Section } from '../../components/Section'
+import { Section } from '../../components/SectionComponent'
 
 export const PostMortemSection = () => {
   return (

@@ -1,6 +1,9 @@
-import { SectionShowcaseBaseComponentProps } from './SectionShowcaseBaseComponentProps'
+import { SectionBaseProps } from './SectionBaseProps'
 
-export const SectionShowcase = (props: SectionShowcaseBaseComponentProps) => {
+/**
+ * @deprecated Este componente será removido, use o SectionComponent em seu lugar
+ */
+export const SectionBase = (props: SectionBaseProps) => {
 	const classes = props.half ? 'row showcase half' : 'row showcase'
 	return (
 		<section className='section'>

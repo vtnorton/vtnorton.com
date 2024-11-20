@@ -1,11 +1,10 @@
-import { SectionShowcase } from './SectionShowcaseBaseComponent/SectionShowcaseBaseComponent'
-import { SectionShowcaseComponentProps } from './SectionShowcaseComponentProps'
+import { SectionBase } from '../SectionBaseComponent/SectionBase'
 import { Button } from '@fluentui/react-components'
 import { ChevronRight20Regular } from '@fluentui/react-icons'
 
-export const HeartthrobPromoComponent = (props: SectionShowcaseComponentProps) => {
+export const HeartthrobPromoComponent = ({ half }: { half?: boolean }) => {
 	return (
-		<SectionShowcase half={props.half} imageAlt='Imagem com diversas cores aleatoriamente' imageUrl='/img/showcases/heartthrob.jpg' blurImageUrl='/img/showcases/heartthrob-blur.jpg'>
+		<SectionBase half={half} imageAlt='Imagem com diversas cores aleatoriamente' imageUrl='/img/showcases/heartthrob.jpg' blurImageUrl='/img/showcases/heartthrob-blur.jpg'>
 			<>
 				<h2>heartthrob</h2>
 				<p>O heartthrob é um design system baseado no Fluent UI da Microsoft focado em acessibilidade, produtividade para o negócio e para os profissionais que desenvolvem o sistema e que garante uma entrega ágil de valor e qualidade necessários para um negócio escalonável.</p>
@@ -13,6 +12,6 @@ export const HeartthrobPromoComponent = (props: SectionShowcaseComponentProps) =
 
 				<Button as='a' href='/heartthrob' icon={<ChevronRight20Regular />} size='large' appearance='primary' shape='square'>conheça o framework();</Button>
 			</>
-		</SectionShowcase>
+		</SectionBase>
 	)
 }

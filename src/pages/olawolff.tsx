@@ -2,7 +2,7 @@ import { useRouter } from 'next/router'
 import React from 'react'
 
 import { FooterComponent, NextProjectComponent, PageHeroComponent, ProductShelfComponent } from '../components'
-import Fancybox from '../components/others/FancyboxComponent/FancyboxComponent'
+import { PhotoGallery } from '../components/PhotoGalleryComponent/PhotoGalleryComponent'
 import { SeoProps } from '../database/SEOProps'
 import { Button } from '@fluentui/react-components'
 import { Code20Regular } from '@fluentui/react-icons'
@@ -56,48 +56,32 @@ export default function OlaWolff() {
 			</div>
 
 			<div className='container wrapper'>
-				<Fancybox options={{ Carousel: { infinite: false } }}>
-					<div className='col-md-3 col-sm-6 col-xs-6'>
-						<a data-fancybox='gallery' href='/img/projects/olawolff/guia/p1.jpg'>
-							<img src='/img/projects/olawolff/guia/1.jpg' width='200' height='150' />
-						</a>
-					</div>
-					<div className='col-md-3 col-sm-6 col-xs-6'>
-						<a data-fancybox='gallery' href='/img/projects/olawolff/guia/p2.jpg'>
-							<img src='/img/projects/olawolff/guia/2.jpg' width='200' height='150' />
-						</a>
-					</div>
-					<div className='col-md-3 col-sm-6 col-xs-6'>
-						<a data-fancybox='gallery' href='/img/projects/olawolff/guia/p3.jpg'>
-							<img src='/img/projects/olawolff/guia/3.jpg' width='200' height='150' />
-						</a>
-					</div>
-					<div className='col-md-3 col-sm-6 col-xs-6'>
-						<a data-fancybox='gallery' href='/img/projects/olawolff/guia/p4.jpg'>
-							<img src='/img/projects/olawolff/guia/4.jpg' width='200' height='150' />
-						</a>
-					</div>
-					<div className='col-md-3 col-sm-6 col-xs-6'>
-						<a data-fancybox='gallery' href='/img/projects/olawolff/guia/p5.jpg'>
-							<img src='/img/projects/olawolff/guia/5.jpg' width='200' height='150' />
-						</a>
-					</div>
-					<div className='col-md-3 col-sm-6 col-xs-6'>
-						<a data-fancybox='gallery' href='/img/projects/olawolff/guia/p6.jpg'>
-							<img src='/img/projects/olawolff/guia/6.jpg' width='200' height='150' />
-						</a>
-					</div>
-					<div className='col-md-3 col-sm-6 col-xs-6'>
-						<a data-fancybox='gallery' href='/img/projects/olawolff/guia/p7.jpg'>
-							<img src='/img/projects/olawolff/guia/7.jpg' width='200' height='150' />
-						</a>
-					</div>
-					<div className='col-md-3 col-sm-6 col-xs-6'>
-						<a data-fancybox='gallery' href='/img/projects/olawolff/guia/p8.jpg'>
-							<img src='/img/projects/olawolff/guia/8.jpg' width='200' height='150' />
-						</a>
-					</div>
-				</Fancybox>
+				<PhotoGallery options={{ Carousel: { infinite: false } }}>
+					<a data-fancybox='gallery' href='/img/projects/olawolff/guia/p1.jpg'>
+						<img src='/img/projects/olawolff/guia/1.jpg' width='200' height='150' />
+					</a>
+					<a data-fancybox='gallery' href='/img/projects/olawolff/guia/p2.jpg'>
+						<img src='/img/projects/olawolff/guia/2.jpg' width='200' height='150' />
+					</a>
+					<a data-fancybox='gallery' href='/img/projects/olawolff/guia/p3.jpg'>
+						<img src='/img/projects/olawolff/guia/3.jpg' width='200' height='150' />
+					</a>
+					<a data-fancybox='gallery' href='/img/projects/olawolff/guia/p4.jpg'>
+						<img src='/img/projects/olawolff/guia/4.jpg' width='200' height='150' />
+					</a>
+					<a data-fancybox='gallery' href='/img/projects/olawolff/guia/p5.jpg'>
+						<img src='/img/projects/olawolff/guia/5.jpg' width='200' height='150' />
+					</a>
+					<a data-fancybox='gallery' href='/img/projects/olawolff/guia/p6.jpg'>
+						<img src='/img/projects/olawolff/guia/6.jpg' width='200' height='150' />
+					</a>
+					<a data-fancybox='gallery' href='/img/projects/olawolff/guia/p7.jpg'>
+						<img src='/img/projects/olawolff/guia/7.jpg' width='200' height='150' />
+					</a>
+					<a data-fancybox='gallery' href='/img/projects/olawolff/guia/p8.jpg'>
+						<img src='/img/projects/olawolff/guia/8.jpg' width='200' height='150' />
+					</a>
+				</PhotoGallery>
 			</div>
 
 			<div className='container'>
@@ -133,18 +117,14 @@ export default function OlaWolff() {
 			</div>
 
 			<div className='container wrapper'>
-				<Fancybox options={{ Carousel: { infinite: false } }}>
-					<div className='col-md-6'>
-						<a data-fancybox='gallery' href='/img/projects/olawolff/v1.jpg'>
-							<img src='/img/projects/olawolff/v1.jpg' width='200' height='150' />
-						</a>
-					</div>
-					<div className='col-md-6'>
-						<a data-fancybox='gallery' href='/img/projects/olawolff/v2.jpg'>
-							<img src='/img/projects/olawolff/v2.jpg' width='200' height='150' />
-						</a>
-					</div>
-				</Fancybox>
+				<PhotoGallery options={{ Carousel: { infinite: false } }}>
+					<a data-fancybox='gallery' href='/img/projects/olawolff/v1.jpg'>
+						<img src='/img/projects/olawolff/v1.jpg' width='200' height='150' />
+					</a>
+					<a data-fancybox='gallery' href='/img/projects/olawolff/v2.jpg'>
+						<img src='/img/projects/olawolff/v2.jpg' width='200' height='150' />
+					</a>
+				</PhotoGallery>
 			</div>
 
 			<div className='container'>
