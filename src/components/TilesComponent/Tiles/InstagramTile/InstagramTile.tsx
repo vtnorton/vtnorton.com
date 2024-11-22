@@ -25,7 +25,7 @@ export const InstagramTile = (props: InstagramTileProps) => {
 		if (items.length !== 0)
 			return items.map((item: InstagramItem, index: number) => {
 				return (
-					<div key={index} className='col-md-4 col-xs-4'>
+					<div key={index}>
 						<img src={item.imageUrl} alt={item.altImg} />
 					</div>
 				)
@@ -48,7 +48,7 @@ export const InstagramTile = (props: InstagramTileProps) => {
 				<h2>{props.username}</h2>
 			</div>
 			<div className='tile-content'>
-				<div className='row'>{renderPhotos()}</div>
+				<div className='flex'>{renderPhotos()}</div>
 			</div>
 		</div>
 	)

@@ -36,7 +36,7 @@ export const BookClubLatestVideos = () => {
 	return (
 		<div className='clube-item youtube'>
 			<h3>🔴 Histórico de lives </h3>
-			<div className='row'>{renderPlaylists()}</div>
+			<div className='playlists'>{renderPlaylists()}</div>
 		</div>
 	)
 }

@@ -23,14 +23,12 @@ export const PageHeroComponent = (props: PageHeroComponentProps) => {
 			<div className={heroClass} style={styles}>
 				<div className='hero-overlay'></div>
 				<div className='hero-inner'>
-					<div className='row'>
-						<div className='col-md-8'>
-							<h1>
-								<Typewriter words={[props.title]} typeSpeed={100} cursor={true} />
-							</h1>
-							<p>{props.description}</p>
-							{props.innerComponent}
-						</div>
+					<div className='text-60-percent-wrap'>
+						<h1>
+							<Typewriter words={[props.title]} typeSpeed={100} cursor={true} />
+						</h1>
+						<p>{props.description}</p>
+						{props.innerComponent}
 					</div>
 				</div>
 			</div>

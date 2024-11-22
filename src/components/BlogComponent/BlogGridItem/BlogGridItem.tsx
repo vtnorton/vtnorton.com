@@ -44,13 +44,15 @@ export const BlogGridItem = (props: BlogGridItemProps) => {
 			const month = monthNumber.toString().padStart(2, '0')
 			const formatedDate = `${date.getDate().toString().padStart(2, '0')}/${month}`
 
-			if (props.type == PostType.Post) return <p className='post-date'>Postado em: {formatedDate}</p>
-			if (props.type == PostType.Changelog) return <p className='post-date'>Lançado em: {formatedDate}</p>
+			if (props.type == PostType.Post)
+				return <p className='post-date'>Postado em: {formatedDate}</p>
+			if (props.type == PostType.Changelog)
+				return <p className='post-date'>Lançado em: {formatedDate}</p>
 		}
 	}
 
 	return (
-		<div className='blog-item col-lg-4 col-sm-6 col-xs-12'>
+		<div className='blog-item'>
 			{renderFeatureImage()}
 			{renderCategories()}
 			<a href={props.link} aria-label={props.title}>

@@ -1,4 +1,4 @@
-import { Product } from "../../interfaces/Product";
+import { Product } from '../../interfaces/Product'
 
 export const ProductShelfItemComponent = (props: Product) => {
   return (
@@ -11,8 +11,7 @@ export const ProductShelfItemComponent = (props: Product) => {
             src={props.imageUrl}
             alt={props.name}
             decoding="async"
-            loading="lazy"
-          />
+            loading="lazy" />
           <div className="overlay-img"></div>
         </figure>
       </a>
@@ -22,5 +21,5 @@ export const ProductShelfItemComponent = (props: Product) => {
         <span className="blog-item-more">saiba_mais;</span>
       </a>
     </div>
-  );
-};
+  )
+}

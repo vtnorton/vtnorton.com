@@ -1,0 +1,44 @@
+.olawolff-two-image-paragraph {
+	display: flex;
+	gap: 10rem;
+
+	.images {
+		display: flex;
+		flex-direction: column;
+		min-width: 256px;
+
+		img {
+			height: fit-content;
+
+			&:first-of-type {
+				min-width: 200px;
+				width: 200px;
+			}
+
+			&:last-of-type {
+				margin-top: auto;
+				max-width: 256px;
+			}
+		}
+	}
+}
+
+@media screen and (max-width: 1300px) {
+	.olawolff-two-image-paragraph {
+		flex-direction: column;
+		gap: 2rem;
+
+		.images {
+			flex-direction: row;
+			justify-content: center;
+			align-items: center;
+			gap: 2rem;
+
+			img {
+				&:last-of-type {
+					margin-top: 0;
+				}
+			}
+		}
+	}
+}

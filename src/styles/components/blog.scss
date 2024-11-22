@@ -4,6 +4,12 @@
 
 .blog-grid {
 	margin: 0;
+	display: grid;
+	grid-template-columns: repeat(auto-fill, minmax(450px, 1fr));
+}
+
+.post-related-list .blog-grid {
+	grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
 }
 
 .blog-item {

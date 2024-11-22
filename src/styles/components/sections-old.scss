@@ -18,28 +18,6 @@
 	.showcase:not(.half) {
 		height: 100%;
 		padding: 50px 0;
-
-		.showcase-right {
-			div {
-				position: absolute;
-				z-index: 0;
-				right: 0;
-				margin-top: -50px;
-				width: 50% !important;
-				height: 100%;
-				background-attachment: fixed;
-				background-repeat: no-repeat;
-				background-size: cover;
-				background-position-x: right;
-			}
-
-			img {
-				position: relative;
-				right: 11rem;
-				top: 2rem;
-				box-shadow: 0 4px 30px rgba(0, 0, 0, 0.25);
-			}
-		}
 	}
 
 	.showcase.half {
@@ -50,19 +28,6 @@
 		div {
 			width: 100%;
 			margin: 0;
-
-			&.showcase-bg {
-				height: 16rem;
-				background-attachment: fixed;
-				background-repeat: no-repeat;
-				background-size: cover;
-				background-position-x: right;
-
-				&.sc-full-width {
-					margin-left: -75px;
-					width: calc(100% + 150px);
-				}
-			}
 
 			img {
 				width: 15rem;
@@ -112,14 +77,6 @@ body {
 		width: 100%;
 	}
 
-	.section {
-		.showcase:not(.half) .showcase-right {
-			img {
-				right: 4rem !important;
-			}
-		}
-	}
-
 	footer {
 		padding: 40px 50px 70px !important
 	}
@@ -147,12 +104,6 @@ body {
 			width: calc(100% + 100px) !important;
 			padding-left: 50px;
 			padding-right: 50px;
-		}
-
-		.showcase:not(.half) .showcase-right {
-			img {
-				right: 4rem;
-			}
 		}
 	}
 }
@@ -191,16 +142,6 @@ body {
 				margin: 0 !important;
 				position: unset !important;
 
-				&.showcase-bg {
-					margin-left: -35px !important;
-					width: calc(100% + 70px) !important;
-					height: 16rem !important;
-					background-attachment: fixed;
-					background-repeat: no-repeat;
-					background-size: cover;
-					background-position-x: right;
-				}
-
 				img {
 					width: 15rem;
 					margin-top: -10rem;
@@ -208,10 +149,6 @@ body {
 					right: unset !important;
 				}
 			}
-		}
-
-		.showcase:not(.half) .showcase-right div {
-			width: calc(100% + 70px) !important;
 		}
 	}
 }

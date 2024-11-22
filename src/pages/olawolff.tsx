@@ -70,22 +70,13 @@ export default function OlaWolff() {
 			</div>
 
 			<div className='container'>
-				<section className='section'>
-					<div className='row showcase'>
-						<div className='col-lg-4 col-md-4'>
-							<div className='row'>
-								<div className='col-lg-12 col-md-6 col-sm-6 col-xs-6'>
-									<div className='space-medium'></div>
-									<img className='img-helper' src='/img/projects/olawolff/cristian.png' />
-									<div className='space-long'></div>
-								</div>
-								<div className='col-lg-12 col-md-6 col-sm-6 col-xs-6'>
-									<div className='space-long'></div>
-									<img className='img-helper' src='/img/projects/olawolff/nomes.png' />
-								</div>
-							</div>
+				<Section>
+					<div className='olawolff-two-image-paragraph'>
+						<div className='images'>
+							<img src='/img/projects/olawolff/cristian.png' />
+							<img src='/img/projects/olawolff/nomes.png' />
 						</div>
-						<div className='col-lg-6 col-md-8'>
+						<div className='paragraph'>
 							<h2>Cristian Sales, o comunicador</h2>
 							<p>
 								Em todos os momentos durante o projeto sabíamos que a interface homem-robô poderia não ser a mais eficiênte, então resolvemos criar o Cristian Sales, que iria dar uma visão mais humana para todo o processo. Ele é o pseudônimo do Wolff, um personagem para fazer
@@ -98,7 +89,7 @@ export default function OlaWolff() {
 							<p>Alguns outros nomes e sobrenomes estiveram na nossa pesquisa durante o desenvolvimento do personagem, porém esse foi o ganhador. Acredito que se fosse hoje estariamos com o nome Cris ao invés de Cristian para ser um nome sem gênero.</p>
 						</div>
 					</div>
-				</section>
+				</Section>
 			</div>
 
 			<div className='container wrapper'>
@@ -130,54 +121,51 @@ export default function OlaWolff() {
 					</SectionContentWithImage>
 				</Section>
 
-				<section className='section'>
-					<div className='showcase'>
-						<div className='row'>
-							<div className='col-md-6'>
-								<h2>Funções do chat</h2>
-								<p>Conheça algumas das funções mais desafiadores para criar uma excelente experiência de usuário dentro do chat para nossas personas.</p>
-								<div className='space-medium'></div>
-							</div>
-						</div>
+				<Section>
+					<div className='text-60-percent-wrap'>
+						<h2>Funções do chat</h2>
+						<p>Conheça algumas das funções mais desafiadores para criar uma excelente experiência de usuário dentro do chat para nossas personas.</p>
+					</div>
 
-						<div className='row'>
-							<div className='col-lg-3 col-md-6'>
-								<img className='center img-helper' src='/img/projects/olawolff/usuario.jpg' />
-								<br />
-								<h4>Proxímidade com o usuário</h4>
-								<p>Ao informar o nome, o chat apresentava o nome do usuário embaixo de todas as mensagens enviadas por ele, assim como o avatar recebia as iniciais do nome para deixar mais íntimo e pessoal a conversa. Similar ao que mensageiros atuais já fazem.</p>
-								<p>E em adição a isso, temos a hora sendo apresentada junto com a mensagem, para auxiliar não só no processo de auditoria, mas para que o usuário tenha a sensação de controle vendo o tempo gasto nas mensagens.</p>
-							</div>
-							<div className='col-lg-3 col-lg-offset-1 col-md-6'>
-								<img className='center img-helper' src='/img/projects/olawolff/digitando.jpg' />
-								<br />
-								<h4>O Wolff está digitando...</h4>
-								<p>Era apresentado para o usuário um balão dizendo que o Wolff está digitando para personificar o Wolff criando ainda mais empatia. </p>
-								<p>
-									Essa função criava um delay entre o momento em que o Wolff responde ao momento em que a resposta realmente aparece na tela. Esse delay é calculado pela quantidade de caracteres que há na mensagem. Fizemos um estudo para entender a velocidade de digitação de uma
-									pessoa rápida: neste caso 6 caracteres por segundo.
-								</p>
-							</div>
-							<div className='col-lg-3 col-lg-offset-1 col-md-6'>
-								<img className='center img-helper' src='/img/projects/olawolff/status.jpg' />
-								<br />
-								<h4>Status de mensagem</h4>
-								<p>
-									Com o status de mensagem queriamos informar para o usuário como está o processo dela. Tinhamos três estágios de status: enviada, recebida e lida. Uma bolinha clara para enviado, duas bolinhas (uma verde e uma clara) para recebida pelo Wolff e duas verdes para
-									determinar que a mensagem foi lida e já está processando a resposta.
-								</p>
-								<p>No fundo, ao dizer a mensagem foi lida, a resposta já estava no computador do usuário esperando para ser apresentada.</p>
-							</div>
-							<div className='col-lg-6 col-md-6'>
-								<br />
-								<h4>Fazendo os termos mais acessíveis</h4>
-								<p>A maneira como o Wolff conversava precisava ser acessível, muito porque a maneira de de desburocratizar todo o processo vinha da complicação dos termos contáveis, jurídicos e oficiais de um processo de abertura de empresa.</p>
-								<p>Tinhamos uma UX Writer para ajudar na formulação dos diálogo, mas alguns vezes, precisávamos apresentar um pouco mais de informações, por isso alguns mensagens continham um balão com elas.</p>
-								<img src='/img/projects/olawolff/termos.jpg' className='img-helper' />
-							</div>
+					<div className='space-long'></div>
+					<div className='flex' style={{ gap: '5rem' }}>
+						<div>
+							<img className='center img-helper' src='/img/projects/olawolff/usuario.jpg' />
+							<div className='space-low'></div>
+							<h4>Proxímidade com o usuário</h4>
+							<p>Ao informar o nome, o chat apresentava o nome do usuário embaixo de todas as mensagens enviadas por ele, assim como o avatar recebia as iniciais do nome para deixar mais íntimo e pessoal a conversa. Similar ao que mensageiros atuais já fazem.</p>
+							<p>E em adição a isso, temos a hora sendo apresentada junto com a mensagem, para auxiliar não só no processo de auditoria, mas para que o usuário tenha a sensação de controle vendo o tempo gasto nas mensagens.</p>
+						</div>
+						<div>
+							<img className='center img-helper' src='/img/projects/olawolff/digitando.jpg' />
+							<div className='space-low'></div>
+							<h4>O Wolff está digitando...</h4>
+							<p>Era apresentado para o usuário um balão dizendo que o Wolff está digitando para personificar o Wolff criando ainda mais empatia. </p>
+							<p>
+								Essa função criava um delay entre o momento em que o Wolff responde ao momento em que a resposta realmente aparece na tela. Esse delay é calculado pela quantidade de caracteres que há na mensagem. Fizemos um estudo para entender a velocidade de digitação de uma
+								pessoa rápida: neste caso 6 caracteres por segundo.
+							</p>
+						</div>
+						<div>
+							<img className='center img-helper' src='/img/projects/olawolff/status.jpg' />
+							<div className='space-low'></div>
+							<h4>Status de mensagem</h4>
+							<p>
+								Com o status de mensagem queriamos informar para o usuário como está o processo dela. Tinhamos três estágios de status: enviada, recebida e lida. Uma bolinha clara para enviado, duas bolinhas (uma verde e uma clara) para recebida pelo Wolff e duas verdes para
+								determinar que a mensagem foi lida e já está processando a resposta.
+							</p>
+							<p>No fundo, ao dizer a mensagem foi lida, a resposta já estava no computador do usuário esperando para ser apresentada.</p>
 						</div>
 					</div>
-				</section>
+					<div className='space-long'></div>
+
+					<div className='text-60-percent-wrap'>
+						<h4>Fazendo os termos mais acessíveis</h4>
+						<p>A maneira como o Wolff conversava precisava ser acessível, muito porque a maneira de de desburocratizar todo o processo vinha da complicação dos termos contáveis, jurídicos e oficiais de um processo de abertura de empresa.</p>
+						<p>Tinhamos uma UX Writer para ajudar na formulação dos diálogo, mas alguns vezes, precisávamos apresentar um pouco mais de informações, por isso alguns mensagens continham um balão com elas.</p>
+						<img src='/img/projects/olawolff/termos.jpg' className='img-helper' />
+					</div>
+				</Section>
 			</div>
 
 			<div className='container text-center'>

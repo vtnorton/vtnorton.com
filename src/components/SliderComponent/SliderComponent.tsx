@@ -1,11 +1,11 @@
 import React from 'react'
 import Carousel from 'react-multi-carousel'
+import 'react-multi-carousel/lib/styles.css'
 
 import { SliderComponnetProps } from './SliderComponentProps'
 
 export const SliderComponent = (props: SliderComponnetProps) => {
-	const CustomDot = ({ onClick, active, index, carouselState }: { onClick: any; active: boolean; index: number; carouselState: any }) => {
-		const { currentSlide } = carouselState
+	const CustomDot = ({ onClick, active }: { onClick: any; active: boolean; index: number; carouselState: any }) => {
 		return (
 			<li>
 				<div className={active ? 'active' : ''} onClick={() => onClick()} />
@@ -30,6 +30,7 @@ export const SliderComponent = (props: SliderComponnetProps) => {
 			paritialVisibilityGutter: 30,
 		},
 	}
+
 	return (
 		<Carousel
 			customDot={<CustomDot onClick={undefined} active={false} index={0} carouselState={undefined} />}
@@ -40,7 +41,7 @@ export const SliderComponent = (props: SliderComponnetProps) => {
 			showDots
 			infinite
 			autoPlay
-			autoPlaySpeed={3000}
+			autoPlaySpeed={7000}
 			transitionDuration={1000}
 			removeArrowOnDeviceType={['tablet', 'mobile', 'desktop']}>
 			{props.items.map((item, index: number) => (
@@ -51,9 +52,3 @@ export const SliderComponent = (props: SliderComponnetProps) => {
 		</Carousel>
 	)
 }
-
-// <Carousel className='podcast-list' responsive={responsive} draggable swipeable showDots={false} keyBoardControl={false} customTransition='all .5' transitionDuration={500} removeArrowOnDeviceType={['tablet', 'mobile', 'desktop']}>
-// 	{items.map((item: PodcastEpisode, index: number) => {
-// 		return <PodcastItem key={index} title={item.title} link={item.link} coverURL={item.coverURL} date={item.date} id={item.id} feedName={item.feedName} />
-// 	})}
-// </Carousel>

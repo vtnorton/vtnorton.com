@@ -1,10 +1,11 @@
 import Image from 'next/image'
-import { FooterComponent, PageHeroComponent, ProfileComponent, Step, VerticalSteper } from '../../components'
+import { FooterComponent, PageHeroComponent, Step, VerticalSteper } from '../../components'
 import { PhotoGallery } from '../../components/PhotoGalleryComponent/PhotoGalleryComponent'
 import { Section, SectionContentWithImage } from '../../components/SectionComponent'
 import { Card, CardHeader, CardPreview, Tag } from '@fluentui/react-components'
 import { SuperVizEventsTalks } from '../../components/page-specific'
 import { ContactCardRegular, PeopleCommunityRegular } from '@fluentui/react-icons'
+import { ProfileSection } from '../../sections'
 
 export default function Consultoria() {
 	return (
@@ -272,11 +273,10 @@ export default function Consultoria() {
 				<Section>
 					<h2>Hackathon</h2>
 				</Section>
+
+				<ProfileSection />
 			</div>
 
-
-
-			<ProfileComponent />
 
 			<FooterComponent />
 		</>

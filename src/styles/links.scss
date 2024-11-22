@@ -59,14 +59,6 @@
 				&::before {
 					content: none;
 				}
-
-				.col-xs-6 {
-					width: calc(100% - 10px);
-
-					&:nth-child(odd) {
-						margin-right: 17px;
-					}
-				}
 			}
 		}
 	}

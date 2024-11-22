@@ -1,23 +1,36 @@
 import { SectionProps } from './SectionProps'
 
-export const Section = ({ children, half, full, className, removePaddingButton }: SectionProps) => {
+export const Section = ({ children, full, half, className, removePaddingButton, image }: SectionProps) => {
 	const classes = [className]
-
-	if (half) {
-		classes.push('section-half-width')
-	}
 
 	if (full) {
 		classes.push('section-full-width')
+	}
+
+	if (half) {
+		classes.push('section-half-width')
 	}
 
 	if (removePaddingButton) {
 		classes.push('section-remove-padding-button')
 	}
 
+	if (image) {
+		classes.push('section-with-image')
+	}
+
 	return (
 		<section className={classes.join(' ')}>
-			{children}
+			<div className='section-content'>
+				{children}
+			</div>
+
+			{image && (
+				<div className='section-image'>
+					<div className='section-image-blur' style={{ backgroundImage: 'url(' + image.imageBlurURL + ')' }}></div>
+					<img src={image.imageURL} alt={image.imageAlt} />
+				</div>
+			)}
 		</section>
 	)
 

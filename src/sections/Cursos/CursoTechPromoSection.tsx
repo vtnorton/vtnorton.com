@@ -1,10 +1,15 @@
-import { SectionBase } from '../SectionBaseComponent/SectionBase'
 import { Button } from '@fluentui/react-components'
 import { ChevronRight20Regular } from '@fluentui/react-icons'
+import { ImageBlur, Section } from '../../components/SectionComponent'
 
-export const CursoTechPromoComponent = ({ half }: { half?: boolean }) => {
+export const CursoTechPromoSection = ({ half }: { half?: boolean }) => {
+	const image: ImageBlur = {
+		imageURL: '/img/showcases/formula.jpg',
+		imageBlurURL: '/img/showcases/formula-blur.jpg',
+		imageAlt: 'Logo do app Formula, um </> dentro de um octogono.',
+	}
 	return (
-		<SectionBase half={half} imageAlt='Logo do app Formula, um </> dentro de um octogono.' imageUrl='/img/showcases/formula.jpg' blurImageUrl='/img/showcases/formula-blur.jpg'>
+		<Section half={half} image={image}>
 			<>
 				<h2>🧑‍🎤 Curso: tech pra quem não é tech</h2>
 				<p>Se você se pergunta se BIOS não era aquele grupo musical dos anos 90, ou se você acha que garotos e garotas de programa trabalhando com C# estão usando o ofício anal, então este curso é para você!</p>
@@ -14,6 +19,6 @@ export const CursoTechPromoComponent = ({ half }: { half?: boolean }) => {
 				</p>
 				<Button as='a' href='/curso/tech-nao-tech' icon={<ChevronRight20Regular />} size='large' appearance='primary' shape='square'>matricule_agora();</Button>
 			</>
-		</SectionBase>
+		</Section>
 	)
 }

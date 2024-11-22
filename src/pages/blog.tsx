@@ -1,9 +1,11 @@
 import axios from 'axios'
 import React, { useEffect, useState } from 'react'
 
-import { BlogGridItemProps, FooterComponent, PageHeroComponent, ProfileComponent } from '../components'
+import { BlogGridItemProps, FooterComponent, PageHeroComponent } from '../components'
 import { BlogGrid } from '../components/BlogComponent/BlogGrid/BlogGrid'
 import { SeoProps } from '../database/SEOProps'
+import { Section } from '../components/SectionComponent'
+import { ProfileSection } from '../sections'
 
 export default function BlogPage() {
 	const [posts, setPosts] = useState<BlogGridItemProps[]>([])
@@ -28,20 +30,16 @@ export default function BlogPage() {
 		<>
 			<SeoProps title='Blog' description='blog: artigos + informativos + releases' featureImage='/img/pages/blog.jpg' />
 			<PageHeroComponent title='blog' description='blog: artigos + informativos + releases' backgroundUrl='/img/pages/blog.jpg'>
-				<section className='section'>
-					<div className='blog'>
-						<div className='row'>
-							<div className='col-md-10'>
-								<h2>📰 Todos os posts</h2>
-							</div>
-						</div>
-						<div className='space-low'></div>
-						<BlogGrid posts={posts} />
-					</div>
-				</section>
+				<Section>
+					<h2>📰 Todos os posts</h2>
+					<div className='space-low'></div>
+					<BlogGrid posts={posts} />
+				</Section>
 			</PageHeroComponent>
 
-			<ProfileComponent />
+			<div className='container'>
+				<ProfileSection />
+			</div>
 			<FooterComponent />
 		</>
 	)

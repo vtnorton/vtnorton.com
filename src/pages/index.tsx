@@ -1,21 +1,18 @@
 import React from 'react'
 
 import {
-  AthenaPromoComponent,
   BlogComponent,
   BookClubComponent,
   FooterComponent,
   ForBusinessComponent,
-  HeartthrobPromoComponent,
   PageHeroComponent,
   PodcastsComponent,
   ProductShelfComponent,
-  ProfileComponent,
   TilesComponent,
   TwitchComponent,
 } from '../components'
 import { SeoProps } from '../database/SEOProps'
-import { EventsSection, PostMortemSection } from '../sections'
+import { AthenaPromoSection, HeartthrobSection, PostMortemSection, ProfileSection } from '../sections'
 
 export default function Index() {
   return (
@@ -32,15 +29,13 @@ export default function Index() {
       </PageHeroComponent>
 
       <div className="container">
-        <div className="row">
-          <div className="col-md-6">
+        <div className="flex">
+          <div>
             <TwitchComponent />
             {/* <EventsSection /> */}
             <TilesComponent />
-            {/* <CursoDevPromoComponent half /> */}
-            {/* <CursoTechPromoComponent half /> */}
           </div>
-          <div className="col-md-6">
+          <div>
             <BookClubComponent />
             <PodcastsComponent />
           </div>
@@ -48,24 +43,24 @@ export default function Index() {
       </div>
 
       <ProductShelfComponent />
-      <PostMortemSection />
 
       <div className="container">
-        <div className="row">
-          <div className="col-md-6">
+        <PostMortemSection />
+
+        <div className="flex">
+          <div>
             <ForBusinessComponent />
           </div>
-          <div className="col-md-6">
-            <AthenaPromoComponent half />
+          <div>
+            <AthenaPromoSection half />
           </div>
         </div>
+
+        <HeartthrobSection />
+
+        <ProfileSection />
       </div>
 
-      <div className="container">
-        <HeartthrobPromoComponent></HeartthrobPromoComponent>
-      </div>
-
-      <ProfileComponent />
 
       <FooterComponent />
     </>

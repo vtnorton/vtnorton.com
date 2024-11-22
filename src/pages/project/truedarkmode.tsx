@@ -4,6 +4,7 @@ import { FooterComponent, NextProjectComponent, PageHeroComponent, ProductShelfC
 import { SeoProps } from '../../database/SEOProps'
 import { Button } from '@fluentui/react-components'
 import { StoreMicrosoft24Regular } from '@fluentui/react-icons'
+import { Section, SectionContentWithImage } from '../../components/SectionComponent'
 
 export default function TrueDarkMode() {
 	const router = useRouter()
@@ -21,21 +22,21 @@ export default function TrueDarkMode() {
 		<>
 			<SeoProps title='True Dark Mode' description='Não importa se o seu Windows está no modo escuro ou no modo claro. Os sites que você visita não estão, esta extensão do Microsoft Edge irá mudar isso.' featureImage='/img/projects/truedarkmode.webp' />
 			<PageHeroComponent innerComponent={buttons()} backgroundColor='#3b3b3b' title='True Dark Mode' description='Não importa se o seu Windows está no modo escuro ou no modo claro. Os sites que você visita não estão, esta extensão do Microsoft Edge irá mudar isso.'>
-				<section className='section'>
-					<div className='row showcase'>
-						<div className='col-md-6'>
-							<h2>Sua extenção do Edge para colocar tudo no modo escuro</h2>
-							<p>
-								Não importa se o seu Windows está no modo escuro ou no modo de luz. Os websites que você visita não são, portanto, essa extensão do Microsoft Edge está prestes a ser alterada. Quando ativada, esta extensão colocará seu site favorito no modo escuro! Por isso, não
-								se esqueça de colocar o Windows e o Edge no modo escuro.
-							</p>
-						</div>
-						<div className='col-md-5 col-md-offset-1'>
-							<img src='/img/projects/truedarkmode/capture.webp' alt='tela do aplicativo mostrando a conjugação de verbos' />
-						</div>
-					</div>
+				<Section removePaddingButton>
+					<h2>Sua extenção do Edge para colocar tudo no modo escuro</h2>
+					<SectionContentWithImage
+						image={'/img/projects/truedarkmode/capture.webp'}
+						imageAlt={'tela do aplicativo mostrando a conjugação de verbos'}
+						imageCaption
+						gap={10} >
+						<p>
+							Não importa se o seu Windows está no modo escuro ou no modo de luz. Os websites que você visita não são, portanto, essa extensão do Microsoft Edge está prestes a ser alterada. Quando ativada, esta extensão colocará seu site favorito no modo escuro! Por isso, não
+							se esqueça de colocar o Windows e o Edge no modo escuro.
+						</p>
+					</SectionContentWithImage>
+					<div className='space-long' />
 					<NextProjectComponent path={router.pathname} />
-				</section>
+				</Section>
 			</PageHeroComponent>
 
 			<ProductShelfComponent />

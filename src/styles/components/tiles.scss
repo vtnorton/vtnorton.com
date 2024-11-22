@@ -59,8 +59,8 @@
 			width: calc(100% + 130.5px);
 		}
 
-		.row {
-			.col-md-4 {
+		.flex {
+			& > * {
 				margin: 0;
 				padding: 0;
 				position: relative;

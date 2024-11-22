@@ -6,7 +6,7 @@ import { CalendarItem } from '../../../interfaces/CalendarItem'
 const renderLive = (items: CalendarItem[]) => {
 	const today = new Date()
 
-	return items.map((item: CalendarItem) => {
+	return items.map((item: CalendarItem, index: number) => {
 		const date = new Date(item.date)
 
 		const monthNumber = date.getMonth() + 1
@@ -18,7 +18,7 @@ const renderLive = (items: CalendarItem[]) => {
 			eventNameAndDescription = '🔴 ' + eventNameAndDescription
 		}
 		return (
-			<div className='col-md-6 sameheight'>
+			<div className='sameheight' key={index}>
 				<div className='calendar-item shadow-middle'>
 					<img src={item.imageHash} alt={eventNameAndDescription} />
 					<h4>{eventNameAndDescription}</h4>
@@ -54,9 +54,7 @@ const render = () => {
 
 	if (items.length == 0) {
 		return (
-			<div className='col-md-12'>
-				<p>Não há nenhuma live agendada por hora, fique atento aqui ou lá no Discord para saber quando teremos mais uma live.</p>
-			</div>
+			<p>Não há nenhuma live agendada por hora, fique atento aqui ou lá no Discord para saber quando teremos mais uma live.</p>
 		)
 	}
 
@@ -67,7 +65,7 @@ export const BookClubCalendarComponent = () => {
 	return (
 		<div className='clube-item'>
 			<h3>➡️ Próximas lives </h3>
-			<div className='row sameheight'>{render()}</div>
+			<div className='playlists'>{render()}</div>
 		</div>
 	)
 }

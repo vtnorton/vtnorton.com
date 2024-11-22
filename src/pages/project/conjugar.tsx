@@ -4,6 +4,7 @@ import { FooterComponent, NextProjectComponent, PageHeroComponent, ProductShelfC
 import { SeoProps } from '../../database/SEOProps'
 import { Button } from '@fluentui/react-components'
 import { StoreMicrosoft24Regular } from '@fluentui/react-icons'
+import { Section, SectionContentWithImage } from '../../components/SectionComponent'
 
 export default function OneNote() {
 	const router = useRouter()
@@ -21,20 +22,19 @@ export default function OneNote() {
 		<>
 			<SeoProps title='Conjugar' description='Conjugue verbos regulares e irregulares da nossa língua portuguesa em todos os tempos verbais.' featureImage='/img/projects/conjugar.webp' />
 			<PageHeroComponent innerComponent={buttons()} backgroundColor='#199900' title='Conjugar' description='Conjugue verbos regulares e irregulares da nossa língua portuguesa em todos os tempos verbais.'>
-				<section className='section'>
-					<div className='row showcase'>
-						<div className='col-md-6'>
-							<h2>Conjugações</h2>
-							<p>Você pode usar isto: Presente, Imperfeito, Perfeito Presente, mais que perfeito passado, futuro, o presente condicional, imperfeito subjuntivo, futuro subjuntivo, imperativo, infinitivo e gerúndio</p>
+				<Section removePaddingButton>
+					<SectionContentWithImage
+						image={'/img/projects/conjugar/captura.webp'}
+						imageAlt={'tela do aplicativo mostrando a conjugação de verbos'}
+						imageCaption
+						gap={10} >
+						<h2>Conjugações</h2>
+						<p>Você pode usar isto: Presente, Imperfeito, Perfeito Presente, mais que perfeito passado, futuro, o presente condicional, imperfeito subjuntivo, futuro subjuntivo, imperativo, infinitivo e gerúndio</p>
 
-							<div className='space-low'></div>
-						</div>
-						<div className='col-md-5 col-md-offset-1'>
-							<img src='/img/projects/conjugar/captura.webp' alt='tela do aplicativo mostrando a conjugação de verbos' />
-						</div>
-					</div>
+					</SectionContentWithImage>
+					<div className='space-long' />
 					<NextProjectComponent path={router.pathname} />
-				</section>
+				</Section>
 			</PageHeroComponent>
 
 			<ProductShelfComponent />

@@ -1,16 +1,8 @@
-.clube-livro {
-	padding-top: 50px;
-}
-
 .clube-item {
 	background: #ededed;
 	width: calc(100% + 150px);
 	margin-left: -75px;
 	padding: 20px 75px;
-
-	.row.sameheight {
-		display: block;
-	}
 
 	h3 {
 		margin-bottom: 10px;
@@ -47,6 +39,12 @@
 	&.youtube {
 		background: #ddd;
 		padding-bottom: 75px;
+
+		.playlists {
+			display: grid;
+			grid-template-columns: repeat(2, 1fr);
+			gap: 1rem;
+		}
 
 		.video-card {
 			background: #fff;
@@ -112,10 +110,6 @@
 }
 
 @media screen and (max-width: 990px) {
-	.clube-livro {
-		padding-top: 35px;
-	}
-
 	.clube-item {
 		width: calc(100% + 70px);
 		margin-left: -35px;
