@@ -59,6 +59,11 @@
 	justify-content: flex-end;
 }
 
+.flex {
+	display: flex;
+	gap: 1rem;
+}
+
 @media screen and (max-width: 1300px) {
 	.logo-post {
 		&.colorized img {
@@ -72,6 +77,10 @@
 		img {
 			left: 0;
 		}
+	}
+
+	.flex {
+		display: block;
 	}
 }
 

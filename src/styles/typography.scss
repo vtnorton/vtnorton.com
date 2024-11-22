@@ -60,6 +60,10 @@ p {
     font-size: 1.1rem
 }
 
+.text-60-percent-wrap p {
+    width: 60%;
+}
+
 em {
     font-style: italic
 }
@@ -133,4 +137,10 @@ blockquote p {
 a.btn-link {
     text-shadow: 0 4px 15px rgba(0, 0, 0, 0.25);
     box-shadow: none;
+}
+
+@media screen and (max-width: 920px) {
+    .text-60-percent-wrap p {
+        width: 100%;
+    }
 }

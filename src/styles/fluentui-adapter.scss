@@ -12,3 +12,17 @@
 	font-weight: normal !important;
 	width: fit-content;
 }
+
+.fui-Tag__icon {
+	-webkit-box-sizing: unset !important;
+	-moz-box-sizing: unset !important;
+	box-sizing: unset !important;
+}
+
+.fui-CardHeader {
+	width: min-content !important;
+
+	.fui-CardHeader__header h4 {
+		margin: 0 !important;
+	}
+}
