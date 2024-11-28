@@ -1,6 +1,6 @@
 import { PostType } from '../../../interfaces'
 
-export type BlogGridItemProps = {
+export interface BlogGridItemProps {
 	id: string
 	title: string
 	image: string

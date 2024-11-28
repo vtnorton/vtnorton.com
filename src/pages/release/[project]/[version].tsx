@@ -35,7 +35,8 @@ export const getStaticProps = async (context: any) => {
 	}
 }
 export default function ChangelogDetail({ changelog }: { changelog: Changelog }) {
-	if (!changelog) return <div />
+	if (!changelog)
+		return <div />
 
 	return (
 		<>

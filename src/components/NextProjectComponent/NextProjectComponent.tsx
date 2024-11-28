@@ -1,6 +1,6 @@
 import { productsItems } from '../../database/ProductShelfItems'
 
-export const NextProjectComponent = ({ path }: { path: String }) => {
+export const NextProjectComponent = ({ path }: { path: string }) => {
 	const getProduct = () => {
 		const currentProject = productsItems.filter((x) => x.link == path)[0]
 		const indexOfCurrentProject = productsItems.indexOf(currentProject)

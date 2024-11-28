@@ -1,4 +1,4 @@
-export type Post = {
+export interface Post {
 	id: string
 	url: string
 	fullSlug: string

@@ -1,4 +1,4 @@
-export type PageHeroComponentProps = {
+export interface PageHeroComponentProps {
 	title: string
 	description?: string
 	backgroundUrl?: string

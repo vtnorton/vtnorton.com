@@ -1,4 +1,4 @@
-export type CalendarItem = {
+export interface CalendarItem {
 	location: string
 	name: string
 	date: any

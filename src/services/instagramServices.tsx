@@ -18,7 +18,7 @@ async function fetchInstagramPhoto(mediaId: string, accessToken: string): Promis
 }
 
 export async function getInstagramPosts(): Promise<InstagramItem[]> {
-	let photos: InstagramItem[] = []
+	const photos: InstagramItem[] = []
 	const accessToken = process.env.instagramAccessToken || ''
 	const userId = '17841401451493119'
 

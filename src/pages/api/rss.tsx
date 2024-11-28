@@ -7,11 +7,13 @@ import { generateRssFeed } from '../../services/rssServices'
 
 export default async (req: NextApiRequest, res: NextApiResponse<string>) => {
 	let posts: BlogGridItemProps[]
-	const cacheKey = `blogPosts`
+	const cacheKey = 'blogPosts'
 	const cachedPosts = (await kv.get(cacheKey)) as BlogGridItemProps[]
 
-	if (cachedPosts) posts = cachedPosts
-	else posts = await getBlogSectionItems()
+	if (cachedPosts)
+		posts = cachedPosts
+	else
+		posts = await getBlogSectionItems()
 
 	const rss = await generateRssFeed(posts)
 	res.setHeader('Content-Type', 'text/xml')

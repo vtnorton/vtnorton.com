@@ -1,3 +1,3 @@
-export type InstagramTileProps = {
+export interface InstagramTileProps {
 	username: string
 }

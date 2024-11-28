@@ -7,7 +7,7 @@ const guildId = '828792462453112862'
 const discordToken = process.env.discordToken
 
 export async function getServerSchedule(): Promise<CalendarItem[]> {
-	let events: CalendarItem[] = []
+	const events: CalendarItem[] = []
 
 	try {
 		const response = await axios.get(`https://discord.com/api/v10/guilds/${guildId}/scheduled-events`, {

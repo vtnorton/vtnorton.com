@@ -1,4 +1,4 @@
-export type Changelog = {
+export interface Changelog {
 	id: string
 	fullSlug: string
 	title: string

@@ -36,7 +36,7 @@ const renderLive = (items: CalendarItem[]) => {
 	})
 }
 
-const render = () => {
+export const BookClubCalendarComponent = () => {
 	const [items, setItems] = useState<CalendarItem[]>([])
 
 	useEffect(() => {
@@ -50,7 +50,7 @@ const render = () => {
 					console.error('Erro ao obter os dados da API:', error)
 				})
 		}
-	}, [])
+	}, [items])
 
 	if (items.length == 0) {
 		return (
@@ -58,14 +58,10 @@ const render = () => {
 		)
 	}
 
-	return renderLive(items)
-}
-
-export const BookClubCalendarComponent = () => {
 	return (
 		<div className='clube-item'>
 			<h3>➡️ Próximas lives </h3>
-			<div className='playlists'>{render()}</div>
+			<div className='playlists'>{renderLive(items)}</div>
 		</div>
 	)
 }

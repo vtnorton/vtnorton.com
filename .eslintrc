@@ -10,6 +10,7 @@
       "error",
       "interface"
     ],
+    "@typescript-eslint/no-explicit-any": "warn",
     "react/jsx-one-expression-per-line": [
       0
     ],

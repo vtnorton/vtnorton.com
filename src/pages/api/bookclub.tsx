@@ -8,7 +8,8 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse<
 	const cacheKey = 'boraler'
 	const cachedEvents = (await kv.get(cacheKey)) as CalendarItem[]
 
-	if (cachedEvents) return res.status(200).json(cachedEvents)
+	if (cachedEvents)
+		return res.status(200).json(cachedEvents)
 
 	const events: CalendarItem[] = await getBoraLerEvents()
 	await kv.setex(cacheKey, 60 * 60 * 12, events)

@@ -8,7 +8,8 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse<
 	const cacheKey = 'playlist'
 	const cachedEvents = (await kv.get(cacheKey)) as Playlist[]
 
-	if (cachedEvents) return res.status(200).json(cachedEvents)
+	if (cachedEvents)
+		return res.status(200).json(cachedEvents)
 
 	const playlist: Playlist[] = await getPlaylistsFromClubeDoLivro()
 	await kv.setex(cacheKey, 60 * 60 * 24, playlist)
