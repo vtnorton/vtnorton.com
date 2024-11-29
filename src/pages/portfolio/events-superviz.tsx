@@ -177,8 +177,8 @@ export default function Consultoria() {
 					<a data-fancybox='gallery' href='/img/projects/events-superviz/gallery/p9.jpg' data-caption="Equipe preparada para receber as pessoas no estande da SuperViz na CodeCon Summit">
 						<img src='/img/projects/events-superviz/gallery/9.jpg' alt='Equipe preparada para receber as pessoas no estande da SuperViz na CodeCon Summit' />
 					</a>
-					<a data-fancybox='gallery' href='/img/projects/events-superviz/gallery/p10.jpg' data-caption="Apresendando detalhes técnicos da SuperViz no estande do The Developer Conference">
-						<img src='/img/projects/events-superviz/gallery/10.jpg' alt='Apresendando detalhes técnicos da SuperViz no estande do The Developer Conference' />
+					<a data-fancybox='gallery' href='/img/projects/events-superviz/gallery/p10.jpg' data-caption="Apresentando detalhes técnicos da SuperViz no estande do The Developer Conference">
+						<img src='/img/projects/events-superviz/gallery/10.jpg' alt='Apresentando detalhes técnicos da SuperViz no estande do The Developer Conference' />
 					</a>
 				</PhotoGallery>
 			</div>
