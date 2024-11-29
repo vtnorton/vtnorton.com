@@ -21,7 +21,20 @@ export default function Consultoria() {
 				description='Durante o segundo semestre de 2024, encabecei na SuperViz a estratégia de participação em eventos de tecnologia, com o objetivo de aumentar o reconhecimento da marca e gerar leads qualificados.'
 				backgroundUrl='/img/pages/events-superviz.jpg'>
 				<Section>
-					<h2>Jornada de eventos</h2>
+					<h2>A Jornada de Eventos</h2>
+					<div className='text-60-percent-wrap'>
+						<p>
+							Durante o segundo semestre de 2024, fui responsável por embarcar a SuperViz em uma jornada estratégica de participação em eventos tecnológicos, focando especialmente em desenvolvedores front-end de níveis pleno e sênior. Esta estratégia foi cuidadosamente planejada para construir uma presença consistente e memorável no cenário tech brasileiro.
+						</p>
+
+						<p>
+							O que incluiu patrocínio em grandes eventos como CodeCon Summit, passando pelo The Developer Conference e FRONTIN Sampa, até chegar ao CodeCon Select, cada evento foi escolhido para maximizar a visibilidade e conexão com a comunidade de desenvolvedores.
+						</p>
+
+						<p>
+							Além da presença nos eventos, mantivemos um calendário consistente de palestras técnicas e workshops ao longo do semestre. Estas apresentações focaram em temas relevantes para desenvolvedores, desde websockets e colaboração em tempo real até design patterns em JavaScript.
+						</p>
+					</div>
 				</Section>
 			</PageHeroComponent>
 
@@ -269,7 +282,7 @@ export default function Consultoria() {
 				</Section>
 
 				<Section>
-					<h2>Ativações</h2>
+					<h2>Ativações e Interações Criativas</h2>
 					<SectionContentWithImage
 						imageSize='small' imageCaption
 						image={'/img/projects/events-superviz/dashboard.jpg'}
@@ -323,10 +336,10 @@ export default function Consultoria() {
 				</Section>
 
 
-				<Section>
+				{/* <Section>
 					<h2>Hackathon</h2>
 
-				</Section>
+				</Section> */}
 
 				<ProfileSection />
 			</div>
