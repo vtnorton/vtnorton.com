@@ -1,9 +1,12 @@
 import { SectionContentWithImageProps } from './SectionContentWithImageProps'
 
-export const SectionContentWithImage = ({ children, image, imageAlt, imageCaption, side, gap, sticky }: SectionContentWithImageProps) => {
+export const SectionContentWithImage = ({ children, image, imageAlt, imageCaption, side, gap, sticky, imageSize }: SectionContentWithImageProps) => {
+	let classNameImage = sticky ? 'content-with-image__image content-with-image--sticky' : 'content-with-image__image'
 	const className = side === 'right' ? 'content-with-image content-with-image--right' : 'content-with-image'
-	const classNameImage = sticky ? 'content-with-image__image content-with-image--sticky' : 'content-with-image__image'
 	const gapSize = gap ? { gap: `${gap}rem` } : {}
+
+	if (imageSize === 'small')
+		classNameImage += ' content-with-image__image--small'
 
 
 	return (

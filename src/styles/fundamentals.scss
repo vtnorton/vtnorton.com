@@ -67,6 +67,14 @@
 	& > * {
 		flex: 1;
 	}
+
+	&.not-equal {
+		justify-content: flex-start;
+
+		& > * {
+			flex: none;
+		}
+	}
 }
 
 @media screen and (max-width: 1300px) {

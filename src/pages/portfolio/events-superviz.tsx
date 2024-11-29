@@ -2,18 +2,20 @@ import Image from 'next/image'
 import { FooterComponent, PageHeroComponent, Step, VerticalSteper } from '../../components'
 import { PhotoGallery } from '../../components/PhotoGalleryComponent/PhotoGalleryComponent'
 import { Section, SectionContentWithImage } from '../../components/SectionComponent'
-import { Card, CardHeader, CardPreview, Tag } from '@fluentui/react-components'
+import { Button, Card, CardHeader, CardPreview, Tag } from '@fluentui/react-components'
 import { SuperVizEventsTalks } from '../../components/page-specific'
-import { ContactCardRegular, PeopleCommunityRegular } from '@fluentui/react-icons'
+import { ChevronRight20Regular, ContactCardRegular, PeopleCommunityRegular } from '@fluentui/react-icons'
 import { ProfileSection } from '../../sections'
+import { SeoProps } from '../../database/SEOProps'
+import Link from 'next/link'
 
 export default function Consultoria() {
 	return (
 		<>
-			{/* <SeoProps
-				title='consultoria de produto'
-				description='Com a consultoria ofereço a você um trabalho pontual para otimizar um produto que você já tem, seja site, aplicativo, sistema, time de desenvolvimento. Faço uma análise das potencialidades e pontos fracos, escolho as melhores estratégias e ferramentas aplicadas para consertar o que não está funcionando e aprimorar o que já está bom. Venha conhecer as soluções rápidas e eficientes que oferecemos a você e à sua empresa.'
-				featureImage='/img/pages/consultoria.jpg' /> */}
+			<SeoProps
+				title='Brand Awareness da SuperViz, através de eventos'
+				description='Durante o segundo semestre de 2024, encabecei na SuperViz a estratégia de participação em eventos de tecnologia, com o objetivo de aumentar o reconhecimento da marca e gerar leads qualificados.'
+				featureImage='/img/pages/events-superviz.jpg' />
 			<PageHeroComponent
 				title='Brand Awareness da SuperViz, através de eventos'
 				description='Durante o segundo semestre de 2024, encabecei na SuperViz a estratégia de participação em eventos de tecnologia, com o objetivo de aumentar o reconhecimento da marca e gerar leads qualificados.'
@@ -268,10 +270,62 @@ export default function Consultoria() {
 
 				<Section>
 					<h2>Ativações</h2>
+					<SectionContentWithImage
+						imageSize='small' imageCaption
+						image={'/img/projects/events-superviz/dashboard.jpg'}
+						imageAlt={'Leaderboard com informações de quem estava online e como estava o status e pontuação de cada participante no nosso stand.'}>
+						<p>
+							Tudo o que preciso em um evento é <s>uma permissão para fazer bagunça</s> um espaço para poder estar lá oficialmente, tendo isso a criatividade é o limite!
+						</p>
+						<p>
+							Com ativações criativas geramos mais conexões genuínas com potenciais clientes e maior lembrança da marca. Em eventos recentes, alcançamos alta taxa de lembrança espontânea ótima, um resultado notável para nossa primeira participação no mercado de trabalho em contraste com outras marcas já estabelecidas que estavam presentes.
+						</p>
+						<p>
+							Para esta sequência de eventos, queríamos promover a <a href='https://docs.superviz.com/realtime' target='_blank' rel="noreferrer">engine de sincronização de dados em tempo real</a>, fizemos no stand um dashboard que exibia um leaderboard com todas as pessoas que estavam na nossa ativação, no qual elas poderiam ficar interagindo durante todo o período do evento, podendo aproveitar as palestras enquanto juntava pontos na nossa ativação. O que também foi uma maneira de promover a cultura de não precisar estar em um local para fazer um trabalho (aka.: remote work ❤️).
+						</p>
+					</SectionContentWithImage>
+					<div className='space-long'></div>
+					<div className='flex not-equal'>
+						<video src='https://vtnphotoswebsite.blob.core.windows.net/others/superviz-game-codecon-video.mp4' controls width={450}></video>
+						<div style={{ width: 'calc(100% - 450px - 2rem)' }}>
+							<h3>O jogo mais viciante que eu fiz</h3>
+							<SectionContentWithImage
+								imageSize='small'
+								image={'/img/projects/events-superviz/game-you.png'}
+								imageAlt={'Leaderboard com informações de quem estava online e como estava o status e pontuação de cada participante no nosso stand.'}>
+								<p>
+									Dentro da ativação tinha vários itens como se inscrever para participar do nosso Hackathon, dar uma estrela no GitHub e se juntar ao nosso Discord. Mas o que mais viciou foi um jogo inspirado no Infinite Craft - <Link href='/2024/03/multiplayer-infinite-craft'>e na minha tentativa de deixa-lo multiplayer</Link> -, onde os participantes podiam combinar diferentes elementos para criar novos. O jogo começava com elementos básicos ("Fire", "Water", "Earth", "Wind", "Coffee", "JavaScript", "Developer") e uma IA gerava novos elementos baseados nas combinações dos jogadores, como "Fire" + "JavaScript" = "Firebase".
+								</p>
+
+							</SectionContentWithImage>
+							<br />
+							<p>
+								Com um grande volume de participantes nos eventos, criamos uma competição onde descobrir novas combinações gerava pontos e notificações para todos. Os pontos acumulados aumentavam as chances de ganhar prêmios.
+							</p>
+							<p>
+								Era possível acompanhar a criação de elementos interessantes como "Real-time communication", "Web sockets", "Collaboration environment", "Remote work" e alguns divertidos como "Intergalactic coffee" e o clássico “Saúde mental”!
+							</p>
+
+							<h3>O tecnequês por trás</h3>
+							<p>A implementação utilizou a biblioteca <code>@superviz/realtime</code> com WebSockets e padrão Publisher/Subscriber, permitindo uma comunicação eficiente entre todas as instâncias do jogo e o dashboard. Para mais informações sobre como foi desenhado o projeto (tanto a ideia quanto tecnicamente), fiz um artigo e o código está aberto!</p>
+							<Button as='a' size='large' appearance='subtle' shape='square' className='no-margin'
+								href='https://dev.to/superviz/realtime-meets-ai-how-we-used-gaming-to-showcase-our-new-library-now-open-souce-3fgm'
+								icon={<ChevronRight20Regular />} >
+								Veja mais detalhes da implementação
+							</Button> <br />
+							<Button as='a' size='large' appearance='subtle' shape='square' className='no-margin'
+								href='https://github.com/SuperViz/sv-activation-app'
+								icon={<ChevronRight20Regular />} >
+								Ver código-fonte
+							</Button>
+						</div>
+					</div>
 				</Section>
+
 
 				<Section>
 					<h2>Hackathon</h2>
+
 				</Section>
 
 				<ProfileSection />

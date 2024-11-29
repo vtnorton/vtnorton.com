@@ -3,6 +3,7 @@ export interface SectionContentWithImageProps {
 	image: string,
 	imageAlt: string,
 	imageCaption?: boolean,
+	imageSize?: 'normal' | 'small',
 	sticky?: boolean,
 	gap?: number,
 	side?: 'left' | 'right'
