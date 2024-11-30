@@ -132,8 +132,6 @@ export const getEvents = async (): Promise<Event[]> => {
       talk: await getTalk(result.properties.Palestra.relation[0]?.id),
     }
 
-    console.log(item.title, item.link)
-
     return item
   })).then((events) => {
     return events.filter(

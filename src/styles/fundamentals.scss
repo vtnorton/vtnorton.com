@@ -68,6 +68,18 @@
 		flex: 1;
 	}
 
+	&.grid {
+		display: block;
+		column-count: 2;
+		margin-bottom: 3rem;
+
+		& > * {
+			break-inside: avoid;
+			display: inline-block;
+			width: 100%;
+		}
+	}
+
 	&.not-equal {
 		justify-content: flex-start;
 
