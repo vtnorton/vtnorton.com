@@ -1,7 +1,7 @@
 import Image from 'next/image'
 import { FooterComponent, PageHeroComponent, Step, VerticalSteper } from '../../components'
 import { PhotoGallery } from '../../components/PhotoGalleryComponent/PhotoGalleryComponent'
-import { Section, SectionContentWithImage } from '../../components/SectionComponent'
+import { ImageBlur, Section, SectionContentWithImage } from '../../components/SectionComponent'
 import { Button, Card, CardHeader, CardPreview, Tag } from '@fluentui/react-components'
 import { SuperVizEventsTalks } from '../../components/page-specific'
 import { ChevronRight20Regular, ContactCardRegular, PeopleCommunityRegular } from '@fluentui/react-icons'
@@ -10,6 +10,12 @@ import { SeoProps } from '../../database/SEOProps'
 import Link from 'next/link'
 
 export default function Consultoria() {
+	const imageBlurForHackathon: ImageBlur = {
+		imageURL: '/img/projects/events-superviz/hackathon_logo.png',
+		imageBlurURL: '/img/projects/events-superviz/hackatohn-2.0.jpg',
+		imageAlt: 'Logo do Hackathon da SuperViz 2.0',
+	}
+
 	return (
 		<>
 			<SeoProps
@@ -281,7 +287,7 @@ export default function Consultoria() {
 					</div>
 				</Section>
 
-				<Section>
+				<Section className='superviz-activation'>
 					<h2>Ativações e Interações Criativas</h2>
 					<SectionContentWithImage
 						imageSize='small' imageCaption
@@ -299,8 +305,8 @@ export default function Consultoria() {
 					</SectionContentWithImage>
 					<div className='space-long'></div>
 					<div className='flex not-equal'>
-						<video src='https://vtnphotoswebsite.blob.core.windows.net/others/superviz-game-codecon-video.mp4' controls width={450}></video>
-						<div style={{ width: 'calc(100% - 450px - 2rem)' }}>
+						<video src='https://vtnphotoswebsite.blob.core.windows.net/others/superviz-game-codecon-video.mp4' controls></video>
+						<div className='activation-paragraph'>
 							<h3>O jogo mais viciante que eu fiz</h3>
 							<SectionContentWithImage
 								imageSize='small'
@@ -336,10 +342,39 @@ export default function Consultoria() {
 				</Section>
 
 
-				{/* <Section>
-					<h2>Hackathon</h2>
+				<Section image={imageBlurForHackathon} className='superviz-hackathon'>
 
-				</Section> */}
+					<h2>Hackathon</h2>
+					<p>
+						Pra fechar com chave de ouro, e trazer as pessoas que somente tinham visto a framework para uma experiência com ele, realizamos um hackathon com excelente premiação que incentivou as pessoas a ficarem atentas as nossas novidades e comunicações pelas redes sociais.
+					</p>
+					<p>
+						O tema do Hackathon também foi beeemmmm direcionado com o que tínhamos acabado de fazer na nossa ativação: Realtime meets AI. Uma aplicação que utilizasse a plataforma de sincronização de dados da SuperViz junto com alguma integração com AI, seja Gemini, OpenAI, Claude ou LLama.
+					</p>
+					<p>
+						O {'Super<Hackathon> 2.0'} foi 100% online pelo Discord, teve uma aderência de 353% em relação ao primeiro hackathon que fizemos anteriormente, justamente por toda a ativação feita durante o eventos mencionados.
+					</p>
+					<Button as='a' size='large' appearance='subtle' shape='square' className='no-margin'
+						href='https://dev.to/superviz/announcing-our-supervizs-hackathon-1gkg'
+						icon={<ChevronRight20Regular />} >
+						Anúncio do {'Super<Hackathon>'}
+					</Button> <br />
+					<Button as='a' size='large' appearance='subtle' shape='square' className='no-margin'
+						href='https://superviz.com/super-hackathon-celebrating-innovation-and-announcing-our-winner'
+						icon={<ChevronRight20Regular />} >
+						Resultado do {'Super<Hackathon>'}
+					</Button> <br />
+					<Button as='a' size='large' appearance='subtle' shape='square' className='no-margin'
+						href='https://superviz.com/superviz-hackathon-ai-meets-realtime'
+						icon={<ChevronRight20Regular />} >
+						Anúncio do {'Super<Hackathon> 2.0'}
+					</Button><br />
+					<Button as='a' size='large' appearance='subtle' shape='square' className='no-margin'
+						href='https://superviz.com/announcing-the-winners-of-super-hackathon-2-0-celebrating-innovation-and-creativity'
+						icon={<ChevronRight20Regular />} >
+						Resultado do {'Super<Hackathon> 2.0'}
+					</Button>
+				</Section>
 
 				<ProfileSection />
 			</div>

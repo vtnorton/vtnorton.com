@@ -31,7 +31,7 @@ section {
 				height: 100%;
 				background-attachment: fixed;
 				background-repeat: no-repeat;
-				background-size: cover;
+				background-size: contain;
 				background-position-x: right;
 				z-index: 0;
 			}
@@ -148,6 +148,11 @@ section {
 
 			.content-with-image__image {
 				max-width: 80%;
+
+				&.content-with-image--sticky {
+					margin: 0 auto;
+					position: relative;
+				}
 			}
 		}
 	}
