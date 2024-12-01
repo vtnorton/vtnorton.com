@@ -25,7 +25,7 @@ export default function Index() {
         title="vítor norton"
         description="Lives na Twitch, clube do livro, desenvolvimento de apps e web, mitologia grega, música e séries de TV. Um compilado do que eu sou e do que eu faço, chega mais!"
         backgroundUrl="/img/pages/404.jpg">
-        {/* <BlogComponent></BlogComponent> */}
+        <BlogComponent></BlogComponent>
       </PageHeroComponent>
 
       <div className="container">
@@ -37,7 +37,7 @@ export default function Index() {
           </div>
           <div>
             <BookClubComponent />
-            {/* <PodcastsComponent /> */}
+            <PodcastsComponent />
           </div>
         </div>
       </div>
