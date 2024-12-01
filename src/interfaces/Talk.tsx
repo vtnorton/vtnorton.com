@@ -2,7 +2,7 @@ export interface Talk {
 	id: string
 	title: string
 	description: string
-	featureImage: string
+	featureImage?: string
 	presentations: number,
 	lenght?: string,
 	slides?: string,

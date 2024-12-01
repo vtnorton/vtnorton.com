@@ -162,6 +162,8 @@ export const getTalks = async () => {
     const item: Talk = {
       id: result.id,
       title: result.properties.Name.title[0].text.content,
+      description: 'No description',
+      presentations: 0,
     }
 
     return item
