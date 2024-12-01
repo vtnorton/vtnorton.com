@@ -1,16 +1,22 @@
 import { Tag } from '@fluentui/react-components'
 import { NumberSymbolRegular, Clock20Regular } from '@fluentui/react-icons'
 import { ImageBlur, Section } from '../SectionComponent'
-import { Talk } from '../../interfaces/Talk'
+import { Talk, TalkStatus } from '../../interfaces/Talk'
 
 interface PalestraComponentProps {
 	talk: Talk
 }
 
 export const PalestraComponent = ({ talk }: PalestraComponentProps) => {
+	let solidColor = '#2B61C5'
+	if (talk.status === TalkStatus.Call4Pappers)
+		solidColor = '#E09E36'
+	if (talk.status === TalkStatus.SoonTM)
+		solidColor = '#ccc'
+
 	const image: ImageBlur = {
-		imageURL: talk.featureImage,
-		solidColor: '#2B61C5',
+		imageURL: talk.featureImage ? talk.featureImage : '/img/projects/palestras/soon.jpg',
+		solidColor: solidColor,
 		imageAlt: talk.title,
 	}
 
@@ -18,20 +24,35 @@ export const PalestraComponent = ({ talk }: PalestraComponentProps) => {
 		<Section half image={image}>
 			<h2>{talk.title}</h2>
 			<div>
-				<Tag
-					icon={<NumberSymbolRegular />}
-					style={{ marginRight: '.5rem' }}
-					appearance='outline'
-					shape='circular'>{talk.presentations} apresentações</Tag>
+				{talk.status === TalkStatus.Presented &&
+					<Tag
+						icon={<NumberSymbolRegular />}
+						style={{ marginRight: '.5rem' }}
+						appearance='outline'
+						shape='circular'>{talk.presentations} apresentações</Tag>}
 
-				{talk.duration && <Tag
+				{talk.lenght && <Tag
 					icon={<Clock20Regular />}
 					appearance='outline'
-					shape='circular'>{talk.duration}</Tag>}
+					shape='circular'>{talk.lenght}</Tag>}
 			</div>
+			{talk.status === TalkStatus.Call4Pappers &&
+				<p>
+					<strong>
+						Esta palestra está sendo atualmente montada para ser apresentada em breve, fique ligado nos próximos eventos que estarei participando pois ela está vindo! 🚀
+					</strong>
+				</p>
+			}
 			<p>
-				{talk.description}
+				{talk.description ? talk.description : 'Em breve uma descrição aqui!'}
 			</p>
+			{talk.status === TalkStatus.SoonTM &&
+				<p>
+					<strong>
+						Eu quero muito fazer essa palestra acontecer, estou só esperando algum evento ou meetup pra estar fazendo ela.
+					</strong>
+				</p>
+			}
 			{/* <Button as='a' href={`/palestra/${talk.id}`} icon={<ChevronRight20Regular />} size='large' appearance='primary' shape='square'>veja mais detalhes();</Button> */}
 		</Section>
 
