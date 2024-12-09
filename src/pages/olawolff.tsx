@@ -7,9 +7,11 @@ import { SeoProps } from '../database/SEOProps'
 import { Button } from '@fluentui/react-components'
 import { Code20Regular } from '@fluentui/react-icons'
 import { Section, SectionContentWithImage } from '../components/SectionComponent'
+import { getNextProductBasedOnCurrentPath } from '../database/ProductShelfItems'
 
 export default function OlaWolff() {
 	const router = useRouter()
+	const nextProject = getNextProductBasedOnCurrentPath(router.pathname)
 	return (
 		<>
 			<SeoProps
@@ -202,7 +204,7 @@ export default function OlaWolff() {
 						<p>O que mais chama atenção foi a necessidade ágil do projeto, o que, juntando tudo, permitia que em alterações solicitadas e ajustes fossem implementados nos diversos ambientes a caminho de reuniões com a prefeitura e/ou deputados.</p>
 					</SectionContentWithImage>
 					<div className='space-long'></div>
-					<NextProjectComponent path={router.pathname} />
+					<NextProjectComponent name={nextProject.name} imageUrl={nextProject.imageUrl} link={nextProject.link} />
 				</Section>
 			</div>
 			<ProductShelfComponent />

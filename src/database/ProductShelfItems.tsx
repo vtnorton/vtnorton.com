@@ -79,3 +79,11 @@ export const productsItems: Product[] = [
 		businessCase: false,
 	},
 ]
+
+
+export const getNextProductBasedOnCurrentPath = (path: string) => {
+	const currentProject = productsItems.filter((x) => x.link == path)[0]
+	const indexOfCurrentProject = productsItems.indexOf(currentProject)
+	const indexOfNextProject = indexOfCurrentProject === productsItems.length - 1 ? 0 : indexOfCurrentProject + 1
+	return productsItems[indexOfNextProject]
+}

@@ -1,22 +1,18 @@
-import { productsItems } from '../../database/ProductShelfItems'
+interface NextProjectComponentProps {
+	name: string
+	imageUrl: string
+	link: string
+}
 
-export const NextProjectComponent = ({ path }: { path: string }) => {
-	const getProduct = () => {
-		const currentProject = productsItems.filter((x) => x.link == path)[0]
-		const indexOfCurrentProject = productsItems.indexOf(currentProject)
-		const indexOfNextProject = indexOfCurrentProject === productsItems.length - 1 ? 0 : indexOfCurrentProject + 1
-		return productsItems[indexOfNextProject]
-	}
-
-	const project = getProduct()
-	const altDescription = `Logo do projeto ${project.name}`
-
+export const NextProjectComponent = ({ name, imageUrl, link }: NextProjectComponentProps) => {
 	return (
-		<a href={project.link} className='project-next' data-scrolled-into-view='true'>
-			<img src={project.imageUrl} alt={altDescription} />
+		<a href={link} className='project-next' data-scrolled-into-view='true'>
+			<div className='project-image' style={{
+				backgroundImage: `url(${imageUrl})`,
+			}} />
 			<div className='meta-project'>
 				<span>conheça também:</span>
-				<h1>{project.name}</h1>
+				<h1>{name}</h1>
 			</div>
 		</a>
 	)

@@ -4,6 +4,7 @@ import { FooterComponent, NextProjectComponent, PageHeroComponent, ProductShelfC
 import { SeoProps } from '../../database/SEOProps'
 import { StoreMicrosoft24Regular } from '@fluentui/react-icons'
 import { Button } from '@fluentui/react-components'
+import { getNextProductBasedOnCurrentPath } from '../../database/ProductShelfItems'
 
 export default function CalculdadoraDeTempo() {
 	const router = useRouter()
@@ -31,6 +32,8 @@ export default function CalculdadoraDeTempo() {
 		)
 	}
 
+	const nextProject = getNextProductBasedOnCurrentPath(router.pathname)
+
 	return (
 		<>
 			<SeoProps
@@ -47,7 +50,7 @@ export default function CalculdadoraDeTempo() {
 
 			<div className='container'>
 				<section className='section'>
-					<NextProjectComponent path={router.pathname} />
+					<NextProjectComponent name={nextProject.name} imageUrl={nextProject.imageUrl} link={nextProject.link} />
 				</section>
 			</div>
 			<ProductShelfComponent />

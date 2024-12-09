@@ -8,9 +8,11 @@ import { SeoProps } from '../database/SEOProps'
 import { Button } from '@fluentui/react-components'
 import { ChevronRight20Filled, ChevronRight20Regular, StoreMicrosoft24Regular } from '@fluentui/react-icons'
 import { Section, SectionContentWithImage } from '../components/SectionComponent'
+import { getNextProductBasedOnCurrentPath } from '../database/ProductShelfItems'
 
 export default function Formula() {
 	const router = useRouter()
+	const nextProject = getNextProductBasedOnCurrentPath(router.pathname)
 	const projectSlug = 'formula'
 	const itemsForSlider: SliderImage[] = [
 		{
@@ -145,7 +147,7 @@ export default function Formula() {
 					</SectionContentWithImage>
 
 					<div className='space-long'></div>
-					<NextProjectComponent path={router.pathname} />
+					<NextProjectComponent name={nextProject.name} imageUrl={nextProject.imageUrl} link={nextProject.link} />
 				</Section>
 			</div>
 

@@ -1,5 +1,5 @@
-import { Tag } from '@fluentui/react-components'
-import { NumberSymbolRegular, Clock20Regular } from '@fluentui/react-icons'
+import { Button, Tag } from '@fluentui/react-components'
+import { NumberSymbolRegular, Clock20Regular, ChevronRight20Regular } from '@fluentui/react-icons'
 import { ImageBlur, Section } from '../SectionComponent'
 import { Talk, TalkStatus } from '../../interfaces/Talk'
 
@@ -53,7 +53,7 @@ export const PalestraComponent = ({ talk }: PalestraComponentProps) => {
 					</strong>
 				</p>
 			}
-			{/* <Button as='a' href={`/palestra/${talk.id}`} icon={<ChevronRight20Regular />} size='large' appearance='primary' shape='square'>veja mais detalhes();</Button> */}
+			{talk.status === TalkStatus.Presented && <Button as='a' href={`/portfolio/palestra/${talk.id}`} icon={<ChevronRight20Regular />} size='large' appearance='primary' shape='square'>veja mais detalhes();</Button>}
 		</Section>
 
 	)

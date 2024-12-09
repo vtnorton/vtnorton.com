@@ -4,6 +4,7 @@ import { FooterComponent, NextProjectComponent, PageHeroComponent, ProductShelfC
 import { SeoProps } from '../../database/SEOProps'
 import { Button } from '@fluentui/react-components'
 import { StoreMicrosoft24Regular } from '@fluentui/react-icons'
+import { getNextProductBasedOnCurrentPath } from '../../database/ProductShelfItems'
 
 export default function TochaOlimipica() {
 	const router = useRouter()
@@ -23,6 +24,7 @@ export default function TochaOlimipica() {
 		)
 	}
 
+	const nextProject = getNextProductBasedOnCurrentPath(router.pathname)
 	return (
 		<>
 			<SeoProps title='Tocha Olímpica' description='Agora você pode saber, mesmo no seu telefone, onde a tocha olímpica vai ser no Brasil. Confira a lista das cidades em que a tocha Olímpica irá passar e saiba a data exata!' featureImage='/img/projects/conjugar.webp' />
@@ -36,7 +38,7 @@ export default function TochaOlimipica() {
 
 			<div className='container'>
 				<section className='section'>
-					<NextProjectComponent path={router.pathname} />
+					<NextProjectComponent name={nextProject.name} imageUrl={nextProject.imageUrl} link={nextProject.link} />
 				</section>
 			</div>
 

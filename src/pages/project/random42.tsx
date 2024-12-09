@@ -4,6 +4,7 @@ import { FooterComponent, NextProjectComponent, PageHeroComponent, ProductShelfC
 import { SeoProps } from '../../database/SEOProps'
 import { Button } from '@fluentui/react-components'
 import { StoreMicrosoft24Regular } from '@fluentui/react-icons'
+import { getNextProductBasedOnCurrentPath } from '../../database/ProductShelfItems'
 
 export default function Random42() {
 	const router = useRouter()
@@ -31,6 +32,8 @@ export default function Random42() {
 		)
 	}
 
+	const nextProject = getNextProductBasedOnCurrentPath(router.pathname)
+
 	return (
 		<>
 			<SeoProps title='Random 42' description='Não é raro ocasiões onde precisamos sortear alguém, com esse aplicativo fica fácil. Basta adicionar a faixa de números a serem sorteados e ele fará o trabalho para você. Experimente.' featureImage='/img/projects/random42.webp' />
@@ -44,7 +47,7 @@ export default function Random42() {
 
 			<div className='container'>
 				<section className='section'>
-					<NextProjectComponent path={router.pathname} />
+					<NextProjectComponent name={nextProject.name} imageUrl={nextProject.imageUrl} link={nextProject.link} />
 				</section>
 			</div>
 			<ProductShelfComponent />

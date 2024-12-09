@@ -58,6 +58,16 @@
 	}
 }
 
+.superviz-events-talk {
+	a {
+		line-height: 135%;
+		width: max-content;
+		margin-top: -8px;
+		margin-bottom: 6px;
+		text-decoration: underline;
+	}
+}
+
 @media screen and (max-width: 990px) {
 	section.superviz-hackathon {
 		&.section-with-image {

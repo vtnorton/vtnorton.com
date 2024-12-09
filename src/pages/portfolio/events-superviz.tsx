@@ -218,7 +218,8 @@ export default function Consultoria() {
 						<VerticalSteper>
 							<Step title='JS Builders Community'>
 								<>
-									<SuperVizEventsTalks date={'3 de Julho'} talkTitle={'Aprenda alguns Design Pattern em JavaScript'} />
+									<SuperVizEventsTalks date={'3 de Julho'} talkTitle={'Aprenda alguns Design Pattern em JavaScript'}
+										id='e9527a91-9b18-4d39-8836-a40abf55e6c7' />
 									<Card
 										orientation='horizontal'
 										onClick={() => window.location.href = 'https://www.youtube.com/watch?v=U54Aj1c9WDo&t=810s'}>
@@ -233,28 +234,28 @@ export default function Consultoria() {
 								</>
 							</Step>
 							<Step title='Campus Party'>
-								<SuperVizEventsTalks date={'11 de Julho'} talkTitle={'O código por trás da colaboração em tempo real e o que são websockets'} onsite />
+								<SuperVizEventsTalks date={'11 de Julho'} talkTitle={'O código por trás da colaboração em tempo real e o que são websockets'} onsite id='1154147c-8b0d-40a8-b881-2509dc806b3b' />
 							</Step>
 							<Step title='Tech in Rio'>
-								<SuperVizEventsTalks date={'8 de Agosto'} talkTitle={'Workshop trabalhando com Realtime da SuperViz'} />
+								<SuperVizEventsTalks date={'8 de Agosto'} talkTitle={'Workshop trabalhando com Realtime da SuperViz'} id='b2eff69d-6c72-476e-8c17-e08c52d97e78' />
 							</Step>
 							<Step title='GambiConf'>
-								<SuperVizEventsTalks date={'2 de Novembro'} talkTitle={'Adicionando multiplayer em um jogo sem autorização do desenvolvedor'} onsite />
+								<SuperVizEventsTalks date={'2 de Novembro'} talkTitle={'Adicionando multiplayer em um jogo sem autorização do desenvolvedor'} id='126a7783-eaad-4156-a0a1-7e8da3171003' onsite />
 							</Step>
 							<Step title='CodeCon Summit'>
-								<SuperVizEventsTalks date={'7 de Setembro'} talkTitle={'O código por trás da colaboração em tempo real e o que são websockets'} onsite />
+								<SuperVizEventsTalks date={'7 de Setembro'} talkTitle={'O código por trás da colaboração em tempo real e o que são websockets'} id='1154147c-8b0d-40a8-b881-2509dc806b3b' onsite />
 							</Step>
 						</VerticalSteper>
 						<VerticalSteper>
 							<Step title='FRONTIN Sampa'>
-								<SuperVizEventsTalks date={'19 de Outubro'} talkTitle={'Motivos para distribuir via CDN ao invés npm modules'} onsite />
+								<SuperVizEventsTalks date={'19 de Outubro'} talkTitle={'Motivos para distribuir via CDN ao invés npm modules'} id='c4fd2740-af96-4000-8b2d-e001b6cdc760' onsite />
 							</Step>
 							<Step title='FATEC'>
-								<SuperVizEventsTalks date={'21 de Outubro'} talkTitle={'O código por trás da colaboração em tempo real e o que são websockets'} onsite />
+								<SuperVizEventsTalks date={'21 de Outubro'} talkTitle={'O código por trás da colaboração em tempo real e o que são websockets'} onsite id='1154147c-8b0d-40a8-b881-2509dc806b3b' />
 							</Step>
 							<Step title='Conf42.com'>
 								<>
-									<SuperVizEventsTalks date={'5 de Setembro'} talkTitle={'The Code Behind Every Real-Time Collaboration Tool'} />
+									<SuperVizEventsTalks date={'5 de Setembro'} talkTitle={'The Code Behind Every Real-Time Collaboration Tool'} id='14e4009b-7ca6-8073-a103-d5c329192c13' />
 									<Card
 										orientation='horizontal'
 										onClick={() => window.location.href = 'https://www.youtube.com/watch?v=RUreD6HcOYk'}>
@@ -269,7 +270,7 @@ export default function Consultoria() {
 							</Step>
 							<Step title='JS Nation US'>
 								<>
-									<SuperVizEventsTalks date={'21 de Novembro'} talkTitle={'Breaking the code behind realtime collaboration with websockets'} />
+									<SuperVizEventsTalks date={'21 de Novembro'} talkTitle={'Breaking the code behind realtime collaboration with websockets'} id='14e4009b-7ca6-8073-a103-d5c329192c13' />
 									<Card
 										orientation='horizontal'
 										onClick={() => window.location.href = 'https://gitnation.com/contents/breaking-the-code-behind-realtime-collaboration-with-websockets'}>

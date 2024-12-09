@@ -5,9 +5,11 @@ import { SeoProps } from '../../database/SEOProps'
 import { Button } from '@fluentui/react-components'
 import { ArrowDownload20Regular } from '@fluentui/react-icons'
 import { Section } from '../../components/SectionComponent'
+import { getNextProductBasedOnCurrentPath } from '../../database/ProductShelfItems'
 
 export default function OneNote() {
 	const router = useRouter()
+	const nextProject = getNextProductBasedOnCurrentPath(router.pathname)
 
 	return (
 		<>
@@ -42,7 +44,7 @@ export default function OneNote() {
 						</div>
 					</div>
 					<div className='space-long'></div>
-					<NextProjectComponent path={router.pathname} />
+					<NextProjectComponent name={nextProject.name} imageUrl={nextProject.imageUrl} link={nextProject.link} />
 				</Section>
 			</PageHeroComponent>
 

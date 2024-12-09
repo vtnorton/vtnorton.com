@@ -3,10 +3,11 @@ import { useRouter } from 'next/router'
 import { FooterComponent, NextProjectComponent, PageHeroComponent, ProductShelfComponent } from '../components'
 import { SeoProps } from '../database/SEOProps'
 import { Section, SectionContentWithImage } from '../components/SectionComponent'
+import { getNextProductBasedOnCurrentPath } from '../database/ProductShelfItems'
 
 export default function Heartthrob() {
 	const router = useRouter()
-
+	const nextProject = getNextProductBasedOnCurrentPath(router.pathname)
 	return (
 		<>
 			<SeoProps title='heartthrob' description='Já pensou em entregar um MVP em poucos dias, com qualidade impecável e as melhores práticas da atualidade, e lucrar bastante com isso?' featureImage='/img/pages/desenvolvimento.jpg' />
@@ -59,7 +60,7 @@ export default function Heartthrob() {
 
 					<div className='space-long'></div>
 
-					<NextProjectComponent path={router.pathname} />
+					<NextProjectComponent name={nextProject.name} imageUrl={nextProject.imageUrl} link={nextProject.link} />
 				</Section>
 			</PageHeroComponent>
 			<ProductShelfComponent />

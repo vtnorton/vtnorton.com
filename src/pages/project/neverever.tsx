@@ -2,6 +2,7 @@ import { useRouter } from 'next/router'
 
 import { FooterComponent, NextProjectComponent, PageHeroComponent, ProductShelfComponent, SliderComponent, SliderImage } from '../../components'
 import { SeoProps } from '../../database/SEOProps'
+import { getNextProductBasedOnCurrentPath } from '../../database/ProductShelfItems'
 
 export default function NeverEver() {
 	const router = useRouter()
@@ -28,6 +29,8 @@ export default function NeverEver() {
 		)
 	}
 
+	const nextProject = getNextProductBasedOnCurrentPath(router.pathname)
+
 	return (
 		<>
 			<SeoProps title='#NeverEver' description='Pegue a bebida mais forte, ou a que esteja mais perto de você, e venha jogar o famoso ‘Eu Nunca’, onde toda vez que você já fez algo mostrado na tela você deve beber um gole.' featureImage='/img/projects/neverever.webp' />
@@ -41,7 +44,7 @@ export default function NeverEver() {
 
 			<div className='container'>
 				<section className='section'>
-					<NextProjectComponent path={router.pathname} />
+					<NextProjectComponent name={nextProject.name} imageUrl={nextProject.imageUrl} link={nextProject.link} />
 				</section>
 			</div>
 			<ProductShelfComponent />

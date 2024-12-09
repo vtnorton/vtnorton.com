@@ -5,6 +5,7 @@ import { SeoProps } from '../../database/SEOProps'
 import { Button } from '@fluentui/react-components'
 import { StoreMicrosoft24Regular } from '@fluentui/react-icons'
 import { Section, SectionContentWithImage } from '../../components/SectionComponent'
+import { getNextProductBasedOnCurrentPath } from '../../database/ProductShelfItems'
 
 export default function TrueDarkMode() {
 	const router = useRouter()
@@ -18,6 +19,7 @@ export default function TrueDarkMode() {
 		)
 	}
 
+	const nextProject = getNextProductBasedOnCurrentPath(router.pathname)
 	return (
 		<>
 			<SeoProps title='True Dark Mode' description='Não importa se o seu Windows está no modo escuro ou no modo claro. Os sites que você visita não estão, esta extensão do Microsoft Edge irá mudar isso.' featureImage='/img/projects/truedarkmode.webp' />
@@ -35,7 +37,7 @@ export default function TrueDarkMode() {
 						</p>
 					</SectionContentWithImage>
 					<div className='space-long' />
-					<NextProjectComponent path={router.pathname} />
+					<NextProjectComponent name={nextProject.name} imageUrl={nextProject.imageUrl} link={nextProject.link} />
 				</Section>
 			</PageHeroComponent>
 

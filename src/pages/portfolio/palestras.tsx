@@ -29,8 +29,8 @@ export default function Consultoria() {
 	return (
 		<>
 			<SeoProps
-				title='Brand Awareness da SuperViz, através de eventos'
-				description='Durante o segundo semestre de 2024, encabecei na SuperViz a estratégia de participação em eventos de tecnologia, com o objetivo de aumentar o reconhecimento da marca e gerar leads qualificados.'
+				title='Minhas palestras'
+				description='Aqui você encontra todas as palestras que eu já dei, links para os vídeos e slides, e informações sobre como me chamar para palestrar.'
 				featureImage='/img/pages/palestras.jpg' />
 			<PageHeroComponent
 				title='Minhas palestras'

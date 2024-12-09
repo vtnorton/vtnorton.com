@@ -4,6 +4,7 @@ import { FooterComponent, NextProjectComponent, PageHeroComponent, ProductShelfC
 import { SeoProps } from '../../database/SEOProps'
 import { Button } from '@fluentui/react-components'
 import { StoreMicrosoft24Regular } from '@fluentui/react-icons'
+import { getNextProductBasedOnCurrentPath } from '../../database/ProductShelfItems'
 
 export default function TrueOrDare() {
 	const router = useRouter()
@@ -31,6 +32,8 @@ export default function TrueOrDare() {
 		)
 	}
 
+	const nextProject = getNextProductBasedOnCurrentPath(router.pathname)
+
 	return (
 		<>
 			<SeoProps title='#TrueOrDare' description='O melhor jogo de verdade e consequência que a Windows Store já viu, possui diversas garrafas de acordo com a ocasião.' featureImage='/img/projects/trueordare.webp' />
@@ -40,7 +43,7 @@ export default function TrueOrDare() {
 
 			<div className='container'>
 				<section className='section'>
-					<NextProjectComponent path={router.pathname} />
+					<NextProjectComponent name={nextProject.name} imageUrl={nextProject.imageUrl} link={nextProject.link} />
 				</section>
 			</div>
 			<ProductShelfComponent />
