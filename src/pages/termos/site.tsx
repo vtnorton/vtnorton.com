@@ -60,7 +60,7 @@ export default function TermosSite() {
 
 						<p>Caso tenha alguma dúvida adicional ou precise de mais informações, entre em contato conosco através do formulário de contato disponível no site vtnorton.com.</p>
 
-						<p>Última atualização: 26 de junho de 2023</p>
+						<p><strong>Última atualização:</strong> 9 de dezembro de 2024</p>
 					</div>
 				</Section>
 			</PageHeroComponent>
