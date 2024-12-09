@@ -68,12 +68,9 @@ export default function Palestra({ talk, nextTalk }: { talk: Talk, nextTalk: Tal
 
 	const videoId = (videoURL: string) => {
 		let embedLink = videoURL?.split('?v=')[1] || videoURL?.split('live/=')[1]
-		console.log('embedLink', embedLink)
 
-		if (embedLink.includes('t='))
+		if (embedLink?.includes('t='))
 			embedLink = embedLink.replace('&t=', '?&start=')
-
-		console.log('embedLink2', embedLink)
 
 		return embedLink
 	}
