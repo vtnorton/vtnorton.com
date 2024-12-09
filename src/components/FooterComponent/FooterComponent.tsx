@@ -30,7 +30,7 @@ export const FooterComponent = () => {
 					no downtime for hustle-as-a-service - <a href='mailto:contato@vtnorton.com'>contato@vtnorton.com</a> <br />
 				</p>
 				<p className='creative-commons'>
-					Acesse a <Link href='/termos/site'>política de privacidade e termos de uso do site</Link>. <br />O conteúdo deste site é licenciado sob a licença:{' '}
+					Para melhorar a UX do site, utilizo Microsoft Clarity para entender como você navega aqui. Ao usar o site você concorda que eu e a Microsoft Podemos coletar alguns dados (anônimos). Sua privacidade é real importante pra mim, veja a <Link href='/termos/site'>política de privacidade</Link>. <br />O conteúdo deste site é licenciado sob a licença:{' '}
 					<a href='http://creativecommons.org/licenses/by-nc-sa/4.0/?ref=chooser-v1' target='_blank' rel='license noopener noreferrer'>
 						<br />(CC BY-NC-SA 4.0)<br />
 						<img src='https://mirrors.creativecommons.org/presskit/icons/cc.svg?ref=chooser-v1' alt='CC: Creative Commons' />

@@ -3,6 +3,7 @@ import React from 'react'
 import { FooterComponent, PageHeroComponent } from '../../components'
 import { SeoProps } from '../../database/SEOProps'
 import { Section } from '../../components/SectionComponent'
+import Link from 'next/link'
 
 export default function TermosSite() {
 	return (
@@ -30,10 +31,18 @@ export default function TermosSite() {
 							enviamos spam.
 						</p>
 
-						<h2>5. Google Analytics</h2>
+						<h2>5. Google Analytics + Microsoft Clarity</h2>
 						<p>
-							Utilizamos o Google Analytics para analisar a quantidade de acessos ao site. Essas informações nos ajudam a entender melhor o desempenho do site e melhorar a experiência do usuário. O Google Analytics pode coletar informações anônimas sobre sua visita, como o seu
-							endereço IP, páginas visitadas e o tempo gasto em cada página. Essas informações são usadas apenas para fins estatísticos e de análise, e não são vinculadas a nenhuma informação pessoal identificável.
+							Utilizamos o Google Analytics para analisar a quantidade de acessos ao site. O Google Analytics pode coletar informações anônimas sobre sua visita, como o seu endereço IP, páginas visitadas e o tempo gasto em cada página.
+						</p>
+						<p>
+							Junto a isso também uso o Microsoft Clarity e a Microsoft Advertising para capturar como você usa e interage com o site por meio de métricas comportamentais, mapas de calor e reprodução de sessões, a fim de melhorar a UX geral do site.
+						</p>
+						<p>
+							Os dados de uso do site são coletados usando cookies próprios e de terceiros e outras tecnologias de rastreamento para determinar a popularidade das páginas e atividades online. Além disso, uso essas informações para otimização do site, propósitos de segurança/antifraude e publicidade. Para mais informações sobre como a Microsoft coleta e usa seus dados, visite a <Link target='_blank' href={'https://privacy.microsoft.com/privacystatement'}>Declaração de Privacidade da Microsoft</Link>.
+						</p>
+						<p>
+							Essas informações nos ajudam a entender melhor o desempenho do site e melhorar a experiência do usuário, e não são vinculadas a nenhuma informação pessoal identificável.
 						</p>
 
 						<h2>6. Dúvidas e sugestões</h2>

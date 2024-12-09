@@ -1,6 +1,5 @@
 import type { AppProps } from 'next/app'
 import Head from 'next/head'
-import Script from 'next/script'
 
 import { LogoComponent } from '../components'
 import { VtnortonContextProvider } from '../provider/VtnortonContextProvider'
@@ -49,17 +48,7 @@ export default function App({ Component, pageProps }: AppProps) {
 				<meta name='msapplication-config' content='/favicon/browserconfig.xml?v=10' />
 				<link rel='shortcut icon' href='/favicon/favicon-32x32.png' />
 			</Head>
-			<Script strategy='beforeInteractive' async src='https://www.googletagmanager.com/gtag/js?id=G-3GCRXEKYLS' />
 
-			<Script strategy='beforeInteractive' id='google-analytics'>
-				{`
-					window.dataLayer = window.dataLayer || [];
-					function gtag(){dataLayer.push(arguments)}
-					gtag('js', new Date());
-
-					gtag('config', 'G-3GCRXEKYLS');
-				`}
-			</Script>
 			<FluentProvider theme={lightTheme}>
 				<VtnortonContextProvider>
 					<LogoComponent componentName={Component.name} />
