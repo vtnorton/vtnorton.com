@@ -1,6 +1,7 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
 	reactStrictMode: true,
+	output: 'standalone',
 	env: {
 		notionToken: process.env.NOTION_TOKEN,
 		notionSecret: process.env.NOTION_SECRET,
