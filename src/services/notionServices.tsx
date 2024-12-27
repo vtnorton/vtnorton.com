@@ -9,6 +9,7 @@ import { Post } from '../interfaces/Post'
 import { Event, EventType } from '../interfaces/Event'
 import { Talk } from '../interfaces/Talk'
 import { kv } from '@vercel/kv'
+import { createClient } from '@supabase/supabase-js'
 
 const NOTION_DB_DEVREL = process.env.devrelDb as string
 const NOTION_DB_TALKS = process.env.talksDb as string
@@ -22,6 +23,11 @@ const notion = new Client({
 const notionApi = new NotionAPI({
   authToken: NOTION_TOKEN,
 })
+
+const SUPABASE_URL = process.env.SUPABASE_URL as string
+const SUPABASE_ANON_KEY = process.env.SUPABASE_ANON_KEY as string
+
+const supabase = createClient(SUPABASE_URL, SUPABASE_ANON_KEY)
 
 const queryNotion = async (filter: any, database?: string, sortByAsc?: string) => {
   const sort = database ? [] : [{
@@ -61,8 +67,14 @@ export const getPodcasts = async (): Promise<PodcastEpisode[]> => {
     },
   ]
 
-  const results = await queryNotion(filter)
+  const { data: platform, error } = await supabase.from('platform').select('*')
+  console.log('Error fetching platforms', platform)
 
+  if (!platform || error) {
+    return []
+  }
+
+  const results = await queryNotion(filter)
   const podcasts = results.map((result: any) => {
     const item: PodcastEpisode = {
       id: result.id,
@@ -70,7 +82,7 @@ export const getPodcasts = async (): Promise<PodcastEpisode[]> => {
       title: result.properties.Name.title[0].text.content,
       date: result.properties.Date.date.start as string,
       coverURL: getFeaturedImage(result.cover),
-      feedName: result.properties.Podcast.select.name,
+      feedName: platform.find((platform: any) => platform.id === result.properties['Plataforma'].relation[0]?.id)?.name,
     }
 
     return item

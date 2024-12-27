@@ -38,19 +38,27 @@ const renderLive = (items: CalendarItem[]) => {
 
 export const BookClubCalendarComponent = () => {
 	const [items, setItems] = useState<CalendarItem[]>([])
+	const [loading, setLoading] = useState(true)
 
 	useEffect(() => {
-		if (items.length === 0) {
+		if (!loading) {
 			axios
 				.get('/api/bookclub')
 				.then((response) => {
 					setItems(response.data)
+					setLoading(false)
 				})
 				.catch((error) => {
 					console.error('Erro ao obter os dados da API:', error)
 				})
 		}
-	}, [items])
+	}, [loading])
+
+	if (loading) {
+		return (
+			<p>Carregando...</p>
+		)
+	}
 
 	if (items.length == 0) {
 		return (
