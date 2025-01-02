@@ -34,6 +34,10 @@
       1,
       "after-props"
     ],
+    "curly": [
+      "error",
+      "multi-or-nest"
+    ],
     "quotes": ["error", "single"],
     "newline-per-chained-call": [
       "error",

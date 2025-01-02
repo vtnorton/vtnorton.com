@@ -1,21 +1,17 @@
-import { kv } from '@vercel/kv'
 import type { NextApiRequest, NextApiResponse } from 'next'
 
 import { PodcastEpisode } from '../../interfaces'
 import { getPodcasts } from '../../services/notionServices'
+import { handleCache } from '../../services/cacheServices'
 
 export default async function handler(
   req: NextApiRequest,
-  res: NextApiResponse<PodcastEpisode[]>,
+  res: NextApiResponse<PodcastEpisode[] | { error: string }>,
 ) {
-  const cacheKey = 'podcast'
-  const cachedEvents = (await kv.get(cacheKey)) as PodcastEpisode[]
+  if (req.method !== 'GET')
+    return res.status(405).json({ error: 'Method not allowed' })
 
-  if (cachedEvents)
-    return res.status(200).json(cachedEvents)
+  const itens = await handleCache<PodcastEpisode>('podcast', getPodcasts)
+  return res.status(200).json(itens)
 
-  const podcasts: PodcastEpisode[] = await getPodcasts()
-  await kv.setex(cacheKey, 60 * 60 * 24, podcasts)
-
-  return res.status(200).json(podcasts)
 }

@@ -1,18 +1,13 @@
-import { kv } from '@vercel/kv'
 import type { NextApiRequest, NextApiResponse } from 'next'
 
 import { CalendarItem } from '../../interfaces'
 import { getBoraLerEvents } from '../../services/calendarServices'
+import { handleCache } from '../../services/cacheServices'
 
-export default async function handler(req: NextApiRequest, res: NextApiResponse<CalendarItem[]>) {
-	const cacheKey = 'boraler'
-	const cachedEvents = (await kv.get(cacheKey)) as CalendarItem[]
+export default async function handler(req: NextApiRequest, res: NextApiResponse<CalendarItem[] | { error: string }>) {
+	if (req.method !== 'GET')
+		return res.status(405).json({ error: 'Method not allowed' })
 
-	if (cachedEvents)
-		return res.status(200).json(cachedEvents)
-
-	const events: CalendarItem[] = await getBoraLerEvents()
-	await kv.setex(cacheKey, 60 * 60 * 12, events)
-
-	return res.status(200).json(events)
+	const itens = await handleCache<CalendarItem>('instagram', getBoraLerEvents, 60 * 60 * 12)
+	return res.status(200).json(itens)
 }

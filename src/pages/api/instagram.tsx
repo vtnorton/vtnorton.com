@@ -1,18 +1,13 @@
-import { kv } from '@vercel/kv'
 import type { NextApiRequest, NextApiResponse } from 'next'
 
 import { InstagramItem } from '../../interfaces'
 import { getInstagramPosts } from '../../services/instagramServices'
+import { handleCache } from '../../services/cacheServices'
 
-export default async function handler(req: NextApiRequest, res: NextApiResponse<InstagramItem[]>) {
-	const cacheKey = 'instagram'
-	const cachedEvents = (await kv.get(cacheKey)) as InstagramItem[]
+export default async function handler(req: NextApiRequest, res: NextApiResponse<InstagramItem[] | { error: string }>) {
+	if (req.method !== 'GET')
+		return res.status(405).json({ error: 'Method not allowed' })
 
-	if (cachedEvents)
-		return res.status(200).json(cachedEvents)
-
-	const photos: InstagramItem[] = await getInstagramPosts()
-	await kv.setex(cacheKey, 60 * 60 * 24, photos)
-
-	return res.status(200).json(photos)
+	const itens = await handleCache<InstagramItem>('instagram', getInstagramPosts)
+	return res.status(200).json(itens)
 }

@@ -5,7 +5,7 @@ import { BlogGridItemProps } from '../../components'
 import { getBlogSectionItems } from '../../services/notionServices'
 import { generateRssFeed } from '../../services/rssServices'
 
-export default async (req: NextApiRequest, res: NextApiResponse<string>) => {
+const handler = async (req: NextApiRequest, res: NextApiResponse<string>) => {
 	let posts: BlogGridItemProps[]
 	const cacheKey = 'blogPosts'
 	const cachedPosts = (await kv.get(cacheKey)) as BlogGridItemProps[]
@@ -20,3 +20,5 @@ export default async (req: NextApiRequest, res: NextApiResponse<string>) => {
 	res.write(rss)
 	res.end()
 }
+
+export default handler

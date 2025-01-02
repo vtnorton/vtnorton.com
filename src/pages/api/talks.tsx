@@ -1,21 +1,16 @@
-import { kv } from '@vercel/kv'
 import type { NextApiRequest, NextApiResponse } from 'next'
 
 import { Talk } from '../../interfaces/Talk'
 import { getTalks } from '../../services/eventsServices'
+import { handleCache } from '../../services/cacheServices'
 
 export default async function handler(
 	req: NextApiRequest,
-	res: NextApiResponse<Talk[]>,
+	res: NextApiResponse<Talk[] | { error: string }>,
 ) {
-	const cacheKey = 'talks'
-	const cachedTalks = (await kv.get(cacheKey)) as Talk[]
+	if (req.method !== 'GET')
+		return res.status(405).json({ error: 'Method not allowed' })
 
-	if (cachedTalks)
-		return res.status(200).json(cachedTalks)
-
-	const talks: Talk[] = await getTalks()
-	await kv.setex(cacheKey, 60 * 60 * 24, talks)
-
-	return res.status(200).json(talks)
+	const itens = await handleCache<Talk>('talks', getTalks)
+	return res.status(200).json(itens)
 }

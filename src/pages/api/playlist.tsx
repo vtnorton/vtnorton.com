@@ -1,18 +1,13 @@
-import { kv } from '@vercel/kv'
 import type { NextApiRequest, NextApiResponse } from 'next'
 
 import { Playlist } from '../../interfaces'
 import { getPlaylistsFromClubeDoLivro } from '../../services/youtubeServices'
+import { handleCache } from '../../services/cacheServices'
 
-export default async function handler(req: NextApiRequest, res: NextApiResponse<Playlist[]>) {
-	const cacheKey = 'playlist'
-	const cachedEvents = (await kv.get(cacheKey)) as Playlist[]
+export default async function handler(req: NextApiRequest, res: NextApiResponse<Playlist[] | { error: string }>) {
+	if (req.method !== 'GET')
+		return res.status(405).json({ error: 'Method not allowed' })
 
-	if (cachedEvents)
-		return res.status(200).json(cachedEvents)
-
-	const playlist: Playlist[] = await getPlaylistsFromClubeDoLivro()
-	await kv.setex(cacheKey, 60 * 60 * 24, playlist)
-
-	return res.status(200).json(playlist)
+	const itens = await handleCache<Playlist>('playlist', getPlaylistsFromClubeDoLivro)
+	return res.status(200).json(itens)
 }

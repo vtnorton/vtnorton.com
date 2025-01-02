@@ -1,14 +1,17 @@
-import { kv } from '@vercel/kv'
 import type { NextApiRequest, NextApiResponse } from 'next'
 
 import { BlogGridItemProps } from '../../components'
 import { PostType } from '../../interfaces'
 import { getBlogSectionItems } from '../../services/notionServices'
+import { handleCache } from '../../services/cacheServices'
 
 export default async function handler(
   req: NextApiRequest,
-  res: NextApiResponse<BlogGridItemProps[]>,
+  res: NextApiResponse<BlogGridItemProps[] | { error: string }>,
 ) {
+  if (req.method !== 'GET')
+    return res.status(405).json({ error: 'Method not allowed' })
+
   const postQuantity = req.query.quantity
     ? parseInt(req.query.quantity.toString())
     : 12
@@ -16,17 +19,9 @@ export default async function handler(
   const hideChangelogs = req.query.hidechangelogs ? true : false
 
   const cacheKey = tag ? `blogPosts-${tag}` : 'blogPosts'
-  const cachedPosts = (await kv.get(cacheKey)) as BlogGridItemProps[]
+  const itens = await handleCache<BlogGridItemProps>(cacheKey, () => getBlogSectionItems(tag), 60 * 60 * 8)
 
-  if (cachedPosts)
-    return res
-      .status(200)
-      .json(selectPosts(cachedPosts, hideChangelogs, postQuantity))
-
-  const posts: BlogGridItemProps[] = await getBlogSectionItems(tag)
-  await kv.setex(cacheKey, 60 * 60 * 8, posts)
-
-  return res.status(200).json(selectPosts(posts, hideChangelogs, postQuantity))
+  return res.status(200).json(selectPosts(itens, hideChangelogs, postQuantity))
 }
 
 const selectPosts = (

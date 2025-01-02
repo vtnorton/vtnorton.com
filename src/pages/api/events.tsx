@@ -1,21 +1,16 @@
-import { kv } from '@vercel/kv'
 import type { NextApiRequest, NextApiResponse } from 'next'
 
 import { getEvents } from '../../services/notionServices'
 import { Event } from '../../interfaces/Event'
+import { handleCache } from '../../services/cacheServices'
 
 export default async function handler(
 	req: NextApiRequest,
-	res: NextApiResponse<Event[]>,
+	res: NextApiResponse<Event[] | { error: string }>,
 ) {
-	const cacheKey = 'events'
-	const cachedEvents = (await kv.get(cacheKey)) as Event[]
+	if (req.method !== 'GET')
+		return res.status(405).json({ error: 'Method not allowed' })
 
-	if (cachedEvents)
-		return res.status(200).json(cachedEvents)
-
-	const events: Event[] = await getEvents()
-	await kv.setex(cacheKey, 60 * 60 * 24, events)
-
-	return res.status(200).json(events)
+	const itens = await handleCache<Event>('instagram', getEvents)
+	return res.status(200).json(itens)
 }
