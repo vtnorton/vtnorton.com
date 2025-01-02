@@ -22,7 +22,7 @@ export const InstagramTile = (props: InstagramTileProps) => {
 	}, [])
 
 	const renderPhotos = () => {
-		if (items.length !== 0)
+		if (items.length !== 0) {
 			return items.map((item: InstagramItem, index: number) => {
 				return (
 					<div key={index}>
@@ -30,6 +30,7 @@ export const InstagramTile = (props: InstagramTileProps) => {
 					</div>
 				)
 			})
+		}
 
 		return (
 			<>

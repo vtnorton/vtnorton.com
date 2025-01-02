@@ -70,9 +70,9 @@ export const getPodcasts = async (): Promise<PodcastEpisode[]> => {
   const { data: platform, error } = await supabase.from('platform').select('*')
   console.log('Error fetching platforms', platform)
 
-  if (!platform || error) {
+  if (!platform || error)
     return []
-  }
+
 
   const results = await queryNotion(filter)
   const podcasts = results.map((result: any) => {
@@ -399,11 +399,11 @@ export const getHashtags = async (): Promise<Tag[]> => {
   for (const result of results) {
     const d = result.properties! as any
     for (const select of d.Hashtags.multi_select) {
-      if (!hashtags.filter((hashtag) => hashtag.name == select.name).length) {
+      if (!hashtags.filter((hashtag) => hashtag.name == select.name).length)
         hashtags.push({ name: select.name, color: select.color, count: 1 })
-      } else {
+      else
         hashtags.filter((hashtag) => hashtag.name == select.name)[0].count += 1
-      }
+
     }
   }
   return hashtags

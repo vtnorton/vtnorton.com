@@ -14,9 +14,9 @@ const renderLive = (items: CalendarItem[]) => {
 		const formatedDate = `${date.getDate().toString().padStart(2, '0')}/${month} às ${date.getHours().toString().padStart(2, '0')}h${date.getMinutes().toString().padStart(2, '0')}`
 		let eventNameAndDescription = `${item.name.replace('[BORA LER]', '')}`
 
-		if (date.getFullYear() === today.getFullYear() && date.getMonth() === today.getMonth() && date.getDate() === today.getDate()) {
+		if (date.getFullYear() === today.getFullYear() && date.getMonth() === today.getMonth() && date.getDate() === today.getDate())
 			eventNameAndDescription = '🔴 ' + eventNameAndDescription
-		}
+
 		return (
 			<div className='sameheight' key={index}>
 				<div className='calendar-item shadow-middle'>

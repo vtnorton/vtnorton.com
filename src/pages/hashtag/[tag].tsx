@@ -65,9 +65,9 @@ export default function Hashtag({ tag }: { tag: string }) {
     }
   }, [])
 
-  if (router.isFallback) {
+  if (router.isFallback)
     return <p>Carregando...</p>
-  }
+
   const pageTitle = 'Posts sobre ' + tag
   return (
     <>

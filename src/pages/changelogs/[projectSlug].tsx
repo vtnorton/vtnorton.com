@@ -65,9 +65,9 @@ export default function Hashtag({ projectSlug }: { projectSlug: string }) {
     }
   }, [])
 
-  if (router.isFallback) {
+  if (router.isFallback)
     return <p>Carregando...</p>
-  }
+
   const pageTitle = '🚀 Novidades do ' + projectSlug
   return (
     <>

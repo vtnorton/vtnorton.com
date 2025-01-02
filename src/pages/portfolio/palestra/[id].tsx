@@ -46,9 +46,9 @@ export const getStaticProps = async (context: any) => {
 }
 
 export default function Palestra({ talk, nextTalk }: { talk: Talk, nextTalk: Talk }) {
-	if (!talk) {
+	if (!talk)
 		return <div />
-	}
+
 
 	const handleShare = async () => {
 		if (navigator.share) {
@@ -61,9 +61,9 @@ export default function Palestra({ talk, nextTalk }: { talk: Talk, nextTalk: Tal
 			} catch (error) {
 				console.error('Error sharing:', error)
 			}
-		} else {
+		} else
 			alert('Sharing is not supported in this browser.')
-		}
+
 	}
 
 	const videoId = (videoURL: string) => {

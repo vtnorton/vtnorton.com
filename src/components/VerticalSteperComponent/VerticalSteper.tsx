@@ -6,9 +6,9 @@ export function VerticalSteper({ children, showNumber }: { children: React.React
 	return (
 		<div className="vertical-steps">
 			{React.Children.map(children, (child, index) => {
-				if (React.isValidElement(child) && child.type === Step) {
+				if (React.isValidElement(child) && child.type === Step)
 					return showNumber ? React.cloneElement(child, { number: index + 1 }) : child
-				}
+
 			})}
 		</div>
 	)

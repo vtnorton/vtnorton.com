@@ -3,21 +3,21 @@ import { SectionProps } from './SectionProps'
 export const Section = ({ children, full, half, className, removePaddingButton, image }: SectionProps) => {
 	const classes = [className]
 
-	if (full) {
+	if (full)
 		classes.push('section-full-width')
-	}
 
-	if (half) {
+
+	if (half)
 		classes.push('section-half-width')
-	}
 
-	if (removePaddingButton) {
+
+	if (removePaddingButton)
 		classes.push('section-remove-padding-button')
-	}
 
-	if (image) {
+
+	if (image)
 		classes.push('section-with-image')
-	}
+
 
 	return (
 		<section className={classes.join(' ')}>

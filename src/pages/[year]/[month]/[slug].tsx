@@ -41,9 +41,9 @@ export const getStaticProps = async (context: any) => {
 }
 
 export default function PostDetail({ post }: { post: Post }) {
-	if (!post) {
+	if (!post)
 		return <div />
-	}
+
 
 	return (
 		<>

@@ -8,15 +8,17 @@ export const PageHeroComponent = (props: PageHeroComponentProps) => {
 	const heroClass = props.backgroundClass ? `hero ${props.backgroundClass}` : 'hero'
 	let styles: CSSProperties
 
-	if (props.backgroundUrl)
+	if (props.backgroundUrl) {
 		styles = {
 			backgroundImage: 'url(' + props.backgroundUrl + ')',
 			backgroundPositionY: props.backgroundPosition,
 		}
-	else
+	}
+	else {
 		styles = {
 			backgroundColor: props.backgroundColor ? props.backgroundColor : 'inherit',
 		}
+	}
 
 	return (
 		<>
