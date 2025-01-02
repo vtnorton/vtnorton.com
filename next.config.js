@@ -16,6 +16,9 @@ const nextConfig = {
 		config.optimization.minimize = false
 		return config
 	},
+	images: {
+		domains: ['mirrors.creativecommons.org'],
+	},
 	i18n: {
 		locales: ['pt-BR'],
 		defaultLocale: 'pt-BR',

@@ -218,7 +218,7 @@ p {
 }
 
 a {
-   color: #0078d7;
+   color: #0559C1;
    text-decoration: none;
    cursor: pointer;
 }
@@ -255,7 +255,7 @@ blockquote,
    border: .067em solid #e6e6e6;
    margin: 2em 0;
    margin-top: .8em;
-   border-left: .2em solid #0078d7;
+   border-left: .2em solid #0559C1;
 }
 
 .card blockquote {
@@ -268,7 +268,7 @@ blockquote.border,
 blockquote.danger,
 blockquote.success,
 blockquote.atention {
-   border-left: .3em solid #0078d7;
+   border-left: .3em solid #0559C1;
 }
 
 blockquote.danger {
@@ -407,7 +407,7 @@ code {
 }
 
 .tag {
-   border: .067em solid #0078d7;
+   border: .067em solid #0559C1;
    padding: 0 .333em;
    background: rgba(0, 120, 215, .3);
 }
@@ -425,7 +425,7 @@ code {
 }
 
 .accent {
-   color: #0078d7 !important;
+   color: #0559C1 !important;
 }
 
 code .tag {
@@ -435,7 +435,7 @@ code .tag {
 }
 
 .validator {
-   border-top: 5px solid #0078d7;
+   border-top: 5px solid #0559C1;
    padding-top: .2em;
    display: block;
    width: 100%;
@@ -616,7 +616,7 @@ code .tag {
 
 .cards-steps .card {
    background: #e9e9e9;
-   border-left: .333em solid #0078d7;
+   border-left: .333em solid #0559C1;
 }
 
 .cards-steps .view-done {
@@ -734,13 +734,13 @@ code .tag {
 
 .header ul li a:hover {
    color: #fff !important;
-   border-bottom: .133em solid #0078d7;
+   border-bottom: .133em solid #0559C1;
    background: #3a3a3a;
    transition: all .3s;
 }
 
 .header ul li a.active {
-   border-bottom: .133em solid #0078d7;
+   border-bottom: .133em solid #0559C1;
    color: #fff;
 }
 
@@ -782,7 +782,7 @@ code .tag {
 }
 
 .header ul li ul li a:hover {
-   border-left: .2em solid #0078d7;
+   border-left: .2em solid #0559C1;
    background: #555;
    border-bottom: none;
 }
@@ -1149,7 +1149,7 @@ code .tag {
 }
 
 .nav a.active {
-   border-left: .2em solid #0078d7;
+   border-left: .2em solid #0559C1;
    padding-left: 1.133em;
 }
 
@@ -1367,7 +1367,7 @@ nav.light .nav-top-menus:before {
 }
 
 .btn-action .btn:hover {
-   background: #0078d7 !important;
+   background: #0559C1 !important;
    color: #fff !important;
    box-shadow: 0 .333em .933em rgba(0, 0, 0, .45);
    transition: width .2s initial;
@@ -1382,7 +1382,7 @@ nav.light .nav-top-menus:before {
 }
 
 .btn-action .btn.btn-primary {
-   background: #0078d7 !important;
+   background: #0559C1 !important;
    color: #fff !important;
    transition: all .35s;
 }

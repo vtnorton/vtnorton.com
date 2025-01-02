@@ -1,19 +1,16 @@
-import { IconProp } from '@fortawesome/fontawesome-svg-core'
-
 export enum SocialMedias {
-	Twitch,
-	YouTube,
-	Instagram,
-	GitHub,
-	RSS,
-	LinkedIn,
-	Twitter,
-	Discord,
-	Dev,
+	Twitch = 'Twitch',
+	YouTube = 'YouTube',
+	Instagram = 'Instagram',
+	GitHub = 'GitHub',
+	RSS = 'RSS',
+	LinkedIn = 'LinkedIn',
+	BlueSky = 'BlueSky',
+	Discord = 'Discord',
+	Dev = 'Dev.to',
 }
 
 export interface SocialProfile {
-	icon: IconProp
 	media: SocialMedias
 	url: string
 }

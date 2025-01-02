@@ -27,7 +27,7 @@ export const SEOMetaData: NextSeoProps = {
 		maxImagePreview: 'none',
 		maxVideoPreview: -1,
 	},
-	themeColor: '#0078d7',
+	themeColor: '#0559C1',
 	twitter: {
 		cardType: 'summary_large_image',
 		site: GetProfile(SocialMedias.Twitter)?.url,

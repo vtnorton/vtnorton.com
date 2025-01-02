@@ -27,6 +27,7 @@ export default function App({ Component, pageProps }: AppProps) {
 		160: '#D2D6F2',
 	}
 
+
 	const lightTheme: Theme = {
 		...createLightTheme(myNewTheme),
 	}
