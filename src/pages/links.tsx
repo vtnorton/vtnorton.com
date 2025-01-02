@@ -1,8 +1,8 @@
 import { useContext } from 'react'
 
-import { VtnButtonComponent, VtnButtonComponentPros } from '../components'
 import { primaryLinks, secondaryLinks } from '../database/QuickLinksShare'
 import { VtnortonContext } from '../provider/VtnortonContextProvider'
+import { Button } from '@fluentui/react-components'
 
 export default function Links() {
 	const { setShowLogo } = useContext(VtnortonContext)
@@ -11,16 +11,16 @@ export default function Links() {
 		<div className='links'>
 			<div className='overlay'></div>
 			<div className='links-wrapper'>
-				{primaryLinks.map((item: VtnButtonComponentPros, index: number) => {
-					return <VtnButtonComponent key={index} text={item.text} icon={item.icon} url={item.url} />
+				{primaryLinks.map((item: any, index: number) => {
+					return <Button as='a' key={index} href={item.url} size='large' appearance='primary' shape='square'>{item.text}</Button>
 				})}
 
 				<div className='space-long'></div>
 				<div className='row'>
-					{secondaryLinks.map((item: VtnButtonComponentPros, index: number) => {
+					{secondaryLinks.map((item: any, index: number) => {
 						return (
 							<div key={index} className='col-xs-6'>
-								<VtnButtonComponent text={item.text} icon={item.icon} url={item.url} />
+								<Button as='a' href={item.url} size='large' appearance='primary' shape='square'>{item.text}</Button>
 							</div>
 						)
 					})}
