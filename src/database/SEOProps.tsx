@@ -28,11 +28,6 @@ export const SEOMetaData: NextSeoProps = {
 		maxVideoPreview: -1,
 	},
 	themeColor: '#0559C1',
-	twitter: {
-		cardType: 'summary_large_image',
-		site: GetProfile(SocialMedias.Twitter)?.url,
-		handle: GetProfile(SocialMedias.Twitter)?.url,
-	},
 }
 
 export const SeoProps = (props: Props) => {
@@ -52,7 +47,7 @@ export const SeoProps = (props: Props) => {
 			profile: {
 				firstName: 'Vítor',
 				lastName: 'Norton',
-				username: GetProfile(SocialMedias.Twitter)?.url,
+				username: GetProfile(SocialMedias.BlueSky)?.url,
 				gender: 'male',
 			},
 			article:
