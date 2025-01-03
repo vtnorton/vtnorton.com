@@ -5,7 +5,7 @@ import { BookClubLatestVideos } from './YoutubeBookClubComponent/BookClubLatestV
 export const BookClubComponent = () => {
 	return (
 		<Section removePaddingButton full removePaddingTop>
-			<div className='escapte-padding'>
+			<div className='escape-padding'>
 				<h2>📖 Bora ler </h2>
 				<p>Uma das melhores maneira de aprender algo novo, principalmente em tech, é com livros técnicos. E querendo sempre melhorar o meu conhecimento, começei um clube do livro com o nome "Bora ler".</p>
 				<p>

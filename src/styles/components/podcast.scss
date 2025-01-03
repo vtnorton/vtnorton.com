@@ -31,9 +31,10 @@
 					margin: -.3rem 0 0
 				}
 
-				.fui-Button {
-					margin: .5rem 0 0;
-					width: fit-content;
+				.tags {
+					display: flex;
+					gap: .5rem;
+					margin: .5rem 0;
 				}
 			}
 

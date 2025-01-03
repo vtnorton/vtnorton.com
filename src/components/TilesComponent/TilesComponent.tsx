@@ -6,7 +6,6 @@ export const TilesComponent = () => {
 	return (
 		<Section removePaddingButton removePaddingTop full>
 			<div>
-				{/*<InstagramTile username='@vt_norton' />*/}
 				{/* <SuperProfTile /> */}
 				<DiscordTile />
 			</div>

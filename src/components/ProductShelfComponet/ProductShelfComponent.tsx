@@ -23,7 +23,7 @@ export const ProductShelfComponent = () => {
   return (
     <div className="container">
       <Section className="shelf" removePaddingButton removePaddingTop full>
-        <div className="escapte-padding">
+        <div className="escape-padding">
           <div className='sticky'>
             <h2>📑 apps + extensões + projetinhos</h2>
             <p>

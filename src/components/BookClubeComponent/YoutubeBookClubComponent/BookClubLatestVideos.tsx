@@ -21,7 +21,7 @@ export const BookClubLatestVideos = () => {
 	}, [])
 
 	return (
-		<div className='clube-item youtube escapte-padding'>
+		<div className='clube-item youtube escape-padding'>
 			<h3>🔴 Histórico de lives </h3>
 			<div className='playlists'>
 				<BookClubPlaylists items={items} />

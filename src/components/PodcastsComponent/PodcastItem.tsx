@@ -1,5 +1,5 @@
 import { PodcastEpisode } from '../../interfaces/PodcastEpisode'
-import { Button } from '@fluentui/react-components'
+import { Button, Tag } from '@fluentui/react-components'
 import { SoundSource20Regular } from '@fluentui/react-icons'
 
 export const PodcastItem = (props: PodcastEpisode) => {
@@ -16,10 +16,11 @@ export const PodcastItem = (props: PodcastEpisode) => {
         </div>
         <div className="podcast-item-detail">
           <h3>{props.title}</h3>
-          <small>
-            {formatedDate} @ {props.feedName}
-          </small>
-          <Button as='a' href={props.link} size='small' shape='square' icon={<SoundSource20Regular />} >ouça_agora();</Button>
+          <div className='tags'>
+            <Tag appearance='outline' shape='circular' size='small'>{formatedDate}</Tag>
+            <Tag appearance='outline' shape='circular' size='small'>{props.feedName}</Tag>
+          </div>
+          <Button as='a' href={props.link} size='small' appearance='primary' shape='circular' icon={<SoundSource20Regular />} >ouça_agora();</Button>
         </div>
       </div>
     </>

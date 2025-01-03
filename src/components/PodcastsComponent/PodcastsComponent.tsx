@@ -30,7 +30,7 @@ export const PodcastsComponent = () => {
         estão na interwebs a mais tempo, qr tc?]
       </p>
 
-      <div className="podcast-list escapte-padding">
+      <div className="podcast-list escape-padding">
         {items.map((item: PodcastEpisode, index: number) => {
           return (
             <PodcastItem

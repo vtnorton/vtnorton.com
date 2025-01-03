@@ -23,7 +23,7 @@ export const BookClubCalendarComponent = () => {
 	}, [loading])
 
 	return (
-		<div className='clube-item escapte-padding'>
+		<div className='clube-item escape-padding'>
 			<h3>➡️ Próximas lives </h3>
 
 			{loading && <p>Carregando...</p>}

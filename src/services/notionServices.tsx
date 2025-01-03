@@ -68,7 +68,6 @@ export const getPodcasts = async (): Promise<PodcastEpisode[]> => {
   ]
 
   const { data: platform, error } = await supabase.from('platform').select('*')
-  console.log('Error fetching platforms', platform)
 
   if (!platform || error)
     return []
