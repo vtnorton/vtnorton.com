@@ -341,10 +341,19 @@ article {
 	object-fit: cover;
 }
 
+.notion-code {
+	position: relative;
+
+	.notion-code-copy {
+		position: absolute;
+		right: .5rem;
+	}
+}
+
 @media screen and (min-width: 2200px) {
 	article {
 		.header {
-			width: calc(50% - 500px);
+			width: calc(50% - 625px);
 
 			.see-posts-button {
 				display: none;
@@ -352,7 +361,8 @@ article {
 		}
 
 		.section {
-			width: 1000px;
+			width: 1250px;
+			padding: 60px 120px;
 			margin: auto;
 		}
 	}
@@ -360,7 +370,7 @@ article {
 	.post-related-list {
 		position: absolute;
 		right: 0;
-		width: calc(50% - 500px);
+		width: calc(50% - 625px);
 		z-index: 10;
 	}
 }
