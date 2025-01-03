@@ -1,6 +1,3 @@
-@import 'fluentui-adapter.scss';
-@import 'typography.scss';
-@import 'fundamentals.scss';
 @import 'components/post.scss';
 @import 'components/sections.scss';
 @import 'components/pagehero.scss';
@@ -12,15 +9,21 @@
 @import 'components/productshelf.scss';
 @import 'components/footer.scss';
 @import 'components/forbussines.scss';
-@import 'utils/code-highlighter.scss';
-@import 'links.scss';
 @import 'components/projects.scss';
-@import 'components/slidercomponent.scss';
 @import 'components/postmorten.scss';
-@import 'sections/events.scss';
+/* Fundamentals */
+@import 'fundamentals.scss';
+@import 'typography.scss';
+@import 'fluentui-adapter.scss';
+@import 'utils/code-highlighter.scss';
+/* Components */
+@import 'components/slidercomponent.scss';
 @import 'components/vertical-steper.scss';
 @import 'components/photo-gallery.scss';
+/* Sections */
+@import 'sections/events.scss';
 /* Pages */
+@import 'pages/links.scss';
 @import 'pages/olawolff.scss';
 @import 'pages/superviz.scss';
 @import 'pages/talk.scss';
