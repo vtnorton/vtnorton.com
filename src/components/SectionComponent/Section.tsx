@@ -1,6 +1,6 @@
 import { SectionProps } from './SectionProps'
 
-export const Section = ({ children, full, half, className, removePaddingButton, image }: SectionProps) => {
+export const Section = ({ children, full, half, className, removePaddingButton, removePaddingTop, image }: SectionProps) => {
 	const classes = [className]
 
 	if (full)
@@ -10,10 +10,11 @@ export const Section = ({ children, full, half, className, removePaddingButton, 
 	if (half)
 		classes.push('section-half-width')
 
-
 	if (removePaddingButton)
 		classes.push('section-remove-padding-button')
 
+	if (removePaddingTop)
+		classes.push('section-remove-padding-top')
 
 	if (image)
 		classes.push('section-with-image')
@@ -21,7 +22,7 @@ export const Section = ({ children, full, half, className, removePaddingButton, 
 
 	return (
 		<section className={classes.join(' ')}>
-			<div className='section-content'>
+			<div className={'section-content'}>
 				{children}
 			</div>
 

@@ -1,11 +1,7 @@
 .twitch {
-	padding-bottom: 0 !important;
 	position: relative;
 
 	.twitch-container {
-		margin-top: -50px;
-		margin-left: -75px;
-		width: calc(100% + 150px);
 		background: url(/img/section-bg/twitch.jpg) no-repeat #092241;
 		background-attachment: fixed;
 		position: relative;
@@ -52,40 +48,19 @@
 	}
 }
 
-@media screen and (max-width: 1200px) {
-	.twitch .twitch-container {
-		margin-left: -50px;
-		width: calc(100% + 100px);
-
-		.twitch-content {
-			padding: 50px;
-		}
-	}
-}
-
 @media screen and (max-width: 990px) {
 	.twitch {
-		margin-left: -35px;
-		margin-right: -35px;
-
 		.twitch-container {
-			margin-top: -35px;
-			margin-left: -35px;
-			width: calc(100% + 70px);
-
 			iframe {
 				position: relative;
 				width: 100%;
 				height: 540px;
-				margin-top: -35px;
+				margin-top: -38px;
 			}
 
 			.twitch-content {
-				padding: 35px;
 				height: auto;
 			}
 		}
 	}
 }
-
-@media screen and (max-width: 480px) {}

@@ -7,7 +7,8 @@
 	background: transparent !important;
 }
 
-.fui-Button {
+.fui-Button,
+.fui-Switch__label {
 	font-family: Consolas, "Courier New", monospace !important;
 	font-weight: normal !important;
 	width: fit-content;
@@ -15,6 +16,10 @@
 	&.no-margin {
 		margin-left: -23px !important;
 	}
+}
+
+.fui-Switch__label {
+	margin-top: -4px !important;
 }
 
 .fui-Tag__icon {

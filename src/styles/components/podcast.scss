@@ -1,72 +1,68 @@
 .podcast {
-	padding-top: 50px;
-}
+	.podcast-list {
+		height: 33.56rem;
+		overflow-y: scroll;
+		padding: 1rem 0 0 1rem;
+		margin-left: -1rem;
+		width: calc(100% + 5rem + 10px);
 
-.podcast-list {
-	height: 33.56rem;
-	overflow-y: scroll;
-	padding: 10px 75px 0;
-
-	.podcast-item {
-		position: relative;
-		display: flex;
-		margin-bottom: 1.5rem;
-
-		.podcast-item-cover {
+		.podcast-item {
 			position: relative;
-			margin-right: 1rem;
-			max-height: 100px;
+			display: flex;
+			margin-bottom: 1.5rem;
+
+			.podcast-item-cover {
+				position: relative;
+				margin-right: 1rem;
+				max-height: 100px;
+
+				img {
+					width: 100px;
+				}
+			}
+
+			.podcast-item-detail {
+				display: flex;
+				flex-direction: column;
+
+				h3 {
+					font-size: 1.5rem;
+					line-height: 120%;
+					margin: -.3rem 0 0
+				}
+
+				.fui-Button {
+					margin: .5rem 0 0;
+					width: fit-content;
+				}
+			}
+
+			&:hover {
+				.podcast-item-cover img {
+					-webkit-filter: grayscale(100%);
+					-moz-filter: grayscale(100%);
+					-ms-filter: grayscale(100%);
+					-o-filter: grayscale(100%);
+					filter: grayscale(100%);
+					transition: all .4s
+				}
+			}
+
+			small {
+				color: #666;
+				font-size: 1rem;
+				line-height: 167%;
+			}
 
 			img {
-				width: 100px;
+				box-shadow: 0 0 .6rem #666;
 			}
-		}
-
-		.podcast-item-detail {
-			display: flex;
-			flex-direction: column;
-
-			h3 {
-				font-size: 1.5rem;
-				line-height: 120%;
-				margin: -.3rem 0 0
-			}
-
-			.fui-Button {
-				margin: .5rem 0 0;
-				width: fit-content;
-			}
-		}
-
-		&:hover {
-			.podcast-item-cover img {
-				-webkit-filter: grayscale(100%);
-				-moz-filter: grayscale(100%);
-				-ms-filter: grayscale(100%);
-				-o-filter: grayscale(100%);
-				filter: grayscale(100%);
-				transition: all .4s
-			}
-		}
-
-		small {
-			color: #666;
-			font-size: 1rem;
-			line-height: 167%;
-		}
-
-		img {
-			box-shadow: 0 0 .6rem #666;
 		}
 	}
 }
-
-@media screen and (max-width: 1200px) {}
 
 @media screen and (max-width: 990px) {
 	.podcasts .showcase {
 		padding-top: 35px !important;
 	}
 }
-
-@media screen and (max-width: 480px) {}

@@ -1,9 +1,8 @@
-import { Spinner } from '@fluentui/react-components'
 import axios from 'axios'
 import { useEffect, useState } from 'react'
 
 import { Playlist } from '../../../interfaces/YouTube/Playlist'
-import { BookClubPlaylistCardComponent } from './BookClubPlaylistCardComponent'
+import { BookClubPlaylists } from './BookClubPlaylists'
 
 export const BookClubLatestVideos = () => {
 	const [items, setItems] = useState<Playlist[]>([])
@@ -21,22 +20,12 @@ export const BookClubLatestVideos = () => {
 		}
 	}, [])
 
-	const renderPlaylists = () => {
-		if (items.length !== 0)
-			return items.map((playlist: Playlist, index: number) => <BookClubPlaylistCardComponent key={index} thumbnailUrl={playlist.thumbnailUrl} items={playlist.items} title={playlist.title} id={playlist.id} description={playlist.description} />)
-
-		return (
-			<>
-				<div className='space-long'></div>
-				<Spinner size='medium' label='Carregando...' />
-			</>
-		)
-	}
-
 	return (
-		<div className='clube-item youtube'>
+		<div className='clube-item youtube escapte-padding'>
 			<h3>🔴 Histórico de lives </h3>
-			<div className='playlists'>{renderPlaylists()}</div>
+			<div className='playlists'>
+				<BookClubPlaylists items={items} />
+			</div>
 		</div>
 	)
 }

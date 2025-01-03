@@ -3,6 +3,7 @@ import { useEffect, useState } from 'react'
 
 import { PodcastEpisode } from '../../interfaces/PodcastEpisode'
 import { PodcastItem } from './PodcastItem'
+import { Section } from '../SectionComponent'
 
 export const PodcastsComponent = () => {
   const [items, setItems] = useState<PodcastEpisode[]>([])
@@ -21,7 +22,7 @@ export const PodcastsComponent = () => {
   }, [])
 
   return (
-    <section className="podcast section">
+    <Section className="podcast" removePaddingButton>
       <h2>🎙️ Podcasts</h2>
       <p>
         Ocasionalmente eu acabo participando de algum cast, na grande maioria
@@ -29,7 +30,7 @@ export const PodcastsComponent = () => {
         estão na interwebs a mais tempo, qr tc?]
       </p>
 
-      <div className="podcast-list sc-full-width">
+      <div className="podcast-list escapte-padding">
         {items.map((item: PodcastEpisode, index: number) => {
           return (
             <PodcastItem
@@ -43,6 +44,6 @@ export const PodcastsComponent = () => {
           )
         })}
       </div>
-    </section>
+    </Section>
   )
 }

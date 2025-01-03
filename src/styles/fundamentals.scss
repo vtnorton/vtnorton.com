@@ -1,3 +1,75 @@
+body {
+	font-size: 15px;
+	line-height: 2em;
+	color: #5f5f5f;
+	position: relative;
+	background: #e8e8e8
+}
+
+.container {
+	width: 1500px;
+	margin: 0 auto;
+
+	&::after {
+		content: '\0020';
+		display: block;
+		height: 0;
+		clear: both;
+		visibility: hidden;
+	}
+}
+
+.wrapper {
+	padding: 75px;
+}
+
+@media screen and (max-width: 1500px) {
+	.container {
+		max-width: 1400px;
+		width: 100%;
+	}
+
+	.container {
+		width: 100%;
+	}
+}
+
+@media screen and (max-width: 1400px) {
+	.container {
+		max-width: 1300px;
+	}
+}
+
+@media screen and (max-width: 1200px) {
+	.container {
+		max-width: 1040px;
+	}
+}
+
+@media screen and (max-width: 1100px) {
+	.container {
+		max-width: 980px;
+	}
+
+	.wrapper {
+		padding: 35px;
+	}
+}
+
+@media screen and (max-width: 1000px) {
+	.container {
+		max-width: 100%;
+		padding: 0 1rem;
+	}
+}
+
+@media screen and (max-width: 800px) {
+	.container {
+		max-width: 100%;
+		padding: 0;
+	}
+}
+
 .sameheight {
 	display: flex;
 	align-items: stretch;
@@ -43,15 +115,6 @@
 			left: 70px
 		}
 	}
-}
-
-.svg-inline--fa {
-	display: inline-block;
-	height: 1em;
-	overflow: visible;
-	vertical-align: -0.125em;
-	overflow: visible;
-	box-sizing: content-box;
 }
 
 .aling-itens-to-right {

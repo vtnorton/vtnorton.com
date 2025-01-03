@@ -3,8 +3,8 @@ import { useState } from 'react'
 import { productsItems } from '../../database/ProductShelfItems'
 import { Product } from '../../interfaces/Product'
 import { ProductShelfItemComponent } from './ProductShelfItemComponent'
-import { Button } from '@fluentui/react-components'
-import { ToggleLeft48Regular, ToggleRight48Regular } from '@fluentui/react-icons'
+import { Switch } from '@fluentui/react-components'
+import { Section } from '../SectionComponent'
 
 export const ProductShelfComponent = () => {
   const [showUnsupportedProjects, setShowUnsupportedProjects] = useState(true)
@@ -22,21 +22,21 @@ export const ProductShelfComponent = () => {
 
   return (
     <div className="container">
-      <section className="shalf section">
-        <div className="shalf-explain">
-          <h2>📑 apps + extensões + projetinhos</h2>
-          <p>
-            Construir algo do nada é o que faz o meu mundo girar. Aqui está
-            todos os projetos que eu já fiz, tô fazendo ou vou fazer ainda.
-          </p>
-          <Button onClick={() => updateList()} appearance='transparent' icon={showUnsupportedProjects
-            ? <ToggleLeft48Regular />
-            : <ToggleRight48Regular />} shape='square' size='large'>{showUnsupportedProjects
+      <Section className="shelf" removePaddingButton removePaddingTop full>
+        <div className="escapte-padding">
+          <div className='sticky'>
+            <h2>📑 apps + extensões + projetinhos</h2>
+            <p>
+              Construir algo do nada é o que faz o meu mundo girar. Aqui está
+              todos os projetos que eu já fiz, tô fazendo ou vou fazer ainda.
+            </p>
+            <Switch label={showUnsupportedProjects
               ? 'show(\'all\');'
-              : 'show(\'supported\');'}</Button>
+              : 'show(\'supported\');'} onClick={() => updateList()} />
+          </div>
         </div>
         <div
-          className={`blog-grid shalf-content ${projectsToDisplay.length < 4 ? 'blog-grid-big' : ''}`}>
+          className={`blog-grid shelf-content ${projectsToDisplay.length > 4 ? 'blog-grid-big' : ''}`}>
           {projectsToDisplay.map((item: Product, index: number) => {
             return (
               <ProductShelfItemComponent
@@ -48,7 +48,7 @@ export const ProductShelfComponent = () => {
             )
           })}
         </div>
-      </section >
+      </Section >
     </div >
   )
 }

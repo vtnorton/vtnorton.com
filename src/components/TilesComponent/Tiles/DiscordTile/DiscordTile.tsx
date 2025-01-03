@@ -3,7 +3,7 @@ import { ChevronRight20Regular } from '@fluentui/react-icons'
 
 export const DiscordTile = () => {
 	return (
-		<div className='link-item discord sc-full-width'>
+		<div className='link-item discord escapte-padding'>
 			<div className='tile-title'>
 				<img src='/img/icons/discord.png' alt='Ícone do Discord' />
 				<h2>Discord</h2>
