@@ -186,6 +186,7 @@ export const getTalks = async () => {
 }
 
 export const getPosts = async (tag?: string) => {
+  const idCliente = '18c35675-6ece-47c3-9bc3-19f3a852210d'
   const filter = [
     {
       property: 'Type',
@@ -221,6 +222,22 @@ export const getPosts = async (tag?: string) => {
         },
       ],
     },
+    {
+      or: [ // TODO: passar para o queryNotion
+        {
+          property: 'Cliente',
+          relation: {
+            is_empty: true,
+          },
+        },
+        {
+          property: 'Cliente',
+          relation: {
+            contains: idCliente,
+          },
+        },
+      ],
+    },
   ]
 
   if (tag) {
@@ -243,6 +260,7 @@ export const getPosts = async (tag?: string) => {
       return hashtags
     }
 
+
     const item: Post = {
       id: result.id,
       url: result.url,
@@ -255,6 +273,9 @@ export const getPosts = async (tag?: string) => {
       recordMap: {},
       description: '',
     }
+
+    console.log(item.title)
+
     return item
   })
 
