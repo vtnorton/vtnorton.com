@@ -1,3 +1,4 @@
+import { NotionDatabaseAdapter } from '../services/adapter/notionDatabaseAdapter'
 import { NotionPage } from './Notion/NotionPage'
 
 // TODO: tirar da pasta de models e colocar na pasta de models (ou alguma outra arquitetura)
@@ -7,13 +8,18 @@ export class Post extends NotionPage {
 	public slug: string
 	public date: string
 	public hashtags: string[]
+
+	// TODO: renomear para postContent
 	public recordMap?: any
 
 	constructor(result: any) {
 		super(result)
 
+		// TODO: verificar a necessidade da url
 		this.url = result.url
-		this.slug = result.properties.Slug.rich_text[0].text.content
+
+		// TODO: verificar a necessidade do slug e se pode substituir pelo full slug
+		this.slug = result.properties['Slug'].rich_text[0].text.content
 		this.fullSlug = this.mountPostSlug(result)
 		this.date = result.properties['Date'].date.start
 		this.hashtags = this.getHashtags(result.properties['Hashtags'])
@@ -30,5 +36,10 @@ export class Post extends NotionPage {
 
 	getHashtags = (hashtags: any): string[] => {
 		return hashtags.multi_select.map((item: any) => item.name)
+	}
+
+	public loadPostConent = async () => {
+		const notion = new NotionDatabaseAdapter(process.env.DEVREL_DB as string)
+		this.recordMap = await notion.getPageContent(this.id)
 	}
 }

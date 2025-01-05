@@ -1,4 +1,5 @@
 import { Client } from '@notionhq/client'
+import { NotionAPI } from 'notion-client'
 
 export class NotionDatabaseAdapter {
 	private notion: Client
@@ -22,6 +23,16 @@ export class NotionDatabaseAdapter {
 		})
 
 		return response.results
+	}
+
+	async getPageContent(pageId: string) {
+		const NOTION_TOKEN = process.env.notionToken as string
+		const notionApi = new NotionAPI({
+			authToken: NOTION_TOKEN,
+		})
+
+		const content = await notionApi.getPage(pageId)
+		return content
 	}
 
 

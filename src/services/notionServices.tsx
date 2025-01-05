@@ -149,11 +149,6 @@ export const getEvents = async (): Promise<Event[]> => {
   })
 }
 
-// TODO: remover metodo, e usar o metodo getPosts
-export const fetchPosts = async (tag?: string) => {
-  return await getPosts(tag)
-}
-
 export const getChangelogs = async (projectSlug?: string) => {
   const filter = [
     {
@@ -210,12 +205,8 @@ export const getChangelogs = async (projectSlug?: string) => {
   return logs.filter((log): log is Changelog => typeof log !== 'undefined')
 }
 
-export const getPostBySlug = async (slug: string) => {
-  const posts = await fetchPosts()
-  const post: any = posts.find((p: Post) => p.slug === slug) ?? null
-  post.recordMap = await getPage(post.id)
-  post.description = getFirstParagraph(post.recordMap)
-  return post
+export const getPage = async (pageId: string) => {
+  return await notionApi.getPage(pageId)
 }
 
 export const getChangelogByVersion = async (
@@ -251,7 +242,7 @@ export const getChangelogSectionItems = async (
 export const getBlogSectionItems = async (
   tag?: string,
 ): Promise<BlogGridItemProps[]> => {
-  const posts = await fetchPosts(tag)
+  const posts = await getPosts(tag)
   const blogGridItems: BlogGridItemProps[] = []
 
   posts.map((post: Post) => {
@@ -277,9 +268,7 @@ export const getBlogSectionItems = async (
   return blogGridItems
 }
 
-export const getPage = async (pageId: string) => {
-  return await notionApi.getPage(pageId)
-}
+
 
 export const getHashtags = async (): Promise<Tag[]> => {
   const response = await notion.databases.query({

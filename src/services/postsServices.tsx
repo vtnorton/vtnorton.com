@@ -85,3 +85,15 @@ export const getPosts = async (tag?: string): Promise<Post[]> => {
 	const posts = results.map((result: any) => new Post(result))
 	return posts.filter((post): post is Post => typeof post !== 'undefined')
 }
+
+export const getPostBySlug = async (slug: string) => {
+	const posts = await getPosts()
+	const post: Post | null = posts.find((p: Post) => p.slug === slug) ?? null
+
+	if (!post)
+		return null
+
+	await post.loadPostConent()
+
+	return post
+}

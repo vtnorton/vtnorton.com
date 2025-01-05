@@ -1,7 +1,7 @@
 import { PostComponent } from '../../../components'
 import { SeoProps } from '../../../database/SEOProps'
 import { Post } from '../../../models/Post'
-import { getPostBySlug, fetchPosts } from '../../../services/notionServices'
+import { getPostBySlug, getPosts } from '../../../services/postsServices'
 
 const mountPath = (post: Post) => {
 	const postDate = new Date(post.date)
@@ -17,7 +17,7 @@ const mountPath = (post: Post) => {
 }
 
 export const getStaticPaths = async () => {
-	const posts: Post[] = await fetchPosts()
+	const posts: Post[] = await getPosts()
 	return {
 		paths: posts.map((post: Post) => mountPath(post)),
 		fallback: true,
