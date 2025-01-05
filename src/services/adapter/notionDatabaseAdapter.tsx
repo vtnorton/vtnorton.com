@@ -34,15 +34,4 @@ export class NotionDatabaseAdapter {
 		const content = await notionApi.getPage(pageId)
 		return content
 	}
-
-
-	/** @deprecated This method is deprecated, use the class NotionPage instead. */
-	getFeaturedImage(notionResult: any) {
-		if (!notionResult)
-			return ''
-
-		return notionResult.external
-			? notionResult.external.url
-			: notionResult.file.url
-	}
 }
