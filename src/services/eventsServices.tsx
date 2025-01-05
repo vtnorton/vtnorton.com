@@ -1,8 +1,10 @@
 import { Talk, TalkStatus } from '../interfaces/Talk'
-import { getFeaturedImage, queryNotion } from './adapter/notionDatabaseAdapter'
+import { NotionDatabaseAdapter } from './adapter/notionDatabaseAdapter'
 
 export const getTalks = async (): Promise<Talk[]> => {
 	const NOTION_DB_TALKS = process.env.talksDb as string
+	const notion = new NotionDatabaseAdapter(NOTION_DB_TALKS)
+
 	const filter = [
 		{
 			or: [
@@ -28,7 +30,7 @@ export const getTalks = async (): Promise<Talk[]> => {
 		},
 	]
 
-	const results = await queryNotion(NOTION_DB_TALKS, filter)
+	const results = await notion.query(filter)
 
 	const talks = results.map((result: any) => {
 
@@ -36,7 +38,7 @@ export const getTalks = async (): Promise<Talk[]> => {
 			id: result.id,
 			title: result.properties.Name.title[0].text.content,
 			description: result.properties['Descrição'].rich_text[0]?.text.content,
-			featureImage: getFeaturedImage(result.cover),
+			featureImage: notion.getFeaturedImage(result.cover),
 			lenght: result.properties['Duração'].select?.name,
 			presentations: result.properties['Apresentações'].formula.number,
 			slides: result.properties['Slides']?.url,

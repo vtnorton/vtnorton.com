@@ -1,9 +1,10 @@
 import { Post } from '../models/Post'
-import { queryNotion } from './adapter/notionDatabaseAdapter'
+import { NotionDatabaseAdapter } from './adapter/notionDatabaseAdapter'
 
 export const getPosts = async (tag?: string): Promise<Post[]> => {
 	const idCliente = process.env.CLIENT_ID
 	const NOTION_DB_DEVREL = process.env.DEVREL_DB as string
+	const notion = new NotionDatabaseAdapter(NOTION_DB_DEVREL)
 
 	const filter = [
 		{
@@ -67,7 +68,7 @@ export const getPosts = async (tag?: string): Promise<Post[]> => {
 		})
 	}
 
-	const results = await queryNotion(NOTION_DB_DEVREL, filter)
+	const results = await notion.query(filter)
 
 	const posts = results.map((result: any) => new Post(result))
 

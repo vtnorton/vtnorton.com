@@ -1,27 +1,37 @@
 import { Client } from '@notionhq/client'
 
-const NOTION_SECRET = process.env.notionSecret as string
+export class NotionDatabaseAdapter {
+	private notion: Client
+	private database: string
 
-const notion = new Client({
-	auth: NOTION_SECRET,
-})
+	constructor(database: string) {
+		const NOTION_SECRET = process.env.NOTION_SECRET
+		this.database = database
 
-export const queryNotion = async (database: string, filter: any) => {
-	const response = await notion.databases.query({
-		database_id: database,
-		filter: {
-			and: filter,
-		},
-	})
+		this.notion = new Client({
+			auth: NOTION_SECRET,
+		})
+	}
 
-	return response.results
-}
+	async query(filter: any) {
+		const response = await this.notion.databases.query({
+			database_id: this.database,
+			filter: {
+				and: filter,
+			},
+		})
 
-export const getFeaturedImage = (notionResult: any) => {
-	if (!notionResult)
-		return ''
+		return response.results
+	}
 
-	return notionResult.external
-		? notionResult.external.url
-		: notionResult.file.url
+
+	/** @deprecated This method is deprecated, use the class NotionPage instead. */
+	getFeaturedImage(notionResult: any) {
+		if (!notionResult)
+			return ''
+
+		return notionResult.external
+			? notionResult.external.url
+			: notionResult.file.url
+	}
 }
