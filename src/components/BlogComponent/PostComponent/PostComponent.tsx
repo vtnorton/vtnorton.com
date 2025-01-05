@@ -1,12 +1,12 @@
 import React, { useContext } from 'react'
 
 import { Changelog } from '../../../interfaces/Changelog'
-import { Post } from '../../../interfaces/Post'
 import { VtnortonContext } from '../../../provider/VtnortonContextProvider'
 import { HashtagListComponent } from './HashtagListComponent'
 import { PostContentComponent } from './PostContentComponent'
 import { PostRelatedContentWrapperComponent } from './PostRelatedContentWrapperComponent'
 import { ArrowLeft32Regular, ArrowRight32Regular } from '@fluentui/react-icons'
+import { Post } from '../../../models/Post'
 
 export const PostComponent = ({ post }: { post: Post | Changelog }) => {
 	const { relatedPostVisibility, setRelatedPostVisibility } = useContext(VtnortonContext)

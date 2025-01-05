@@ -1,7 +1,7 @@
 import { PostComponent } from '../../../components'
 import { SeoProps } from '../../../database/SEOProps'
-import { Post } from '../../../interfaces/Post'
-import { getPostBySlug, getPosts } from '../../../services/notionServices'
+import { Post } from '../../../models/Post'
+import { getPostBySlug, fetchPosts } from '../../../services/notionServices'
 
 const mountPath = (post: Post) => {
 	const postDate = new Date(post.date)
@@ -17,7 +17,7 @@ const mountPath = (post: Post) => {
 }
 
 export const getStaticPaths = async () => {
-	const posts: Post[] = await getPosts()
+	const posts: Post[] = await fetchPosts()
 	return {
 		paths: posts.map((post: Post) => mountPath(post)),
 		fallback: true,
@@ -45,9 +45,10 @@ export default function PostDetail({ post }: { post: Post }) {
 		return <div />
 
 
+	// TODO: adicionar description no post
 	return (
 		<>
-			<SeoProps title={post.title} description={post.description} featureImage={post.featureImage} ogType='article' publishedTime={post.date} tags={post.hashtags} />
+			<SeoProps title={post.title} description={''} featureImage={post.featureImage} ogType='article' publishedTime={post.date} tags={post.hashtags} />
 			<PostComponent post={post} />
 		</>
 	)

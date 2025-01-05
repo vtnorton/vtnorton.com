@@ -5,11 +5,12 @@ import { BlogGridItemProps } from '../components'
 import { PostType, Tag } from '../interfaces'
 import { Changelog } from '../interfaces/Changelog'
 import { PodcastEpisode } from '../interfaces/PodcastEpisode'
-import { Post } from '../interfaces/Post'
 import { Event, EventType } from '../interfaces/Event'
 import { Talk } from '../interfaces/Talk'
 import { kv } from '@vercel/kv'
 import { createClient } from '@supabase/supabase-js'
+import { getPosts } from './postsServices'
+import { Post } from '../models/Post'
 
 const NOTION_DB_DEVREL = process.env.devrelDb as string
 const NOTION_DB_TALKS = process.env.talksDb as string
@@ -185,101 +186,9 @@ export const getTalks = async () => {
   )
 }
 
-export const getPosts = async (tag?: string) => {
-  const idCliente = '18c35675-6ece-47c3-9bc3-19f3a852210d'
-  const filter = [
-    {
-      property: 'Type',
-      multi_select: {
-        contains: 'Post',
-      },
-    },
-    {
-      property: 'Date',
-      date: {
-        on_or_before: new Date().toISOString(),
-      },
-    },
-    {
-      or: [
-        {
-          property: 'Status-post',
-          status: {
-            equals: 'Query',
-          },
-        },
-        {
-          property: 'Status-post',
-          status: {
-            equals: 'Follow-up',
-          },
-        },
-        {
-          property: 'Status-post',
-          status: {
-            equals: 'Published',
-          },
-        },
-      ],
-    },
-    {
-      or: [ // TODO: passar para o queryNotion
-        {
-          property: 'Cliente',
-          relation: {
-            is_empty: true,
-          },
-        },
-        {
-          property: 'Cliente',
-          relation: {
-            contains: idCliente,
-          },
-        },
-      ],
-    },
-  ]
-
-  if (tag) {
-    filter.push({
-      property: 'Hashtags',
-      multi_select: {
-        contains: tag,
-      },
-    })
-  }
-
-  const results = await queryNotion(filter)
-
-  const posts = results.map((result: any) => {
-    const getHashtags = function () {
-      const hashtags: string[] = []
-      result.properties.Hashtags.multi_select.map((item: any) => {
-        hashtags.push(item.name)
-      })
-      return hashtags
-    }
-
-
-    const item: Post = {
-      id: result.id,
-      url: result.url,
-      slug: result.properties.Slug.rich_text[0].text.content,
-      fullSlug: mountPostSlug(result),
-      title: result.properties.Name.title[0].text.content,
-      date: result.properties.Date.date.start,
-      featureImage: getFeaturedImage(result.cover),
-      hashtags: getHashtags(),
-      recordMap: {},
-      description: '',
-    }
-
-    console.log(item.title)
-
-    return item
-  })
-
-  return posts.filter((post): post is Post => typeof post !== 'undefined')
+// TODO: remover metodo, e usar o metodo getPosts
+export const fetchPosts = async (tag?: string) => {
+  return await getPosts(tag)
 }
 
 export const getChangelogs = async (projectSlug?: string) => {
@@ -339,7 +248,7 @@ export const getChangelogs = async (projectSlug?: string) => {
 }
 
 export const getPostBySlug = async (slug: string) => {
-  const posts = await getPosts()
+  const posts = await fetchPosts()
   const post: any = posts.find((p: Post) => p.slug === slug) ?? null
   post.recordMap = await getPage(post.id)
   post.description = getFirstParagraph(post.recordMap)
@@ -379,7 +288,7 @@ export const getChangelogSectionItems = async (
 export const getBlogSectionItems = async (
   tag?: string,
 ): Promise<BlogGridItemProps[]> => {
-  const posts = await getPosts(tag)
+  const posts = await fetchPosts(tag)
   const blogGridItems: BlogGridItemProps[] = []
 
   posts.map((post: Post) => {
@@ -439,16 +348,6 @@ export const getFirstParagraph = (recordMap: any) => {
     ? firstParagraphBlock.value.properties.title[0][0]
     : ''
   return firstParagraphText
-}
-
-const mountPostSlug = (result: any): string => {
-  const postDate = new Date(result.properties.Date.date.start)
-  const pageSlug = result.properties.Slug.rich_text[0].text.content
-  const year = postDate.getFullYear().toString()
-  const monthNumber = postDate.getMonth() + 1
-  const month = monthNumber.toString().padStart(2, '0')
-
-  return `/${year}/${month}/${pageSlug}`
 }
 
 const getFeaturedImage = (notionResult: any) => {
