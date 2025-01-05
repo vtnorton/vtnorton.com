@@ -1,4 +1,5 @@
-import { Talk, TalkStatus } from '../interfaces/Talk'
+import { TalkStatus } from '../interfaces/Talk'
+import { Talk } from '../models/Talk'
 import { NotionDatabaseAdapter } from './adapter/notionDatabaseAdapter'
 
 export const getTalks = async (): Promise<Talk[]> => {
@@ -31,23 +32,7 @@ export const getTalks = async (): Promise<Talk[]> => {
 	]
 
 	const results = await notion.query(filter)
-
-	const talks = results.map((result: any) => {
-
-		const item: Talk = {
-			id: result.id,
-			title: result.properties.Name.title[0].text.content,
-			description: result.properties['Descrição'].rich_text[0]?.text.content,
-			featureImage: notion.getFeaturedImage(result.cover),
-			lenght: result.properties['Duração'].select?.name,
-			presentations: result.properties['Apresentações'].formula.number,
-			slides: result.properties['Slides']?.url,
-			video: result.properties['Video']?.url,
-			status: result.properties['Status'].status?.name as TalkStatus,
-		}
-
-		return item
-	})
+	const talks = results.map((result: any) => new Talk(result))
 
 	return talks
 		.filter((item): item is Talk => typeof item !== 'undefined')

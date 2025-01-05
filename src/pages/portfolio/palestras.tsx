@@ -7,7 +7,7 @@ import { SeoProps } from '../../database/SEOProps'
 import { Button } from '@fluentui/react-components'
 import { ChevronRight20Regular } from '@fluentui/react-icons'
 import { useEffect, useState } from 'react'
-import { Talk } from '../../interfaces/Talk'
+import { Talk } from '../../models/Talk'
 import axios from 'axios'
 
 export default function Consultoria() {

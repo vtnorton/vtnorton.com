@@ -15,7 +15,6 @@ export class Post extends NotionPage {
 		this.url = result.url
 		this.slug = result.properties.Slug.rich_text[0].text.content
 		this.fullSlug = this.mountPostSlug(result)
-		this.title = result.properties.Name.title[0].text.content
 		this.date = result.properties['Date'].date.start
 		this.hashtags = this.getHashtags(result.properties['Hashtags'])
 	}

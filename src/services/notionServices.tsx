@@ -6,14 +6,11 @@ import { PostType, Tag } from '../interfaces'
 import { Changelog } from '../interfaces/Changelog'
 import { PodcastEpisode } from '../interfaces/PodcastEpisode'
 import { Event, EventType } from '../interfaces/Event'
-import { Talk } from '../interfaces/Talk'
-import { kv } from '@vercel/kv'
 import { createClient } from '@supabase/supabase-js'
 import { getPosts } from './postsServices'
 import { Post } from '../models/Post'
 
 const NOTION_DB_DEVREL = process.env.devrelDb as string
-const NOTION_DB_TALKS = process.env.talksDb as string
 const NOTION_SECRET = process.env.notionSecret as string
 const NOTION_TOKEN = process.env.notionToken as string
 
@@ -141,7 +138,7 @@ export const getEvents = async (): Promise<Event[]> => {
       date: result.properties.Date.date.start as string,
       place: result.properties.Local.rich_text[0]?.text.content,
       type: EventType.SPEAKER,
-      talk: await getTalk(result.properties.Palestra.relation[0]?.id),
+      talk: 'await getTalk(result.properties.Palestra.relation[0]?.id)',
     }
 
     return item
@@ -150,40 +147,6 @@ export const getEvents = async (): Promise<Event[]> => {
       (event): event is Event => typeof event !== 'undefined',
     )
   })
-}
-
-const getTalk = async (talkId: string) => {
-  if (!talkId)
-    return undefined
-
-  const cacheKey = 'talks'
-  const cachedEvents = (await kv.get(cacheKey)) as Talk[]
-
-  if (cachedEvents)
-    cachedEvents.find((talk) => talk.id === talkId)?.title
-
-  const talks: Talk[] = await getTalks()
-  await kv.setex(cacheKey, 60 * 60 * 24, talks)
-
-  return talks.find((talk) => talk.id === talkId)?.title
-}
-
-export const getTalks = async () => {
-  const result = await queryNotion([], NOTION_DB_TALKS)
-  const talks = result.map((result: any) => {
-    const item: Talk = {
-      id: result.id,
-      title: result.properties.Name.title[0].text.content,
-      description: 'No description',
-      presentations: 0,
-    }
-
-    return item
-  })
-
-  return talks.filter(
-    (talk): talk is Talk => typeof talk !== 'undefined',
-  )
 }
 
 // TODO: remover metodo, e usar o metodo getPosts

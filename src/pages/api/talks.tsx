@@ -1,6 +1,6 @@
 import type { NextApiRequest, NextApiResponse } from 'next'
 
-import { Talk } from '../../interfaces/Talk'
+import { Talk } from '../../models/Talk'
 import { getTalks } from '../../services/eventsServices'
 import { handleCache } from '../../services/cacheServices'
 

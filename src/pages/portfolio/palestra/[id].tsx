@@ -5,8 +5,9 @@ import { SeoProps } from '../../../database/SEOProps'
 import { FooterComponent, NextProjectComponent, PageHeroComponent } from '../../../components'
 import { Section } from '../../../components/SectionComponent'
 import { ProfileSection } from '../../../sections'
-import { Talk, TalkStatus } from '../../../interfaces/Talk'
+import { TalkStatus } from '../../../interfaces/Talk'
 import { getTalks } from '../../../services/eventsServices'
+import { Talk } from '../../../models/Talk'
 
 const mountPath = (talk: Talk) => {
 	return {

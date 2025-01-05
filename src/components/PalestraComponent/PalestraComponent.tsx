@@ -1,7 +1,8 @@
 import { Button, Tag } from '@fluentui/react-components'
 import { NumberSymbolRegular, Clock20Regular, ChevronRight20Regular } from '@fluentui/react-icons'
 import { ImageBlur, Section } from '../SectionComponent'
-import { Talk, TalkStatus } from '../../interfaces/Talk'
+import { TalkStatus } from '../../interfaces/Talk'
+import { Talk } from '../../models/Talk'
 
 interface PalestraComponentProps {
 	talk: Talk
