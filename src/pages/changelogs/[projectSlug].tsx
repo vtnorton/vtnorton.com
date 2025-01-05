@@ -43,7 +43,7 @@ export const getStaticProps = async (context: any) => {
   }
 }
 
-export default function Hashtag({ projectSlug }: { projectSlug: string }) {
+export default function ProjectPage({ projectSlug }: { projectSlug: string }) {
   const router = useRouter()
   const [posts, setPosts] = useState<BlogGridItemProps[]>([])
 
@@ -53,7 +53,7 @@ export default function Hashtag({ projectSlug }: { projectSlug: string }) {
         .get('/api/changelog', {
           params: {
             quantity: 150,
-            projectSlug: projectSlug,
+            projectslug: projectSlug,
           },
         })
         .then((response) => {

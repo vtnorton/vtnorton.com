@@ -1,3 +1,4 @@
+import { Changelog } from '../models/Changelog'
 import { Post } from '../models/Post'
 import { NotionDatabaseAdapter } from './adapter/notionDatabaseAdapter'
 
@@ -61,14 +62,19 @@ const itemTypeFilter = (type: string): any => {
 	}
 }
 
-export const getPosts = async (tag?: string): Promise<Post[]> => {
+export const getPosts = async (tag?: string): Promise<Array<Post | Changelog>> => {
 	const NOTION_DB_DEVREL = process.env.DEVREL_DB as string
-
 	const notion = new NotionDatabaseAdapter(NOTION_DB_DEVREL)
+	const feedResult: Array<Post | Changelog> = []
 
 	const filter = [
 		...sharedFilter(),
-		itemTypeFilter('Post'),
+		{
+			or: [
+				itemTypeFilter('Post'),
+				itemTypeFilter('Changelog'),
+			],
+		},
 	]
 
 	if (tag) {
@@ -82,18 +88,72 @@ export const getPosts = async (tag?: string): Promise<Post[]> => {
 
 	const results = await notion.query(filter)
 
-	const posts = results.map((result: any) => new Post(result))
-	return posts.filter((post): post is Post => typeof post !== 'undefined')
+	results.forEach((result: any) => {
+		if (result.properties['Type'].multi_select[0].name === 'Post')
+			feedResult.push(new Post(result))
+		else if (result.properties['Type'].multi_select[0].name === 'Changelog')
+			feedResult.push(new Changelog(result))
+	})
+
+	return feedResult
 }
 
+export const getChangelogs = async (projectId: string): Promise<Changelog[]> => {
+	const NOTION_DB_DEVREL = process.env.DEVREL_DB as string
+	const notion = new NotionDatabaseAdapter(NOTION_DB_DEVREL)
+	const feedResult: Array<Changelog> = []
+
+	// TODO: ao colocar um console aqui, e acessar a página do formula, o changelog tá sendo chamado mesmo ao listar postagens 
+	// console.log('projectId', projectId)
+	// projectId 222c6f36-0d85-4f2b-9061-1f01dd4bcf02
+	// GET / api / changelog ? quantity = 3 & projectslug=formula 200 
+	// projectId
+	// GET / api / post ? quantity = 6 & tag=formula & hideChangelogs=true 200
+	console.log('projectId', projectId)
+
+	const filter = [
+		...sharedFilter(),
+		itemTypeFilter('Changelog'),
+		{
+			property: 'Projeto',
+			relation: {
+				contains: projectId,
+			},
+		},
+	]
+
+	const results = await notion.query(filter)
+	results.forEach((result: any) => {
+		feedResult.push(new Changelog(result))
+	})
+
+	return feedResult
+}
+
+// TODO: simplificar esse metodo com
 export const getPostBySlug = async (slug: string) => {
-	const posts = await getPosts()
+	const result = await getPosts()
+	const posts = result.filter((post): post is Post => post instanceof Post)
 	const post: Post | null = posts.find((p: Post) => p.slug === slug) ?? null
 
 	if (!post)
 		return null
 
-	await post.loadPostConent()
+	await post.loadPageContent()
 
 	return post
+}
+
+// TODO: Transformar para pegar o ID do projeto ao invez do slug
+export const getChangelog = async (projectSlug: string, version: string) => {
+	const result = await getPosts()
+	const changelogs = result.filter((post): post is Changelog => post instanceof Changelog)
+	const changelog = changelogs.find((c: Changelog) => c.project.slug === projectSlug && c.version === version) ?? null
+
+	if (!changelog)
+		return null
+
+	await changelog.loadPageContent()
+
+	return changelog
 }

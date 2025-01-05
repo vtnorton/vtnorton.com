@@ -26,12 +26,10 @@ export class NotionDatabaseAdapter {
 	}
 
 	async getPageContent(pageId: string) {
-		const NOTION_TOKEN = process.env.notionToken as string
+		const NOTION_TOKEN = process.env.NOTION_TOKEN as string
 		const notionApi = new NotionAPI({
 			authToken: NOTION_TOKEN,
 		})
-
-		const content = await notionApi.getPage(pageId)
-		return content
+		return await notionApi.getPage(pageId)
 	}
 }

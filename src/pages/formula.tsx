@@ -37,6 +37,7 @@ export default function Formula() {
 		},
 	]
 
+	// TODO: a parte de blog só precisa do tipo Post, não precisa de Changelog que tem uma sessão só dele
 	const [posts, setPosts] = useState<BlogGridItemProps[]>([])
 
 	useEffect(() => {

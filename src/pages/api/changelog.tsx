@@ -10,7 +10,7 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse<
 
 
 	const postQuantity = req.query.quantity ? parseInt(req.query.quantity.toString()) : 3
-	const projectSlug = req.query.projectSlug ? req.query.projectSlug.toString() : undefined
+	const projectSlug = req.query.projectslug ? req.query.projectslug.toString() : undefined
 	const itens = await handleCache<BlogGridItemProps>('changelogs', () => getChangelogSectionItems(projectSlug), 60 * 60 * 12)
 
 	return res.status(200).json(itens.slice(0, postQuantity))

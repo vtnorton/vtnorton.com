@@ -1,5 +1,4 @@
 import { Client } from '@notionhq/client'
-import { NotionAPI } from 'notion-client'
 
 import { BlogGridItemProps } from '../components'
 import { PostType, Tag } from '../interfaces'
@@ -7,19 +6,15 @@ import { Changelog } from '../interfaces/Changelog'
 import { PodcastEpisode } from '../interfaces/PodcastEpisode'
 import { Event, EventType } from '../interfaces/Event'
 import { createClient } from '@supabase/supabase-js'
-import { getPosts } from './postsServices'
+import { getChangelogs, getPosts } from './postsServices'
 import { Post } from '../models/Post'
+import { productsItems } from '../database/ProductShelfItems'
 
 const NOTION_DB_DEVREL = process.env.devrelDb as string
 const NOTION_SECRET = process.env.notionSecret as string
-const NOTION_TOKEN = process.env.notionToken as string
 
 const notion = new Client({
   auth: NOTION_SECRET,
-})
-
-const notionApi = new NotionAPI({
-  authToken: NOTION_TOKEN,
 })
 
 const SUPABASE_URL = process.env.SUPABASE_URL as string
@@ -149,81 +144,19 @@ export const getEvents = async (): Promise<Event[]> => {
   })
 }
 
-export const getChangelogs = async (projectSlug?: string) => {
-  const filter = [
-    {
-      property: 'Type',
-      multi_select: {
-        contains: 'Changelog',
-      },
-    },
-    {
-      or: [
-        {
-          property: 'Status-post',
-          status: {
-            equals: 'Follow-up',
-          },
-        },
-        {
-          property: 'Status-post',
-          status: {
-            equals: 'Published',
-          },
-        },
-      ],
-    },
-  ]
 
-  if (projectSlug) {
-    filter.push({
-      property: 'Hashtags',
-      multi_select: {
-        contains: projectSlug,
-      },
-    })
-  }
-  const results = await queryNotion(filter)
 
-  const logs = results.map((result: any) => {
-    const versionName = result.properties.Name.title[0].text.content
-    projectSlug = projectSlug
-      ? projectSlug
-      : result.properties.Hashtags.multi_select[0].name
-    const item: Changelog = {
-      id: result.id,
-      projectSlug: projectSlug as string,
-      fullSlug: `/release/${projectSlug}/${versionName}`,
-      title: versionName,
-      date: result.properties.Date.date.start,
-      featureImage: getFeaturedImage(result.cover),
-      recordMap: {},
-    }
-    return item
-  })
-
-  return logs.filter((log): log is Changelog => typeof log !== 'undefined')
-}
-
-export const getPage = async (pageId: string) => {
-  return await notionApi.getPage(pageId)
-}
-
-export const getChangelogByVersion = async (
-  projectName: string,
-  version: string,
-) => {
-  const logs = await getChangelogs(projectName)
-  const log: any = logs.find((l: Changelog) => l.title === version) ?? null
-  log.recordMap = await getPage(log.id)
-  return log
-}
 
 export const getChangelogSectionItems = async (
   projectSlug?: string,
 ): Promise<BlogGridItemProps[]> => {
-  const logs = await getChangelogs(projectSlug)
+  const id = productsItems.find((item) => item.slug === projectSlug)?.id
+
+  if (!id)
+    return []
+
   const blogGridItems: BlogGridItemProps[] = []
+  const logs = await getChangelogs(id)
 
   logs.map((log: Changelog) => {
     blogGridItems.push({

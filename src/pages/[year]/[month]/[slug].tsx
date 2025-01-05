@@ -17,7 +17,8 @@ const mountPath = (post: Post) => {
 }
 
 export const getStaticPaths = async () => {
-	const posts: Post[] = await getPosts()
+	const result = await getPosts()
+	const posts = result.filter((post): post is Post => post instanceof Post)
 	return {
 		paths: posts.map((post: Post) => mountPath(post)),
 		fallback: true,

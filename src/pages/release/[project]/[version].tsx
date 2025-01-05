@@ -1,28 +1,33 @@
 import { PostComponent } from '../../../components'
 import { SeoProps } from '../../../database/SEOProps'
-import { Changelog } from '../../../interfaces/Changelog'
-import { getChangelogByVersion, getChangelogs } from '../../../services/notionServices'
+import { Changelog } from '../../../models/Changelog'
+import { getChangelog, getPosts } from '../../../services/postsServices'
 
-const mountPath = (log: Changelog) => {
+const mountPath = (changelog: Changelog) => {
 	return {
 		params: {
-			project: log.projectSlug,
-			version: log.title,
+			project: changelog.project.slug,
+			version: changelog.version,
 		},
 	}
 }
 
 export const getStaticPaths = async () => {
-	const changelogs: Changelog[] = await getChangelogs()
+	const feed = await getPosts()
+	const changelogs = feed.filter((changelog): changelog is Changelog => changelog instanceof Changelog)
+
 	return {
-		paths: changelogs.map((log: Changelog) => mountPath(log)),
+		paths: changelogs.map((changelog: Changelog) => mountPath(changelog)),
 		fallback: false,
 	}
 }
 
 export const getStaticProps = async (context: any) => {
 	const { project, version } = context.params
-	const changelog: any = await getChangelogByVersion(project, version)
+	const changelog = await getChangelog(project, version)
+
+	if (!changelog)
+		return { notFound: true }
 
 	let props = {
 		changelog: changelog,
@@ -34,13 +39,14 @@ export const getStaticProps = async (context: any) => {
 		revalidate: 60 * 60 * 1,
 	}
 }
+
 export default function ChangelogDetail({ changelog }: { changelog: Changelog }) {
 	if (!changelog)
 		return <div />
 
 	return (
 		<>
-			<SeoProps title={changelog.title} description='' featureImage={changelog.featureImage} ogType='article' publishedTime={changelog.date} tags={[changelog.projectSlug]} />
+			<SeoProps title={changelog.title} description='' featureImage={changelog.featureImage} ogType='article' publishedTime={changelog.date} tags={[changelog.project.slug]} />
 			<PostComponent post={changelog} />
 		</>
 	)
