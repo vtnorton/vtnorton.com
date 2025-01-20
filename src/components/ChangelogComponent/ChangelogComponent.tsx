@@ -1,13 +1,14 @@
 import axios from 'axios'
 import { useEffect, useState } from 'react'
 
-import { BlogGridItemProps } from '../BlogComponent'
 import { BlogGrid } from '../BlogComponent/BlogGrid/BlogGrid'
 import { News20Regular } from '@fluentui/react-icons'
 import { Button } from '@fluentui/react-components'
+import { Changelog } from '../../models/Changelog'
 
-export const ChangelogComponent = ({ productSlug }: { productSlug: string }) => {
-	const [posts, setPosts] = useState<BlogGridItemProps[]>([])
+// TODO: Trocar o parâmetro productSlug e projectId só por Project
+export const ChangelogComponent = ({ projectId, projectSlug }: { projectId: string, projectSlug: string }) => {
+	const [posts, setPosts] = useState<Changelog[]>([])
 
 	useEffect(() => {
 		if (posts.length === 0) {
@@ -15,7 +16,7 @@ export const ChangelogComponent = ({ productSlug }: { productSlug: string }) => 
 				.get('/api/changelog', {
 					params: {
 						quantity: 3,
-						projectslug: productSlug,
+						projectid: projectId,
 					},
 				})
 				.then((response) => {
@@ -35,7 +36,7 @@ export const ChangelogComponent = ({ productSlug }: { productSlug: string }) => 
 					<BlogGrid posts={posts} />
 					<div className='space-long'></div>
 					<div className='aling-itens-to-right'>
-						<Button as='a' href={`/changelogs/${productSlug}`} icon={<News20Regular />} size='large' appearance='primary' shape='square'>ver_tudo();</Button>
+						<Button as='a' href={`/changelogs/${projectSlug}`} icon={<News20Regular />} size='large' appearance='primary' shape='square'>ver_tudo();</Button>
 					</div>
 					<div className='clean'></div>
 				</div>

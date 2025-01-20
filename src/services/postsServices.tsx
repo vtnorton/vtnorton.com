@@ -2,6 +2,8 @@ import { Changelog } from '../models/Changelog'
 import { Post } from '../models/Post'
 import { NotionDatabaseAdapter } from './adapter/notionDatabaseAdapter'
 
+const NOTION_DB_DEVREL = process.env.DEVREL_DB as string
+
 const sharedFilter = (): any => {
 	const CLIENT_ID = process.env.CLIENT_ID
 
@@ -63,7 +65,6 @@ const itemTypeFilter = (type: string): any => {
 }
 
 export const getPosts = async (tag?: string): Promise<Array<Post | Changelog>> => {
-	const NOTION_DB_DEVREL = process.env.DEVREL_DB as string
 	const notion = new NotionDatabaseAdapter(NOTION_DB_DEVREL)
 	const feedResult: Array<Post | Changelog> = []
 
@@ -130,7 +131,8 @@ export const getChangelogs = async (projectId: string): Promise<Changelog[]> => 
 	return feedResult
 }
 
-// TODO: simplificar esse metodo com
+// TODO: pegar direto pelo ID
+// TODO: simplificar esse metodo com o getChangelog
 export const getPostBySlug = async (slug: string) => {
 	const result = await getPosts()
 	const posts = result.filter((post): post is Post => post instanceof Post)
@@ -139,11 +141,13 @@ export const getPostBySlug = async (slug: string) => {
 	if (!post)
 		return null
 
-	await post.loadPageContent()
+	const notion = new NotionDatabaseAdapter(NOTION_DB_DEVREL)
+	post.recordMap = await notion.getPageContent(post.id)
 
 	return post
 }
 
+// TODO: pegar direto pelo ID
 // TODO: Transformar para pegar o ID do projeto ao invez do slug
 export const getChangelog = async (projectSlug: string, version: string) => {
 	const result = await getPosts()
@@ -153,7 +157,8 @@ export const getChangelog = async (projectSlug: string, version: string) => {
 	if (!changelog)
 		return null
 
-	await changelog.loadPageContent()
+	const notion = new NotionDatabaseAdapter(NOTION_DB_DEVREL)
+	changelog.recordMap = await notion.getPageContent(changelog.id)
 
 	return changelog
 }

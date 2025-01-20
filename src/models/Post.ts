@@ -7,7 +7,7 @@ export class Post extends NotionPage {
 	public hashtags: string[]
 
 	constructor(result: any) {
-		super(result)
+		super(result, 'post')
 
 		// TODO: verificar a necessidade da url
 		this.url = result.url

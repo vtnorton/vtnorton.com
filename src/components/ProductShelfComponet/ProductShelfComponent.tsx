@@ -39,12 +39,7 @@ export const ProductShelfComponent = () => {
           className={`blog-grid shelf-content ${projectsToDisplay.length > 4 ? 'blog-grid-big' : ''}`}>
           {projectsToDisplay.map((item: Product, index: number) => {
             return (
-              <ProductShelfItemComponent
-                key={index}
-                name={item.name}
-                link={item.link}
-                imageUrl={item.imageUrl}
-                supported={item.supported} />
+              <ProductShelfItemComponent key={index} project={item} />
             )
           })}
         </div>

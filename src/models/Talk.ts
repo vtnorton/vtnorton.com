@@ -13,7 +13,7 @@ export class Talk extends NotionPage {
 	public status: TalkStatus
 
 	constructor(result: any) {
-		super(result)
+		super(result, 'talk')
 
 		this.description = result.properties['Descrição'].rich_text[0]?.text.content
 		this.lenght = result.properties['Duração'].select?.name

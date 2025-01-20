@@ -3,6 +3,7 @@ import { SeoProps } from '../../../database/SEOProps'
 import { Post } from '../../../models/Post'
 import { getPostBySlug, getPosts } from '../../../services/postsServices'
 
+// TODO: usar o que já está no post
 const mountPath = (post: Post) => {
 	const postDate = new Date(post.date)
 	const monthNumber = postDate.getMonth() + 1

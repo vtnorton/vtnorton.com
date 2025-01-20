@@ -2,12 +2,13 @@ import axios from 'axios'
 import React, { useEffect, useState } from 'react'
 
 import { BlogGrid } from '../BlogGrid/BlogGrid'
-import { BlogGridItemProps } from '../BlogGridItem/BlogGridItemProps'
 import { News20Regular } from '@fluentui/react-icons'
 import { Button } from '@fluentui/react-components'
+import { Post } from '../../../models/Post'
+import { Changelog } from '../../../models/Changelog'
 
 export const PostRelatedContentWrapperComponent = () => {
-	const [posts, setPosts] = useState<BlogGridItemProps[]>([])
+	const [posts, setPosts] = useState<Array<Post | Changelog>>([])
 
 	useEffect(() => {
 		if (posts.length === 0) {

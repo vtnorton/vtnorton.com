@@ -1,6 +1,5 @@
 import { useRouter } from 'next/router'
 import {
-  BlogGridItemProps,
   FooterComponent,
   PageHeroComponent,
 } from '../../components'
@@ -12,6 +11,7 @@ import { useEffect, useState } from 'react'
 import axios from 'axios'
 import { Section } from '../../components/SectionComponent'
 import { ProfileSection } from '../../sections'
+import { Post } from '../../models/Post'
 
 const mountPath = (tag: Tag) => {
   return {
@@ -45,7 +45,7 @@ export const getStaticProps = async (context: any) => {
 
 export default function Hashtag({ tag }: { tag: string }) {
   const router = useRouter()
-  const [posts, setPosts] = useState<BlogGridItemProps[]>([])
+  const [posts, setPosts] = useState<Post[]>([])
 
   useEffect(() => {
     if (posts.length === 0) {

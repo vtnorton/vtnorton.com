@@ -1,14 +1,9 @@
 import { Client } from '@notionhq/client'
 
-import { BlogGridItemProps } from '../components'
-import { PostType, Tag } from '../interfaces'
-import { Changelog } from '../interfaces/Changelog'
+import { Tag } from '../interfaces'
 import { PodcastEpisode } from '../interfaces/PodcastEpisode'
 import { Event, EventType } from '../interfaces/Event'
 import { createClient } from '@supabase/supabase-js'
-import { getChangelogs, getPosts } from './postsServices'
-import { Post } from '../models/Post'
-import { productsItems } from '../database/ProductShelfItems'
 
 const NOTION_DB_DEVREL = process.env.devrelDb as string
 const NOTION_SECRET = process.env.notionSecret as string
@@ -143,64 +138,6 @@ export const getEvents = async (): Promise<Event[]> => {
     )
   })
 }
-
-
-
-
-export const getChangelogSectionItems = async (
-  projectSlug?: string,
-): Promise<BlogGridItemProps[]> => {
-  const id = productsItems.find((item) => item.slug === projectSlug)?.id
-
-  if (!id)
-    return []
-
-  const blogGridItems: BlogGridItemProps[] = []
-  const logs = await getChangelogs(id)
-
-  logs.map((log: Changelog) => {
-    blogGridItems.push({
-      id: log.id,
-      image: log.featureImage,
-      link: log.fullSlug,
-      title: log.title,
-      date: log.date,
-      type: PostType.Changelog,
-    })
-  })
-
-  return blogGridItems
-}
-
-export const getBlogSectionItems = async (
-  tag?: string,
-): Promise<BlogGridItemProps[]> => {
-  const posts = await getPosts(tag)
-  const blogGridItems: BlogGridItemProps[] = []
-
-  posts.map((post: Post) => {
-    blogGridItems.push({
-      id: post.id,
-      image: post.featureImage,
-      link: post.fullSlug,
-      title: post.title,
-      hashtags: post.hashtags,
-      date: post.date,
-      type: PostType.Post,
-    })
-  })
-
-  const changelogs = await getChangelogSectionItems()
-  blogGridItems.push(...changelogs)
-  blogGridItems.sort((a, b) =>
-    b.date && a.date
-      ? new Date(b.date).getTime() - new Date(a.date).getTime()
-      : new Date().getTime(),
-  )
-
-  return blogGridItems
-}
-
 
 
 export const getHashtags = async (): Promise<Tag[]> => {

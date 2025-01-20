@@ -1,19 +1,15 @@
 import React, { useContext } from 'react'
 
 import { VtnortonContext } from '../../../provider/VtnortonContextProvider'
-import { HashtagListComponent } from './HashtagListComponent'
 import { PostContentComponent } from './PostContentComponent'
 import { PostRelatedContentWrapperComponent } from './PostRelatedContentWrapperComponent'
 import { ArrowLeft32Regular, ArrowRight32Regular } from '@fluentui/react-icons'
 import { Post } from '../../../models/Post'
 import { Changelog } from '../../../models/Changelog'
+import { getDate } from '../dateHelper'
 
 export const PostComponent = ({ post }: { post: Post | Changelog }) => {
 	const { relatedPostVisibility, setRelatedPostVisibility } = useContext(VtnortonContext)
-	const date = new Date(post.date)
-	const monthNumber = date.getMonth() + 1
-	const month = monthNumber.toString().padStart(2, '0')
-	const formatedDate = `${date.getDate().toString().padStart(2, '0')}/${month} às ${date.getHours().toString().padStart(2, '0')}h${date.getMinutes().toString().padStart(2, '0')}`
 	return (
 		<>
 			<PostRelatedContentWrapperComponent />
@@ -27,9 +23,8 @@ export const PostComponent = ({ post }: { post: Post | Changelog }) => {
 						</div>
 						<div className='info-title'>
 							<h1>{post.title}</h1>
-							{'hashtags' in post && <HashtagListComponent hashtags={post.hashtags} />}
 							<div className='meta'>
-								por vítor norton, em <span className='meta-date'>{formatedDate}</span>
+								por vítor norton, em <span className='meta-date'>{getDate(post.date)}</span>
 							</div>
 						</div>
 					</div>

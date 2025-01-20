@@ -1,23 +1,24 @@
+import Image from 'next/image'
 import { Product } from '../../interfaces/Product'
 
-export const ProductShelfItemComponent = (props: Product) => {
+export const ProductShelfItemComponent = ({ project }: { project: Product }) => {
   return (
     <div className="blog-item">
-      <a href={props.link} aria-label={props.name}>
+      <a href={project.link} aria-label={project.name}>
         <figure className="post-img">
-          <img
+          <Image
             width="350"
             height="350"
-            src={props.imageUrl}
-            alt={props.name}
+            src={project.imageUrl}
+            alt={project.name}
             decoding="async"
             loading="lazy" />
           <div className="overlay-img"></div>
         </figure>
       </a>
-      <a href={props.link} aria-label={props.name}>
-        <h3>{props.name}</h3>
-        {!props.supported && <p className="post-date">O projeto acabou 🥲</p>}
+      <a href={project.link} aria-label={project.name}>
+        <h3>{project.name}</h3>
+        {!project.supported && <p className="post-date">O projeto acabou 🥲</p>}
         <span className="blog-item-more">saiba_mais;</span>
       </a>
     </div>

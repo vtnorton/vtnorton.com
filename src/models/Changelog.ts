@@ -12,10 +12,11 @@ export class Changelog extends NotionPage {
 	public version: string
 	public isPreview: boolean
 	public project: Project
+	public fullSlug: string
 
 	// TODO: se eu imprimo só um no navegaodr, ele constroi o array de todos os changelogs, verificar se isso é necessário
 	constructor(result: any) {
-		super(result)
+		super(result, 'changelog')
 
 		if (result.properties['Projeto'].relation.length === 0)
 			throw new Error(`Changelog ${this.title}, with id ${this.id} without project`)
@@ -37,6 +38,7 @@ export class Changelog extends NotionPage {
 		}
 
 		this.version = this.title
+		this.fullSlug = `/${this.project}/${this.version}`
 		this.title = `New update to ${this.project.name} - ${this.version}`
 		this.isPreview = result.properties['Preview'].checkbox
 	}

@@ -1,14 +1,16 @@
 import axios from 'axios'
 import React, { useEffect, useState } from 'react'
 
-import { BlogGridItemProps, FooterComponent, PageHeroComponent } from '../components'
+import { FooterComponent, PageHeroComponent } from '../components'
 import { BlogGrid } from '../components/BlogComponent/BlogGrid/BlogGrid'
 import { SeoProps } from '../database/SEOProps'
 import { Section } from '../components/SectionComponent'
 import { ProfileSection } from '../sections'
+import { Post } from '../models/Post'
+import { Changelog } from '../models/Changelog'
 
 export default function BlogPage() {
-	const [posts, setPosts] = useState<BlogGridItemProps[]>([])
+	const [posts, setPosts] = useState<Array<Post | Changelog>>([])
 
 	useEffect(() => {
 		if (posts.length === 0) {

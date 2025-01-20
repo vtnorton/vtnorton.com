@@ -2,18 +2,20 @@ import axios from 'axios'
 import { useRouter } from 'next/router'
 import { useEffect, useState } from 'react'
 
-import { BlogGridItemProps, ChangelogComponent, FooterComponent, NextProjectComponent, PageHeroComponent, ProductShelfComponent, SliderComponent, SliderImage } from '../components'
+import { ChangelogComponent, FooterComponent, NextProjectComponent, PageHeroComponent, ProductShelfComponent, SliderComponent, SliderImage } from '../components'
 import { BlogGrid } from '../components/BlogComponent/BlogGrid/BlogGrid'
 import { SeoProps } from '../database/SEOProps'
 import { Button } from '@fluentui/react-components'
 import { ChevronRight20Filled, ChevronRight20Regular, StoreMicrosoft24Regular } from '@fluentui/react-icons'
 import { Section, SectionContentWithImage } from '../components/SectionComponent'
-import { getNextProductBasedOnCurrentPath } from '../database/ProductShelfItems'
+import { getNextProductBasedOnCurrentPath, productsItems } from '../database/ProductShelfItems'
+import { Post } from '../models/Post'
 
 export default function Formula() {
 	const router = useRouter()
 	const nextProject = getNextProductBasedOnCurrentPath(router.pathname)
 	const projectSlug = 'formula'
+	const projectId = productsItems.filter((x) => x.slug == projectSlug)[0].id as string
 	const itemsForSlider: SliderImage[] = [
 		{
 			imageUrl: '/img/projects/formula/001.webp',
@@ -38,7 +40,7 @@ export default function Formula() {
 	]
 
 	// TODO: a parte de blog só precisa do tipo Post, não precisa de Changelog que tem uma sessão só dele
-	const [posts, setPosts] = useState<BlogGridItemProps[]>([])
+	const [posts, setPosts] = useState<Post[]>([])
 
 	useEffect(() => {
 		if (posts.length === 0) {
@@ -107,7 +109,7 @@ export default function Formula() {
 
 			<SliderComponent items={itemsForSlider} />
 
-			<ChangelogComponent productSlug={projectSlug} />
+			<ChangelogComponent projectId={projectId} projectSlug={projectSlug} />
 
 			<div className='container'>
 				<Section removePaddingButton>

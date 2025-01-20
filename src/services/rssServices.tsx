@@ -1,9 +1,10 @@
 import RSS from 'rss'
 
-import { BlogGridItemProps } from '../components'
 import { SEOMetaData } from '../database/SEOProps'
+import { Post } from '../models/Post'
+import { Changelog } from '../models/Changelog'
 
-export const generateRssFeed = async (items: BlogGridItemProps[]) => {
+export const generateRssFeed = async (items: Array<Post | Changelog>) => {
 	const site_url = 'https://vtnorton.com'
 	const feedOptions = {
 		title: SEOMetaData.defaultTitle,
@@ -24,7 +25,7 @@ export const generateRssFeed = async (items: BlogGridItemProps[]) => {
 		feed.item({
 			title: post.title,
 			description: '',
-			url: `https://vtnorton.com/${post.link}`,
+			url: `https://vtnorton.com${post.fullSlug}`,
 			date: post.date,
 		})
 	})

@@ -1,6 +1,5 @@
 import { useRouter } from 'next/router'
 import {
-  BlogGridItemProps,
   FooterComponent,
   PageHeroComponent,
 } from '../../components'
@@ -12,6 +11,8 @@ import { useEffect, useState } from 'react'
 import axios from 'axios'
 import { Section } from '../../components/SectionComponent'
 import { ProfileSection } from '../../sections'
+import { Changelog } from '../../models/Changelog'
+import { productsItems } from '../../database/ProductShelfItems'
 
 const mountPath = (tag: Tag) => {
   return {
@@ -43,9 +44,11 @@ export const getStaticProps = async (context: any) => {
   }
 }
 
+// TODO: Trocar o parâmetro productSlug para projectId
 export default function ProjectPage({ projectSlug }: { projectSlug: string }) {
   const router = useRouter()
-  const [posts, setPosts] = useState<BlogGridItemProps[]>([])
+  const [posts, setPosts] = useState<Changelog[]>([])
+  const projectId = productsItems.filter((x) => x.slug == projectSlug)[0].id as string
 
   useEffect(() => {
     if (posts.length === 0) {
@@ -53,7 +56,7 @@ export default function ProjectPage({ projectSlug }: { projectSlug: string }) {
         .get('/api/changelog', {
           params: {
             quantity: 150,
-            projectslug: projectSlug,
+            projectid: projectId,
           },
         })
         .then((response) => {
