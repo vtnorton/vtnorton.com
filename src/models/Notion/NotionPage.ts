@@ -12,7 +12,7 @@ export class NotionPage {
 	constructor(result: any, type: 'post' | 'changelog' | 'talk') {
 		this.id = result.id
 		this.title = result.properties.Name.title[0].text.content
-		this.date = result.properties['Date'].date.start
+		this.date = this.getDate(result.properties['Date'])
 
 		this.featureImage = this.getFeaturedImage(result.cover)
 		this.type = type
@@ -25,5 +25,15 @@ export class NotionPage {
 		return notionResult.external
 			? notionResult.external.url
 			: notionResult.file.url
+	}
+
+	getDate = (date: any) => {
+		if (!date)
+			return ''
+
+		if (date.type === 'created_time')
+			return date.created_time
+		else
+			return date.date.start
 	}
 }
