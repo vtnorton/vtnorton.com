@@ -5,8 +5,6 @@ import {
 } from '../../components'
 import { BlogGrid } from '../../components/BlogComponent/BlogGrid/BlogGrid'
 import { SeoProps } from '../../database/SEOProps'
-import { Tag } from '../../interfaces'
-import { getHashtags } from '../../services/notionServices'
 import { useEffect, useState } from 'react'
 import axios from 'axios'
 import { Section } from '../../components/SectionComponent'
@@ -14,18 +12,18 @@ import { ProfileSection } from '../../sections'
 import { Changelog } from '../../models/Changelog'
 import { productsItems } from '../../database/ProductShelfItems'
 
-const mountPath = (tag: Tag) => {
+const mountPath = (slug: string) => {
   return {
     params: {
-      projectSlug: tag.name,
+      projectSlug: slug,
     },
   }
 }
 
 export const getStaticPaths = async () => {
-  const tags: Tag[] = await getHashtags()
+  const slugs: string[] = productsItems.map((x) => x.slug)
   return {
-    paths: tags.map((tag: Tag) => mountPath(tag)),
+    paths: slugs.map((tag) => mountPath(tag)),
     fallback: false,
   }
 }
