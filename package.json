@@ -4,7 +4,7 @@
   "private": true,
   "scripts": {
     "dev": "next dev",
-    "build": "next build",
+    "build": "next build -d",
     "start": "next dev",
     "start:prod": "next start",
     "lint": "eslint . --ext ts,tsx --report-unused-disable-directives --max-warnings 0"
