@@ -10,7 +10,7 @@ export const productsItems: Product[] = [
 		businessCase: true,
 	},
 	{
-		id: '222c6f36-0d85-4f2b-9061-1f01dd4bcf02',
+		id: '1ae4009b-7ca6-80ca-b87c-c43f1115f955',
 		name: 'Formula - Code Editor',
 		slug: 'formula',
 		imageUrl: '/img/projects/formula.webp',
