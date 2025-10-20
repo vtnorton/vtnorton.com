@@ -12,10 +12,10 @@ const nextConfig = {
 		talksDb: process.env.TALKS_DB,
 		host: process.env.HOST,
 	},
-	webpack: (config) => {
-		config.optimization.minimize = false
-		return config
-	},
+	// webpack: (config) => {
+	// 	config.optimization.minimize = false
+	// 	return config
+	// },
 	images: {
 		domains: ['mirrors.creativecommons.org'],
 	},
@@ -33,4 +33,4 @@ const nextConfig = {
 	},
 }
 
-module.exports = nextConfig
+export default nextConfig
