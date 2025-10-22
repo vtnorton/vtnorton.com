@@ -33,10 +33,6 @@ export const profiles: Profile[] = [
 		media: Medias.Discord,
 		url: 'https://discord.gg/hY3pTjMxmG',
 	},
-	{
-		media: Medias.RSS,
-		url: 'https://vtnorton.com/rss',
-	},
 ]
 
 export const GetProfile = (media: Medias): Profile | undefined => {

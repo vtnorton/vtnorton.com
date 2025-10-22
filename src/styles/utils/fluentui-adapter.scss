@@ -8,7 +8,8 @@
 }
 
 .fui-Button,
-.fui-Switch__label {
+.fui-Switch__label,
+.fui-InteractionTagPrimary__primaryText {
 	font-family: Consolas, "Courier New", monospace !important;
 	font-weight: normal !important;
 	width: fit-content;
@@ -16,6 +17,14 @@
 	&.no-margin {
 		margin-left: -23px !important;
 	}
+}
+
+.fui-InteractionTagPrimary {
+	border-color: var(--gold) !important;
+}
+
+.fui-InteractionTagPrimary__primaryText {
+	margin-top: 1px !important;
 }
 
 .fui-Switch__label {

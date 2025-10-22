@@ -1,0 +1,57 @@
+.personal-blog {
+	display: flex;
+	flex-direction: row;
+	gap: 2rem;
+
+	.blog-feed {
+		display: flex;
+		flex-direction: column;
+		gap: 1.5rem;
+
+		section {
+			padding-top: 1rem;
+			padding-bottom: 2rem;
+
+			.section-content {
+				.feed-item {
+					display: flex;
+					flex-direction: row;
+					gap: 1rem;
+					align-items: flex-end;
+					margin-bottom: 1.5rem;
+
+					.cover-image {
+						max-width: 200px;
+						margin-top: -3.5rem;
+						aspect-ratio: 1.2 / 1;
+						object-fit: cover;
+						box-shadow: var(--shadow-sm);
+					}
+
+					.intro {
+						h2 {
+							line-height: 120%;
+							margin-bottom: .3rem;
+						}
+
+						.metadata {
+							font-style: italic;
+							font-size: 1rem;
+						}
+					}
+				}
+
+				p:not(.metadata) {
+					margin-bottom: 1.5rem;
+					font-size: 1.1rem;
+					line-height: 1.8rem;
+				}
+			}
+		}
+	}
+
+	.widgets {
+		margin-top: 220px;
+		min-width: 420px;
+	}
+}

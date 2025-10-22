@@ -13,6 +13,7 @@ export default tseslint.config(
       ecmaVersion: 2020,
       globals: {
         ...globals.browser,
+        ...globals.node, // <- adiciona Node (inclui "process")
       },
     },
     plugins: {
@@ -23,10 +24,7 @@ export default tseslint.config(
     rules: {
       ...js.configs.recommended.rules,
       ...reactHooks.configs.recommended.rules,
-      'react-refresh/only-export-components': [
-        'warn',
-        { allowConstantExport: true },
-      ],
+      'react-refresh/only-export-components': ['warn', { allowConstantExport: true }],
       quotes: ['error', 'single'],
       indent: ['error', 'tab'],
       'comma-dangle': ['error', 'always-multiline'],
@@ -39,12 +37,7 @@ export default tseslint.config(
       'prefer-const': 'warn',
       'no-use-before-define': ['error', { functions: true, classes: true }],
       'no-unused-vars': 'warn',
-      '@typescript-eslint/no-unused-vars': [
-        'error',
-        {
-          args: 'none',
-        },
-      ],
+      '@typescript-eslint/no-unused-vars': ['error', { args: 'none' }],
     },
   },
 )
