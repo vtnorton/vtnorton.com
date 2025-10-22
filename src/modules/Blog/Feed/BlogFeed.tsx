@@ -79,7 +79,7 @@ export default function BlogFeed() {
 						<PostFeedItem post={post} />
 					</div>
 				))}
-				{loading && <p className='blog-feed-loading-text'>Carregando...</p>}
+				{loading && <p>Carregando...</p>}
 			</div>
 		</>
 	)
