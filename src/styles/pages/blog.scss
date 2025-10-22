@@ -50,6 +50,15 @@
 		}
 	}
 
+	.blog-feed-loader {
+		height: 20px;
+		margin: 20px 0;
+
+		.blog-feed-loading-text {
+			text-align: center;
+		}
+	}
+
 	.widgets {
 		margin-top: 220px;
 		min-width: 420px;
