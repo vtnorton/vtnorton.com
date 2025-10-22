@@ -3,6 +3,7 @@ import axios from 'axios'
 import { Post } from '../../../models/Post'
 import { PostFeedItem } from './PostFeedItem'
 import { PaginatedResponse } from '../../../types/PaginatedResponse'
+import { PostFeedItemLoader } from './PostFeedItemLoader'
 
 const POSTS_PER_PAGE = 10
 
@@ -25,7 +26,6 @@ export default function BlogFeed() {
 
 			const { content: newPosts, pagination } = response.data
 
-			// Adiciona os novos posts aos existentes
 			setPosts((prevPosts) => [...prevPosts, ...newPosts])
 			setHasMore(pagination.hasMore)
 		} catch (error) {
@@ -79,7 +79,12 @@ export default function BlogFeed() {
 						<PostFeedItem post={post} />
 					</div>
 				))}
-				{loading && <p>Carregando...</p>}
+
+				{loading && <>
+					<PostFeedItemLoader />
+					<PostFeedItemLoader />
+					<PostFeedItemLoader />
+				</>}
 			</div>
 		</>
 	)

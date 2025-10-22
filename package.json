@@ -3,7 +3,7 @@
   "version": "11.0.0",
   "private": true,
   "scripts": {
-    "dev": "next dev",
+    "dev": "next dev --turbopack",
     "build": "next build -d",
     "start": "next dev",
     "start:prod": "next start",

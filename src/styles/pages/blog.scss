@@ -7,6 +7,7 @@
 		display: flex;
 		flex-direction: column;
 		gap: 1.5rem;
+		width: -webkit-fill-available;
 
 		section {
 			padding-top: 1rem;
@@ -29,14 +30,44 @@
 					}
 
 					.intro {
-						h2 {
+						flex: 1;
+
+						h2,
+						.skeleton-title {
 							line-height: 120%;
 							margin-bottom: .3rem;
+						}
+
+						.skeleton-title {
+							width: 75%;
 						}
 
 						.metadata {
 							font-style: italic;
 							font-size: 1rem;
+
+							.fui-SkeletonItem {
+								width: 50%;
+							}
+						}
+
+						.tag-group {
+							display: flex;
+							flex-direction: row;
+							gap: 0.5rem;
+
+							.fui-SkeletonItem {
+								width: 75px;
+								border-radius: 50px;
+
+								&:first-of-type {
+									width: 55px;
+								}
+
+								&:last-of-type {
+									width: 60px;
+								}
+							}
 						}
 					}
 				}
@@ -45,6 +76,14 @@
 					margin-bottom: 1.5rem;
 					font-size: 1.1rem;
 					line-height: 1.8rem;
+
+					.fui-SkeletonItem {
+						margin-bottom: 0.6rem;
+
+						&:last-of-type {
+							width: 80%;
+						}
+					}
 				}
 			}
 		}
