@@ -76,6 +76,23 @@
 					margin-bottom: 1.5rem;
 					font-size: 1.1rem;
 					line-height: 1.8rem;
+					display: -webkit-box;
+					-webkit-line-clamp: 3;
+					line-clamp: 3;
+					-webkit-box-orient: vertical;
+					overflow: hidden;
+					text-overflow: ellipsis;
+					position: relative;
+
+					&::after {
+						content: '';
+						position: absolute;
+						bottom: 0;
+						right: 0;
+						width: 60%;
+						height: 1.8rem;
+						background: linear-gradient(to right, transparent, #f8f8f8);
+					}
 
 					.fui-SkeletonItem {
 						margin-bottom: 0.6rem;
@@ -115,6 +132,31 @@
 
 		.widgets {
 			display: none;
+		}
+	}
+}
+
+@media screen and (max-width: 900px) {
+	.personal-blog {
+		.blog-feed {
+			section {
+				.section-content {
+					.feed-item {
+						flex-direction: column;
+						gap: 1rem;
+						align-items: baseline;
+						margin-bottom: .8rem;
+
+						.cover-image {
+							max-width: 250px;
+							margin-top: -4rem;
+							aspect-ratio: 1.2 / 1;
+							object-fit: cover;
+							box-shadow: var(--shadow-sm);
+						}
+					}
+				}
+			}
 		}
 	}
 }
