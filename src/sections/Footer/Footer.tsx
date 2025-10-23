@@ -1,12 +1,50 @@
 import Link from 'next/link'
 import Image from 'next/image'
 import { SocialMedias } from '../../components/Socials'
+import logoAnimated from './../../assets/logo-coloful.json'
+import Lottie from 'lottie-react'
+import { useEffect, useRef } from 'react'
 
 export const Footer = () => {
+	const footerRef = useRef<HTMLElement>(null)
+	const lottieRef = useRef<any>(null)
+
+	useEffect(() => {
+		const observer = new IntersectionObserver(
+			([entry]) => {
+				if (lottieRef.current) {
+					if (entry.isIntersecting) {
+						lottieRef.current.play()
+					} else {
+						lottieRef.current.stop()
+					}
+				}
+			},
+			{ threshold: 0.1 },
+		)
+
+		const currentRef = footerRef.current
+		if (currentRef) {
+			observer.observe(currentRef)
+		}
+
+		return () => {
+			if (currentRef) {
+				observer.unobserve(currentRef)
+			}
+		}
+	}, [])
+
 	return (
-		<footer className='container'>
+		<footer className='container' ref={footerRef}>
 			<Link href='/'>
-				<img src='/img/logo/logo-coloful.svg' alt='vtnorton' />
+				<Lottie
+					lottieRef={lottieRef}
+					className='animated-logo'
+					animationData={logoAnimated}
+					loop={false}
+					autoplay={false}
+				/>
 			</Link>
 			<SocialMedias />
 
