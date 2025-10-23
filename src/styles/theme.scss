@@ -18,3 +18,15 @@ body {
 		width: 1100px;
 	}
 }
+
+@media screen and (max-width: 1300px) {
+	.container {
+		width: 990px;
+	}
+}
+
+@media screen and (max-width: 1100px) {
+	.container {
+		width: calc(100% - var(--spacing-lg));
+	}
+}

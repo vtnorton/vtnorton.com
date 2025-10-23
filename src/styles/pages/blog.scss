@@ -95,7 +95,7 @@
 	}
 }
 
-@media screen and (max-width: 1250px) {
+@media screen and (max-width: 1400px) {
 	.personal-blog {
 		display: grid;
 		grid-template-columns: 1fr 300px;
@@ -104,6 +104,17 @@
 		.widgets {
 			margin-top: 220px;
 			min-width: 300px;
+		}
+	}
+}
+
+@media screen and (max-width: 1200px) {
+	.personal-blog {
+		display: grid;
+		grid-template-columns: 1fr;
+
+		.widgets {
+			display: none;
 		}
 	}
 }
