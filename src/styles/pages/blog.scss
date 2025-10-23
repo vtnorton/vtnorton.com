@@ -143,16 +143,30 @@
 				.section-content {
 					.feed-item {
 						flex-direction: column;
-						gap: 1rem;
 						align-items: baseline;
 						margin-bottom: .8rem;
 
 						.cover-image {
 							max-width: 250px;
 							margin-top: -4rem;
-							aspect-ratio: 1.2 / 1;
-							object-fit: cover;
-							box-shadow: var(--shadow-sm);
+						}
+					}
+				}
+			}
+		}
+	}
+}
+
+@media screen and (max-width: 650px) {
+	.personal-blog {
+		.blog-feed {
+			section {
+				.section-content {
+					.feed-item {
+						.cover-image {
+							max-width: 250px;
+							margin-top: -3rem;
+							aspect-ratio: 1.4 / 1;
 						}
 					}
 				}

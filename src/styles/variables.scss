@@ -18,3 +18,10 @@
 		--spacing-xl: 50px;
 	}
 }
+
+@media (max-width: 650px) {
+	:root {
+		--spacing-lg: 35px;
+		--spacing-xl: 35px;
+	}
+}
