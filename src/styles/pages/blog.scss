@@ -174,3 +174,40 @@
 		}
 	}
 }
+
+@media screen and (max-width: 450px) {
+	.personal-blog {
+		.blog-feed {
+			gap: 0rem;
+
+			section {
+				width: calc(100vw - 30px);
+
+				.section-content {
+					.feed-item {
+						.cover-image {
+							max-width: calc(100% - var(--spacing-lg));
+							margin-top: -2rem;
+							aspect-ratio: 1 / 1;
+						}
+					}
+
+					p:not(.metadata) {
+						-webkit-line-clamp: 10;
+						line-clamp: 10;
+
+						&::after {
+							content: '';
+							position: absolute;
+							bottom: 0;
+							right: 0;
+							width: 60%;
+							height: 1.8rem;
+							background: linear-gradient(to right, transparent, #f8f8f8);
+						}
+					}
+				}
+			}
+		}
+	}
+}
