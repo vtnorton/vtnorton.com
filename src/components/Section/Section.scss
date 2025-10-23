@@ -1,5 +1,5 @@
 section {
-	padding: 4rem calc(4rem + 10px);
+	padding: var(--spacing-xl);
 	position: relative;
 	width: 100%;
 	margin: 0 auto 3rem;
@@ -19,7 +19,7 @@ section {
 		padding-right: 0;
 
 		.escape-padding {
-			padding: 4rem calc(4rem + 10px);
+			padding: var(--spacing-xl);
 		}
 	}
 
@@ -134,7 +134,7 @@ section {
 				}
 
 				img {
-					margin-left: -4rem;
+					margin-left: calc(var(--spacing-xl) * -1);
 				}
 			}
 		}

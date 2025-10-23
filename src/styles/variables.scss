@@ -11,3 +11,10 @@
 	--dark-blue: #162C44;
 	--gold: #E09E36;
 }
+
+@media (max-width: 1400px) {
+	:root {
+		--spacing-lg: 50px;
+		--spacing-xl: 50px;
+	}
+}

@@ -1,6 +1,6 @@
 .personal-blog {
 	display: grid;
-	grid-template-columns: calc(100% - 400px) 400px;
+	grid-template-columns: 1fr 350px;
 	gap: 2rem;
 
 	.blog-feed {
@@ -91,6 +91,19 @@
 
 	.widgets {
 		margin-top: 220px;
-		min-width: 420px;
+		min-width: 350px;
+	}
+}
+
+@media screen and (max-width: 1250px) {
+	.personal-blog {
+		display: grid;
+		grid-template-columns: 1fr 300px;
+		gap: 1.5rem;
+
+		.widgets {
+			margin-top: 220px;
+			min-width: 300px;
+		}
 	}
 }
