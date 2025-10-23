@@ -3,6 +3,8 @@ import Head from 'next/head'
 import { BrandVariants, createLightTheme, FluentProvider, Theme } from '@fluentui/react-components'
 
 import '../styles/global.scss'
+import { LayoutProvider } from '../providers/LayoutProvider'
+import { SidePane } from '../components/Sidepane/Sidepane'
 
 export default function App({ Component, pageProps }: AppProps) {
 	const myNewTheme: BrandVariants = {
@@ -36,7 +38,11 @@ export default function App({ Component, pageProps }: AppProps) {
 			</Head>
 
 			<FluentProvider theme={lightTheme}>
-				<Component {...pageProps} />
+				<LayoutProvider>
+					<SidePane>
+						<Component {...pageProps} />
+					</SidePane>
+				</LayoutProvider>
 			</FluentProvider>
 		</>
 	)

@@ -1,12 +1,5 @@
-.homepage {
-	overflow: hidden;
-	display: flex;
-	flex-direction: row;
-	height: 100vh;
-
-	.promo {
-		flex-grow: 1;
-		background: rebeccapurple;
-		z-index: 1;
-	}
+.promo {
+	flex-grow: 1;
+	background: rebeccapurple;
+	z-index: 1;
 }

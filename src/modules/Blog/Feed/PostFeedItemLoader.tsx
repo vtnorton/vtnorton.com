@@ -10,7 +10,7 @@ export const PostFeedItemLoader = () => {
 						<SkeletonItem size={128} className='cover-image' />
 						<div className='intro'>
 							<SkeletonItem className='skeleton-title' size={32} />
-							<p className='metadata'><SkeletonItem size={16} /></p>
+							<span className='metadata'><SkeletonItem size={16} /></span>
 							<div className='tag-group'>
 								<SkeletonItem size={20} />
 								<SkeletonItem size={20} />

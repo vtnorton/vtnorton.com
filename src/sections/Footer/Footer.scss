@@ -1,11 +1,11 @@
 footer {
-	padding: 50px 75px;
+	padding: var(--spacing-lg);
 	margin: 0 auto 3rem;
 	font-family: 'Consolas', 'Courier New', Courier, monospace;
 	text-align: center;
 
 	img {
-		width: auto;
+		max-width: 100px;
 		margin-bottom: .8rem;
 	}
 

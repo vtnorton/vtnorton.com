@@ -2,6 +2,7 @@ import { Button, InteractionTag, InteractionTagPrimary, TagGroup } from '@fluent
 import { Section } from '../../../components/Section'
 import { Post } from '../../../models/Post'
 import { getDate } from '../../../utils/postDate'
+import { IoChevronForwardOutline } from 'react-icons/io5'
 
 export const PostFeedItem = ({ post }: {
 	post: Post
@@ -29,7 +30,7 @@ export const PostFeedItem = ({ post }: {
 
 			<p>{post.abstract}</p>
 
-			<Button as='a' href={post.slug} appearance='primary' shape='square' size='large'>Continuar lendo</Button>
+			<Button as='a' href={post.slug} appearance='primary' shape='square' size='large'><IoChevronForwardOutline /> Continuar lendo</Button>
 		</Section>
 	)
 }

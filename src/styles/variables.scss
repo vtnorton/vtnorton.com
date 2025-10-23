@@ -1,6 +1,11 @@
 :root {
+	// Shadows
 	--shadow-sm: 0 4px 15px rgba(0, 0, 0, 0.25);
 	--shadow: 0 4px 2rem rgba(0, 0, 0, 0.25);
+	// Spacing
+	--spacing-lg: 50px;
+	--spacing-xl: 75px;
+	// Colors
 	--accent-color: #0559C1;
 	--light-accent-color: #0585C1;
 	--dark-blue: #162C44;

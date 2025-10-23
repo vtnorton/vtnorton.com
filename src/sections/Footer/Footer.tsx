@@ -6,7 +6,7 @@ export const Footer = () => {
 	return (
 		<footer className='container'>
 			<Link href='/'>
-				<img src='/img/logo-color.png' alt='vtnorton' />
+				<img src='/img/logo/logo-coloful.svg' alt='vtnorton' />
 			</Link>
 			<SocialMedias />
 

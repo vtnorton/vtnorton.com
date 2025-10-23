@@ -10,7 +10,6 @@ export class Post extends NotionPage {
 
 		this.slug = this.mountPostSlug(result)
 		this.hashtags = this.getHashtags(result.properties['Hashtags'])
-		console.log('Abstract:', result.properties['Abstract']?.rich_text)
 		this.abstract = this.concatenateAbsctract(result.properties['Abstract'])
 	}
 

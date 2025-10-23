@@ -1,13 +1,14 @@
 import React from 'react'
-import { SidePane } from '../components/Sidepane/Sidepane'
+import { useLayout } from '../providers/LayoutProvider'
 
 export default function Index() {
-	return (
-		<article className='homepage'>
-			<SidePane />
-			<div className='promo'>
+	const { sidepane: sidebar } = useLayout()
 
-			</div>
-		</article>
+	sidebar.explodeIt()
+
+	return (
+		<div className='promo'>
+
+		</div>
 	)
 }

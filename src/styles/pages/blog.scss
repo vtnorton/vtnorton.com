@@ -1,6 +1,6 @@
 .personal-blog {
-	display: flex;
-	flex-direction: row;
+	display: grid;
+	grid-template-columns: calc(100% - 400px) 400px;
 	gap: 2rem;
 
 	.blog-feed {
