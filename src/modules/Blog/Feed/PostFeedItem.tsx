@@ -30,7 +30,7 @@ export const PostFeedItem = ({ post }: {
 
 			<p>{post.abstract}</p>
 
-			<Button as='a' href={post.slug} appearance='primary' shape='square' size='large'><IoChevronForwardOutline /> Continuar lendo</Button>
+			<Button as='a' href={post.slug} appearance='transparent' shape='square' size='medium'><IoChevronForwardOutline /> Continuar lendo</Button>
 		</Section>
 	)
 }
