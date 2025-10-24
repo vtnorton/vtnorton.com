@@ -11,33 +11,34 @@ export default async function handler(
 	if (req.method !== 'GET')
 		return res.status(405).json({ error: 'Method not allowed' })
 
-	// Parâmetros de paginação
 	const page = req.query.page ? parseInt(req.query.page.toString()) : 1
 	const limit = req.query.limit ? parseInt(req.query.limit.toString()) : 10
+	const tag = req.query.tag ? req.query.tag.toString() : null
+	console.log('Tag filter:', tag)
 
-	// Validação
 	if (page < 1 || limit < 1 || limit > 100) {
 		return res.status(400).json({ error: 'Invalid pagination parameters' })
 	}
 
-	// Cache de todos os posts (uma única query ao Notion)
 	const cacheKey = 'personal-blog-posts-all'
-	const allPosts = await handleCache<Post>(
+	let allPosts = await handleCache<Post>(
 		cacheKey,
 		() => postServices.getPersonalBlogPosts(),
-		60 * 60 * 8, // 8 horas
+		60 * 60 * 8,
 	)
 
-	// Cálculos de paginação
+	if (tag) {
+		allPosts = allPosts.filter((post) =>
+			post.hashtags.map((t) => t.toLowerCase()).includes(tag.toLowerCase()),
+		)
+	}
+
 	const total = allPosts.length
 	const totalPages = Math.ceil(total / limit)
 	const startIndex = (page - 1) * limit
 	const endIndex = startIndex + limit
 
-	// Posts da página atual
 	const posts = allPosts.slice(startIndex, endIndex)
-
-	// Resposta paginada
 	const response: PaginatedResponse<Post> = {
 		content: posts,
 		pagination: {

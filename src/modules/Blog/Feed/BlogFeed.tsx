@@ -7,7 +7,15 @@ import { PostFeedItemLoader } from './PostFeedItemLoader'
 
 const POSTS_PER_PAGE = 10
 
-export default function BlogFeed() {
+export default function BlogFeed({
+	endpoint,
+	selectedTag,
+	setSelectedTag,
+}: {
+	endpoint: string,
+	selectedTag: string | null,
+	setSelectedTag: (tag: string | null) => void
+}) {
 	const [posts, setPosts] = useState<Post[]>([])
 	const [page, setPage] = useState(1)
 	const [loading, setLoading] = useState(false)
@@ -17,10 +25,11 @@ export default function BlogFeed() {
 	const loadPosts = useCallback(async (pageNumber: number) => {
 		setLoading(true)
 		try {
-			const response = await axios.get<PaginatedResponse<Post>>('/api/personal-blog', {
+			const response = await axios.get<PaginatedResponse<Post>>(endpoint, {
 				params: {
 					page: pageNumber,
 					limit: POSTS_PER_PAGE,
+					tag: selectedTag || undefined,
 				},
 			})
 
@@ -33,7 +42,13 @@ export default function BlogFeed() {
 		} finally {
 			setLoading(false)
 		}
-	}, [])
+	}, [endpoint, selectedTag])
+
+	useEffect(() => {
+		setPosts([])
+		setPage(1)
+		setHasMore(true)
+	}, [selectedTag])
 
 	useEffect(() => {
 		loadPosts(1)
@@ -76,7 +91,7 @@ export default function BlogFeed() {
 			<div className='blog-feed'>
 				{posts.map((post, index) => (
 					<div key={post.id} ref={index === posts.length - 1 ? lastPostRef : null}>
-						<PostFeedItem post={post} />
+						<PostFeedItem post={post} setSelectedTag={setSelectedTag} />
 					</div>
 				))}
 

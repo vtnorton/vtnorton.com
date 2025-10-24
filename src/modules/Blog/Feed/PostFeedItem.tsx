@@ -3,12 +3,23 @@ import { Section } from '../../../components/Section'
 import { Post } from '../../../models/Post'
 import { getDate } from '../../../utils/postDate'
 import { IoChevronForwardOutline } from 'react-icons/io5'
+import { useRouter } from 'next/router'
 
-export const PostFeedItem = ({ post }: {
-	post: Post
+export const PostFeedItem = ({
+	post,
+	setSelectedTag,
+}: {
+	post: Post,
+	setSelectedTag: (tag: string | null) => void
 }) => {
+	const router = useRouter()
+
 	const selectTag = (tag: string) => {
-		window.location.href = `/hashtag/${tag}`
+		router.push({
+			pathname: router.pathname,
+			query: { tag },
+		}, undefined, { shallow: true })
+		setSelectedTag(tag)
 	}
 
 	return (

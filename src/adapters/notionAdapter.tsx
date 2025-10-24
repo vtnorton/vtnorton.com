@@ -15,6 +15,7 @@ export class NotionAdapter {
 	}
 
 	async query(filter: any) {
+		// TODO: if reponse contains start_cursor, implement pagination to fetch all results from all pages
 		const response = await this.notion.dataSources.query({
 			data_source_id: this.datasourceId,
 			filter: {

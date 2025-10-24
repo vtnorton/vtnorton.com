@@ -72,6 +72,10 @@
 					}
 				}
 
+				.fui-InteractionTagPrimary {
+					border-color: var(--gold) !important;
+				}
+
 				p:not(.metadata) {
 					margin-bottom: .8rem;
 					font-size: 1.1rem;
