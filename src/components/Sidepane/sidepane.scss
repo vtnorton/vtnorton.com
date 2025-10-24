@@ -45,6 +45,18 @@
 		transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 		box-shadow: var(--shadow-sm);
 
+		.exploded-logo {
+			display: none;
+		}
+
+		.sidebar-logo {
+			position: absolute;
+			top: 1rem;
+			left: 1rem;
+			cursor: pointer;
+			display: none;
+		}
+
 		.cards {
 			display: flex;
 			flex-direction: column;
@@ -90,6 +102,18 @@
 			}
 		}
 
+		.expand-sidepane {
+			display: none;
+			position: absolute;
+			bottom: 1.1rem;
+			left: 1.5rem;
+			z-index: 100;
+
+			svg {
+				color: #666;
+			}
+		}
+
 		.footer {
 			opacity: 0;
 			visibility: hidden;
@@ -104,6 +128,14 @@
 			width: 35%;
 			min-width: 540px;
 			padding: 1.5rem 2rem;
+
+			.logo {
+				width: 200px;
+
+				.exploded-logo {
+					display: block;
+				}
+			}
 
 			.cards {
 				gap: 1.5rem;
@@ -164,6 +196,13 @@
 
 		&.collapsed {
 			width: 80px;
+			justify-content: flex-start;
+			padding-top: 5rem;
+
+			.sidebar-logo {
+				width: 115px;
+				display: block;
+			}
 
 			.cards {
 				.card {
@@ -179,6 +218,12 @@
 				}
 			}
 
+			.expand-sidepane {
+				display: block;
+				border-top: 1px solid #ccc;
+				padding-top: .5rem;
+			}
+
 			.footer {
 				opacity: 0;
 				visibility: hidden;
@@ -192,6 +237,13 @@
 
 		&.expanded {
 			width: 350px;
+			justify-content: flex-start;
+			padding-top: 5rem;
+
+			.sidebar-logo {
+				width: 115px;
+				display: block;
+			}
 
 			.cards {
 				.card {
@@ -218,10 +270,21 @@
 				}
 			}
 
+			.expand-sidepane {
+				display: block;
+				left: auto;
+				right: 1rem;
+
+				svg {
+					transform: scaleX(-1);
+				}
+			}
+
 			.footer {
 				opacity: 1;
 				visibility: visible;
 				animation: fadeInContent 0.5s cubic-bezier(0.4, 0, 0.2, 1) 0.3s both;
+				margin-top: auto;
 
 				.social {
 					a {

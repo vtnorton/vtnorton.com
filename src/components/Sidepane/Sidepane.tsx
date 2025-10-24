@@ -1,8 +1,11 @@
-import { ReactNode } from 'react'
+import { ReactNode, useRef } from 'react'
 import { SocialMedias } from '../Socials'
 import { SidePaneCard } from './SidePaneCard'
 import { useLayout } from '../../providers/LayoutProvider'
-import { IoMenuSharp } from 'react-icons/io5'
+import { IoChevronForwardCircleOutline, IoEllipsisVerticalSharp } from 'react-icons/io5'
+import Lottie from 'lottie-react'
+import logoAnimated from './../../assets/logo-coloful.json'
+import sidebarLogo from './../../assets/sidebar-logo.json'
 
 export const SidePane = ({
 	children,
@@ -10,16 +13,19 @@ export const SidePane = ({
 	children?: ReactNode
 }) => {
 	const { sidepane } = useLayout()
+	const lottieRef = useRef<any>(null)
 
 	const handleMouseEnter = () => {
 		if (sidepane.state !== 'exploded') {
 			sidepane.expand()
+			lottieRef.current?.play()
 		}
 	}
 
 	const handleMouseLeave = () => {
 		if (sidepane.state !== 'exploded' && window.innerWidth >= 650) {
 			sidepane.collapse()
+			lottieRef.current?.stop()
 		}
 	}
 
@@ -32,15 +38,33 @@ export const SidePane = ({
 	return (
 		<div className='sidepane'>
 			<div className='hamburguer-menu' onClick={() => sidepane.expand()}>
-				<IoMenuSharp size={30} />
+				<IoEllipsisVerticalSharp size={20} />
 			</div>
 			<nav
 				className={sidepane.state}
 				onMouseEnter={handleMouseEnter}
 				onMouseLeave={handleMouseLeave}
 			>
+				<div className='logo'>
+					<Lottie
+						onClick={() => { window.location.href = '/' }}
+						className='sidebar-logo'
+						animationData={sidebarLogo}
+						lottieRef={lottieRef}
+						loop={false}
+						autoplay={false}
+					/>
+					<Lottie
+						className='exploded-logo'
+						animationData={logoAnimated}
+						loop={false}
+					/>
+				</div>
 				<div className='cards'>
 					<SidePaneCard image='blog' title={'Blog pessoal'} description={'Meu espaço sem compromisso na web, que talvez não devesse estar aqui'} link={'/blog'} />
+				</div>
+				<div className='expand-sidepane'>
+					<IoChevronForwardCircleOutline size={32} />
 				</div>
 				<div className='footer'>
 					<SocialMedias />
