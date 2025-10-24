@@ -29,7 +29,7 @@ export default tseslint.config(
       indent: ['error', 'tab'],
       'comma-dangle': ['error', 'always-multiline'],
       semi: ['error', 'never'],
-      '@typescript-eslint/no-explicit-any': 'off',
+      '@typescript-eslint/no-explicit-any': 'error',
       'object-curly-spacing': ['error', 'always'],
       'quote-props': ['error', 'as-needed'],
       'jsx-quotes': ['error', 'prefer-single'],

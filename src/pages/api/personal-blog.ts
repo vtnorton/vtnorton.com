@@ -3,6 +3,7 @@ import { Post } from '../../models/Post'
 import { handleCache } from '../../middleware/cache'
 import { postServices } from '../../services/postsServices'
 import { PaginatedResponse } from '../../types/PaginatedResponse'
+import { CACHE_KEYS } from '../../database/cacheKeys'
 
 export default async function handler(
 	req: NextApiRequest,
@@ -14,15 +15,13 @@ export default async function handler(
 	const page = req.query.page ? parseInt(req.query.page.toString()) : 1
 	const limit = req.query.limit ? parseInt(req.query.limit.toString()) : 10
 	const tag = req.query.tag ? req.query.tag.toString() : null
-	console.log('Tag filter:', tag)
 
 	if (page < 1 || limit < 1 || limit > 100) {
 		return res.status(400).json({ error: 'Invalid pagination parameters' })
 	}
 
-	const cacheKey = 'personal-blog-posts-all'
 	let allPosts = await handleCache<Post>(
-		cacheKey,
+		CACHE_KEYS.PERSONAL_BLOG_POSTS,
 		() => postServices.getPersonalBlogPosts(),
 		60 * 60 * 8,
 	)
