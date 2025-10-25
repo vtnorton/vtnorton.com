@@ -1,41 +1,106 @@
-import React from 'react'
+import React, { useEffect, useRef, useState } from 'react'
 import { getDate } from '../../../utils/postDate'
 import { Post } from '../../../models/Post'
 import { NotionPostContent } from './NotionPostContent'
 import { Tag, TagGroup } from '@fluentui/react-components'
+import { RelatedPosts } from './RelatedPosts'
 
 export const IndividualPost = ({ post }: { post: Post }) => {
-	// const { relatedPostVisibility, setRelatedPostVisibility } = useContext(VtnortonContext)
-	return (
-		<>
-			{/* <PostRelatedContentWrapperComponent /> */}
-			<article key={`${post.id}_content`} > {/* className={relatedPostVisibility ? 'is--pushed-right' : ''} */}
-				<div className='header'>
-					<img src={post.cover} alt={post.title} />
-					<div className='overlay' />
-					<div className='info'>
-						{/* <div onClick={() => setRelatedPostVisibility(!relatedPostVisibility)} className={relatedPostVisibility ? 'see-posts-button active' : 'see-posts-button'}>
-							{relatedPostVisibility ? <ArrowLeft32Regular /> : <ArrowRight32Regular />}
-						</div> */}
-						<div className='info-title'>
-							<h1>{post.title}</h1>
-							<div className='meta'>
-								Postado <span className='meta-date'>{getDate(post.date)}</span>
-							</div>
+	const [showRelatedPosts, setShowRelatedPosts] = useState(false)
+	const contentRef = useRef<HTMLDivElement>(null)
 
-							<TagGroup role='list' size='medium'>
-								{post.hashtags.map((tag) => (
-									<Tag onClick={() => { }} role='listitem' shape='circular' appearance='outline'>
-										#{tag}
-									</Tag>
-								))}
-							</TagGroup>
+	useEffect(() => {
+		if (!contentRef.current) return
+
+		const content = contentRef.current
+		let trigger: HTMLDivElement | null = null
+		let observer: IntersectionObserver | null = null
+
+		const setupTimeout = setTimeout(() => {
+			const notionMain = content.querySelector('main.notion') as HTMLElement
+
+			if (!notionMain) {
+				console.warn('main.notion não encontrado')
+				return
+			}
+
+			const notionTexts = notionMain.querySelectorAll('.notion-text')
+
+			if (notionTexts.length === 0) {
+				console.log('Nenhum .notion-text encontrado')
+				return
+			}
+
+			const lastNotionText = notionTexts[notionTexts.length - 1] as HTMLElement
+			const lastTextPosition = lastNotionText.offsetTop + lastNotionText.offsetHeight
+			const triggerPoint = lastTextPosition * 0.8
+
+			if (lastTextPosition < 1200) return
+
+			trigger = document.createElement('div')
+			trigger.style.position = 'absolute'
+			trigger.style.top = `${triggerPoint}px`
+			trigger.style.height = '1px'
+			trigger.style.width = '100%'
+			trigger.style.pointerEvents = 'none'
+
+			notionMain.style.position = 'relative'
+			notionMain.appendChild(trigger)
+
+			observer = new IntersectionObserver(
+				([entry]) => {
+					if (entry.isIntersecting) {
+						setShowRelatedPosts(true)
+					}
+				},
+				{
+					threshold: 0,
+					rootMargin: '0px',
+				},
+			)
+
+			observer.observe(trigger)
+		}, 1500)
+
+		return () => {
+			clearTimeout(setupTimeout)
+			if (observer) {
+				observer.disconnect()
+			}
+			if (trigger && trigger.parentNode) {
+				trigger.parentNode.removeChild(trigger)
+			}
+		}
+	}, [])
+
+	return (
+		<article className='post' key={`${post.id}_content`} >
+			<div className='header'>
+				<img src={post.cover} alt={post.title} />
+				<div className='overlay' />
+				<div className='info'>
+					<div className='info-title'>
+						<h1>{post.title}</h1>
+						<div className='meta'>
+							Postado <span className='meta-date'>{getDate(post.date)}</span>
 						</div>
+
+						<TagGroup role='list' size='medium'>
+							{post.hashtags.map((tag) => (
+								<Tag onClick={() => { }} role='listitem' shape='circular' appearance='outline'>
+									#{tag}
+								</Tag>
+							))}
+						</TagGroup>
+					</div>
+
+					<div className={`related-posts ${showRelatedPosts ? 'visible' : ''}`}>
+						<h4>Mais posts</h4>
+						<RelatedPosts post={post} />
 					</div>
 				</div>
-				<NotionPostContent content={post.content} />
-				{/* {'version' in post && <PostContentComponent title={post.title} content={post.recordMap} />} */}
-			</article>
-		</>
+			</div>
+			<NotionPostContent ref={contentRef} content={post.content} />
+		</article>
 	)
 }

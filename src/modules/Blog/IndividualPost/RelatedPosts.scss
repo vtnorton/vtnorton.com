@@ -1,0 +1,44 @@
+article.post {
+	.related-posts {
+		margin-top: auto;
+		color: #fff;
+		opacity: 0;
+		transform: translateY(20px);
+		transition: opacity 0.5s ease, transform 0.5s ease;
+		pointer-events: none;
+
+		.blog-grid-3 {
+			display: grid;
+			grid-template-columns: repeat(3, 1fr);
+			margin: 1rem -1.2rem 0;
+			width: calc(100% + 2.4rem);
+
+			.blog-item {
+				padding: 1.2rem;
+				height: auto;
+
+				h3 {
+					font-size: 1.2rem;
+					line-height: 1.3rem;
+					margin-bottom: 1.5rem;
+					display: -webkit-box;
+					-webkit-line-clamp: 4;
+					line-clamp: 4;
+					-webkit-box-orient: vertical;
+					overflow: hidden;
+					text-overflow: ellipsis;
+				}
+
+				.blog-item-more {
+					display: none;
+				}
+			}
+		}
+
+		&.visible {
+			opacity: 1;
+			transform: translateY(0);
+			pointer-events: auto;
+		}
+	}
+}

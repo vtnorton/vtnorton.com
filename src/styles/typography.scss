@@ -35,7 +35,9 @@
 }
 
 h1,
-h2 {
+h2,
+h3,
+h4 {
 	font-family: 'Neutra Text Alt Bold', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif
 }
 
@@ -54,13 +56,19 @@ h1 {
 }
 
 h2 {
-	font-size: 2em;
+	font-size: 2rem;
+	font-weight: 800;
 	line-height: 135%;
 }
 
 h3 {
-	font-size: 1.3em;
-	font-family: 'Neutra Text Alt', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif
+	font-size: 1.8rem;
+	font-weight: 600;
+}
+
+h4 {
+	font-size: 1.3rem;
+	font-weight: 600;
 }
 
 p {

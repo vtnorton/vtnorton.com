@@ -28,9 +28,9 @@ const Tweet = ({ id }: { id: string }) => {
 	return <TweetEmbed tweetId={id} />
 }
 
-export const NotionPostContent = ({ content }: { content: any; }) => {
+export const NotionPostContent = React.forwardRef<HTMLDivElement, { content: any }>(({ content }, ref) => {
 	return (
-		<div className='post-wrapper'>
+		<div className='post-wrapper' ref={ref}>
 			<NotionRenderer
 				recordMap={content}
 				fullPage={false}
@@ -42,4 +42,4 @@ export const NotionPostContent = ({ content }: { content: any; }) => {
 				}} />
 		</div>
 	)
-}
+})
