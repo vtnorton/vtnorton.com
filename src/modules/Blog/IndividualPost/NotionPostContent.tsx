@@ -4,8 +4,6 @@ import React from 'react'
 import { NotionRenderer } from 'react-notion-x'
 import TweetEmbed from 'react-tweet-embed'
 
-// import { HashtagListComponent } from './HashtagListComponent'
-
 const Code = dynamic(() =>
 	import('react-notion-x/build/third-party/code').then(async (m) => {
 		await Promise.all([
@@ -30,7 +28,7 @@ const Tweet = ({ id }: { id: string }) => {
 	return <TweetEmbed tweetId={id} />
 }
 
-export const NotionPostContent = ({ title, content, hashtags }: { title: string; content: any; hashtags?: string[] }) => {
+export const NotionPostContent = ({ content }: { content: any; }) => {
 	return (
 		<div className='post-wrapper'>
 			<NotionRenderer
@@ -42,7 +40,6 @@ export const NotionPostContent = ({ title, content, hashtags }: { title: string;
 					Tweet,
 					Modal,
 				}} />
-			{/* <div className='article-footer'>{hashtags && <HashtagListComponent hashtags={hashtags} />}</div> */}
 		</div>
 	)
 }

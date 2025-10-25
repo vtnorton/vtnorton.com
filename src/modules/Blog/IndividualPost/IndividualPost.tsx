@@ -2,6 +2,7 @@ import React from 'react'
 import { getDate } from '../../../utils/postDate'
 import { Post } from '../../../models/Post'
 import { NotionPostContent } from './NotionPostContent'
+import { Tag, TagGroup } from '@fluentui/react-components'
 
 export const IndividualPost = ({ post }: { post: Post }) => {
 	// const { relatedPostVisibility, setRelatedPostVisibility } = useContext(VtnortonContext)
@@ -21,10 +22,18 @@ export const IndividualPost = ({ post }: { post: Post }) => {
 							<div className='meta'>
 								Postado <span className='meta-date'>{getDate(post.date)}</span>
 							</div>
+
+							<TagGroup role='list' size='medium'>
+								{post.hashtags.map((tag) => (
+									<Tag onClick={() => { }} role='listitem' shape='circular' appearance='outline'>
+										#{tag}
+									</Tag>
+								))}
+							</TagGroup>
 						</div>
 					</div>
 				</div>
-				<NotionPostContent title={post.title} content={post.content} hashtags={post.hashtags} />
+				<NotionPostContent content={post.content} />
 				{/* {'version' in post && <PostContentComponent title={post.title} content={post.recordMap} />} */}
 			</article>
 		</>

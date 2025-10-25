@@ -27,7 +27,7 @@ export const PostFeedItem = ({
 			<div className='feed-item'>
 				<img src={post.cover} alt={post.title} className='cover-image' />
 				<div className='intro'>
-					<h2>{post.title}</h2>
+					<a href={post.slug}><h2>{post.title}</h2></a>
 					<p className='metadata'>Publicado {getDate(post.date)}</p>
 					<TagGroup role='list' size='extra-small'>
 						{post.hashtags.map((tag) => (
