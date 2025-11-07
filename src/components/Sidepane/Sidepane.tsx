@@ -71,7 +71,7 @@ export const SidePane = ({
 					<p><small>no downtime for hustle-as-a-service</small></p>
 				</div>
 			</nav>
-			<main onClick={handleMainClick}>
+			<main className='panel' onClick={handleMainClick}>
 				{children}
 			</main>
 		</div>)

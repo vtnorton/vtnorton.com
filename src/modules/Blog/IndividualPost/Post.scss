@@ -90,7 +90,9 @@ article.post {
 	.post-wrapper {
 		width: 55%;
 		margin-left: 45%;
-		height: auto;
+		height: 100%;
+		overflow-y: scroll;
+		padding-left: var(--spacing-lg);
 
 		li {
 			margin: 0;
@@ -100,20 +102,36 @@ article.post {
 	}
 }
 
-@media screen and (min-width: 2200px) {
+@media screen and (min-width: 1700px) {
 	article.post {
 		.header {
-			width: calc(50% - 625px);
-
-			.see-posts-button {
-				display: none;
-			}
+			width: 35%;
 		}
 
 		.post-wrapper {
-			width: 1250px;
-			padding: 60px 120px;
-			margin: auto;
+			margin-left: 35%;
+			width: 65%;
+
+			main.notion {
+				width: 65%;
+			}
+		}
+	}
+}
+
+@media screen and (min-width: 2200px) {
+	article.post {
+		.header {
+			width: 820px;
+		}
+
+		.post-wrapper {
+			margin-left: 900px;
+			width: calc(100% - 900px);
+
+			main.notion {
+				width: 50%;
+			}
 		}
 	}
 }

@@ -325,7 +325,7 @@
 		}
 	}
 
-	main {
+	main.panel {
 		display: flex;
 		flex-direction: column;
 		flex-grow: 1;
@@ -336,7 +336,7 @@
 		transition: margin-left 0.4s cubic-bezier(0.4, 0, 0.2, 1);
 	}
 
-	&:has(nav.expanded) main::before {
+	&:has(nav.expanded) main.panel::before {
 		content: '';
 		position: fixed;
 		top: 0;
@@ -469,7 +469,7 @@
 				}
 			}
 
-			main {
+			main.panel {
 				height: 60vh;
 			}
 		}
