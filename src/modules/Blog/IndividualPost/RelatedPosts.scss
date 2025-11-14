@@ -42,9 +42,9 @@ article.post {
 		}
 
 		&.visible {
-			opacity: 1;
-			transform: translateY(0);
-			pointer-events: auto;
+			opacity: 1 !important;
+			transform: translateY(0) !important;
+			pointer-events: auto !important;
 		}
 	}
 
@@ -74,6 +74,12 @@ article.post {
 
 @media screen and (max-width: 990px) {
 	article.post {
+		.header {
+			.related-posts {
+				display: none;
+			}
+		}
+
 		.mobile {
 			display: block;
 		}
