@@ -78,10 +78,17 @@ article.post {
 					}
 				}
 
-				.fui-Tag {
+				.fui-Tag,
+				.fui-InteractionTagPrimary {
 					color: #fff !important;
 					border-width: 2px !important;
 					border-color: var(--gold) !important;
+
+					&:hover {
+						background-color: var(--gold) !important;
+						color: #000 !important;
+						transition: all 0.3s ease;
+					}
 				}
 			}
 		}
@@ -139,19 +146,22 @@ article.post {
 @media screen and (max-width: 990px) {
 	article.post {
 		overflow: visible;
-		position: absolute;
+		position: relative;
 
 		.header,
 		.post-wrapper {
 			width: 100%;
 			position: relative;
 			height: auto;
-			padding: 60px;
+			padding: var(--spacing-lg);
 		}
 
 		.header {
+			max-height: 45vh;
+
 			.info {
 				margin: 6rem 0 12rem;
+				padding-left: 0;
 
 				h1 {
 					margin-bottom: .2rem;
@@ -160,10 +170,15 @@ article.post {
 		}
 
 		.post-wrapper {
-			margin-left: 0;
+			margin: 0;
+			height: fit-content;
+			background: #fff;
 			overflow: visible;
-			box-shadow: none;
-			margin-bottom: 0;
+
+			main.notion {
+				padding: 0;
+				margin: 0;
+			}
 		}
 	}
 }

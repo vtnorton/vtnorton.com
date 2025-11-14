@@ -42,7 +42,8 @@ export default function Blog() {
 					<BlogFeed
 						endpoint='/api/personal-blog'
 						selectedTag={selectedTag}
-						setSelectedTag={setSelectedTag} />
+						setSelectedTag={setSelectedTag}
+						isReady={router.isReady} />
 					<div className='widgets'>
 						<p>Em breve, algo aqui...</p>
 					</div>

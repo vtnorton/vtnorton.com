@@ -31,7 +31,7 @@ export const PostFeedItem = ({
 					<p className='metadata'>Publicado {getDate(post.date)}</p>
 					<TagGroup role='list' size='extra-small'>
 						{post.hashtags.map((tag) => (
-							<InteractionTag onClick={() => selectTag(tag)} role='listitem' shape='circular' appearance='outline'>
+							<InteractionTag onClick={() => selectTag(tag)} role='listitem' shape='circular' appearance='outline' key={tag}>
 								<InteractionTagPrimary>#{tag}</InteractionTagPrimary>
 							</InteractionTag>
 						))}

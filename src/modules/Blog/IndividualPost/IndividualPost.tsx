@@ -2,12 +2,14 @@ import React, { useEffect, useRef, useState } from 'react'
 import { getDate } from '../../../utils/postDate'
 import { Post } from '../../../models/Post'
 import { NotionPostContent } from './NotionPostContent'
-import { Tag, TagGroup } from '@fluentui/react-components'
+import { InteractionTag, InteractionTagPrimary, TagGroup } from '@fluentui/react-components'
 import { RelatedPosts } from './RelatedPosts'
+import { useRouter } from 'next/router'
 
 export const IndividualPost = ({ post }: { post: Post }) => {
 	const [showRelatedPosts, setShowRelatedPosts] = useState(false)
 	const contentRef = useRef<HTMLDivElement>(null)
+	const router = useRouter()
 
 	useEffect(() => {
 		if (!contentRef.current) return
@@ -73,6 +75,10 @@ export const IndividualPost = ({ post }: { post: Post }) => {
 		}
 	}, [])
 
+	const selectTag = (tag: string) => {
+		router.push(`/blog?tag=${tag}`)
+	}
+
 	return (
 		<article className='post' key={`${post.id}_content`} >
 			<div className='header'>
@@ -87,9 +93,9 @@ export const IndividualPost = ({ post }: { post: Post }) => {
 
 						<TagGroup role='list' size='medium'>
 							{post.hashtags.map((tag) => (
-								<Tag onClick={() => { }} role='listitem' shape='circular' appearance='outline'>
-									#{tag}
-								</Tag>
+								<InteractionTag onClick={() => selectTag(tag)} role='listitem' shape='circular' appearance='outline'>
+									<InteractionTagPrimary>#{tag}</InteractionTagPrimary>
+								</InteractionTag>
 							))}
 						</TagGroup>
 					</div>
@@ -101,6 +107,11 @@ export const IndividualPost = ({ post }: { post: Post }) => {
 				</div>
 			</div>
 			<NotionPostContent ref={contentRef} content={post.content} />
+
+			<div className='related-posts mobile'>
+				<h4>Mais posts</h4>
+				<RelatedPosts post={post} />
+			</div>
 		</article>
 	)
 }

@@ -11,10 +11,12 @@ export default function BlogFeed({
 	endpoint,
 	selectedTag,
 	setSelectedTag,
+	isReady = true,
 }: {
 	endpoint: string,
 	selectedTag: string | null,
-	setSelectedTag: (tag: string | null) => void
+	setSelectedTag: (tag: string | null) => void,
+	isReady?: boolean
 }) {
 	const [posts, setPosts] = useState<Post[]>([])
 	const [page, setPage] = useState(1)
@@ -45,14 +47,13 @@ export default function BlogFeed({
 	}, [endpoint, selectedTag])
 
 	useEffect(() => {
+		if (!isReady) return
+
 		setPosts([])
 		setPage(1)
 		setHasMore(true)
-	}, [selectedTag])
-
-	useEffect(() => {
 		loadPosts(1)
-	}, [loadPosts])
+	}, [selectedTag, isReady, loadPosts])
 
 	useEffect(() => {
 		if (page > 1) {
@@ -90,7 +91,7 @@ export default function BlogFeed({
 		<>
 			<div className='blog-feed'>
 				{posts.map((post, index) => (
-					<div key={post.id} ref={index === posts.length - 1 ? lastPostRef : null}>
+					<div key={`post-${post.id}`} ref={index === posts.length - 1 ? lastPostRef : null}>
 						<PostFeedItem post={post} setSelectedTag={setSelectedTag} />
 					</div>
 				))}
