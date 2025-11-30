@@ -1,9 +1,10 @@
-import { Button, InteractionTag, InteractionTagPrimary, TagGroup } from '@fluentui/react-components'
+import { InteractionTag, InteractionTagPrimary, TagGroup } from '@fluentui/react-components'
 import { Section } from '../../../components/Section'
 import { Post } from '../../../models/Post'
 import { getDate } from '../../../utils/postDate'
 import { IoChevronForwardOutline } from 'react-icons/io5'
 import { useRouter } from 'next/router'
+import { Button } from '../../../components/Button'
 
 export const PostFeedItem = ({
 	post,
@@ -41,7 +42,7 @@ export const PostFeedItem = ({
 
 			<p>{post.abstract}</p>
 
-			<Button as='a' href={post.slug} appearance='transparent' shape='square' size='medium'><IoChevronForwardOutline /> Continuar lendo</Button>
+			<Button as='a' href={post.slug} appearance='transparent' shape='square' size='medium'>Continuar lendo</Button>
 		</Section>
 	)
 }
