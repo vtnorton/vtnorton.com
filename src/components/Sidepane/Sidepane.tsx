@@ -91,7 +91,7 @@ export const SidePane = ({
 						<img src='/img/logo/logo-colorful.svg' alt='Vitor Norton Logo' />
 					</div>
 
-					<div className='action' style={{ display: isLargeScreen ? 'none' : 'flex' }}>
+					<div className='action' style={{ display: isLargeScreen || sidepane.state === 'exploded' ? 'none' : 'flex' }}>
 						{!sidepane.isPinned ?
 							<IoApps className='animate__animated animate__fadeIn' size={25} color='#162C44' onClick={handlePin} /> :
 							<IoClose className='animate__animated animate__fadeIn' size={30} color='#162C44' onClick={handleUnpin} />
