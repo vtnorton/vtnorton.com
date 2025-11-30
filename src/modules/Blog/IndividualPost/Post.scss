@@ -25,7 +25,12 @@ article.post {
 			-moz-transform: translateY(-50%);
 			-webkit-transform: translateY(-50%);
 			-ms-transform: translateY(-50%);
-			transform: translateY(-50%)
+			transform: translateY(-50%);
+			transition: transform 0.5s ease;
+		}
+
+		&:hover img {
+			transform: translateY(-50%) scale(1.05);
 		}
 
 		.overlay {

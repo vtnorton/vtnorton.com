@@ -10,7 +10,7 @@ interface SidepaneContentProps {
 export const SidepaneContent = ({ onMouseEnter, onMouseLeave }: SidepaneContentProps) => {
 	return (
 		<div className='content' onMouseEnter={onMouseEnter} onMouseLeave={onMouseLeave}>
-			<a className='intro'>
+			{/* <a className='intro'>
 				<div className='intro-content'>
 					Vitor Norton
 					<FiArrowUpRight size={20} color='#fff' />
@@ -18,7 +18,7 @@ export const SidepaneContent = ({ onMouseEnter, onMouseLeave }: SidepaneContentP
 			</a>
 			<div className='cta'>
 				<p>Blah</p>
-			</div>
+			</div> */}
 			<div className='menu'>
 				<MenuLink title={'Home'} link={'/'} />
 				{/* <MenuLink title={'Portfólio'} link={'/portfolio'} /> */}
