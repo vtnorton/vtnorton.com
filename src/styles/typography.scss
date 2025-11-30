@@ -97,3 +97,8 @@ a {
 	text-decoration: none;
 	color: inherit;
 }
+
+::selection {
+	background: #000;
+	color: #fff;
+}
