@@ -21,7 +21,7 @@ export const SidepaneContent = ({ onMouseEnter, onMouseLeave }: SidepaneContentP
 			</div>
 			<div className='menu'>
 				<MenuLink title={'Home'} link={'/'} />
-				<MenuLink title={'Portfólio'} link={'/portfolio'} />
+				{/* <MenuLink title={'Portfólio'} link={'/portfolio'} /> */}
 				<MenuLink title={'Meu blog'} link={'/blog'} />
 			</div>
 			<div className='footer'>

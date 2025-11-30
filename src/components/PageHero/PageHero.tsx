@@ -4,6 +4,7 @@ import { PageHeroProps } from './PageHeroProps'
 
 export const PageHero = (props: PageHeroProps) => {
 	const heroClass = props.backgroundClass ? `hero ${props.backgroundClass}` : 'hero'
+	const backgroundClass = props.backgroundClass ? `hero-background ${props.backgroundClass}` : 'hero-background'
 	let styles: CSSProperties
 
 	if (props.backgroundUrl) {
@@ -20,7 +21,10 @@ export const PageHero = (props: PageHeroProps) => {
 
 	return (
 		<>
-			<div className={heroClass} style={styles}>
+			<div className={heroClass}>
+				<div className='hero-background-wrapper'>
+					<div className={backgroundClass} style={styles}></div>
+				</div>
 				<div className='hero-overlay'></div>
 				<div className='hero-inner'>
 					<div className='container'>
