@@ -1,11 +1,7 @@
 import { ReactNode, useRef } from 'react'
-import { SocialMedias } from '../Socials'
-import { SidePaneCard } from './SidePaneCard'
 import { useLayout } from '../../providers/LayoutProvider'
-import { IoChevronForwardCircleOutline, IoEllipsisVerticalSharp } from 'react-icons/io5'
-import Lottie from 'lottie-react'
-import logoAnimated from './../../assets/logo-coloful.json'
-import sidebarLogo from './../../assets/sidebar-logo.json'
+import { IoApps, IoClose, IoEllipsisVerticalSharp, IoExit } from 'react-icons/io5'
+import { SidepaneContent } from './SidepaneContent'
 
 export const SidePane = ({
 	children,
@@ -13,19 +9,24 @@ export const SidePane = ({
 	children?: ReactNode
 }) => {
 	const { sidepane } = useLayout()
-	const lottieRef = useRef<any>(null)
+	const timeoutRef = useRef<NodeJS.Timeout | null>(null)
 
 	const handleMouseEnter = () => {
+		if (timeoutRef.current) {
+			clearTimeout(timeoutRef.current)
+			timeoutRef.current = null
+		}
+
 		if (sidepane.state !== 'exploded') {
 			sidepane.expand()
-			lottieRef.current?.play()
 		}
 	}
 
 	const handleMouseLeave = () => {
 		if (sidepane.state !== 'exploded' && window.innerWidth >= 650) {
-			sidepane.collapse()
-			lottieRef.current?.stop()
+			timeoutRef.current = setTimeout(() => {
+				sidepane.collapse()
+			}, 100)
 		}
 	}
 
@@ -45,32 +46,25 @@ export const SidePane = ({
 				onMouseEnter={handleMouseEnter}
 				onMouseLeave={handleMouseLeave}
 			>
-				<div className='logo'>
-					<Lottie
-						onClick={() => { window.location.href = '/' }}
-						className='sidebar-logo'
-						animationData={sidebarLogo}
-						lottieRef={lottieRef}
-						loop={false}
-						autoplay={false}
-					/>
-					<Lottie
-						className='exploded-logo'
-						animationData={logoAnimated}
-						loop={false}
-					/>
+				<div className='photo'>
+
 				</div>
-				<div className='cards'>
-					<SidePaneCard image='blog' title={'Blog pessoal'} description={'Meu espaço sem compromisso na web, que talvez não devesse estar aqui'} link={'/blog'} />
+
+				<div className='inner'>
+					<div className='logo'>
+						<img src='/img/logo/logo-colorful.svg' alt='Vitor Norton Logo' />
+					</div>
+
+					<div className='action'>
+						{sidepane.state === 'collapsed' ?
+							<IoApps className='animate__animated animate__fadeIn' size={25} color='#162C44' /> :
+							<IoClose className='animate__animated animate__fadeIn' size={30} color='#162C44' onClick={() => sidepane.collapse()} />
+						}
+					</div>
 				</div>
-				<div className='expand-sidepane'>
-					<IoChevronForwardCircleOutline size={32} />
-				</div>
-				<div className='footer'>
-					<SocialMedias />
-					<p><small>no downtime for hustle-as-a-service</small></p>
-				</div>
+
 			</nav>
+			<SidepaneContent onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave} />
 			<main className='panel' onClick={handleMainClick}>
 				{children}
 			</main>

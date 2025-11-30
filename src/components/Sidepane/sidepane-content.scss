@@ -1,0 +1,138 @@
+.content {
+	position: absolute;
+	top: 0;
+	left: var(--sidebar-width);
+	width: 400px;
+	height: 100vh;
+	background: #f8f8f8;
+	display: flex;
+	flex-direction: column;
+	z-index: 900;
+
+	.intro {
+		height: var(--sidebar-width);
+		background: var(--dark-blue);
+		display: flex;
+		align-items: center;
+		padding: 0 1.125rem 0 1.875rem;
+		color: #fff;
+		cursor: pointer;
+
+		.intro-content {
+			display: flex;
+			width: 100%;
+			flex-direction: row;
+
+			svg {
+				transition: all 0.3s ease-in-out;
+				margin-left: auto;
+			}
+		}
+
+		&:hover {
+			.intro-content {
+				svg {
+					transition: all 0.3s ease-in-out;
+					transform: rotate(45deg);
+				}
+			}
+		}
+	}
+
+	.cta {
+		padding: 0 1.875rem;
+		height: var(--sidebar-width);
+		display: flex;
+		align-items: center;
+		border-bottom: 1px solid #ddd;
+	}
+
+	.menu {
+		display: flex;
+		flex-direction: column;
+		transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+		padding: 1.875rem 1.875rem 0;
+
+		.menu-link {
+			font-family: 'Neutra Text Alt Bold', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+			font-size: 1.1rem;
+			padding: .2rem 0;
+			line-height: 135%;
+			transition: all .3s ease-in-out;
+			color: var(--dark-blue);
+
+			&:hover {
+				margin-left: .5rem;
+				color: var(--accent-color);
+			}
+		}
+	}
+
+	.footer {
+		opacity: 0;
+		visibility: hidden;
+		transition: opacity 0.2s ease-out, visibility 0s linear 0.2s;
+		margin-top: auto;
+		padding: 1.875rem;
+		display: flex;
+		flex-direction: column;
+		gap: 2.625rem;
+
+		.barcode {
+			width: 80px;
+			height: auto;
+		}
+
+		.text {
+			font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+			color: var(--dark-gray);
+			transition: all .3s ease-in-out;
+			font-size: 1rem;
+
+			small {
+				font-size: 0.8rem;
+				line-height: 100%;
+			}
+		}
+
+		.contact-info {
+			a {
+				display: block;
+			}
+
+			.handle {
+				font-weight: 00;
+				margin-bottom: .5rem;
+
+				&:hover {
+					color: var(--dark-blue);
+				}
+			}
+
+			.email {
+				font-family: 'Neutra Text Alt Bold', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+				font-size: 1.8rem;
+				color: var(--dark-blue);
+				transition: all .3s ease-in-out;
+
+				&:hover {
+					color: var(--accent-color);
+				}
+			}
+		}
+
+		.social a {
+			opacity: 0;
+			margin-bottom: .5rem;
+
+			img {
+				filter: brightness(0) invert(0.6);
+				transition: all .3s ease-in-out;
+
+				&:hover {
+					filter: brightness(0) invert(0.3);
+				}
+			}
+		}
+	}
+}

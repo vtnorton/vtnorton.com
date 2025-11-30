@@ -14,10 +14,6 @@ export const profiles: Profile[] = [
 		url: 'https://instagram.com/vt_norton',
 	},
 	{
-		media: Medias.BlueSky,
-		url: 'https://bsky.app/profile/vtnorton.com',
-	},
-	{
 		media: Medias.Dev,
 		url: 'https://dev.to/vtnorton',
 	},

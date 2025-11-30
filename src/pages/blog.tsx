@@ -26,8 +26,8 @@ export default function Blog() {
 	return (
 		<>
 			<PageHero
-				title={'Blog pessoal'}
-				description='Cinéfilo, político, blogger old-school. Meu espaço sem compromisso na web, que talvez não devesse estar aqui, mas meu ímpeto de escrever sobre tudo me faz manter.'
+				title={'Meu blog'}
+				description='Este é meu espaço pra escrever sobre cinema, política, meu trampo como dev — postagens técnicas ou não — enfim, um blog old-school. Meu espaço sem compromisso na web, que talvez não devesse estar aqui, mas meu ímpeto de escrever sobre tudo me faz manter.'
 				innerComponent={selectedTag ?
 					<TagGroup onDismiss={handleTagDismiss} aria-label='Descelecionar tag' style={{ margin: '1rem 0 0' }}>
 						<InteractionTag value={selectedTag} shape='circular' appearance='brand' size='medium' >

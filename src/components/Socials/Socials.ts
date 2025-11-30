@@ -1,3 +1,5 @@
+import { IconType } from 'react-icons'
+
 export enum Medias {
 	Twitch = 'Twitch',
 	YouTube = 'YouTube',

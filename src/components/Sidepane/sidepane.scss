@@ -1,3 +1,9 @@
+@use './sidepane-content.scss';
+
+:root {
+	--sidebar-width: 65px;
+}
+
 .sidepane {
 	overflow: hidden;
 	position: relative;
@@ -37,90 +43,40 @@
 		left: 0;
 		display: flex;
 		flex-direction: column;
-		justify-content: space-between;
 		height: 100vh;
 		background: #f8f8f8;
-		padding: 1rem;
 		z-index: 1000;
+		width: var(--sidebar-width);
 		transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-		box-shadow: var(--shadow-sm);
 
-		.exploded-logo {
-			display: none;
+		.photo {
+			width: var(--sidebar-width);
+			height: calc(var(--sidebar-width) + 4px);
+			background: var(--gold);
 		}
 
-		.sidebar-logo {
-			position: absolute;
-			top: 1rem;
-			left: 1rem;
-			cursor: pointer;
-			display: none;
-		}
-
-		.cards {
+		.inner {
+			border-right: 1px solid #ddd;
 			display: flex;
 			flex-direction: column;
-			transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+			align-items: center;
+			height: 100%;
 
-			.card {
-				display: grid;
-				grid-template-columns: 1fr auto;
-				z-index: 3;
-				height: 3rem;
-				box-sizing: content-box;
-				transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-
-				.icon {
-					aspect-ratio: 1 / 1;
-
-					img {
-						width: 100%;
-						height: 100%;
-						object-fit: cover;
-					}
-				}
-
-				.details {
-					display: flex;
-					flex-direction: column;
-					justify-content: center;
-					margin-left: 1rem;
-					transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-
-					h2 {
-						margin-bottom: .3rem;
-						font-size: 1.5rem;
-						opacity: 0;
-						transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-					}
-
-					p {
-						font-size: .9rem;
-						display: none;
-					}
-				}
+			.logo {
+				margin-top: 1.5rem;
 			}
-		}
 
-		.expand-sidepane {
-			display: none;
-			position: absolute;
-			bottom: 1.1rem;
-			left: 1.5rem;
-			z-index: 100;
+			.action {
+				margin-top: auto;
+				display: flex;
+				align-items: center;
+				justify-content: center;
+				height: var(--sidebar-width);
+				width: var(--sidebar-width);
 
-			svg {
-				color: #666;
-			}
-		}
-
-		.footer {
-			opacity: 0;
-			visibility: hidden;
-			transition: opacity 0.2s ease-out, visibility 0s linear 0.2s;
-
-			.social a {
-				opacity: 0;
+				svg {
+					cursor: pointer;
+				}
 			}
 		}
 
@@ -195,34 +151,13 @@
 		}
 
 		&.collapsed {
-			width: 80px;
+			width: var(--sidebar-width);
 			justify-content: flex-start;
-			padding-top: 5rem;
+		}
 
-			.sidebar-logo {
-				width: 115px;
-				display: block;
-			}
-
-			.cards {
-				.card {
-					box-shadow: none;
-
-					.icon {
-						height: 3rem;
-					}
-
-					.details {
-						display: none;
-					}
-				}
-			}
-
-			.expand-sidepane {
-				display: block;
-				border-top: 1px solid #ccc;
-				padding-top: .5rem;
-			}
+		&.collapsed + .content {
+			animation: slideOutLeft 0.5s forwards;
+			pointer-events: none;
 
 			.footer {
 				opacity: 0;
@@ -235,50 +170,9 @@
 			}
 		}
 
-		&.expanded {
-			width: 350px;
-			justify-content: flex-start;
-			padding-top: 5rem;
-
-			.sidebar-logo {
-				width: 115px;
-				display: block;
-			}
-
-			.cards {
-				.card {
-					display: flex;
-					flex-direction: row;
-
-					.icon {
-						height: 3rem;
-					}
-
-					.details {
-						margin-top: .3rem;
-
-						h2 {
-							font-size: 1.2rem;
-							opacity: 1;
-							animation: fadeInContent 0.4s cubic-bezier(0.4, 0, 0.2, 1) 0.3s both;
-						}
-
-						p {
-							display: none;
-						}
-					}
-				}
-			}
-
-			.expand-sidepane {
-				display: block;
-				left: auto;
-				right: 1rem;
-
-				svg {
-					transform: scaleX(-1);
-				}
-			}
+		&.expanded + .content {
+			animation: slideInLeft 0.5s forwards;
+			pointer-events: auto;
 
 			.footer {
 				opacity: 1;
@@ -330,22 +224,29 @@
 		flex-direction: column;
 		flex-grow: 1;
 		overflow-y: auto;
-		margin-left: 80px;
+		margin-left: var(--sidebar-width);
 		position: relative;
 		height: 100vh;
 		transition: margin-left 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+
+		&::before {
+			content: '';
+			position: fixed;
+			top: 0;
+			left: var(--sidebar-width);
+			right: 0;
+			bottom: 0;
+			background: rgba(0, 0, 20, 0.3);
+			z-index: 800;
+			opacity: 0;
+			pointer-events: none;
+			transition: opacity 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+		}
 	}
 
 	&:has(nav.expanded) main.panel::before {
-		content: '';
-		position: fixed;
-		top: 0;
-		left: 0;
-		right: 0;
-		bottom: 0;
-		background: rgba(0, 0, 0, 0.3);
-		z-index: 999;
-		transition: opacity 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+		opacity: 1;
+		pointer-events: auto;
 	}
 }
 
