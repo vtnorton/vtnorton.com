@@ -14,23 +14,20 @@ article.post {
 		background-color: #222;
 		z-index: 0;
 
-		img {
-			display: block;
+		.noise-image {
 			width: 100%;
+			height: 100%;
 			position: absolute;
+			top: 0;
 			left: 0;
-			top: 50%;
-			height: 100vh;
-			object-fit: cover;
-			-moz-transform: translateY(-50%);
-			-webkit-transform: translateY(-50%);
-			-ms-transform: translateY(-50%);
-			transform: translateY(-50%);
-			transition: transform 0.5s ease;
+
+			img {
+				transition: transform 0.5s ease;
+			}
 		}
 
-		&:hover img {
-			transform: translateY(-50%) scale(1.05);
+		&:hover .noise-image img {
+			transform: scale(1.05);
 		}
 
 		.overlay {

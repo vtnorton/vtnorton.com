@@ -5,6 +5,7 @@ import { NotionPostContent } from './NotionPostContent'
 import { InteractionTag, InteractionTagPrimary, TagGroup } from '@fluentui/react-components'
 import { RelatedPosts } from './RelatedPosts'
 import { useRouter } from 'next/router'
+import { NoiseImage } from '../../../components/NoiseImage'
 
 export const IndividualPost = ({ post }: { post: Post }) => {
 	const [showRelatedPosts, setShowRelatedPosts] = useState(false)
@@ -82,7 +83,7 @@ export const IndividualPost = ({ post }: { post: Post }) => {
 	return (
 		<article className='post' key={`${post.id}_content`} >
 			<div className='header'>
-				<img src={post.cover} alt={post.title} />
+				<NoiseImage src={post.cover} alt={post.title} />
 				<div className='overlay' />
 				<div className='info'>
 					<div className='info-title'>

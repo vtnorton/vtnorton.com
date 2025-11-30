@@ -5,6 +5,7 @@ import { getDate } from '../../../utils/postDate'
 import { IoChevronForwardOutline } from 'react-icons/io5'
 import { useRouter } from 'next/router'
 import { Button } from '../../../components/Button'
+import { NoiseImage } from '../../../components/NoiseImage'
 
 export const PostFeedItem = ({
 	post,
@@ -26,7 +27,7 @@ export const PostFeedItem = ({
 	return (
 		<Section>
 			<div className='feed-item'>
-				<img src={post.cover} alt={post.title} className='cover-image' />
+				<NoiseImage src={post.cover} alt={post.title} className='cover-image' />
 				<div className='intro'>
 					<a href={post.slug}><h2>{post.title}</h2></a>
 					<p className='metadata'>Publicado {getDate(post.date)}</p>
