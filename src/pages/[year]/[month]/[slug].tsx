@@ -1,6 +1,8 @@
 import { Post } from '../../../models/Post'
 import { IndividualPost } from '../../../modules/Blog'
 import { postServices } from '../../../services/postsServices'
+import { useLayout } from '../../../providers/LayoutProvider'
+import { useEffect } from 'react'
 
 const mountPath = (post: Post) => {
 	const postDate = new Date(post.date)
@@ -49,6 +51,20 @@ export const getStaticProps = async (
 }
 
 export default function PostDetail({ post }: { post: Post }) {
+	const { sidepane } = useLayout()
+
+	useEffect(() => {
+		sidepane.setAutoExpandBreakpoint(2200)
+		if (window.innerWidth < 2200) {
+			sidepane.collapse()
+		}
+
+		return () => {
+			sidepane.setAutoExpandBreakpoint(1500)
+		}
+		// eslint-disable-next-line react-hooks/exhaustive-deps
+	}, [])
+
 	if (!post)
 		return <div />
 

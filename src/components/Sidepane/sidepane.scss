@@ -74,6 +74,10 @@
 				height: var(--sidebar-width);
 				width: var(--sidebar-width);
 
+				@media (min-width: 1500px) {
+					display: none;
+				}
+
 				svg {
 					cursor: pointer;
 				}
@@ -247,6 +251,22 @@
 	&:has(nav.expanded) main.panel::before {
 		opacity: 1;
 		pointer-events: auto;
+	}
+}
+
+@media screen and (min-width: 1500px) {
+	.sidepane {
+		main.panel {
+			margin-left: 465px !important;
+
+			&::before {
+				display: none;
+			}
+		}
+
+		&.break-point-2200 main.panel {
+			margin-left: 65px !important;
+		}
 	}
 }
 

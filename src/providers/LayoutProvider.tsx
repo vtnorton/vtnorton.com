@@ -10,12 +10,19 @@ const LayoutContext = createContext<LayoutContextType | undefined>(undefined)
 
 export const LayoutProvider: React.FC<{ children: ReactNode }> = ({ children }) => {
 	const [sidepaneState, setSidePaneState] = useState<SideBarStateOptions>('collapsed')
+	const [isPinned, setIsPinned] = useState(false)
+	const [autoExpandBreakpoint, setAutoExpandBreakpoint] = useState(1500)
 
 	const sidepane = {
 		state: sidepaneState,
+		isPinned,
+		autoExpandBreakpoint,
 		explodeIt: () => setSidePaneState('exploded'),
 		expand: () => setSidePaneState('expanded'),
 		collapse: () => setSidePaneState('collapsed'),
+		pin: () => setIsPinned(true),
+		unpin: () => setIsPinned(false),
+		setAutoExpandBreakpoint,
 	}
 
 	return (

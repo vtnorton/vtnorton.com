@@ -1,4 +1,4 @@
-import { ReactNode, useRef } from 'react'
+import { ReactNode, useEffect, useRef, useState } from 'react'
 import { useLayout } from '../../providers/LayoutProvider'
 import { IoApps, IoClose, IoEllipsisVerticalSharp, IoExit } from 'react-icons/io5'
 import { SidepaneContent } from './SidepaneContent'
@@ -10,8 +10,31 @@ export const SidePane = ({
 }) => {
 	const { sidepane } = useLayout()
 	const timeoutRef = useRef<NodeJS.Timeout | null>(null)
+	const [isLargeScreen, setIsLargeScreen] = useState(false)
+
+	useEffect(() => {
+		const handleResize = () => {
+			const large = window.innerWidth >= sidepane.autoExpandBreakpoint
+			setIsLargeScreen(large)
+
+			if (large) {
+				if (sidepane.state !== 'expanded' && sidepane.state !== 'exploded') {
+					sidepane.expand()
+				}
+			}
+		}
+
+		window.addEventListener('resize', handleResize)
+		handleResize()
+
+		return () => {
+			window.removeEventListener('resize', handleResize)
+		}
+	}, [sidepane])
 
 	const handleMouseEnter = () => {
+		if (isLargeScreen) return
+
 		if (timeoutRef.current) {
 			clearTimeout(timeoutRef.current)
 			timeoutRef.current = null
@@ -23,7 +46,9 @@ export const SidePane = ({
 	}
 
 	const handleMouseLeave = () => {
-		if (sidepane.state !== 'exploded' && window.innerWidth >= 650) {
+		if (isLargeScreen) return
+
+		if (sidepane.state !== 'exploded' && !sidepane.isPinned) {
 			timeoutRef.current = setTimeout(() => {
 				sidepane.collapse()
 			}, 100)
@@ -31,13 +56,24 @@ export const SidePane = ({
 	}
 
 	const handleMainClick = () => {
-		if (window.innerWidth < 650) {
+		if (!isLargeScreen) {
+			sidepane.unpin()
 			sidepane.collapse()
 		}
 	}
 
+	const handlePin = () => {
+		sidepane.expand()
+		sidepane.pin()
+	}
+
+	const handleUnpin = () => {
+		sidepane.unpin()
+		sidepane.collapse()
+	}
+
 	return (
-		<div className='sidepane'>
+		<div className={'sidepane break-point-' + sidepane.autoExpandBreakpoint}>
 			<div className='hamburguer-menu' onClick={() => sidepane.expand()}>
 				<IoEllipsisVerticalSharp size={20} />
 			</div>
@@ -55,10 +91,10 @@ export const SidePane = ({
 						<img src='/img/logo/logo-colorful.svg' alt='Vitor Norton Logo' />
 					</div>
 
-					<div className='action'>
-						{sidepane.state === 'collapsed' ?
-							<IoApps className='animate__animated animate__fadeIn' size={25} color='#162C44' /> :
-							<IoClose className='animate__animated animate__fadeIn' size={30} color='#162C44' onClick={() => sidepane.collapse()} />
+					<div className='action' style={{ display: isLargeScreen ? 'none' : 'flex' }}>
+						{!sidepane.isPinned ?
+							<IoApps className='animate__animated animate__fadeIn' size={25} color='#162C44' onClick={handlePin} /> :
+							<IoClose className='animate__animated animate__fadeIn' size={30} color='#162C44' onClick={handleUnpin} />
 						}
 					</div>
 				</div>

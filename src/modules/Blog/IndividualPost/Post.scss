@@ -127,6 +127,12 @@ article.post {
 }
 
 @media screen and (min-width: 2200px) {
+	.sidepane {
+		&.break-point-2200 main.panel {
+			margin-left: 465px !important;
+		}
+	}
+
 	article.post {
 		.header {
 			width: 820px;
