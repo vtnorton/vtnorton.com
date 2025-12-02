@@ -9,44 +9,6 @@
 	flex-direction: column;
 	z-index: 900;
 
-	.intro {
-		height: var(--sidebar-width);
-		background: var(--dark-blue);
-		display: flex;
-		align-items: center;
-		padding: 0 1.125rem 0 1.875rem;
-		color: #fff;
-		cursor: pointer;
-
-		.intro-content {
-			display: flex;
-			width: 100%;
-			flex-direction: row;
-
-			svg {
-				transition: all 0.3s ease-in-out;
-				margin-left: auto;
-			}
-		}
-
-		&:hover {
-			.intro-content {
-				svg {
-					transition: all 0.3s ease-in-out;
-					transform: rotate(45deg);
-				}
-			}
-		}
-	}
-
-	.cta {
-		padding: 0 1.875rem;
-		height: var(--sidebar-width);
-		display: flex;
-		align-items: center;
-		border-bottom: 1px solid #ddd;
-	}
-
 	.menu {
 		display: flex;
 		flex-direction: column;

@@ -12,6 +12,7 @@ export const LayoutProvider: React.FC<{ children: ReactNode }> = ({ children }) 
 	const [sidepaneState, setSidePaneState] = useState<SideBarStateOptions>('collapsed')
 	const [isPinned, setIsPinned] = useState(false)
 	const [autoExpandBreakpoint, setAutoExpandBreakpoint] = useState(1500)
+	const [isWidgetHovered, setWidgetHovered] = useState(false)
 
 	const sidepane = {
 		state: sidepaneState,
@@ -23,6 +24,8 @@ export const LayoutProvider: React.FC<{ children: ReactNode }> = ({ children }) 
 		pin: () => setIsPinned(true),
 		unpin: () => setIsPinned(false),
 		setAutoExpandBreakpoint,
+		isWidgetHovered,
+		setWidgetHovered,
 	}
 
 	return (

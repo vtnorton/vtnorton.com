@@ -10,4 +10,6 @@ export type SidebarOptions = {
 	pin: () => void
 	unpin: () => void
 	setAutoExpandBreakpoint: (breakpoint: number) => void
+	isWidgetHovered: boolean
+	setWidgetHovered: (hovered: boolean) => void
 }

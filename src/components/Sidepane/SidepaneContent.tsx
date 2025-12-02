@@ -1,6 +1,6 @@
 import { SocialMedias } from '../Socials'
 import { MenuLink } from './MenuLink'
-import { FiArrowUpRight } from "react-icons/fi";
+import { Widget } from './Widgets';
 
 interface SidepaneContentProps {
 	onMouseEnter?: () => void
@@ -10,15 +10,7 @@ interface SidepaneContentProps {
 export const SidepaneContent = ({ onMouseEnter, onMouseLeave }: SidepaneContentProps) => {
 	return (
 		<div className='content' onMouseEnter={onMouseEnter} onMouseLeave={onMouseLeave}>
-			{/* <a className='intro'>
-				<div className='intro-content'>
-					Vitor Norton
-					<FiArrowUpRight size={20} color='#fff' />
-				</div>
-			</a>
-			<div className='cta'>
-				<p>Blah</p>
-			</div> */}
+			<Widget />
 			<div className='menu'>
 				<MenuLink title={'Home'} link={'/'} />
 				{/* <MenuLink title={'Portfólio'} link={'/portfolio'} /> */}

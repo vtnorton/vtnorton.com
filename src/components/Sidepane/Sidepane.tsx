@@ -82,7 +82,7 @@ export const SidePane = ({
 				onMouseEnter={handleMouseEnter}
 				onMouseLeave={handleMouseLeave}
 			>
-				<div className='photo'>
+				<div className={`photo ${sidepane.isWidgetHovered ? 'hovered' : ''}`}>
 
 				</div>
 
@@ -100,7 +100,10 @@ export const SidePane = ({
 				</div>
 
 			</nav>
-			<SidepaneContent onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave} />
+			<SidepaneContent
+				onMouseEnter={handleMouseEnter}
+				onMouseLeave={handleMouseLeave}
+			/>
 			<main className='panel' onClick={handleMainClick}>
 				{children}
 			</main>

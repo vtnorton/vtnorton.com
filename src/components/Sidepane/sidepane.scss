@@ -1,4 +1,5 @@
 @use './sidepane-content.scss';
+@use './widgets.scss';
 
 :root {
 	--sidebar-width: 65px;
@@ -53,6 +54,12 @@
 			width: var(--sidebar-width);
 			height: calc(var(--sidebar-width) + 4px);
 			background: var(--gold);
+			transition: all 0.3s ease-in-out;
+
+			&:hover,
+			&.hovered {
+				opacity: 0.8;
+			}
 		}
 
 		.inner {
