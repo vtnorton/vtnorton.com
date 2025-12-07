@@ -9,6 +9,12 @@
 	flex-direction: column;
 	z-index: 900;
 
+	.sidepane-inner {
+		display: flex;
+		flex-direction: column;
+		height: 100%;
+	}
+
 	.menu {
 		display: flex;
 		flex-direction: column;
@@ -95,6 +101,40 @@
 					filter: brightness(0) invert(0.3);
 				}
 			}
+		}
+	}
+}
+
+@media (max-width: 650px) {
+	.content {
+		left: 0;
+		top: var(--sidebar-width);
+		width: 100%;
+		height: auto;
+
+		.force-vertical {
+			display: flex;
+
+			.logo {
+				width: var(--sidebar-width);
+				border-right: 1px solid #ddd;
+				padding-top: 1.5rem;
+				display: flex;
+				justify-content: space-around;
+				align-items: flex-start;
+			}
+		}
+
+		.menu {
+			margin-bottom: 5rem;
+		}
+	}
+
+	nav.exploded + .content {
+		height: calc(100vh - var(--sidebar-width));
+
+		.force-vertical {
+			height: 100%;
 		}
 	}
 }

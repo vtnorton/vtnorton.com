@@ -1,16 +1,18 @@
 import { SocialMedias } from '../Socials'
+import { Logo } from './Logo'
 import { MenuLink } from './MenuLink'
-import { Widget } from './Widgets';
+import { Widget } from './Widgets'
 
 interface SidepaneContentProps {
 	onMouseEnter?: () => void
 	onMouseLeave?: () => void
+	windowWidth: number
 }
 
-export const SidepaneContent = ({ onMouseEnter, onMouseLeave }: SidepaneContentProps) => {
+const SidePaneInnerContent = ({ windowWidth }: { windowWidth: number }) => {
 	return (
-		<div className='content' onMouseEnter={onMouseEnter} onMouseLeave={onMouseLeave}>
-			<Widget />
+		<div className='sidepane-inner'>
+			<Widget secondary={windowWidth <= 650} />
 			<div className='menu'>
 				<MenuLink title={'Home'} link={'/'} />
 				{/* <MenuLink title={'Portfólio'} link={'/portfolio'} /> */}
@@ -34,6 +36,22 @@ export const SidepaneContent = ({ onMouseEnter, onMouseLeave }: SidepaneContentP
 
 				<SocialMedias size={20} />
 			</div>
+		</div>
+	)
+}
+
+export const SidepaneContent = ({ onMouseEnter, onMouseLeave, windowWidth }: SidepaneContentProps) => {
+	return (
+		<div className='content' onMouseEnter={onMouseEnter} onMouseLeave={onMouseLeave}>
+			{windowWidth <= 650 ? (
+				<div className='force-vertical'>
+					<Logo />
+					<SidePaneInnerContent windowWidth={windowWidth} />
+				</div>
+			) : (
+				<SidePaneInnerContent windowWidth={windowWidth} />
+			)}
+
 		</div>
 	)
 }

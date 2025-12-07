@@ -1,18 +1,19 @@
 import { FiArrowUpRight } from 'react-icons/fi'
 import { BookCall } from './Widgets/BookCall'
 import { useLayout } from '../../providers/LayoutProvider'
+import { HTMLAttributes, ReactNode } from 'react'
 
-export const Widget = () => {
+export const Widget = ({ primary = false, secondary = false }: { primary?: boolean, secondary?: boolean }) => {
 	return (
 		<>
-			<BookCall usePrimary={true} />
-			<BookCall usePrimary={false} />
+			{!secondary && <BookCall usePrimary={true} />}
+			{!primary && <BookCall usePrimary={false} />}
 		</>
 	)
 }
 
-export const WidgetPrimaryWrapper = ({ children }: { children: React.ReactNode }) => {
-	const { sidepane } = useLayout();
+export const WidgetPrimaryWrapper = ({ children }: { children: ReactNode }) => {
+	const { sidepane } = useLayout()
 	return (
 		<div className='widget-primary' onMouseEnter={() => sidepane.setWidgetHovered(true)} onMouseLeave={() => sidepane.setWidgetHovered(false)}>
 			<div className='widget-primary-content'>
@@ -23,7 +24,7 @@ export const WidgetPrimaryWrapper = ({ children }: { children: React.ReactNode }
 	)
 }
 
-export const WidgetSecondaryWrapper = ({ children, ...props }: { children: React.ReactNode } & React.HTMLAttributes<HTMLDivElement>) => {
+export const WidgetSecondaryWrapper = ({ children, ...props }: { children: ReactNode } & HTMLAttributes<HTMLDivElement>) => {
 	return (
 		<div className='widget-secondary' {...props}>
 			{children}

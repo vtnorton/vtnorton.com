@@ -23,6 +23,10 @@ const nextConfig = {
 		locales: ['pt-BR'],
 		defaultLocale: 'pt-BR',
 	},
+	sassOptions: {
+		sourceMap: true,
+		silenceDeprecations: ['legacy-js-api'],
+	},
 	async rewrites() {
 		return [
 			{

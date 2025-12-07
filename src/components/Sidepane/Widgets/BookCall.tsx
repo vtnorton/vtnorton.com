@@ -55,7 +55,7 @@ const SecondaryBookCall = () => {
 
 export const BookCall = ({ usePrimary }: { usePrimary: boolean }) => {
 	return (
-		<a className='bookcall'>
+		<a className='bookcall' href='/' target='_blank' rel='noopener noreferrer'>
 			{usePrimary ? <PrimaryBookCall /> : <SecondaryBookCall />}
 		</a>
 	)

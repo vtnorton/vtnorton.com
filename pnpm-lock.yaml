@@ -8,6 +8,9 @@ importers:
 
   .:
     dependencies:
+      '@eslint/js':
+        specifier: ^9.39.1
+        version: 9.39.1
       '@fancyapps/ui':
         specifier: ^6.0.34
         version: 6.1.6
@@ -32,6 +35,9 @@ importers:
       axios:
         specifier: ^1.12.2
         version: 1.13.2
+      globals:
+        specifier: ^16.5.0
+        version: 16.5.0
       lottie-react:
         specifier: ^2.4.1
         version: 2.4.1(react-dom@19.2.0(react@19.2.0))(react@19.2.0)
@@ -1805,6 +1811,10 @@ packages:
 
   globals@14.0.0:
     resolution: {integrity: sha512-oahGvuMGQlPw/ivIYBjVSrWAfWLBeku5tpPE2fOPLi+WHffIWbuh2tCjhyQhTBPMf5E9jDEH4FOmTYgYwbKwtQ==}
+    engines: {node: '>=18'}
+
+  globals@16.5.0:
+    resolution: {integrity: sha512-c/c15i26VrJ4IRt5Z89DnIzCGDn9EcebibhAOjw5ibqEHsE1wLUgkPn9RDmNcUKyU87GeaL633nyJ+pplFR2ZQ==}
     engines: {node: '>=18'}
 
   globalthis@1.0.4:
@@ -5259,6 +5269,8 @@ snapshots:
       is-glob: 4.0.3
 
   globals@14.0.0: {}
+
+  globals@16.5.0: {}
 
   globalthis@1.0.4:
     dependencies:

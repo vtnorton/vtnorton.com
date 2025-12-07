@@ -34,8 +34,28 @@
 		}
 	}
 
-	.hamburguer-menu {
-		display: none;
+	@keyframes slideInDown {
+		from {
+			opacity: 0;
+			transform: translateY(-100%);
+		}
+
+		to {
+			opacity: 1;
+			transform: translateY(0);
+		}
+	}
+
+	@keyframes slideOutUp {
+		from {
+			opacity: 1;
+			transform: translateY(0);
+		}
+
+		to {
+			opacity: 0;
+			transform: translateY(-100%);
+		}
 	}
 
 	nav {
@@ -283,67 +303,50 @@
 
 @media (max-width: 650px) {
 	.sidepane {
-		.hamburguer-menu {
+		nav {
+			height: var(--sidebar-width);
+			flex-direction: row;
 			display: block;
-			position: fixed;
-			top: 1rem;
-			left: var(--spacing-lg);
-			z-index: 100;
-			cursor: pointer;
+			width: 100%;
 
-			svg {
-				color: #fff;
+			.photo {
+				width: var(--sidebar-width);
+				height: var(--sidebar-width);
+				float: left;
 			}
-		}
 
-		nav.collapsed {
-			display: none;
+			.inner {
+				border-right: none;
+				flex-direction: row;
+				width: calc(100% - var(--sidebar-width));
+
+				.action {
+					margin-top: 0;
+					margin-left: auto;
+				}
+			}
+
+			&.collapsed {
+				width: 100%;
+			}
+
+			&.collapsed + .content {
+				animation: slideOutUp 0.5s forwards;
+			}
+
+			&.expanded + .content {
+				animation: slideInDown 0.5s forwards;
+			}
 		}
 
 		main.panel {
 			margin-left: 0;
-		}
-	}
-}
+			margin-top: var(--sidebar-width);
+			height: calc(100vh - var(--sidebar-width));
 
-@media (max-width: 600px) {
-	.sidepane {
-		&:has(nav.exploded) {
-			height: auto;
-			overflow: auto;
-			display: flex;
-			flex-direction: column-reverse;
-
-			.hamburguer-menu {
-				display: none;
-			}
-
-			nav {
-				position: relative;
-				height: auto;
-				width: 100%;
-
-				.cards {
-					margin-left: var(--spacing-lg);
-					width: calc(100% - var(--spacing-lg) - var(--spacing-lg));
-
-					.card {
-						width: 100%;
-					}
-
-					margin-bottom: 3rem;
-				}
-
-				.footer {
-					.social {
-						display: flex;
-						justify-content: center;
-					}
-				}
-			}
-
-			main.panel {
-				height: 60vh;
+			&::before {
+				top: var(--sidebar-width);
+				left: 0;
 			}
 		}
 	}

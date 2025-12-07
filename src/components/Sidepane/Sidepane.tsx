@@ -1,7 +1,9 @@
 import { ReactNode, useEffect, useRef, useState } from 'react'
 import { useLayout } from '../../providers/LayoutProvider'
-import { IoApps, IoClose, IoEllipsisVerticalSharp, IoExit } from 'react-icons/io5'
+import { IoApps, IoClose } from 'react-icons/io5'
 import { SidepaneContent } from './SidepaneContent'
+import { Widget } from './Widgets'
+import { Logo } from './Logo'
 
 export const SidePane = ({
 	children,
@@ -9,12 +11,14 @@ export const SidePane = ({
 	children?: ReactNode
 }) => {
 	const { sidepane } = useLayout()
-	const timeoutRef = useRef<NodeJS.Timeout | null>(null)
+	const timeoutRef = useRef<ReturnType<typeof setTimeout> | null>(null)
 	const [isLargeScreen, setIsLargeScreen] = useState(false)
+	const [windowWidth, setWindowWidth] = useState(0)
 
 	useEffect(() => {
 		const handleResize = () => {
 			const large = window.innerWidth >= sidepane.autoExpandBreakpoint
+			setWindowWidth(window.innerWidth)
 			setIsLargeScreen(large)
 
 			if (large) {
@@ -74,22 +78,20 @@ export const SidePane = ({
 
 	return (
 		<div className={'sidepane break-point-' + sidepane.autoExpandBreakpoint}>
-			<div className='hamburguer-menu' onClick={() => sidepane.expand()}>
-				<IoEllipsisVerticalSharp size={20} />
-			</div>
 			<nav
 				className={sidepane.state}
 				onMouseEnter={handleMouseEnter}
-				onMouseLeave={handleMouseLeave}
-			>
+				onMouseLeave={handleMouseLeave}>
 				<div className={`photo ${sidepane.isWidgetHovered ? 'hovered' : ''}`}>
 
 				</div>
 
 				<div className='inner'>
-					<div className='logo'>
-						<img src='/img/logo/logo-colorful.svg' alt='Vitor Norton Logo' />
-					</div>
+					{windowWidth >= 650 ? (
+						<Logo />
+					) : (
+						<Widget primary={true} />
+					)}
 
 					<div className='action' style={{ display: isLargeScreen || sidepane.state === 'exploded' ? 'none' : 'flex' }}>
 						{!sidepane.isPinned ?
@@ -103,6 +105,7 @@ export const SidePane = ({
 			<SidepaneContent
 				onMouseEnter={handleMouseEnter}
 				onMouseLeave={handleMouseLeave}
+				windowWidth={windowWidth}
 			/>
 			<main className='panel' onClick={handleMainClick}>
 				{children}
