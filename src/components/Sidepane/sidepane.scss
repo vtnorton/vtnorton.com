@@ -75,6 +75,7 @@
 			height: calc(var(--sidebar-width) + 4px);
 			background: url('/img/logo/photo/9.jpg') no-repeat center center;
 			background-size: contain;
+			transition: all 0.3s ease-in;
 
 			&:hover,
 			&.hovered {
