@@ -73,12 +73,13 @@
 		.photo {
 			width: var(--sidebar-width);
 			height: calc(var(--sidebar-width) + 4px);
-			background: var(--gold);
-			transition: all 0.3s ease-in-out;
+			background: url('/img/logo/photo/9.jpg') no-repeat center center;
+			background-size: contain;
 
 			&:hover,
 			&.hovered {
-				opacity: 0.8;
+				background: url('/img/logo/photo/10.jpg') no-repeat center center;
+				background-size: contain;
 			}
 		}
 
