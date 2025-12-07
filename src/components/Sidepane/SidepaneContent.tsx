@@ -15,7 +15,7 @@ const SidePaneInnerContent = ({ windowWidth }: { windowWidth: number }) => {
 			<Widget secondary={windowWidth <= 650} />
 			<div className='menu'>
 				<MenuLink title={'Home'} link={'/'} />
-				{/* <MenuLink title={'Portfólio'} link={'/portfolio'} /> */}
+				<MenuLink title={'Portfólio'} link={'/portfolio'} />
 				<MenuLink title={'Meu blog'} link={'/blog'} />
 			</div>
 			<div className='footer'>
