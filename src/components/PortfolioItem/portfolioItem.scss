@@ -2,6 +2,16 @@
 	height: 700px;
 	position: relative;
 
+	&:hover {
+		.background img {
+			transform: scale(1.03);
+		}
+
+		.portfolio-content .container .end img {
+			transform: scale(1.35);
+		}
+	}
+
 	.background {
 		position: absolute;
 		overflow: hidden;
@@ -12,6 +22,7 @@
 			object-fit: cover;
 			width: 100%;
 			height: 100%;
+			transition: transform 0.5s ease;
 		}
 
 		&::after {
@@ -67,7 +78,8 @@
 
 				img {
 					margin-top: auto;
-					height: 35px;
+					height: 30px;
+					transition: transform 0.5s ease;
 				}
 			}
 		}
