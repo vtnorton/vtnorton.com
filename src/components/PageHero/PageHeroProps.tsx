@@ -5,7 +5,7 @@ export interface PageHeroProps {
 	description?: string
 	backgroundUrl?: string
 	backgroundClass?: string
-	children: JSX.Element
+	children?: JSX.Element
 	backgroundPosition?: string
 	backgroundColor?: string
 	innerComponent?: JSX.Element

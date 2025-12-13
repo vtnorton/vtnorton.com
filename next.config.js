@@ -33,6 +33,10 @@ const nextConfig = {
 				source: '/rss',
 				destination: '/api/rss.tsx',
 			},
+			// {
+			// 	source: '/olawolff',
+			// 	destination: '/portfolio/ola-wolff.tsx',
+			// },
 		]
 	},
 }

@@ -12,8 +12,8 @@ importers:
         specifier: ^9.39.1
         version: 9.39.1
       '@fancyapps/ui':
-        specifier: ^6.0.34
-        version: 6.1.6
+        specifier: ^5.0.36
+        version: 5.0.36
       '@fluentui/react-components':
         specifier: ^9.72.2
         version: 9.72.7(@types/react-dom@19.2.3(@types/react@19.2.7))(@types/react@19.2.7)(react-dom@19.2.0(react@19.2.0))(react@19.2.0)(scheduler@0.27.0)
@@ -172,8 +172,8 @@ packages:
     resolution: {integrity: sha512-43/qtrDUokr7LJqoF2c3+RInu/t4zfrpYdoSDfYyhg52rwLV6TnOvdG4fXm7IkSB3wErkcmJS9iEhjVtOSEjjA==}
     engines: {node: ^18.18.0 || ^20.9.0 || >=21.1.0}
 
-  '@fancyapps/ui@6.1.6':
-    resolution: {integrity: sha512-7kgvuufdwlT79rrveCq1s3O9WzLY6REKG2NOlWji5GL3aalRU2f+7kfppfpg29WQh6NFP/bXAAkWOzF5dd3GTg==}
+  '@fancyapps/ui@5.0.36':
+    resolution: {integrity: sha512-GMygQzp1MBTFNTT6AzpbL6pXTD6bTxwjmmpI1fe8Ozmmiseu8/g82Sudl1YhcbZmS4bJgaBOF5THDFGpXQ1fDw==}
 
   '@fisch0920/medium-zoom@1.0.7':
     resolution: {integrity: sha512-hPUrgVM/QvsZdZzDTPyL1C1mOtEw03RqTLmK7ZlJ8S/64u4O4O5BvPvjB/9kyLtE6iVaS9UDRAMSwmM9uh2JIw==}
@@ -2911,7 +2911,7 @@ snapshots:
       '@eslint/core': 0.17.0
       levn: 0.4.1
 
-  '@fancyapps/ui@6.1.6': {}
+  '@fancyapps/ui@5.0.36': {}
 
   '@fisch0920/medium-zoom@1.0.7': {}
 

@@ -34,7 +34,9 @@ export const PageHero = (props: PageHeroProps) => {
 					</div>
 				</div>
 			</div>
-			<div className='container page-hero-next-item'>{props.children}</div>
+			{props.children &&
+				<div className='container page-hero-next-item'>{props.children}</div>
+			}
 		</>
 	)
 }
