@@ -88,6 +88,10 @@ section {
 		}
 	}
 
+	h2:first-of-type {
+		margin-bottom: 1.5rem;
+	}
+
 	.content-with-image {
 		display: flex;
 		gap: 2rem;
@@ -118,14 +122,13 @@ section {
 				max-width: 40%;
 			}
 
-			img {
-				min-width: 540px;
-			}
-
 			small {
+				font-family: 'Neutra Text Alt', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+				color: var(--light-gray);
 				text-align: center;
 				display: inline-block;
 				width: 100%;
+				margin-top: .5rem;
 			}
 		}
 	}

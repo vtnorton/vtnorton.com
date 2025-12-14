@@ -77,7 +77,7 @@ export default function OlaWolff() {
 						<img src='/img/portfolio/olawolff/nomes.png' />
 					</div>
 					<div className='right'>
-						<h2>Cristian Sales, o comunicador</h2>
+						<h2 style={{ marginBottom: '0' }}>Cristian Sales, o comunicador</h2>
 						<p>
 							Em todos os momentos durante o projeto sabíamos que a interface homem-robô poderia não ser a mais eficiênte, então resolvemos criar o Cristian Sales, que iria dar uma visão mais humana para todo o processo. Ele é o pseudônimo do Wolff, um personagem para fazer
 							toda a comunicação nas redes sociais e e-mail marketing que iria permitir uma comunicação rápida e eficiente com o mundo.{' '}
@@ -104,7 +104,7 @@ export default function OlaWolff() {
 
 			<div className='container'>
 				<Section>
-					<h2 style={{ marginBottom: '1.5rem' }}>Usabilidade do chat</h2>
+					<h2>Usabilidade do chat</h2>
 					<SectionContentWithImage image={'/img/portfolio/olawolff/mobile.jpg'} imageAlt={'Imagem real do produto em desenvolvimento em um visão mobile'} imageCaption>
 						<p>
 							O chat foi, provavelmente, a parte mais importante de todo o projeto. Foram várias versões desenvolvidas e varias melhoras com o tempo. A importância se deu pois queríamos passar a impressão de que havia realmente alguem respondendo as perguntas, sem parecer
@@ -121,79 +121,89 @@ export default function OlaWolff() {
 				</Section>
 
 				<Section>
-					<div className='text-60-percent-wrap'>
-						<h2>Funções do chat</h2>
-						<p>Conheça algumas das funções mais desafiadores para criar uma excelente experiência de usuário dentro do chat para nossas personas.</p>
-					</div>
+					<h2>Funções do chat</h2>
+					<p>Conheça algumas das funções mais desafiadores para criar uma excelente experiência de usuário dentro do chat para nossas personas.</p>
 
-					<div>
-						<div>
-							<img className='center img-helper' src='/img/portfolio/olawolff/usuario.jpg' />
-							<h4>Proxímidade com o usuário</h4>
+					<div className='chat-features'>
+						<div className='chat-feature'>
+							<img src='/img/portfolio/olawolff/usuario.jpg' />
+							<h3>Proxímidade com o usuário</h3>
 							<p>Ao informar o nome, o chat apresentava o nome do usuário embaixo de todas as mensagens enviadas por ele, assim como o avatar recebia as iniciais do nome para deixar mais íntimo e pessoal a conversa. Similar ao que mensageiros atuais já fazem.</p>
 							<p>E em adição a isso, temos a hora sendo apresentada junto com a mensagem, para auxiliar não só no processo de auditoria, mas para que o usuário tenha a sensação de controle vendo o tempo gasto nas mensagens.</p>
 						</div>
-						<div>
-							<img className='center img-helper' src='/img/portfolio/olawolff/digitando.jpg' />
-							<h4>O Wolff está digitando...</h4>
+						<div className='chat-feature'>
+							<img src='/img/portfolio/olawolff/digitando.jpg' />
+							<h3>O Wolff está digitando...</h3>
 							<p>Era apresentado para o usuário um balão dizendo que o Wolff está digitando para personificar o Wolff criando ainda mais empatia. </p>
 							<p>
 								Essa função criava um delay entre o momento em que o Wolff responde ao momento em que a resposta realmente aparece na tela. Esse delay é calculado pela quantidade de caracteres que há na mensagem. Fizemos um estudo para entender a velocidade de digitação de uma
 								pessoa rápida: neste caso 6 caracteres por segundo.
 							</p>
 						</div>
-						<div>
-							<img className='center img-helper' src='/img/portfolio/olawolff/status.jpg' />
-							<h4>Status de mensagem</h4>
+						<div className='chat-feature'>
+							<img src='/img/portfolio/olawolff/status.jpg' />
+							<h3>Status de mensagem</h3>
 							<p>
 								Com o status de mensagem queriamos informar para o usuário como está o processo dela. Tinhamos três estágios de status: enviada, recebida e lida. Uma bolinha clara para enviado, duas bolinhas (uma verde e uma clara) para recebida pelo Wolff e duas verdes para
 								determinar que a mensagem foi lida e já está processando a resposta.
 							</p>
 							<p>No fundo, ao dizer a mensagem foi lida, a resposta já estava no computador do usuário esperando para ser apresentada.</p>
 						</div>
+						<div className='chat-feature'>
+							<img src='/img/portfolio/olawolff/termos.jpg' />
+							<h3>Fazendo os termos mais acessíveis</h3>
+							<p>A maneira como o Wolff conversava precisava ser acessível, muito porque a maneira de de desburocratizar todo o processo vinha da complicação dos termos contáveis, jurídicos e oficiais de um processo de abertura de empresa.</p>
+							<p>Tinhamos uma UX Writer para ajudar na formulação dos diálogo, mas alguns vezes, precisávamos apresentar um pouco mais de informações, por isso alguns mensagens continham um balão com elas.</p>
+						</div>
 					</div>
 
-					<div className='text-60-percent-wrap'>
-						<h4>Fazendo os termos mais acessíveis</h4>
-						<p>A maneira como o Wolff conversava precisava ser acessível, muito porque a maneira de de desburocratizar todo o processo vinha da complicação dos termos contáveis, jurídicos e oficiais de um processo de abertura de empresa.</p>
-						<p>Tinhamos uma UX Writer para ajudar na formulação dos diálogo, mas alguns vezes, precisávamos apresentar um pouco mais de informações, por isso alguns mensagens continham um balão com elas.</p>
-						<img src='/img/portfolio/olawolff/termos.jpg' className='img-helper' />
-					</div>
 				</Section>
 			</div>
 
-			<div className='container text-center'>
-				<img className='img-helper' src='/img/portfolio/olawolff/pages.png' />
-			</div>
-
 			<div className='container'>
-				<Section removePaddingButton>
+				<img className='image-hero-wolff' src='/img/portfolio/olawolff/pages.png' />
+				<Section className='backend'>
 					<h2>Backend, backoffice &amp; pipelines</h2>
-					<SectionContentWithImage image={'/img/portfolio/olawolff/back-2.jpg'} imageAlt={''} >
+
+					<div className='backend-item'>
 						<h4>Trabalho junto a Junta Comercial e orgãos públicos</h4>
 						<p>
 							O projeto nunca teve posições políticas, mas precisavamos estar conversando com as cidades e auxiliando no processo de digitalização, desde o mapeamento das ruas da cidade para alvará de funcionamento digital, até integrações de sistemas da prefeitura, para uma
 							vez com alvará, já receber o acesso para emissão de NF-e.{' '}
 						</p>
+					</div>
+
+					<div className='backend-item'>
 						<h4>Backoffice</h4>
 						<p>
 							Um ponto importante foi que ao escolher o Bot Framework, da Microsoft, ao invés de outros concorrentes, nós não tinhamos uma interface fácil para edição das mensagens por aqueles que não são desenvolvedores. A construção de um backoffice que o permitia era
 							essencial. Nele também salvámos todos os dados de usuários.
 						</p>
-					</SectionContentWithImage>
-					<SectionContentWithImage image={'/img/portfolio/olawolff/back-1.jpg'} imageAlt={''} >
+					</div>
+
+
+					<div className='images'>
+						<img src='/img/portfolio/olawolff/back-2.jpg' />
+						<img src='/img/portfolio/olawolff/back-1.jpg' />
+					</div>
+
+
+					<div className='backend-item'>
 						<h4>Migração de conteúdo</h4>
 						<p>
 							Com diversos ambientes sendo desenvolvidos ao mesmo tempo, e um fluxo de trabalho diferente por parte dos diálogos, um mecanimos de migração de conteúdo foi implementado, assim, os diálogos que estavam em produção também poderiam chegar em desenvolvimento, e
 							vice-versa. O sistema de backoffice também permitia escolher qual ambiente estaria editando.
 						</p>
+					</div>
+
+					<div className='backend-item'>
 						<h4>Pipelines de build e release</h4>
 						<p>
 							Para que tudo funcionasse perfeitamente, tinhamos alguns projetos que se intregavam na hora de uma release: um chat em React, um framework CSS, um portal e uma API em dotnet, um blog WordPress e o backoffice. Todos com ambientes de desenvolvimento, homologação e
 							produção.
 						</p>
 						<p>O que mais chama atenção foi a necessidade ágil do projeto, o que, juntando tudo, permitia que em alterações solicitadas e ajustes fossem implementados nos diversos ambientes a caminho de reuniões com a prefeitura e/ou deputados.</p>
-					</SectionContentWithImage>
+					</div>
 					{/* <NextProjectComponent name={nextProject.name} imageUrl={nextProject.imageUrl} link={nextProject.link} /> */}
 				</Section>
 			</div>
