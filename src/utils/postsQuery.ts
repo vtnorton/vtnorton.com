@@ -1,3 +1,4 @@
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
 export const sharedFilter = (): any => {
 	const CLIENT_ID = process.env.CLIENT_ID
 
@@ -50,6 +51,7 @@ export const sharedFilter = (): any => {
 	]
 }
 
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
 export const itemTypeFilter = (type: string): any => {
 	return {
 		property: 'Type',
@@ -59,6 +61,7 @@ export const itemTypeFilter = (type: string): any => {
 	}
 }
 
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
 export const itemCategoryFilter = (category: string): any => {
 	return {
 		property: 'Categoria',

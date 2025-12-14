@@ -7,6 +7,7 @@ import { useEffect, useRef } from 'react'
 
 export const Footer = () => {
 	const footerRef = useRef<HTMLElement>(null)
+	// eslint-disable-next-line @typescript-eslint/no-explicit-any
 	const lottieRef = useRef<any>(null)
 
 	useEffect(() => {

@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import { NotionPage } from './Notion/NotionPage'
 
 export class Post extends NotionPage {

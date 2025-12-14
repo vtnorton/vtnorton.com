@@ -14,6 +14,7 @@ export class NotionAdapter {
 		})
 	}
 
+	// eslint-disable-next-line @typescript-eslint/no-explicit-any
 	async query(filter: any) {
 		// TODO: if reponse contains start_cursor, implement pagination to fetch all results from all pages
 		const response = await this.notion.dataSources.query({

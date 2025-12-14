@@ -1,7 +1,7 @@
 import type { AppProps } from 'next/app'
 import Head from 'next/head'
 import { BrandVariants, createLightTheme, FluentProvider, Theme } from '@fluentui/react-components'
-import 'animate.css';
+import 'animate.css'
 
 import '../styles/global.scss'
 import { LayoutProvider } from '../providers/LayoutProvider'
@@ -30,11 +30,6 @@ export default function App({ Component, pageProps }: AppProps) {
 	const lightTheme: Theme = {
 		...createLightTheme(myNewTheme),
 	}
-
-	const isHomePage = () => {
-		return pageProps?.router?.pathname === '/'
-	}
-
 
 	return (
 		<>

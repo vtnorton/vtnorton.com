@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 export class NotionPage {
 	public id: string
 	public title: string
