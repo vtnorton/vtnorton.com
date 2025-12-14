@@ -18,24 +18,24 @@ export default function OlaWolff() {
 				featureImage='/img/portfolio/olawolff/guia/p1.jpg' /> */}
 			<PageHero
 				title='olá wolff: contador online'
-				description='Dentro da startup estive em posição privilegiada aonde consegui colocar a ideia de desburocratização da abertura de uma empresa em menos de 24 horas na prática. Veja como foi o processo de realizar isso e ainda sim garantir uma excelente experiência de usuário.'
+				description='De dentro da startup, fiquei no lugar certo para testar uma ideia simples e ambiciosa: desburocratizar a abertura de empresas em menos de 24 horas. Aqui está como transformei isso em prática — sem perder a experiência de usuário pelo caminho.'
 				backgroundUrl='/img/portfolio/ola-wolff.jpg'>
 				<>
 					<Section>
 						<SectionContentWithImage image={'/img/portfolio/olawolff/iphone.png'} imageAlt={''} side='right' sticky>
 							<h2>Olá Wolff, diminuindo a burocracia com um chatbot</h2>
-							<p>O Mundo está em constante mudança, todos os dias nascem novas ideias e novas tecnologias que nos auxiliam em nosso dia-a-dia, com o Olá Wolff não era diferente, ele veio para facilitar muita coisa, principalmente o processo de abertura de empresas.</p>
-							<p>É um serviço, baseado em inteligência artificial, para acelar o processo de abertura de empresas, sanar as dúvidas dos empreendedores, agilizar aspectos burocráticos e realizar a constituição empresarial. </p>
-							<p>A função do Olá Wolff era recolher todos os dados necessários dos empreendedores para serem processados de forma rápida e precisa para a abertura da empresa possibilitando uma formalização quase que instantânea para MEIs e futuramente outros tipos de empresa.</p>
+							<p>O mundo muda todo dia. Ideias nascem, tecnologias amadurecem e, quando as duas se encontram, coisas andam. Com o Olá Wolff, a proposta era direta: facilitar o que sempre foi difícil: a abertura de empresas.</p>
+							<p>É um serviço baseado em inteligência artificial para acelerar o processo de constituição empresarial, tirar dúvidas de empreendedores, reduzir fricções burocráticas e conduzir a formalização.</p>
+							<p>A função do Olá Wolff era recolher os dados necessários de forma rápida e precisa, processá-los e viabilizar a abertura quase instantânea para MEIs e, depois, para outros tipos de empresa.</p>
 						</SectionContentWithImage>
 					</Section>
 
 					<Section>
 						<h2 style={{ marginBottom: '1.5rem' }}>A marca e o seu guia</h2>
 						<SectionContentWithImage image={'/img/portfolio/olawolff/logos.svg'} imageAlt={''} >
-							<p>Criada originalmente para representar um chat, a marca teve uma excelente evolução colocando uma fonte mais suave e utilizando um degradê com as cores da bandeira nasciona.</p>
-							<p>O ponto chave foi a vírgula. Queriamos criar a impressão de uma conversa sendo inciada e acabamos utilizando a vírgula com o ícone de todo o projeto.</p>
-							<p>A marca passou pelo processo de registro no INPI, foi feita também um guia da marca completo conforme mostrado abaixo. Clique na imagem para expandir.</p>
+							<p>Começou como um símbolo de conversa. Evoluiu com uma tipografia mais suave e um degradê nas cores da bandeira nacional.</p>
+							<p>A vírgula virou o ponto-chave. Queríamos a sensação de que uma conversa estava começando e a vírgula se tornou o próprio ícone do projeto.</p>
+							<p>A marca foi registrada no INPI. Criamos um guia completo, com aplicações e regras de uso. Clique na imagem para expandir.</p>
 						</SectionContentWithImage>
 					</Section>
 				</>
@@ -79,14 +79,12 @@ export default function OlaWolff() {
 					<div className='right'>
 						<h2 style={{ marginBottom: '0' }}>Cristian Sales, o comunicador</h2>
 						<p>
-							Em todos os momentos durante o projeto sabíamos que a interface homem-robô poderia não ser a mais eficiênte, então resolvemos criar o Cristian Sales, que iria dar uma visão mais humana para todo o processo. Ele é o pseudônimo do Wolff, um personagem para fazer
-							toda a comunicação nas redes sociais e e-mail marketing que iria permitir uma comunicação rápida e eficiente com o mundo.{' '}
+							Desde o início sabíamos: a interface homem–robô poderia não ser suficiente. Criamos o Cristian Sales para dar rosto e voz ao processo. Ele é o pseudônimo do Wolff, um personagem para conduzir a comunicação em redes sociais e e-mail marketing, tornando a troca mais humana, rápida e eficiente.{' '}
 						</p>
 						<p>
-							Já que o nome Olá Wolff veio com base no personagem de Ben Affleck do filme O Contador: Christian Wolff. Simplificamos o nome para ser fácil de ler e simples para escrever, além de adicionar um quê de abrasileirada com um dos sobrenomes mais comuns no Brasil, que
-							também representa a palavra vendas em inglês.
+							O nome Olá Wolff nasceu do personagem de Ben Affleck em O Contador: Christian Wolff. Simplificamos para algo fácil de ler, simples de escrever e, de quebra, com um toque abrasileirado num sobrenome comum no Brasil que também significa “vendas” em inglês.
 						</p>
-						<p>Alguns outros nomes e sobrenomes estiveram na nossa pesquisa durante o desenvolvimento do personagem, porém esse foi o ganhador. Acredito que se fosse hoje estariamos com o nome Cris ao invés de Cristian para ser um nome sem gênero.</p>
+						<p>Outros nomes apareceram durante a pesquisa, mas Cristian venceu. Se fosse hoje, talvez colocaria só como Cris, para manter o nome neutro em gênero.</p>
 					</div>
 				</Section>
 			</div>
@@ -107,14 +105,12 @@ export default function OlaWolff() {
 					<h2>Usabilidade do chat</h2>
 					<SectionContentWithImage image={'/img/portfolio/olawolff/mobile.jpg'} imageAlt={'Imagem real do produto em desenvolvimento em um visão mobile'} imageCaption>
 						<p>
-							O chat foi, provavelmente, a parte mais importante de todo o projeto. Foram várias versões desenvolvidas e varias melhoras com o tempo. A importância se deu pois queríamos passar a impressão de que havia realmente alguem respondendo as perguntas, sem parecer
-							forçado. Queriamos ter uma experiência já conhecida pelos nosso público alvo, trabalhadores MEI que poderia ou ser familiarizado com a mídia, ou ser novo na internet.{' '}
+							O chat era, muito provavelmente, a parte mais importante de todo o projeto. Fizemos várias versões, refinamos com o uso e sempre com um objetivo: parecer natural. Queríamos que a pessoa sentisse que havia alguém do outro lado, sem exagero. Buscávamos uma experiência familiar para o nosso público, majoritariamente trabalhadores MEI, com diferentes níveis de intimidade com a internet.
 						</p>
 						<p>
-							O fácil acesso para cada persona era impresindivel. Outro detalhe é que precisávamos passar uma imagem de confiabilidade e segurança, além de todo uma questão de privacidade de dados, visto que estavamos pendindo dados muito sensíveis. A validação dos dados era
-							outro quesito que foi trago dentro do chat - pois precisávamos garantir que os dados informados estavam certos para ir atrás do processo formal de abertura de empresa após a finalização do fluxo de abertura.
+							O acesso fácil para cada persona era indispensável. Também precisávamos transmitir confiança e segurança, com cuidado explícito à privacidade, já que pedíamos dados sensíveis. A validação de dados aconteceu dentro do próprio chat, pois era essencial garantir que as informações estivessem corretas antes de acionar o processo formal de abertura.
 						</p>
-						<p>O front-end do chat foi desenvolvido com React e comunicava com os serviços cognitivos do Azure e nossa API interna para outras informações além do diálogo. Lançamos o projeto como open-source em licença MIT. </p>
+						<p>O front-end foi feito em React e se conectava aos Serviços Cognitivos do Azure e à nossa API interna para complementar o diálogo. Lançamos o projeto como open source sob licença MIT.</p>
 
 						<Button as='a' href='https://github.com/vtnorton/WolffChat' icon={<Code20Regular />} size='medium' shape='square'>source_code</Button>
 					</SectionContentWithImage>
@@ -122,38 +118,36 @@ export default function OlaWolff() {
 
 				<Section>
 					<h2>Funções do chat</h2>
-					<p>Conheça algumas das funções mais desafiadores para criar uma excelente experiência de usuário dentro do chat para nossas personas.</p>
+					<p>Conheça algumas das funções mais desafiadoras na construção de uma experiência consistente para as nossas personas.</p>
 
 					<div className='chat-features'>
 						<div className='chat-feature'>
 							<img src='/img/portfolio/olawolff/usuario.jpg' />
-							<h3>Proxímidade com o usuário</h3>
-							<p>Ao informar o nome, o chat apresentava o nome do usuário embaixo de todas as mensagens enviadas por ele, assim como o avatar recebia as iniciais do nome para deixar mais íntimo e pessoal a conversa. Similar ao que mensageiros atuais já fazem.</p>
-							<p>E em adição a isso, temos a hora sendo apresentada junto com a mensagem, para auxiliar não só no processo de auditoria, mas para que o usuário tenha a sensação de controle vendo o tempo gasto nas mensagens.</p>
+							<h3>Proximidade com o usuário</h3>
+							<p>Assim que a pessoa informava o nome, o chat exibia esse nome embaixo das mensagens enviadas. O avatar recebia as iniciais. A conversa ficava mais íntima, mais pessoal. Do jeito que mensageiros atuais fazem.</p>
+							<p>Além disso, o horário aparecia junto de cada mensagem. Ajudava na auditoria e dava sensação de controle ao ver o tempo correndo ali, em cada resposta.</p>
 						</div>
 						<div className='chat-feature'>
 							<img src='/img/portfolio/olawolff/digitando.jpg' />
 							<h3>O Wolff está digitando...</h3>
-							<p>Era apresentado para o usuário um balão dizendo que o Wolff está digitando para personificar o Wolff criando ainda mais empatia. </p>
+							<p>Exibíamos um balão “Wolff está digitando...” para personificar o agente e criar empatia.</p>
 							<p>
-								Essa função criava um delay entre o momento em que o Wolff responde ao momento em que a resposta realmente aparece na tela. Esse delay é calculado pela quantidade de caracteres que há na mensagem. Fizemos um estudo para entender a velocidade de digitação de uma
-								pessoa rápida: neste caso 6 caracteres por segundo.
+								O recurso inseria um atraso entre o momento em que a resposta era gerada e o momento em que aparecia na tela. Esse delay era calculado pelo tamanho da mensagem. Estudamos a velocidade de digitação de uma pessoa rápida e adotamos 6 caracteres por segundo como referência.
 							</p>
 						</div>
 						<div className='chat-feature'>
 							<img src='/img/portfolio/olawolff/status.jpg' />
 							<h3>Status de mensagem</h3>
 							<p>
-								Com o status de mensagem queriamos informar para o usuário como está o processo dela. Tinhamos três estágios de status: enviada, recebida e lida. Uma bolinha clara para enviado, duas bolinhas (uma verde e uma clara) para recebida pelo Wolff e duas verdes para
-								determinar que a mensagem foi lida e já está processando a resposta.
+								Queríamos transparência sobre o andamento de cada mensagem. Criamos três estágios: enviada, recebida e lida. Uma bolinha clara para enviada. Duas (uma verde e uma clara) para recebida pelo Wolff. Duas verdes para indicar leitura e processamento da resposta.
 							</p>
-							<p>No fundo, ao dizer a mensagem foi lida, a resposta já estava no computador do usuário esperando para ser apresentada.</p>
+							<p>Na prática, quando dizíamos que a mensagem havia sido lida, a resposta já estava no computador da pessoa, pronta para aparecer.</p>
 						</div>
 						<div className='chat-feature'>
 							<img src='/img/portfolio/olawolff/termos.jpg' />
 							<h3>Fazendo os termos mais acessíveis</h3>
-							<p>A maneira como o Wolff conversava precisava ser acessível, muito porque a maneira de de desburocratizar todo o processo vinha da complicação dos termos contáveis, jurídicos e oficiais de um processo de abertura de empresa.</p>
-							<p>Tinhamos uma UX Writer para ajudar na formulação dos diálogo, mas alguns vezes, precisávamos apresentar um pouco mais de informações, por isso alguns mensagens continham um balão com elas.</p>
+							<p>A conversa precisava ser acessível. A desburocratização passava por termos contábeis, jurídicos e oficiais de abertura de empresa, justamente os que afastam.</p>
+							<p>Contamos com uma UX Writer na formulação dos diálogos, e, quando necessário, apresentávamos informações adicionais em mensagens com um balão de apoio, sem quebrar o fluxo.</p>
 						</div>
 					</div>
 
@@ -166,18 +160,16 @@ export default function OlaWolff() {
 					<h2>Backend, backoffice &amp; pipelines</h2>
 
 					<div className='backend-item'>
-						<h4>Trabalho junto a Junta Comercial e orgãos públicos</h4>
+						<h3>Trabalho junto a Junta Comercial e orgãos públicos</h3>
 						<p>
-							O projeto nunca teve posições políticas, mas precisavamos estar conversando com as cidades e auxiliando no processo de digitalização, desde o mapeamento das ruas da cidade para alvará de funcionamento digital, até integrações de sistemas da prefeitura, para uma
-							vez com alvará, já receber o acesso para emissão de NF-e.{' '}
+							O projeto nunca teve posição política, mas precisávamos dialogar com as cidades e apoiar a digitalização. Do mapeamento de ruas para o alvará digital até integrações com sistemas municipais para que, com o alvará emitido, a pessoa já tivesse acesso à emissão de NF-e.
 						</p>
 					</div>
 
 					<div className='backend-item'>
-						<h4>Backoffice</h4>
+						<h3>Backoffice</h3>
 						<p>
-							Um ponto importante foi que ao escolher o Bot Framework, da Microsoft, ao invés de outros concorrentes, nós não tinhamos uma interface fácil para edição das mensagens por aqueles que não são desenvolvedores. A construção de um backoffice que o permitia era
-							essencial. Nele também salvámos todos os dados de usuários.
+							Ao escolher o Bot Framework, da Microsoft, perdíamos uma interface simples para edição de mensagens por quem não é desenvolvedor. Construímos um backoffice para isso e para centralizar os dados dos usuários com segurança.
 						</p>
 					</div>
 
@@ -189,20 +181,20 @@ export default function OlaWolff() {
 
 
 					<div className='backend-item'>
-						<h4>Migração de conteúdo</h4>
+						<h3>Migração de conteúdo</h3>
 						<p>
-							Com diversos ambientes sendo desenvolvidos ao mesmo tempo, e um fluxo de trabalho diferente por parte dos diálogos, um mecanimos de migração de conteúdo foi implementado, assim, os diálogos que estavam em produção também poderiam chegar em desenvolvimento, e
-							vice-versa. O sistema de backoffice também permitia escolher qual ambiente estaria editando.
+							Com vários ambientes em paralelo e um fluxo específico para os diálogos, implementamos um mecanismo de migração. Assim, o conteúdo que estava em produção podia seguir para desenvolvimento, e vice-versa. No backoffice, era possível escolher o ambiente de edição.
 						</p>
 					</div>
 
 					<div className='backend-item'>
-						<h4>Pipelines de build e release</h4>
+						<h3>Pipelines de build e release</h3>
 						<p>
-							Para que tudo funcionasse perfeitamente, tinhamos alguns projetos que se intregavam na hora de uma release: um chat em React, um framework CSS, um portal e uma API em dotnet, um blog WordPress e o backoffice. Todos com ambientes de desenvolvimento, homologação e
-							produção.
+							Para tudo funcionar, alguns projetos se integravam no momento da release: o chat em React, um framework CSS, um portal e uma API em .NET, um blog em WordPress e o backoffice. Cada um com desenvolvimento, homologação e produção.
 						</p>
-						<p>O que mais chama atenção foi a necessidade ágil do projeto, o que, juntando tudo, permitia que em alterações solicitadas e ajustes fossem implementados nos diversos ambientes a caminho de reuniões com a prefeitura e/ou deputados.</p>
+						<p>
+							O que chamava mais atenção era a agilidade necessária. As solicitações mudavam no caminho para uma reunião com a prefeitura ou com um deputado, e as alterações seguiam junto, chegando a cada ambiente no tempo certo.
+						</p>
 					</div>
 					{/* <NextProjectComponent name={nextProject.name} imageUrl={nextProject.imageUrl} link={nextProject.link} /> */}
 				</Section>
