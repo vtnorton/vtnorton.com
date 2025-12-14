@@ -19,7 +19,7 @@ export default function OlaWolff() {
 			<PageHero
 				title='olá wolff: contador online'
 				description='Dentro da startup estive em posição privilegiada aonde consegui colocar a ideia de desburocratização da abertura de uma empresa em menos de 24 horas na prática. Veja como foi o processo de realizar isso e ainda sim garantir uma excelente experiência de usuário.'
-				backgroundClass='bg-wolf'>
+				backgroundUrl='/img/portfolio/ola-wolff.jpg'>
 				<>
 					<Section>
 						<SectionContentWithImage image={'/img/portfolio/olawolff/iphone.png'} imageAlt={''} side='right' >
@@ -32,7 +32,7 @@ export default function OlaWolff() {
 
 					<Section>
 						<h2 style={{ marginBottom: '1.5rem' }}>A marca e o seu guia</h2>
-						<SectionContentWithImage image={'/img/portfolio/olawolff/logos.png'} imageAlt={''} >
+						<SectionContentWithImage image={'/img/portfolio/olawolff/logos.svg'} imageAlt={''} >
 							<p>Criada originalmente para representar um chat, a marca teve uma excelente evolução colocando uma fonte mais suave e utilizando um degradê com as cores da bandeira nasciona.</p>
 							<p>O ponto chave foi a vírgula. Queriamos criar a impressão de uma conversa sendo inciada e acabamos utilizando a vírgula com o ícone de todo o projeto.</p>
 							<p>A marca passou pelo processo de registro no INPI, foi feita também um guia da marca completo conforme mostrado abaixo. Clique na imagem para expandir.</p>
@@ -74,7 +74,7 @@ export default function OlaWolff() {
 				<Section className='sales'>
 					<div className='left'>
 						<img src='/img/portfolio/olawolff/cristian.png' />
-						<img src='/img/portfolio/olawolff/nomes.png' />
+						<img src='/img/portfolio/olawolff/nomes.svg' />
 					</div>
 					<div className='right'>
 						<h2 style={{ marginBottom: '0' }}>Cristian Sales, o comunicador</h2>
