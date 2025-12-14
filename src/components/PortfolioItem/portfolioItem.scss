@@ -85,3 +85,31 @@
 		}
 	}
 }
+
+@media screen and (max-width: 590px) {
+	.portfolio-item {
+		height: auto;
+		min-height: 700px;
+
+		.portfolio-content {
+			.container {
+				flex-direction: column;
+
+				.middle {
+					order: 1;
+				}
+
+				.start {
+					margin-top: 2rem;
+					order: 2;
+				}
+
+				.end {
+					order: 3;
+					margin-top: auto;
+					gap: 2rem;
+				}
+			}
+		}
+	}
+}
