@@ -15,6 +15,7 @@ export interface SectionProps {
 	className?: string
 	image?: ImageBlur
 	children: ReactNode
+	paragraph?: boolean
 }
 
 export interface SectionContentWithImageProps {

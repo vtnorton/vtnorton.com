@@ -37,7 +37,8 @@
 h1,
 h2,
 h3,
-h4 {
+h4,
+h5 {
 	font-family: 'Neutra Text Alt Bold', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 	color: var(--dark-blue);
 }
@@ -72,12 +73,24 @@ h4 {
 	font-weight: 600;
 }
 
+h5 {
+	font-size: 1.1rem;
+	font-weight: 600;
+}
+
 p {
 	font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 	margin-bottom: .5rem;
 	font-size: 1.1rem;
 	color: var(--default-text);
 	line-height: 1.8rem;
+}
+
+small {
+	font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+	font-size: 0.9rem;
+	color: var(--light-gray);
+	line-height: 120%;
 }
 
 em {
