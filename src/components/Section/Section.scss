@@ -98,6 +98,12 @@ section {
 			justify-content: flex-end;
 		}
 
+		.content-with-image__content {
+			display: flex;
+			flex-direction: column;
+			gap: 1.5rem;
+		}
+
 		.content-with-image__image {
 			width: fit-content;
 			max-width: 54%;

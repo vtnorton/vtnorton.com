@@ -1,17 +1,17 @@
 import React from 'react'
 
-import { Button } from '@fluentui/react-components'
 import { Code20Regular } from '@fluentui/react-icons'
 import { Section, SectionContentWithImage } from '../../components/Section'
 import { Footer } from '../../sections/Footer/Footer'
 import { PageHero } from '../../components/PageHero'
 import { PhotoGallery } from '../../components/PhotoGallery'
+import { Button } from '../../components/Button'
 
 export default function OlaWolff() {
 	// const router = useRouter()
 	// const nextProject = getNextProductBasedOnCurrentPath(router.pathname)
 	return (
-		<>
+		<article className='olawolff'>
 			{/* <SeoProps
 				title='olá wolff: contador online'
 				description='Dentro da startup estive em posição privilegiada aonde consegui colocar a ideia de desburocratização da abertura de uma empresa em menos de 24 horas na prática. Veja como foi o processo de realizar isso e ainda sim garantir uma excelente experiência de usuário.'
@@ -20,25 +20,26 @@ export default function OlaWolff() {
 				title='olá wolff: contador online'
 				description='Dentro da startup estive em posição privilegiada aonde consegui colocar a ideia de desburocratização da abertura de uma empresa em menos de 24 horas na prática. Veja como foi o processo de realizar isso e ainda sim garantir uma excelente experiência de usuário.'
 				backgroundClass='bg-wolf'>
-				<Section>
-					<SectionContentWithImage image={'/img/portfolio/olawolff/iphone.png'} imageAlt={''} side='right' >
-						<h2>Olá Wolff, diminuindo a burocracia com um chatbot</h2>
-						<p>O Mundo está em constante mudança, todos os dias nascem novas ideias e novas tecnologias que nos auxiliam em nosso dia-a-dia, com o Olá Wolff não era diferente, ele veio para facilitar muita coisa, principalmente o processo de abertura de empresas.</p>
-						<p>É um serviço, baseado em inteligência artificial, para acelar o processo de abertura de empresas, sanar as dúvidas dos empreendedores, agilizar aspectos burocráticos e realizar a constituição empresarial. </p>
-						<p>A função do Olá Wolff era recolher todos os dados necessários dos empreendedores para serem processados de forma rápida e precisa para a abertura da empresa possibilitando uma formalização quase que instantânea para MEIs e futuramente outros tipos de empresa.</p>
-					</SectionContentWithImage>
-				</Section>
+				<>
+					<Section>
+						<SectionContentWithImage image={'/img/portfolio/olawolff/iphone.png'} imageAlt={''} side='right' >
+							<h2>Olá Wolff, diminuindo a burocracia com um chatbot</h2>
+							<p>O Mundo está em constante mudança, todos os dias nascem novas ideias e novas tecnologias que nos auxiliam em nosso dia-a-dia, com o Olá Wolff não era diferente, ele veio para facilitar muita coisa, principalmente o processo de abertura de empresas.</p>
+							<p>É um serviço, baseado em inteligência artificial, para acelar o processo de abertura de empresas, sanar as dúvidas dos empreendedores, agilizar aspectos burocráticos e realizar a constituição empresarial. </p>
+							<p>A função do Olá Wolff era recolher todos os dados necessários dos empreendedores para serem processados de forma rápida e precisa para a abertura da empresa possibilitando uma formalização quase que instantânea para MEIs e futuramente outros tipos de empresa.</p>
+						</SectionContentWithImage>
+					</Section>
+
+					<Section>
+						<h2 style={{ marginBottom: '1.5rem' }}>A marca e o seu guia</h2>
+						<SectionContentWithImage image={'/img/portfolio/olawolff/logos.png'} imageAlt={''} >
+							<p>Criada originalmente para representar um chat, a marca teve uma excelente evolução colocando uma fonte mais suave e utilizando um degradê com as cores da bandeira nasciona.</p>
+							<p>O ponto chave foi a vírgula. Queriamos criar a impressão de uma conversa sendo inciada e acabamos utilizando a vírgula com o ícone de todo o projeto.</p>
+							<p>A marca passou pelo processo de registro no INPI, foi feita também um guia da marca completo conforme mostrado abaixo. Clique na imagem para expandir.</p>
+						</SectionContentWithImage>
+					</Section>
+				</>
 			</PageHero>
-			<div className='container'>
-				<Section>
-					<h2>A marca e o seu guia</h2>
-					<SectionContentWithImage image={'/img/portfolio/olawolff/logos.png'} imageAlt={''} gap={10} >
-						<p>Criada originalmente para representar um chat, a marca teve uma excelente evolução colocando uma fonte mais suave e utilizando um degradê com as cores da bandeira nasciona.</p>
-						<p>O ponto chave foi a vírgula. Queriamos criar a impressão de uma conversa sendo inciada e acabamos utilizando a vírgula com o ícone de todo o projeto.</p>
-						<p>A marca passou pelo processo de registro no INPI, foi feita também um guia da marca completo conforme mostrado abaixo. Clique na imagem para expandir.</p>
-					</SectionContentWithImage>
-				</Section>
-			</div>
 
 			<div className='container wrapper'>
 				<PhotoGallery options={{ Carousel: { infinite: false } }}>
@@ -70,34 +71,32 @@ export default function OlaWolff() {
 			</div>
 
 			<div className='container'>
-				<Section>
-					<div className='olawolff-two-image-paragraph'>
-						<div className='images'>
-							<img src='/img/portfolio/olawolff/cristian.png' />
-							<img src='/img/portfolio/olawolff/nomes.png' />
-						</div>
-						<div className='paragraph'>
-							<h2>Cristian Sales, o comunicador</h2>
-							<p>
-								Em todos os momentos durante o projeto sabíamos que a interface homem-robô poderia não ser a mais eficiênte, então resolvemos criar o Cristian Sales, que iria dar uma visão mais humana para todo o processo. Ele é o pseudônimo do Wolff, um personagem para fazer
-								toda a comunicação nas redes sociais e e-mail marketing que iria permitir uma comunicação rápida e eficiente com o mundo.{' '}
-							</p>
-							<p>
-								Já que o nome Olá Wolff veio com base no personagem de Ben Affleck do filme O Contador: Christian Wolff. Simplificamos o nome para ser fácil de ler e simples para escrever, além de adicionar um quê de abrasileirada com um dos sobrenomes mais comuns no Brasil, que
-								também representa a palavra vendas em inglês.
-							</p>
-							<p>Alguns outros nomes e sobrenomes estiveram na nossa pesquisa durante o desenvolvimento do personagem, porém esse foi o ganhador. Acredito que se fosse hoje estariamos com o nome Cris ao invés de Cristian para ser um nome sem gênero.</p>
-						</div>
+				<Section className='sales'>
+					<div className='left'>
+						<img src='/img/portfolio/olawolff/cristian.png' />
+						<img src='/img/portfolio/olawolff/nomes.png' />
+					</div>
+					<div className='right'>
+						<h2>Cristian Sales, o comunicador</h2>
+						<p>
+							Em todos os momentos durante o projeto sabíamos que a interface homem-robô poderia não ser a mais eficiênte, então resolvemos criar o Cristian Sales, que iria dar uma visão mais humana para todo o processo. Ele é o pseudônimo do Wolff, um personagem para fazer
+							toda a comunicação nas redes sociais e e-mail marketing que iria permitir uma comunicação rápida e eficiente com o mundo.{' '}
+						</p>
+						<p>
+							Já que o nome Olá Wolff veio com base no personagem de Ben Affleck do filme O Contador: Christian Wolff. Simplificamos o nome para ser fácil de ler e simples para escrever, além de adicionar um quê de abrasileirada com um dos sobrenomes mais comuns no Brasil, que
+							também representa a palavra vendas em inglês.
+						</p>
+						<p>Alguns outros nomes e sobrenomes estiveram na nossa pesquisa durante o desenvolvimento do personagem, porém esse foi o ganhador. Acredito que se fosse hoje estariamos com o nome Cris ao invés de Cristian para ser um nome sem gênero.</p>
 					</div>
 				</Section>
 			</div>
 
 			<div className='container wrapper'>
 				<PhotoGallery options={{ Carousel: { infinite: false } }}>
-					<a data-fancybox='gallery' href='/img/portfolio/olawolff/v1.jpg'>
+					<a data-fancybox='gallery' href='/img/portfolio/olawolff/v1.jpg' data-caption='Versão inicial do chat'>
 						<img src='/img/portfolio/olawolff/v1.jpg' width='200' height='150' />
 					</a>
-					<a data-fancybox='gallery' href='/img/portfolio/olawolff/v2.jpg'>
+					<a data-fancybox='gallery' href='/img/portfolio/olawolff/v2.jpg' data-caption='Versão final do chat'>
 						<img src='/img/portfolio/olawolff/v2.jpg' width='200' height='150' />
 					</a>
 				</PhotoGallery>
@@ -105,8 +104,8 @@ export default function OlaWolff() {
 
 			<div className='container'>
 				<Section>
-					<h2>Usabilidade do chat</h2>
-					<SectionContentWithImage image={'/img/portfolio/olawolff/mobile.jpg'} imageAlt={'Imagem real do produto em desenvolvimento em um visão mobile'} imageCaption gap={10}>
+					<h2 style={{ marginBottom: '1.5rem' }}>Usabilidade do chat</h2>
+					<SectionContentWithImage image={'/img/portfolio/olawolff/mobile.jpg'} imageAlt={'Imagem real do produto em desenvolvimento em um visão mobile'} imageCaption>
 						<p>
 							O chat foi, provavelmente, a parte mais importante de todo o projeto. Foram várias versões desenvolvidas e varias melhoras com o tempo. A importância se deu pois queríamos passar a impressão de que havia realmente alguem respondendo as perguntas, sem parecer
 							forçado. Queriamos ter uma experiência já conhecida pelos nosso público alvo, trabalhadores MEI que poderia ou ser familiarizado com a mídia, ou ser novo na internet.{' '}
@@ -117,7 +116,7 @@ export default function OlaWolff() {
 						</p>
 						<p>O front-end do chat foi desenvolvido com React e comunicava com os serviços cognitivos do Azure e nossa API interna para outras informações além do diálogo. Lançamos o projeto como open-source em licença MIT. </p>
 
-						<Button as='a' href='https://github.com/vtnorton/WolffChat' icon={<Code20Regular />} size='large' shape='square'>source_code;</Button>
+						<Button as='a' href='https://github.com/vtnorton/WolffChat' icon={<Code20Regular />} size='medium' shape='square'>source_code</Button>
 					</SectionContentWithImage>
 				</Section>
 
@@ -127,18 +126,15 @@ export default function OlaWolff() {
 						<p>Conheça algumas das funções mais desafiadores para criar uma excelente experiência de usuário dentro do chat para nossas personas.</p>
 					</div>
 
-					<div className='space-long'></div>
-					<div className='flex' style={{ gap: '5rem' }}>
+					<div>
 						<div>
 							<img className='center img-helper' src='/img/portfolio/olawolff/usuario.jpg' />
-							<div className='space-low'></div>
 							<h4>Proxímidade com o usuário</h4>
 							<p>Ao informar o nome, o chat apresentava o nome do usuário embaixo de todas as mensagens enviadas por ele, assim como o avatar recebia as iniciais do nome para deixar mais íntimo e pessoal a conversa. Similar ao que mensageiros atuais já fazem.</p>
 							<p>E em adição a isso, temos a hora sendo apresentada junto com a mensagem, para auxiliar não só no processo de auditoria, mas para que o usuário tenha a sensação de controle vendo o tempo gasto nas mensagens.</p>
 						</div>
 						<div>
 							<img className='center img-helper' src='/img/portfolio/olawolff/digitando.jpg' />
-							<div className='space-low'></div>
 							<h4>O Wolff está digitando...</h4>
 							<p>Era apresentado para o usuário um balão dizendo que o Wolff está digitando para personificar o Wolff criando ainda mais empatia. </p>
 							<p>
@@ -148,7 +144,6 @@ export default function OlaWolff() {
 						</div>
 						<div>
 							<img className='center img-helper' src='/img/portfolio/olawolff/status.jpg' />
-							<div className='space-low'></div>
 							<h4>Status de mensagem</h4>
 							<p>
 								Com o status de mensagem queriamos informar para o usuário como está o processo dela. Tinhamos três estágios de status: enviada, recebida e lida. Uma bolinha clara para enviado, duas bolinhas (uma verde e uma clara) para recebida pelo Wolff e duas verdes para
@@ -157,7 +152,6 @@ export default function OlaWolff() {
 							<p>No fundo, ao dizer a mensagem foi lida, a resposta já estava no computador do usuário esperando para ser apresentada.</p>
 						</div>
 					</div>
-					<div className='space-long'></div>
 
 					<div className='text-60-percent-wrap'>
 						<h4>Fazendo os termos mais acessíveis</h4>
@@ -175,7 +169,7 @@ export default function OlaWolff() {
 			<div className='container'>
 				<Section removePaddingButton>
 					<h2>Backend, backoffice &amp; pipelines</h2>
-					<SectionContentWithImage image={'/img/portfolio/olawolff/back-2.jpg'} imageAlt={''} gap={10} >
+					<SectionContentWithImage image={'/img/portfolio/olawolff/back-2.jpg'} imageAlt={''} >
 						<h4>Trabalho junto a Junta Comercial e orgãos públicos</h4>
 						<p>
 							O projeto nunca teve posições políticas, mas precisavamos estar conversando com as cidades e auxiliando no processo de digitalização, desde o mapeamento das ruas da cidade para alvará de funcionamento digital, até integrações de sistemas da prefeitura, para uma
@@ -187,8 +181,7 @@ export default function OlaWolff() {
 							essencial. Nele também salvámos todos os dados de usuários.
 						</p>
 					</SectionContentWithImage>
-					<div className='space-medium'></div>
-					<SectionContentWithImage image={'/img/portfolio/olawolff/back-1.jpg'} imageAlt={''} gap={10} >
+					<SectionContentWithImage image={'/img/portfolio/olawolff/back-1.jpg'} imageAlt={''} >
 						<h4>Migração de conteúdo</h4>
 						<p>
 							Com diversos ambientes sendo desenvolvidos ao mesmo tempo, e um fluxo de trabalho diferente por parte dos diálogos, um mecanimos de migração de conteúdo foi implementado, assim, os diálogos que estavam em produção também poderiam chegar em desenvolvimento, e
@@ -201,12 +194,11 @@ export default function OlaWolff() {
 						</p>
 						<p>O que mais chama atenção foi a necessidade ágil do projeto, o que, juntando tudo, permitia que em alterações solicitadas e ajustes fossem implementados nos diversos ambientes a caminho de reuniões com a prefeitura e/ou deputados.</p>
 					</SectionContentWithImage>
-					<div className='space-long'></div>
 					{/* <NextProjectComponent name={nextProject.name} imageUrl={nextProject.imageUrl} link={nextProject.link} /> */}
 				</Section>
 			</div>
 
 			<Footer />
-		</>
+		</article>
 	)
 }

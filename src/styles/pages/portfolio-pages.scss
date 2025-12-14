@@ -1,0 +1,26 @@
+.olawolff {
+	.sales .section-content {
+		display: flex;
+		flex-direction: row;
+		gap: var(--spacing-xl);
+
+		.left {
+			display: flex;
+			flex-direction: column;
+
+			img {
+				width: fit-content;
+			}
+
+			img:nth-child(2) {
+				margin-top: auto;
+			}
+		}
+
+		.right {
+			display: flex;
+			flex-direction: column;
+			gap: 1.5rem;
+		}
+	}
+}
