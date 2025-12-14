@@ -1,8 +1,8 @@
 import { SectionContentWithImageProps } from './SectionProps'
 
 export const SectionContentWithImage = ({ children, image, imageAlt, imageCaption, side, sticky, imageSize }: SectionContentWithImageProps) => {
-	let classNameImage = sticky ? 'content-with-image__image content-with-image--sticky' : 'content-with-image__image'
 	const className = side === 'right' ? 'content-with-image content-with-image--right' : 'content-with-image'
+	let classNameImage = sticky ? 'content-with-image__image content-with-image--sticky' : 'content-with-image__image'
 
 	if (imageSize === 'small')
 		classNameImage += ' content-with-image__image--small'

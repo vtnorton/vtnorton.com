@@ -22,7 +22,7 @@ export default function OlaWolff() {
 				backgroundUrl='/img/portfolio/ola-wolff.jpg'>
 				<>
 					<Section>
-						<SectionContentWithImage image={'/img/portfolio/olawolff/iphone.png'} imageAlt={''} side='right' >
+						<SectionContentWithImage image={'/img/portfolio/olawolff/iphone.png'} imageAlt={''} side='right' sticky>
 							<h2>Olá Wolff, diminuindo a burocracia com um chatbot</h2>
 							<p>O Mundo está em constante mudança, todos os dias nascem novas ideias e novas tecnologias que nos auxiliam em nosso dia-a-dia, com o Olá Wolff não era diferente, ele veio para facilitar muita coisa, principalmente o processo de abertura de empresas.</p>
 							<p>É um serviço, baseado em inteligência artificial, para acelar o processo de abertura de empresas, sanar as dúvidas dos empreendedores, agilizar aspectos burocráticos e realizar a constituição empresarial. </p>
