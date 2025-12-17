@@ -27,6 +27,15 @@ const nextConfig = {
 		sourceMap: true,
 		silenceDeprecations: ['legacy-js-api'],
 	},
+	async redirects() {
+		return [
+			{
+				source: '/portfolio/palestra/:id',
+				destination: '/palestra/:id',
+				permanent: true,
+			},
+		]
+	},
 	async rewrites() {
 		return [
 			{
