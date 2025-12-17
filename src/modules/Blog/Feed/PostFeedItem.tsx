@@ -2,7 +2,6 @@ import { InteractionTag, InteractionTagPrimary, TagGroup } from '@fluentui/react
 import { Section } from '../../../components/Section'
 import { Post } from '../../../models/Post'
 import { getDate } from '../../../utils/postDate'
-import { IoChevronForwardOutline } from 'react-icons/io5'
 import { useRouter } from 'next/router'
 import { Button } from '../../../components/Button'
 import { NoiseImage } from '../../../components/NoiseImage'
