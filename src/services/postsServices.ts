@@ -51,8 +51,6 @@ const getAllPosts = async (): Promise<Array<Post>> => {
 
 	const results = await notion.query(filter)
 
-	console.log('getAllPosts lenght:', results.length)
-
 	results.forEach(async (result: any) => {
 		if (result.properties['Type'].multi_select[0].name === 'Post') {
 			const post = new Post(result)

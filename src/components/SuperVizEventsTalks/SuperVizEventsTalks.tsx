@@ -30,7 +30,7 @@ export const SuperVizEventsTalks = ({ date, talkTitle, onsite, id }: { date: str
 					shape='circular'>{date}</Tag>
 
 			</div>
-			<Button as='a' href={`/portfolio/palestra/${id}`} size='small' appearance='secondary' shape='square'
+			<Button as='a' href={`/palestra/${id}`} size='small' appearance='secondary' shape='square'
 				style={{
 					marginRight: '.5rem',
 				}}><strong>{talkTitle}</strong></Button>

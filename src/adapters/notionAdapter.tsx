@@ -1,5 +1,6 @@
 import { Client } from '@notionhq/client'
 import { NotionAPI } from 'notion-client'
+import { NotionFilter, NotionResult } from '../types/notionTypes'
 
 export class NotionAdapter {
 	private notion: Client
@@ -14,8 +15,7 @@ export class NotionAdapter {
 		})
 	}
 
-	// eslint-disable-next-line @typescript-eslint/no-explicit-any
-	async query(filter: any) {
+	async query(filter: NotionFilter): Promise<Array<NotionResult>> {
 		// TODO: if reponse contains start_cursor, implement pagination to fetch all results from all pages
 		const response = await this.notion.dataSources.query({
 			data_source_id: this.datasourceId,

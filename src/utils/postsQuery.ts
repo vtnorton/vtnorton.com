@@ -1,5 +1,6 @@
-// eslint-disable-next-line @typescript-eslint/no-explicit-any
-export const sharedFilter = (): any => {
+import { NotionFilter } from '../types/notionTypes'
+
+export const sharedFilter = (): NotionFilter => {
 	const CLIENT_ID = process.env.CLIENT_ID
 
 	return [
@@ -43,7 +44,7 @@ export const sharedFilter = (): any => {
 					// TODO: Permitir todos os clientes, mas colocar a informação do cliente na postagem
 					property: 'Cliente',
 					relation: {
-						contains: CLIENT_ID,
+						contains: CLIENT_ID || '',
 					},
 				},
 			],
