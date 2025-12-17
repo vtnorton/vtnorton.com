@@ -1,5 +1,5 @@
-import { Button } from '../Button'
-import { NoiseImage } from '../NoiseImage'
+import { Button } from '../../../components/Button'
+import { NoiseImage } from '../../../components/NoiseImage'
 import { PortfolioProps } from './PortfolioProps'
 
 export const PortfolioItem = ({

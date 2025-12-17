@@ -117,7 +117,7 @@
 
 			.logo {
 				width: var(--sidebar-width);
-				border-right: 1px solid #ddd;
+				border-right: 1px solid var(--border-color);
 				padding-top: 1.5rem;
 				display: flex;
 				justify-content: space-around;

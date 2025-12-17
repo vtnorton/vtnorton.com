@@ -112,13 +112,13 @@
 		margin-bottom: 7px;
 
 		a {
-			color: #ddd;
+			color: var(--border-color);
 			font-size: 12px;
 		}
 	}
 
 	.blog-item-more {
-		color: #ddd;
+		color: var(--border-color);
 		cursor: pointer;
 		display: block;
 		position: absolute;

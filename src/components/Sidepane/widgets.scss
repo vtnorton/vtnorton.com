@@ -33,7 +33,7 @@
 	height: var(--sidebar-width);
 	display: flex;
 	align-items: center;
-	border-bottom: 1px solid #ddd;
+	border-bottom: 1px solid var(--border-color);
 }
 
 @media (max-width: 650px) {

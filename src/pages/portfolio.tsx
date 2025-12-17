@@ -1,5 +1,6 @@
 import { PageHero } from '../components/PageHero'
-import { PortfolioItem } from '../components/PortfolioItem/PortfolioItem'
+import { Numbers } from '../modules/Portfolio/Numbers/Numbers'
+import { PortfolioItem } from '../modules/Portfolio/PortfolioItem/PortfolioItem'
 import { Footer } from '../sections/Footer/Footer'
 import { ProfileSection } from '../sections/Profile/Profile'
 
@@ -11,9 +12,8 @@ export default function Portfolio() {
 				description='Minha jornada é em temporadas: experimentos, tentativas e erros feios, e eu conto essa história com código. Este espaço reúne o que já publiquei: talks, apps, ideias que recusei ignorar e projetos, dos primeiros em 2015 até os que continuo construindo. Role, explore com calma — fique à vontade!'
 				backgroundClass='bg-porfolio' />
 
+			<Numbers />
 			{
-				/* PALESTRAS    // VIDEOS     // PODCASTS */
-
 				/* 2025 -> Bozo Preso */
 			}
 
