@@ -1,4 +1,24 @@
+@use './content.scss';
+
 .numbers {
+	--box-color: #eeeef3;
+
+	.number-square-expanded {
+		background: var(--box-color);
+		overflow: hidden;
+		max-height: 0;
+		animation: expandVertical 1.2s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+
+		.container {
+			padding: var(--spacing-lg);
+			opacity: 0;
+			animation: contentFadeIn 1s ease forwards 0.5s;
+		}
+	}
+
+	.expanded-content {
+		padding: 0 var(--spacing-md);
+	}
 
 	.first-row,
 	.second-row {
@@ -9,16 +29,40 @@
 	}
 
 	.first-row {
+		border-bottom: 1px solid var(--border-color);
+
 		.container {
 			grid-template-columns: 1fr 1fr;
 		}
 	}
 
 	.second-row {
-		border-top: 1px solid var(--border-color);
+		border-bottom: 1px solid var(--border-color);
 
 		.container {
 			grid-template-columns: 1fr 1fr 1fr;
+		}
+	}
+
+	@keyframes expandVertical {
+		from {
+			max-height: 0;
+		}
+
+		to {
+			max-height: 1000px;
+		}
+	}
+
+	@keyframes contentFadeIn {
+		from {
+			opacity: 0;
+			transform: translateY(20px);
+		}
+
+		to {
+			opacity: 1;
+			transform: translateY(0);
 		}
 	}
 
@@ -28,9 +72,16 @@
 		display: flex;
 		flex-direction: column;
 		gap: 1.5rem;
+		cursor: pointer;
+		transition: all .3s ease;
+		position: relative;
 
 		&:last-child {
-			border-right: none;
+			border-right: 1px solid transparent;
+		}
+
+		&:first-child {
+			border-left: 1px solid transparent;
 		}
 
 		h2,
@@ -44,6 +95,8 @@
 			font-family: 'Consolas', 'Courier New', Courier, monospace;
 			letter-spacing: -0.33px;
 			text-transform: uppercase;
+			line-height: 1rem;
+			transition: all .3s ease;
 		}
 
 		.number {
@@ -51,6 +104,8 @@
 			font-size: 4rem;
 			letter-spacing: -5px;
 			color: var(--title);
+			line-height: 4rem;
+			transition: all .3s ease;
 		}
 
 		p {
@@ -61,6 +116,46 @@
 			font-weight: 500;
 			margin-left: auto;
 			width: 75%;
+		}
+
+		&.active,
+		&:hover {
+			transition: all .3s ease;
+
+			h2 {
+				font-size: 1rem;
+				letter-spacing: -0.50px;
+			}
+
+			.number {
+				font-size: 3rem;
+			}
+		}
+
+		&.active {
+			&:last-child {
+				border-right: 1px solid var(--border-color);
+			}
+
+			&:first-child {
+				border-left: 1px solid var(--border-color);
+			}
+
+			background: var(--box-color);
+
+			h2 {
+				color: var(--dark-blue);
+			}
+
+			&::after {
+				content: '';
+				position: absolute;
+				bottom: -1px;
+				left: 0;
+				width: 100%;
+				height: 1px;
+				background: var(--box-color);
+			}
 		}
 	}
 }
