@@ -18,6 +18,16 @@
 
 	.expanded-content {
 		padding: 0 var(--spacing-md);
+
+		h3 {
+			font-size: 1.5rem;
+			font-family: 'Neutra Text Alt', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+
+			& + p {
+				color: #99a;
+				letter-spacing: -0.56px;
+			}
+		}
 	}
 
 	.first-row,
