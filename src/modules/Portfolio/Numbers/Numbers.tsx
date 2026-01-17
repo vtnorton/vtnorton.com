@@ -48,7 +48,7 @@ export const Numbers = () => {
 					<NumberSquare
 						id={'clientes'}
 						title={'clientes'}
-						number={'15+'}
+						number={'50+'}
 						description={'Empresas que confiaram em ideias ainda sem forma e me deixaram testar e errar.'}
 						isActive={activeIndex === 'clientes'}
 						onClick={handleToggle}

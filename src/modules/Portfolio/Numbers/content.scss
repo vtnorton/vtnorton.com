@@ -69,3 +69,40 @@
 		}
 	}
 }
+
+.clients {
+	.f-carousel {
+		--f-carousel-slide-width: 100%;
+		margin-bottom: 0 !important;
+
+		.f-carousel__viewport {
+			margin: 0 1rem;
+			width: calc(100% - 3rem);
+		}
+
+		.f-carousel__slide {
+			display: flex;
+			justify-content: space-evenly;
+			align-items: center;
+
+			img {
+				max-height: 42px;
+				object-fit: contain;
+				filter: grayscale(100%) brightness(0);
+				opacity: 0.35;
+				transition: all 0.3s ease;
+
+				&:hover {
+					filter: grayscale(0%);
+					opacity: 1;
+				}
+			}
+		}
+	}
+
+	@media (min-width: 768px) {
+		.f-carousel {
+			--f-carousel-slide-width: calc(100% / 4);
+		}
+	}
+}
