@@ -6,19 +6,22 @@ import { Footer } from '../../sections/Footer/Footer'
 import { PageHero } from '../../components/PageHero'
 import { PhotoGallery } from '../../components/PhotoGallery'
 import { Button } from '../../components/Button'
+import { ContentSEO } from '../../database/seo'
 
 export default function OlaWolff() {
 	// const router = useRouter()
 	// const nextProject = getNextProductBasedOnCurrentPath(router.pathname)
+	const pageTitle = 'Olá Wolff: contador online'
+	const pageDescription = 'De dentro da startup, fiquei no lugar certo para testar uma ideia simples e ambiciosa: desburocratizar a abertura de empresas em menos de 24 horas. Aqui está como transformei isso em prática — sem perder a experiência de usuário pelo caminho.'
 	return (
 		<article className='olawolff'>
-			{/* <SeoProps
-				title='olá wolff: contador online'
-				description='Dentro da startup estive em posição privilegiada aonde consegui colocar a ideia de desburocratização da abertura de uma empresa em menos de 24 horas na prática. Veja como foi o processo de realizar isso e ainda sim garantir uma excelente experiência de usuário.'
-				featureImage='/img/portfolio/olawolff/guia/p1.jpg' /> */}
+			<ContentSEO
+				featureImage={'/img/other/og/olawolff.png'}
+				title={pageTitle}
+				description={pageDescription} ogType='portfolio' />
 			<PageHero
-				title='olá wolff: contador online'
-				description='De dentro da startup, fiquei no lugar certo para testar uma ideia simples e ambiciosa: desburocratizar a abertura de empresas em menos de 24 horas. Aqui está como transformei isso em prática — sem perder a experiência de usuário pelo caminho.'
+				title={pageTitle}
+				description={pageDescription}
 				backgroundUrl='/img/portfolio/ola-wolff.jpg'>
 				<>
 					<Section>

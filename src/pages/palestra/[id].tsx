@@ -9,6 +9,7 @@ import { Footer } from '../../sections/Footer/Footer'
 import { Talk } from '../../models/Talk'
 import { talkServices } from '../../services/talkServices'
 import { NextProject } from '../../components/NextProject/NextProject'
+import { ContentSEO } from '../../database/seo'
 
 const mountPath = (talk: Talk) => {
 	return {
@@ -83,10 +84,14 @@ export default function Palestra({ talk, nextTalk }: { talk: Talk, nextTalk: Tal
 
 	return (
 		<>
-			{/* <SeoProps
-				title={`Palestra: ${talk.title} - Vitor Norton`}
+			<ContentSEO
+				featureImage={talk.cover}
+				title={talk.title}
 				description={talk.description}
-				featureImage='/img/pages/palestras.jpg' /> */}
+				date={talk.date}
+				tags={['palestra']}
+				category='talks'
+				ogType='article' />
 			<PageHero
 				title={talk.title}
 				description=''

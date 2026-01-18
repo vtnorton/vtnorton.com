@@ -3,6 +3,7 @@ import { IndividualPost } from '../../../modules/Blog'
 import { postServices } from '../../../services/postsServices'
 import { useLayout } from '../../../providers/LayoutProvider'
 import { useEffect } from 'react'
+import { ContentSEO } from '../../../database/seo'
 
 const mountPath = (post: Post) => {
 	const postDate = new Date(post.date)
@@ -70,7 +71,13 @@ export default function PostDetail({ post }: { post: Post }) {
 
 	return (
 		<>
-			{/* <SeoProps title={post.title} description={''} featureImage={post.featureImage} ogType='article' publishedTime={post.date} tags={post.hashtags} /> */}
+			<ContentSEO
+				featureImage={post.cover}
+				title={post.title}
+				description={post.abstract}
+				date={post.date}
+				tags={post.hashtags}
+				ogType='article' />
 			<IndividualPost post={post} />
 		</>
 	)

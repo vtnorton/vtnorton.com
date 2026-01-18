@@ -8,8 +8,11 @@ import { ContactCardRegular, PeopleCommunityRegular } from '@fluentui/react-icon
 import { PhotoGallery } from '../../components/PhotoGallery'
 import { Button } from '../../components/Button'
 import { SuperVizEventsTalks } from '../../components/SuperVizEventsTalks/SuperVizEventsTalks'
+import { ContentSEO } from '../../database/seo'
 
 export default function SuperViz() {
+	const pageTitle = 'Brand Awareness da SuperViz, através de eventos'
+	const pageDescription = 'Durante o segundo semestre de 2024, encabecei na SuperViz a estratégia de participação em eventos de tecnologia, com o objetivo de aumentar o reconhecimento da marca e gerar leads qualificados.'
 	const imageBlurForHackathon: ImageBlur = {
 		imageURL: '/img/portfolio/superviz/hackathon_logo.png',
 		imageBlurURL: '/img/portfolio/superviz/hackatohn-2.0.jpg',
@@ -18,9 +21,13 @@ export default function SuperViz() {
 
 	return (
 		<article className='superviz'>
+			<ContentSEO
+				featureImage={'/img/other/og/superviz.png'}
+				title={pageTitle}
+				description={pageDescription} ogType='portfolio' />
 			<PageHero
-				title='Brand Awareness da SuperViz, através de eventos'
-				description='Durante o segundo semestre de 2024, encabecei na SuperViz a estratégia de participação em eventos de tecnologia, com o objetivo de aumentar o reconhecimento da marca e gerar leads qualificados.'
+				title={pageTitle}
+				description={pageDescription}
 				backgroundUrl='/img/portfolio/superviz.jpg'>
 				<Section paragraph>
 					<h2>A Jornada de Eventos</h2>

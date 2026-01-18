@@ -1,15 +1,19 @@
 import { PageHero } from '../components/PageHero'
+import { ContentSEO } from '../database/seo'
 import { Numbers } from '../modules/Portfolio/Numbers/Numbers'
 import { PortfolioItem } from '../modules/Portfolio/PortfolioItem/PortfolioItem'
 import { Footer } from '../sections/Footer/Footer'
 import { ProfileSection } from '../sections/Profile/Profile'
 
 export default function Portfolio() {
+	const pageTitle = 'Portfólio: código & criação'
+	const pageDescription = 'Minha jornada é em temporadas: experimentos, tentativas e erros feios, e eu conto essa história com código. Este espaço reúne o que já publiquei: talks, apps, ideias que recusei ignorar e projetos, dos primeiros em 2015 até os que continuo construindo.'
 	return (
 		<article className='portfolio'>
+			<ContentSEO title={pageTitle} description={pageDescription} ogType='portfolio' />
 			<PageHero
 				title={'Portfólio: código & criação'}
-				description='Minha jornada é em temporadas: experimentos, tentativas e erros feios, e eu conto essa história com código. Este espaço reúne o que já publiquei: talks, apps, ideias que recusei ignorar e projetos, dos primeiros em 2015 até os que continuo construindo. Role, explore com calma — fique à vontade!'
+				description={`${pageDescription} Role, explore com calma — fique à vontade!`}
 				backgroundClass='bg-porfolio' />
 
 			<Numbers />

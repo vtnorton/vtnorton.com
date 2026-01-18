@@ -4,7 +4,6 @@ export enum Medias {
 	Instagram = 'Instagram',
 	GitHub = 'GitHub',
 	LinkedIn = 'LinkedIn',
-	BlueSky = 'BlueSky',
 	Discord = 'Discord',
 	Dev = 'Dev.to',
 }

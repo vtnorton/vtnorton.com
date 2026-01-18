@@ -1,5 +1,6 @@
 import React from 'react'
 import { useLayout } from '../providers/LayoutProvider'
+import { ContentSEO } from '../database/seo'
 
 export default function Index() {
 	const { sidepane: sidebar } = useLayout()
@@ -7,8 +8,11 @@ export default function Index() {
 	sidebar.explodeIt()
 
 	return (
-		<div className='promo'>
+		<>
+			<ContentSEO title='Vitor Norton | Developer Relations Engineer' />
+			<div className='promo'>
 
-		</div>
+			</div>
+		</>
 	)
 }
