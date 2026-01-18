@@ -19,8 +19,18 @@ const PrimaryBookCall = () => {
 const SecondaryBookCall = () => {
 	const [isHovered, setIsHovered] = useState(false)
 	const date = new Date()
+	const day = date.getDate()
+
+	if (day > 26) {
+		date.setMonth(date.getMonth() + 1)
+	}
+
 	const month = date.toLocaleString('pt-BR', { month: '2-digit' })
 	const year = date.getFullYear()
+
+	const isLateMonth = day > 20 && day <= 26
+	const slots = isLateMonth ? '1' : <>3<span className='hover'>(+1)</span></>
+	const slotsText = isLateMonth ? 'espaço' : 'espaços'
 
 	const CalendarIcon = ({ moreColor }: { moreColor: boolean }) => {
 		const color = '#0559C1'
@@ -46,7 +56,7 @@ const SecondaryBookCall = () => {
 		<WidgetSecondaryWrapper onMouseEnter={() => setIsHovered(true)} onMouseLeave={() => setIsHovered(false)}>
 			<CalendarIcon moreColor={isHovered} />
 			<p>
-				<small>3<span className='hover'>(+1)</span>espaços na agenda <span className='date'>{month}/{year}</span></small>
+				<small>{slots} {slotsText} na agenda <span className='date'>{month}/{year}</span></small>
 			</p>
 		</WidgetSecondaryWrapper>
 	)
