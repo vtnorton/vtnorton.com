@@ -16,7 +16,8 @@ const SidePaneInnerContent = ({ windowWidth }: { windowWidth: number }) => {
 			<div className='menu'>
 				<MenuLink title={'Home'} link={'/'} />
 				<MenuLink title={'Portfólio'} link={'/portfolio'} />
-				<MenuLink title={'Meu blog'} link={'/blog'} />
+				<MenuLink title={'Blog tech'} link={'/blog?type=tech'} />
+				<MenuLink title={'Blog pessoal'} link={'/blog?type=personal'} />
 			</div>
 			<div className='footer'>
 				<img src='/img/other/barcode.png' alt='Barcode' className='barcode' />

@@ -4,7 +4,6 @@ import { handleCache } from '../../middleware/cache'
 import { postServices } from '../../services/postsServices'
 import { PaginatedResponse } from '../../types/PaginatedResponse'
 import { CACHE_KEYS } from '../../database/cacheKeys'
-import { itemCategoryFilter } from '../../utils/postsQuery'
 
 export default async function handler(
 	req: NextApiRequest,
@@ -21,12 +20,9 @@ export default async function handler(
 		return res.status(400).json({ error: 'Invalid pagination parameters' })
 	}
 
-	const filter = [
-		itemCategoryFilter('Pessoal'),
-	]
 	let allPosts = await handleCache<Post>(
-		CACHE_KEYS.PERSONAL_BLOG_POSTS,
-		() => postServices.getPosts(filter),
+		CACHE_KEYS.ALL_BLOG_POSTS,
+		() => postServices.getAllPosts(),
 		60 * 60 * 8,
 	)
 

@@ -22,10 +22,15 @@ export default async function handler(
 	}
 
 	const filter = [
-		itemCategoryFilter('Pessoal'),
+		{
+			or: [
+				itemCategoryFilter('Tech'),
+				itemCategoryFilter('Dev Advocate'),
+			],
+		},
 	]
 	let allPosts = await handleCache<Post>(
-		CACHE_KEYS.PERSONAL_BLOG_POSTS,
+		CACHE_KEYS.TECH_BLOG_POSTS,
 		() => postServices.getPosts(filter),
 		60 * 60 * 8,
 	)

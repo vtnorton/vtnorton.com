@@ -9,14 +9,27 @@ import { ContentSEO } from '../database/seo'
 export default function Blog() {
 	const router = useRouter()
 	const [selectedTag, setSelectedTag] = useState<string | null>(null)
-	const pageTitle = 'Meu blog'
+	const [endpoint, setEndpoint] = useState<string>('/api/blog')
+	const [pageTitle, setPageTitle] = useState('Meu blog')
 	const pageDescription = 'Este é meu espaço pra escrever sobre cinema, política, meu trampo como dev — postagens técnicas ou não — enfim, um blog old-school. Meu espaço sem compromisso na web, que talvez não devesse estar aqui, mas meu ímpeto de escrever sobre tudo me faz manter.'
 
 	useEffect(() => {
-		if (router.isReady && router.query.tag) {
-			setSelectedTag(router.query.tag as string)
+		if (router.isReady) {
+			if (router.query.tag) {
+				setSelectedTag(router.query.tag as string)
+			}
+
+			if (router.query.type === 'tech') {
+				setPageTitle('Meu blog tech')
+				setEndpoint('/api/tech-blog')
+			} else if (router.query.type === 'personal') {
+				setPageTitle('Meu blog pessoal')
+				setEndpoint('/api/personal-blog')
+			} else {
+				setPageTitle('Meu blog')
+			}
 		}
-	}, [router.isReady, router.query.tag])
+	}, [router.isReady, router.query.tag, router.query.type])
 
 	const handleTagDismiss = () => {
 		router.push({
@@ -44,7 +57,7 @@ export default function Blog() {
 				backgroundUrl='/img/pages/blog.jpg'>
 				<div className='personal-blog'>
 					<BlogFeed
-						endpoint='/api/personal-blog'
+						endpoint={endpoint}
 						selectedTag={selectedTag}
 						setSelectedTag={setSelectedTag}
 						isReady={router.isReady} />
