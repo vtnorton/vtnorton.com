@@ -1,9 +1,12 @@
 article.post {
 	.related-posts {
 		margin-top: auto;
-		color: #fff;
 		transition: opacity 0.5s ease, transform 0.5s ease;
 		pointer-events: none;
+
+		h4 {
+			color: #fff;
+		}
 
 		.blog-grid-3 {
 			display: grid;
