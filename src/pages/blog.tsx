@@ -9,7 +9,7 @@ import { ContentSEO } from '../database/seo'
 export default function Blog() {
 	const router = useRouter()
 	const [selectedTag, setSelectedTag] = useState<string | null>(null)
-	const [endpoint, setEndpoint] = useState<string>('/api/blog')
+	const [type, setType] = useState<string>('')
 	const [pageTitle, setPageTitle] = useState('Meu blog')
 	const pageDescription = 'Este é meu espaço pra escrever sobre cinema, política, meu trampo como dev — postagens técnicas ou não — enfim, um blog old-school. Meu espaço sem compromisso na web, que talvez não devesse estar aqui, mas meu ímpeto de escrever sobre tudo me faz manter.'
 
@@ -21,10 +21,10 @@ export default function Blog() {
 
 			if (router.query.type === 'tech') {
 				setPageTitle('Meu blog tech')
-				setEndpoint('/api/tech-blog')
+				setType('tech')
 			} else if (router.query.type === 'personal') {
 				setPageTitle('Meu blog pessoal')
-				setEndpoint('/api/personal-blog')
+				setType('personal')
 			} else {
 				setPageTitle('Meu blog')
 			}
@@ -57,7 +57,7 @@ export default function Blog() {
 				backgroundUrl='/img/pages/blog.jpg'>
 				<div className='personal-blog'>
 					<BlogFeed
-						endpoint={endpoint}
+						endpoint={'/api/blog?type=' + type}
 						selectedTag={selectedTag}
 						setSelectedTag={setSelectedTag}
 						isReady={router.isReady} />

@@ -4,7 +4,30 @@ import { handleCache } from '../../middleware/cache'
 import { postServices } from '../../services/postsServices'
 import { PaginatedResponse } from '../../types/PaginatedResponse'
 import { CACHE_KEYS } from '../../database/cacheKeys'
+import { itemCategoryFilter } from '../../utils/postsQuery'
 
+const getFilter = (type: string | null) => {
+	if (type === 'personal') {
+		return {
+			cacheKey: CACHE_KEYS.PERSONAL_BLOG_POSTS,
+			filter: [itemCategoryFilter('Pessoal')],
+		}
+	}
+
+	if (type === 'tech') {
+		return {
+			cacheKey: CACHE_KEYS.TECH_BLOG_POSTS,
+			filter: [itemCategoryFilter('Tech'), itemCategoryFilter('Dev Advocate')],
+		}
+	}
+
+	return {
+		cacheKey: CACHE_KEYS.ALL_BLOG_POSTS,
+		filter: [],
+	}
+}
+
+// TODO: Ver se está buscando mais de 100 itens no Notion para conseguir fazer paginação após essa quantidade de itens
 export default async function handler(
 	req: NextApiRequest,
 	res: NextApiResponse<PaginatedResponse<Post> | { error: string }>,
@@ -15,14 +38,17 @@ export default async function handler(
 	const page = req.query.page ? parseInt(req.query.page.toString()) : 1
 	const limit = req.query.limit ? parseInt(req.query.limit.toString()) : 10
 	const tag = req.query.tag ? req.query.tag.toString() : null
+	const type = req.query.type ? req.query.type.toString() : null
+
+	const { cacheKey, filter } = getFilter(type)
 
 	if (page < 1 || limit < 1 || limit > 100) {
 		return res.status(400).json({ error: 'Invalid pagination parameters' })
 	}
 
 	let allPosts = await handleCache<Post>(
-		CACHE_KEYS.ALL_BLOG_POSTS,
-		() => postServices.getAllPosts(),
+		cacheKey,
+		() => filter ? postServices.getPosts(filter) : postServices.getAllPosts(),
 		60 * 60 * 8,
 	)
 
