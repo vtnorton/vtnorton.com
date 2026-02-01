@@ -3,12 +3,11 @@ import { NotionAdapter } from '../adapters/notionAdapter'
 import { CACHE_KEYS } from '../database/cacheKeys'
 import { handleCache } from '../middleware/cache'
 import { Post } from '../models/Post'
-import { NotionFilter } from '../types/notionTypes'
 import { itemCategoryFilter, itemTypeFilter, sharedFilter } from '../utils/postsQuery'
 
 const NOTION_DB_DEVREL = process.env.DEVREL_DATASOURE as string
 
-const getPosts = async (filter: NotionFilter): Promise<Array<Post>> => {
+const getPosts = async (): Promise<Array<Post>> => {
 	const notion = new NotionAdapter(NOTION_DB_DEVREL)
 	const response: Array<Post> = []
 

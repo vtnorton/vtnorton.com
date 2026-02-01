@@ -21,6 +21,18 @@
 		padding-right: 0;
 	}
 
+	&.only-icon {
+		min-width: unset !important;
+		padding-left: 8px !important;
+		padding-right: 8px !important;
+
+		.arrow {
+			margin-top: 0 !important;
+			margin-left: 0 !important;
+			height: 20px;
+		}
+	}
+
 	&:hover {
 		.arrow {
 			transform: rotate(45deg);
