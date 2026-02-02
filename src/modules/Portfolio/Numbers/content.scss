@@ -106,3 +106,24 @@
 		}
 	}
 }
+
+.video-cta {
+	padding: 1rem 0 0;
+	display: flex;
+	gap: 2rem;
+	align-items: center;
+
+	p {
+		margin: 0;
+		font-size: 14px;
+		line-height: 1.2rem;
+		color: var(--dark-blue);
+		letter-spacing: -0.56px;
+		font-weight: 600;
+
+		&:last-of-type {
+			color: var(--default-text);
+			font-weight: 400;
+		}
+	}
+}

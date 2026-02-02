@@ -1,3 +1,4 @@
+import { Button } from '../../../../components/Button'
 import { FancyTable, FancyTableItems } from '../../../../components/FancyTable'
 
 export const VideoContent = () => {
@@ -34,6 +35,14 @@ export const VideoContent = () => {
 				descriptionTitle: 'Descrição',
 				mainTitle: 'Playlist',
 			}} />
+
+			<div className='video-cta'>
+				<Button href='https://www.youtube.com/@vt_norton' target='_blank' rel='noopener noreferrer' shape='square' size='large' appearance='primary'>Se inscreva no canal</Button>
+				<div className='community-stats'>
+					<p>Ajudei a mais de 1.200 inscritos</p>
+					<p>a entender melhor como programar melhor.</p>
+				</div>
+			</div>
 		</div>
 	)
 }
