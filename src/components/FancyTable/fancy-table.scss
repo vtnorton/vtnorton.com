@@ -39,6 +39,7 @@
 				letter-spacing: -1px;
 				color: var(--dark-blue);
 				line-height: 4rem;
+				transition: all .3s ease-in-out;
 			}
 
 			p {
@@ -47,15 +48,10 @@
 				line-height: 1.2rem;
 				font-weight: 500;
 				color: #fff;
-			}
+				transition: all .4s ease-in-out;
 
-			&:hover {
-				h4 {
-					color: #fff;
-				}
-
-				p {
-					opacity: 1;
+				&:last-child {
+					transform: translateX(80px);
 				}
 			}
 		}
@@ -63,6 +59,21 @@
 		&:not(.header):hover {
 			.ft-bg {
 				opacity: 1;
+			}
+
+			.ft-row-content {
+				h4 {
+					color: #fff;
+					transform: translateX(1rem);
+				}
+
+				p {
+					opacity: 1;
+
+					&:last-child {
+						transform: translateX(0);
+					}
+				}
 			}
 
 			.fui-Button {

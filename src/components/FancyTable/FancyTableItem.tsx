@@ -6,7 +6,7 @@ export const FancyTableItem = ({ item }: { item: FancyTableItems }) => {
 	return (
 		<a href={item.link} className='ft-row' target='_blank' rel='noopener noreferrer'>
 			<div className='ft-bg'>
-				<NoiseImage src={'/img/portfolio/' + item.image} alt={item.title} />
+				<NoiseImage src={item.image} alt={item.title} opacity={0.25} />
 			</div>
 			<div className='ft-row-content'>
 				<h4>/{item.title}</h4>

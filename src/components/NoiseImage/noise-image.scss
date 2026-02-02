@@ -67,4 +67,10 @@
 		animation: noise 8s steps(10) infinite;
 		pointer-events: none;
 	}
+
+	.overlay {
+		background-color: #000;
+		position: absolute;
+		inset: 0;
+	}
 }
