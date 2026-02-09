@@ -73,8 +73,12 @@
 				font-weight: 500;
 				color: #fff;
 				transition: all .4s ease-in-out;
+			}
+		}
 
-				&:last-child {
+		&:not(.header) {
+			.ft-row-content {
+				p:last-child {
 					transform: translateX(80px);
 				}
 			}
