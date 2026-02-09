@@ -7,7 +7,7 @@ import { Button } from '../../components/Button'
 import { ProfileSection } from '../../sections/Profile/Profile'
 import { Footer } from '../../sections/Footer/Footer'
 import { Talk } from '../../models/Talk'
-import { talkServices } from '../../services/talkServices'
+import { palestrasServices } from '../../services/palestrasServices'
 import { NextProject } from '../../components/NextProject/NextProject'
 import { ContentSEO } from '../../database/seo'
 
@@ -20,7 +20,7 @@ const mountPath = (talk: Talk) => {
 }
 
 export const getStaticPaths = async () => {
-	const talks: Talk[] = await talkServices.getAllTalks()
+	const talks: Talk[] = await palestrasServices.getAllTalks()
 	return {
 		paths: talks.map((talk: Talk) => mountPath(talk)),
 		fallback: true,
@@ -30,7 +30,7 @@ export const getStaticPaths = async () => {
 export const getStaticProps = async (context: { params: { id: string } }) => {
 	const { id } = context.params
 
-	const { talk, nextTalk } = await talkServices.getTalk(id)
+	const { talk, nextTalk } = await palestrasServices.getTalk(id)
 
 	let props = {
 		talk: talk,

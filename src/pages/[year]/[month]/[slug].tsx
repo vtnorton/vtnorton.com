@@ -20,7 +20,7 @@ const mountPath = (post: Post) => {
 }
 
 export const getStaticPaths = async () => {
-	const posts = await postServices.getAllPosts()
+	const posts = await postServices.getPosts()
 	return {
 		paths: posts.map((post: Post) => mountPath(post)),
 		fallback: true,

@@ -6,7 +6,6 @@ import { sharedFilter } from '../utils/talksQuery'
 const TALKS_DATASOURCE = process.env.TALKS_DATASOURCE as string
 
 const getAllTalks = async (): Promise<Array<Talk>> => {
-	console.log('Fetching all talks from Notion...')
 	const notion = new NotionAdapter(TALKS_DATASOURCE)
 	const response: Array<Talk> = []
 
@@ -16,7 +15,14 @@ const getAllTalks = async (): Promise<Array<Talk>> => {
 		response.push(post)
 	})
 
-	return response
+	return response.sort((a, b) => b.presentations - a.presentations)
+		.sort((a, b) => {
+			if (a.status === TalkStatus.Call4Pappers)
+				return -1
+			if (b.status === TalkStatus.Call4Pappers)
+				return 1
+			return 0
+		})
 }
 
 const getTalk = async (id: string): Promise<{
@@ -40,7 +46,7 @@ const getTalk = async (id: string): Promise<{
 	}
 }
 
-export const talkServices = {
+export const palestrasServices = {
 	getAllTalks,
 	getTalk,
 }

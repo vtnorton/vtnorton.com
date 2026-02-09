@@ -48,7 +48,7 @@ export default async function handler(
 
 	let allPosts = await handleCache<Post>(
 		cacheKey,
-		() => filter ? postServices.getPosts(filter) : postServices.getAllPosts(),
+		() => filter ? postServices.getPosts(filter) : postServices.getPosts(),
 		60 * 60 * 8,
 	)
 

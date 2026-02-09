@@ -1,13 +1,44 @@
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import { NumberSquare } from './NumberSquare'
 import { AwardContent } from './Content/AwardContent'
 import { ClientsContent } from './Content/ClientsContent'
 import { TalksContent } from './Content/TalksContent'
 import { PodcastsContent } from './Content/PodcastsContent'
 import { VideoContent } from './Content/VideoContent'
+import { FancyTableItems } from '../../../components/FancyTable'
+import { Talk } from '../../../models/Talk'
 
 export const Numbers = () => {
 	const [activeIndex, setActiveIndex] = useState<string | null>(null)
+	const [talkItems, setTalkItems] = useState<FancyTableItems[]>([])
+
+	useEffect(() => {
+		const abortController = new AbortController()
+
+		const loadTalks = async () => {
+			try {
+				const response = await fetch('/api/palestras', {
+					signal: abortController.signal,
+				})
+				if (!response.ok) return
+
+				const talks = (await response.json()) as Talk[]
+				setTalkItems(
+					talks.map((talk) => ({
+						title: talk.title,
+						description: talk.description ?? '',
+						link: `/palestra/${talk.id}`,
+						image: talk.cover || '/img/pages/palestras.jpg',
+					})),
+				)
+			} catch {
+				// ignore abort errors and network failures
+			}
+		}
+
+		void loadTalks()
+		return () => abortController.abort()
+	}, [])
 
 	const handleToggle = (id: string) => {
 		setActiveIndex(activeIndex === id ? null : id)
@@ -19,7 +50,7 @@ export const Numbers = () => {
 		const content = {
 			premios: <AwardContent />,
 			clientes: <ClientsContent />,
-			palestras: <TalksContent />,
+			palestras: <TalksContent items={talkItems} />,
 			videos: <VideoContent />,
 			podcasts: <PodcastsContent />,
 		}
