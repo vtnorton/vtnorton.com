@@ -4,6 +4,9 @@ import { IoApps, IoClose } from 'react-icons/io5'
 import { SidepaneContent } from './SidepaneContent'
 import { Widget } from './Widgets'
 import { Logo } from './Logo'
+import { ConstructionBanner } from '../ConstructionBanner'
+
+const SHOW_CONSTRUCTION_BANNER = true
 
 export const SidePane = ({
 	children,
@@ -108,6 +111,7 @@ export const SidePane = ({
 				windowWidth={windowWidth}
 			/>
 			<main className='panel' onClick={handleMainClick}>
+				{SHOW_CONSTRUCTION_BANNER ? <ConstructionBanner /> : null}
 				{children}
 			</main>
 		</div>)
