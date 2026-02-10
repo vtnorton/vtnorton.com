@@ -1,148 +1,117 @@
 @font-face {
-    font-family: 'Neutra Text Alt Italic';
-    src: url('/fonts/Neutra/NeutraTextTF-BookItalicAlt.eot');
-    src: url('/fonts/Neutra/NeutraTextTF-BookItalicAlt.eot?#iefix') format('embedded-opentype'),
-        url('/fonts/Neutra/NeutraTextTF-BookItalicAlt.woff2') format('woff2'),
-        url('/fonts/Neutra/NeutraTextTF-BookItalicAlt.woff') format('woff'),
-        url('/fonts/Neutra/NeutraTextTF-BookItalicAlt.ttf') format('truetype');
-    font-weight: normal;
-    font-style: italic;
-    font-display: swap;
+	font-family: 'Neutra Text Alt Italic';
+	src: url('/fonts/Neutra/NeutraTextTF-BookItalicAlt.eot');
+	src: url('/fonts/Neutra/NeutraTextTF-BookItalicAlt.eot?#iefix') format('embedded-opentype'),
+		url('/fonts/Neutra/NeutraTextTF-BookItalicAlt.woff2') format('woff2'),
+		url('/fonts/Neutra/NeutraTextTF-BookItalicAlt.woff') format('woff'),
+		url('/fonts/Neutra/NeutraTextTF-BookItalicAlt.ttf') format('truetype');
+	font-weight: normal;
+	font-style: italic;
+	font-display: swap;
 }
 
 @font-face {
-    font-family: 'Neutra Text Alt';
-    src: url('/fonts/Neutra/NeutraText-BookAlt.eot');
-    src: url('/fonts/Neutra/NeutraText-BookAlt.eot?#iefix') format('embedded-opentype'),
-        url('/fonts/Neutra/NeutraText-BookAlt.woff2') format('woff2'),
-        url('/fonts/Neutra/NeutraText-BookAlt.woff') format('woff'),
-        url('/fonts/Neutra/NeutraText-BookAlt.ttf') format('truetype');
-    font-weight: normal;
-    font-style: normal;
-    font-display: swap;
+	font-family: 'Neutra Text Alt';
+	src: url('/fonts/Neutra/NeutraText-BookAlt.eot');
+	src: url('/fonts/Neutra/NeutraText-BookAlt.eot?#iefix') format('embedded-opentype'),
+		url('/fonts/Neutra/NeutraText-BookAlt.woff2') format('woff2'),
+		url('/fonts/Neutra/NeutraText-BookAlt.woff') format('woff'),
+		url('/fonts/Neutra/NeutraText-BookAlt.ttf') format('truetype');
+	font-weight: normal;
+	font-style: normal;
+	font-display: swap;
 }
 
 @font-face {
-    font-family: 'Neutra Text Alt Bold';
-    src: url('/fonts/Neutra/NeutraTextTF-BoldAlt.eot');
-    src: url('/fonts/Neutra/NeutraTextTF-BoldAlt.eot?#iefix') format('embedded-opentype'),
-        url('/fonts/Neutra/NeutraTextTF-BoldAlt.woff2') format('woff2'),
-        url('/fonts/Neutra/NeutraTextTF-BoldAlt.woff') format('woff'),
-        url('/fonts/Neutra/NeutraTextTF-BoldAlt.ttf') format('truetype');
-    font-weight: bold;
-    font-style: normal;
-    font-display: swap;
+	font-family: 'Neutra Text Alt Bold';
+	src: url('/fonts/Neutra/NeutraTextTF-BoldAlt.eot');
+	src: url('/fonts/Neutra/NeutraTextTF-BoldAlt.eot?#iefix') format('embedded-opentype'),
+		url('/fonts/Neutra/NeutraTextTF-BoldAlt.woff2') format('woff2'),
+		url('/fonts/Neutra/NeutraTextTF-BoldAlt.woff') format('woff'),
+		url('/fonts/Neutra/NeutraTextTF-BoldAlt.ttf') format('truetype');
+	font-weight: bold;
+	font-style: normal;
+	font-display: swap;
 }
 
 h1,
-h2 {
-    font-family: 'Neutra Text Alt Bold', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif
+h2,
+h3,
+h4,
+h5 {
+	font-family: 'Neutra Text Alt Bold', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+	color: var(--dark-blue);
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+	margin: 0;
 }
 
 h1 {
-    font-size: 2em;
-    margin-bottom: .5em;
-    line-height: 150%;
+	font-size: 2.5em;
+	line-height: 150%;
 }
 
 h2 {
-    font-size: 2.5em;
-    margin-bottom: 0;
-    line-height: 135%;
-    margin-bottom: 1rem;
+	font-size: 2rem;
+	font-weight: 800;
 }
 
 h3 {
-    font-size: 1.5em;
-    font-family: 'Neutra Text Alt', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif
+	font-size: 1.8rem;
+	font-weight: 600;
+}
+
+h4 {
+	font-size: 1.3rem;
+	font-weight: 600;
+	line-height: 135%;
+}
+
+h5 {
+	font-size: 1.1rem;
+	font-weight: 600;
 }
 
 p {
-    margin-bottom: 2rem;
-    font-size: 1.1rem
+	font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+	margin-bottom: .5rem;
+	font-size: 1.1rem;
+	color: var(--default-text);
+	line-height: 1.8rem;
 }
 
-.text-60-percent-wrap p {
-    width: 60%;
+small {
+	font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+	font-size: 0.9rem;
+	color: var(--light-gray);
+	line-height: 120%;
 }
 
 em {
-    font-style: italic
+	font-style: italic
 }
 
 * p:last-child {
-    margin-bottom: 0
+	margin-bottom: 0
 }
 
 blockquote p {
-    margin-bottom: 0;
-    text-align: left
+	margin-bottom: 0;
+	text-align: left
 }
 
-.btn {
-    border: 0.067em solid #c3c3c3;
-    font-family: 'Consolas', 'Courier New';
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.25);
-    line-height: 140%;
-    font-size: 1em;
-    background: #c3c3c3;
-    color: #fff !important;
-    min-height: 2.000em;
-    min-width: 7.333em;
-    padding: 0.667em 1.000em 0;
-    cursor: pointer;
-    border-radius: 0;
-    display: inline-block;
-    text-align: left;
-    box-sizing: content-box;
-
-    &:hover {
-        border-color: #1d5bbc;
-        background: #1d5bbc;
-        color: #ffffff !important;
-        -moz-transition: all 0.29s;
-        -o-transition: all 0.29s;
-        -webkit-transition: all 0.29s;
-        transition: all 0.29s;
-    }
-
-    &:disabled {
-        background: #665;
-        border-color: #665;
-        -moz-transition: all 0.3s;
-        -o-transition: all 0.3s;
-        -webkit-transition: all 0.3s;
-        transition: all 0.3s;
-        cursor: not-allowed;
-    }
-
-    &.btn-primary {
-        background: #0559C1;
-        border-color: #0559C1;
-        color: #ffffff !important;
-    }
+a {
+	text-decoration: none;
+	color: inherit;
 }
 
-.btn-link {
-    background: transparent;
-    border-color: transparent;
-    color: #0559C1 !important;
-    padding-left: 0;
-}
-
-.btn-link:hover {
-    background: transparent;
-    color: #1d5bbc !important;
-    border-color: transparent;
-}
-
-a.btn-link {
-    text-shadow: 0 4px 15px rgba(0, 0, 0, 0.25);
-    box-shadow: none;
-}
-
-@media screen and (max-width: 920px) {
-    .text-60-percent-wrap p {
-        width: 100%;
-    }
+::selection {
+	background: #000;
+	color: #fff;
 }

@@ -1,15 +1,16 @@
 import React from 'react'
 
-import { FooterComponent, PageHeroComponent } from '../../components'
-import { SeoProps } from '../../database/SEOProps'
-import { Section } from '../../components/SectionComponent'
 import Link from 'next/link'
+import { Section } from '../../components/Section'
+import { PageHero } from '../../components/PageHero'
+import { ContentSEO } from '../../database/seo'
+import { Footer } from '../../sections/Footer/Footer'
 
 export default function TermosSite() {
 	return (
 		<>
-			<SeoProps title='Termo de uso e política de privacidade' description='Este termo de uso e política de privacidade se aplica ao site vtnorton.com' featureImage='/img/pages/blog.jpg' />
-			<PageHeroComponent backgroundUrl='/img/pages/blog.jpg' title='Termo de uso e política de privacidade' description='Agradecemos por utilizar o site vtnorton.com. A sua privacidade é importante para nós e nos comprometemos a proteger as informações pessoais que você possa fornecer durante a utilização do nosso site. Esta Política de Privacidade e Termos de Uso descreve como
+			<ContentSEO title='Termo de uso e política de privacidade' description='Este termo de uso e política de privacidade se aplica ao site vtnorton.com' featureImage='/img/pages/blog.jpg' />
+			<PageHero backgroundUrl='/img/pages/blog.jpg' title='Termo de uso e política de privacidade' description='Agradecemos por utilizar o site vtnorton.com. A sua privacidade é importante para nós e nos comprometemos a proteger as informações pessoais que você possa fornecer durante a utilização do nosso site. Esta Política de Privacidade e Termos de Uso descreve como
 							coletamos, usamos, armazenamos e protegemos suas informações pessoais. Ao utilizar o site vtnorton.com, você concorda com os termos descritos abaixo.'>
 				<Section>
 					<div className='text-60-percent-wrap'>
@@ -63,9 +64,9 @@ export default function TermosSite() {
 						<p><strong>Última atualização:</strong> 9 de dezembro de 2024</p>
 					</div>
 				</Section>
-			</PageHeroComponent>
+			</PageHero>
 
-			<FooterComponent />
+			<Footer />
 		</>
 	)
 }

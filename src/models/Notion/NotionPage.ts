@@ -1,20 +1,18 @@
-// TODO: tirar da pasta de models e colocar na pasta de models (ou alguma outra arquitetura)
+/* eslint-disable @typescript-eslint/no-explicit-any */
 export class NotionPage {
 	public id: string
 	public title: string
-	public featureImage: string
+	public cover: string
 	public date: string
+	public content?: any
+	public type: 'post' | 'talk'
 
-	// TODO: renomear para pageContent
-	public recordMap?: any
-	public type: 'post' | 'changelog' | 'talk'
-
-	constructor(result: any, type: 'post' | 'changelog' | 'talk') {
+	constructor(result: any, type: 'post' | 'talk') {
 		this.id = result.id
 		this.title = result.properties.Name.title[0].text.content
 		this.date = this.getDate(result.properties['Date'])
 
-		this.featureImage = this.getFeaturedImage(result.cover)
+		this.cover = this.getFeaturedImage(result.cover)
 		this.type = type
 	}
 

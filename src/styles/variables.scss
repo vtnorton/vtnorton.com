@@ -1,0 +1,41 @@
+:root {
+	// Shadows
+	--shadow-sm: 0 4px 15px rgba(0, 0, 0, 0.25);
+	--shadow: 0 4px 2rem rgba(0, 0, 0, 0.25);
+	// Spacing
+	--spacing-md: 25px;
+	--spacing-lg: 50px;
+	--spacing-xl: 75px;
+	// Text Colors
+	--title: #162C44;
+	--default-text: #666675;
+	--light-gray: #787878;
+	--border-color: #ccc;
+	// Colors
+	--accent-color: #0559C1;
+	--light-accent-color: #0585C1;
+	--dark-blue: #162C44;
+	--gold: #E09E36;
+	--bg: #e8e8ee;
+}
+
+@media (max-width: 1400px) {
+	:root {
+		--spacing-lg: 50px;
+		--spacing-xl: 50px;
+	}
+}
+
+@media (max-width: 650px) {
+	:root {
+		--spacing-lg: 35px;
+		--spacing-xl: 35px;
+	}
+}
+
+@media (max-width: 450px) {
+	:root {
+		--spacing-lg: 25px;
+		--spacing-xl: 25px;
+	}
+}

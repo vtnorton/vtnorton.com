@@ -1,0 +1,107 @@
+import React, { useEffect, useState, useRef, useCallback } from 'react'
+import axios from 'axios'
+import { Post } from '../../../models/Post'
+import { PostFeedItem } from './PostFeedItem'
+import { PaginatedResponse } from '../../../types/PaginatedResponse'
+import { PostFeedItemLoader } from './PostFeedItemLoader'
+
+const POSTS_PER_PAGE = 10
+
+export default function BlogFeed({
+	endpoint,
+	selectedTag,
+	setSelectedTag,
+	isReady = true,
+}: {
+	endpoint: string,
+	selectedTag: string | null,
+	setSelectedTag: (tag: string | null) => void,
+	isReady?: boolean
+}) {
+	const [posts, setPosts] = useState<Post[]>([])
+	const [page, setPage] = useState(1)
+	const [loading, setLoading] = useState(false)
+	const [hasMore, setHasMore] = useState(true)
+	const lastPostRef = useRef<HTMLDivElement>(null)
+
+	const loadPosts = useCallback(async (pageNumber: number) => {
+		setLoading(true)
+		try {
+			const response = await axios.get<PaginatedResponse<Post>>(endpoint, {
+				params: {
+					page: pageNumber,
+					limit: POSTS_PER_PAGE,
+					tag: selectedTag || undefined,
+				},
+			})
+
+			const { content: newPosts, pagination } = response.data
+
+			setPosts((prevPosts) => [...prevPosts, ...newPosts])
+			setHasMore(pagination.hasMore)
+		} catch (error) {
+			console.error('Erro ao obter os dados da API:', error)
+		} finally {
+			setLoading(false)
+		}
+	}, [endpoint, selectedTag])
+
+	useEffect(() => {
+		if (!isReady) return
+
+		setPosts([])
+		setPage(1)
+		setHasMore(true)
+		loadPosts(1)
+	}, [selectedTag, isReady, loadPosts])
+
+	useEffect(() => {
+		if (page > 1) {
+			loadPosts(page)
+		}
+	}, [page, loadPosts])
+
+	const handleObserver = useCallback(
+		(entries: IntersectionObserverEntry[]) => {
+			const [target] = entries
+			if (target.isIntersecting && hasMore && !loading) {
+				setPage((prev) => prev + 1)
+			}
+		},
+		[hasMore, loading],
+	)
+
+	useEffect(() => {
+		const element = lastPostRef.current
+		const option = {
+			root: null,
+			rootMargin: '0px',
+			threshold: 0.5,
+		}
+
+		const observer = new IntersectionObserver(handleObserver, option)
+		if (element) observer.observe(element)
+
+		return () => {
+			if (element) observer.unobserve(element)
+		}
+	}, [handleObserver, posts])
+
+	return (
+		<>
+			<div className='blog-feed'>
+				{posts.map((post, index) => (
+					<div key={`post-${post.id}`} ref={index === posts.length - 1 ? lastPostRef : null}>
+						<PostFeedItem post={post} setSelectedTag={setSelectedTag} />
+					</div>
+				))}
+
+				{loading && <>
+					<PostFeedItemLoader />
+					<PostFeedItemLoader />
+					<PostFeedItemLoader />
+				</>}
+			</div>
+		</>
+	)
+}

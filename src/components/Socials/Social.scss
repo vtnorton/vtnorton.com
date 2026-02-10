@@ -1,0 +1,24 @@
+.social {
+	display: flex;
+	flex-direction: row;
+	gap: .8rem;
+
+	a {
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		transition: background-color 0.3s, color 0.3s;
+
+		img {
+			filter: grayscale(1);
+		}
+
+		p {
+			display: none;
+		}
+
+		&:hover {
+			opacity: .6;
+		}
+	}
+}

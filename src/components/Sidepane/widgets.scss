@@ -1,0 +1,152 @@
+.widget-primary {
+	height: var(--sidebar-width);
+	background: var(--dark-blue);
+	display: flex;
+	align-items: center;
+	padding: 0 1.125rem 0 1.875rem;
+	color: #fff;
+	cursor: pointer;
+
+	.widget-primary-content {
+		display: flex;
+		width: 100%;
+		flex-direction: row;
+
+		svg {
+			transition: all 0.3s ease-in-out;
+			margin-left: auto;
+		}
+	}
+
+	&:hover {
+		.widget-primary-content {
+			svg {
+				transition: all 0.3s ease-in-out;
+				transform: rotate(45deg);
+			}
+		}
+	}
+}
+
+.widget-secondary {
+	padding: 0 1.875rem;
+	height: var(--sidebar-width);
+	display: flex;
+	align-items: center;
+	border-bottom: 1px solid var(--border-color);
+}
+
+@media (max-width: 650px) {
+	.widget-primary {
+		width: calc(100vw - 2* var(--sidebar-width));
+	}
+
+	nav.exploded {
+		.widget-primary {
+			width: calc(100vw - var(--sidebar-width));
+		}
+	}
+}
+
+.bookcall {
+	cursor: pointer;
+
+	small {
+		font-size: 0.8rem;
+		line-height: 100%;
+		color: #ccc;
+	}
+
+	.widget-primary {
+		perspective: 1000px;
+
+		p {
+			height: 1rem;
+			font-size: 1rem;
+
+			.cta {
+				position: relative;
+				display: inline-grid;
+				transition: transform 0.4s ease-in-out, width 0.4s ease-in-out;
+				transform-style: preserve-3d;
+				color: #fff;
+				font-family: 'Neutra Text Alt Bold', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+				width: 113px;
+
+				.default {
+					grid-area: 1 / 1;
+					display: inline-block;
+					backface-visibility: hidden;
+					transform: translateZ(10px);
+					width: 100%;
+					overflow: hidden;
+					white-space: nowrap;
+				}
+
+				.hover {
+					grid-area: 1 / 1;
+					display: inline-block;
+					white-space: nowrap;
+					backface-visibility: hidden;
+					transform: rotateX(-90deg) translateZ(10px);
+					width: 100%;
+					overflow: hidden;
+				}
+			}
+
+			.slash {
+				font-family: 'Neutra Text Alt Bold', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+				color: var(--gold);
+				margin: 0 .2rem;
+			}
+
+			small {
+				color: #ccc;
+			}
+		}
+
+		&:hover {
+			.cta {
+				transform: rotateX(90deg);
+				width: 145px;
+			}
+		}
+	}
+
+	.widget-secondary {
+		display: flex;
+		gap: .5rem;
+		align-items: center;
+
+		svg {
+			color: #ccc;
+		}
+
+		small {
+			color: var(--dark-blue);
+			font-weight: 600;
+
+			.hover {
+				display: inline-block;
+				max-width: 0;
+				opacity: 0;
+				transition: all 0.5s ease-in-out;
+				color: var(--light-gray);
+				margin-right: 3px;
+			}
+
+			.date {
+				color: var(--light-gray);
+			}
+		}
+
+		&:hover {
+			small {
+				.hover {
+					max-width: 50px;
+					opacity: 1;
+				}
+			}
+		}
+	}
+}

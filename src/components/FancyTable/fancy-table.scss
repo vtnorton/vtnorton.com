@@ -1,0 +1,166 @@
+.fancy-table {
+	padding: 1rem 0;
+
+	.ft-row {
+		display: flex;
+		margin: 0 calc(var(--spacing-lg) * -1);
+		padding: 0 var(--spacing-lg);
+		position: relative;
+		overflow: hidden;
+
+		.ft-bg {
+			position: absolute;
+			top: 0;
+			left: 0;
+			width: 100%;
+			height: 100%;
+			opacity: 0;
+			transition: opacity .4s ease;
+			z-index: 0;
+
+			.noise-image {
+				border-radius: 0;
+			}
+		}
+
+		.ft-row-content {
+			position: relative;
+			z-index: 1;
+			width: 100%;
+			display: grid;
+			grid-template-columns: 1.5fr 1fr 3rem;
+			gap: 10rem;
+			padding: 2rem 0;
+			align-items: center;
+
+			@media (max-width: 1100px) {
+				grid-template-columns: 1fr 1fr 3rem;
+			}
+
+			@media (max-width: 990px) {
+				grid-template-columns: 1fr 3rem;
+				gap: 1rem;
+
+				h4 {
+					grid-column: 1;
+					grid-row: 1;
+					line-height: 2rem;
+				}
+
+				p:nth-of-type(1) {
+					grid-column: 1;
+					grid-row: 2;
+				}
+
+				p:last-child {
+					grid-column: 2;
+					grid-row: 1 / span 2;
+				}
+			}
+
+			h4 {
+				font-family: "Neutra Text Alt Bold", "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+				font-size: 1.6rem;
+				letter-spacing: -1px;
+				color: var(--dark-blue);
+				transition: all .3s ease-in-out;
+			}
+
+			p {
+				opacity: 0;
+				font-size: 14px;
+				line-height: 1.2rem;
+				font-weight: 500;
+				color: #fff;
+				transition: all .4s ease-in-out;
+			}
+		}
+
+		&:not(.header) {
+			.ft-row-content {
+				p:last-child {
+					transform: translateX(80px);
+				}
+			}
+		}
+
+		@media (max-width: 1200px) {
+			&:not(.header) {
+				.ft-bg {
+					opacity: 1;
+				}
+
+				.ft-row-content {
+					h4 {
+						color: #fff;
+						transform: translateX(1rem);
+					}
+
+					p {
+						opacity: 1;
+
+						&:last-child {
+							transform: translateX(0);
+						}
+					}
+				}
+			}
+		}
+
+		@media (max-width: 990px) {
+			&:not(.header) {
+				.ft-row-content {
+					h4 {
+						transform: none;
+					}
+				}
+			}
+		}
+
+		&:not(.header):hover {
+			.ft-bg {
+				opacity: 1;
+			}
+
+			.ft-row-content {
+				h4 {
+					color: #fff;
+					transform: translateX(1rem);
+				}
+
+				p {
+					opacity: 1;
+
+					&:last-child {
+						transform: translateX(0);
+					}
+				}
+			}
+
+			.fui-Button {
+				.arrow {
+					transform: rotate(45deg);
+				}
+			}
+		}
+
+		&.header {
+			.ft-row-content {
+				padding: 2rem 0 .5rem;
+
+				p {
+					opacity: 1;
+					color: var(--default-text);
+				}
+			}
+
+			@media (max-width: 990px) {
+				.ft-row-content {
+					p:last-child {
+						display: none;
+					}
+				}
+			}
+		}
+	}
+}

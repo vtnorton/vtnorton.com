@@ -1,0 +1,21 @@
+.photo-gallery {
+	display: flex;
+	gap: 1rem;
+	margin: 0 auto;
+	padding: var(--spacing-lg) var(--spacing-xl) var(--spacing-xl);
+
+	&.row-photos-4 {
+		display: grid;
+		grid-template-columns: repeat(4, 1fr);
+	}
+
+	&.row-photos-5 {
+		display: grid;
+		grid-template-columns: repeat(5, 1fr);
+	}
+
+	img {
+		width: 100%;
+		height: auto;
+	}
+}

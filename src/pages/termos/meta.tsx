@@ -1,14 +1,14 @@
 import React from 'react'
-
-import { FooterComponent, PageHeroComponent } from '../../components'
-import { SeoProps } from '../../database/SEOProps'
-import { Section } from '../../components/SectionComponent'
+import { ContentSEO } from '../../database/seo'
+import { Footer } from '../../sections/Footer/Footer'
+import { PageHero } from '../../components/PageHero'
+import { Section } from '../../components/Section'
 
 export default function TermosMeta() {
 	return (
 		<>
-			<SeoProps title='Termo de uso e política de privacidade' description='Este termo de uso e política de privacidade se aplica ao aplicativo e conexões do Bot do Meta' featureImage='/img/pages/blog.jpg' />
-			<PageHeroComponent backgroundUrl='/img/pages/blog.jpg' title='Termo de uso e política de privacidade' description='Este termo de uso e política de privacidade se aplica ao aplicativo e conexões do Bot do Meta'>
+			<ContentSEO title='Termo de uso e política de privacidade' description='Este termo de uso e política de privacidade se aplica ao aplicativo e conexões do Bot do Meta' featureImage='/img/pages/blog.jpg' />
+			<PageHero backgroundUrl='/img/pages/blog.jpg' title='Termo de uso e política de privacidade' description='Este termo de uso e política de privacidade se aplica ao aplicativo e conexões do Bot do Meta'>
 				<Section>
 					<div className='text-60-percent-wrap'>
 						<h2>Política de Privacidade:</h2>
@@ -46,9 +46,9 @@ export default function TermosMeta() {
 						<p>Última atualização: 26 de maio de 2023</p>
 					</div>
 				</Section>
-			</PageHeroComponent>
+			</PageHero>
 
-			<FooterComponent />
+			<Footer />
 		</>
 	)
 }

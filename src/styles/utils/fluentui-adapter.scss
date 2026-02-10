@@ -1,0 +1,46 @@
+.fui-FluentProvider {
+	--lineHeightBase300: inherit !important;
+	--fontFamilyBase: inherit !important;
+	--fontWeightRegular: inherit !important;
+	--colorNeutralForeground1: inherit !important;
+	--colorNeutralForegroundOnBrand: #fff !important;
+	background: transparent !important;
+}
+
+.fui-Button,
+.fui-Switch__label,
+.fui-InteractionTagPrimary__primaryText,
+.fui-Tag__primaryText {
+	font-family: Consolas, "Courier New", monospace !important;
+	font-weight: normal !important;
+	width: fit-content;
+
+	&.no-margin {
+		margin-left: -23px !important;
+	}
+}
+
+.fui-InteractionTagPrimary__primaryText {
+	margin-top: 1px !important;
+}
+
+.fui-Switch__label {
+	margin-top: -4px !important;
+}
+
+.fui-Tag__icon {
+	-webkit-box-sizing: unset !important;
+	-moz-box-sizing: unset !important;
+	box-sizing: unset !important;
+}
+
+.fui-CardHeader {
+	width: min-content !important;
+	display: flex !important;
+	flex-direction: column !important;
+	gap: .3rem !important;
+
+	.fui-CardHeader__header h4 {
+		margin: 0 !important;
+	}
+}

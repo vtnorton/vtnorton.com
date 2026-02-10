@@ -1,48 +1,73 @@
-import axios from 'axios'
-import React, { useEffect, useState } from 'react'
+import React, { useState, useEffect } from 'react'
+import { useRouter } from 'next/router'
+import { PageHero } from '../components/PageHero'
+import BlogFeed from '../modules/Blog/Feed/BlogFeed'
+import { Footer } from '../sections/Footer/Footer'
+import { InteractionTag, InteractionTagPrimary, InteractionTagSecondary, TagGroup } from '@fluentui/react-components'
+import { ContentSEO } from '../database/seo'
 
-import { FooterComponent, PageHeroComponent } from '../components'
-import { BlogGrid } from '../components/BlogComponent/BlogGrid/BlogGrid'
-import { SeoProps } from '../database/SEOProps'
-import { Section } from '../components/SectionComponent'
-import { ProfileSection } from '../sections'
-import { Post } from '../models/Post'
-import { Changelog } from '../models/Changelog'
-
-export default function BlogPage() {
-	const [posts, setPosts] = useState<Array<Post | Changelog>>([])
+export default function Blog() {
+	const router = useRouter()
+	const [selectedTag, setSelectedTag] = useState<string | null>(null)
+	const [type, setType] = useState<string>('')
+	const [pageTitle, setPageTitle] = useState('Meu blog')
+	const pageDescription = 'Este é meu espaço pra escrever sobre cinema, política, meu trampo como dev — postagens técnicas ou não — enfim, um blog old-school. Meu espaço sem compromisso na web, que talvez não devesse estar aqui, mas meu ímpeto de escrever sobre tudo me faz manter.'
 
 	useEffect(() => {
-		if (posts.length === 0) {
-			axios
-				.get('/api/post', {
-					params: {
-						quantity: 150,
-					},
-				})
-				.then((response) => {
-					setPosts(response.data)
-				})
-				.catch((error) => {
-					console.error('Erro ao obter os dados da API:', error)
-				})
+		if (router.isReady) {
+			if (router.query.tag) {
+				setSelectedTag(router.query.tag as string)
+			}
+
+			if (router.query.type === 'tech') {
+				setPageTitle('Meu blog tech')
+				setType('tech')
+			} else if (router.query.type === 'personal') {
+				setPageTitle('Meu blog pessoal')
+				setType('personal')
+			} else {
+				setPageTitle('Meu blog')
+			}
 		}
-	}, [])
+	}, [router.isReady, router.query.tag, router.query.type])
+
+	const handleTagDismiss = () => {
+		router.push({
+			pathname: router.pathname,
+			query: {},
+		}, undefined, { shallow: true })
+		setSelectedTag(null)
+	}
+
 	return (
 		<>
-			<SeoProps title='Blog' description='blog: artigos + informativos + releases' featureImage='/img/pages/blog.jpg' />
-			<PageHeroComponent title='blog' description='blog: artigos + informativos + releases' backgroundUrl='/img/pages/blog.jpg'>
-				<Section>
-					<h2>📰 Todos os posts</h2>
-					<div className='space-low'></div>
-					<BlogGrid posts={posts} />
-				</Section>
-			</PageHeroComponent>
+			<ContentSEO title={pageTitle} description={pageDescription} />
+			<PageHero
+				title={pageTitle}
+				description={pageDescription}
+				innerComponent={selectedTag ?
+					<TagGroup onDismiss={handleTagDismiss} aria-label='Descelecionar tag' style={{ margin: '1rem 0 0' }}>
+						<InteractionTag value={selectedTag} shape='circular' appearance='brand' size='medium' >
+							<InteractionTagPrimary hasSecondaryAction>#{selectedTag}</InteractionTagPrimary>
+							<InteractionTagSecondary aria-label='Deselecionar tag' />
+						</InteractionTag>
+					</TagGroup>
+					: undefined
+				}
+				backgroundUrl='/img/pages/blog.jpg'>
+				<div className='personal-blog'>
+					<BlogFeed
+						endpoint={'/api/blog?type=' + type}
+						selectedTag={selectedTag}
+						setSelectedTag={setSelectedTag}
+						isReady={router.isReady} />
+					<div className='widgets'>
+						<p>Em breve, algo aqui...</p>
+					</div>
+				</div>
+			</PageHero>
 
-			<div className='container'>
-				<ProfileSection />
-			</div>
-			<FooterComponent />
+			<Footer />
 		</>
 	)
 }

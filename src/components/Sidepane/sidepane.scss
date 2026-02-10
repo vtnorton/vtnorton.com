@@ -1,0 +1,355 @@
+@use './sidepane-content.scss';
+@use './widgets.scss';
+
+:root {
+	--sidebar-width: 65px;
+}
+
+.sidepane {
+	overflow: hidden;
+	position: relative;
+	height: 100vh;
+
+	@keyframes fadeInContent {
+		from {
+			opacity: 0;
+			transform: translateY(8px);
+		}
+
+		to {
+			opacity: 1;
+			transform: translateY(0);
+		}
+	}
+
+	@keyframes slideInFromLeft {
+		from {
+			opacity: 0;
+			transform: translateX(-20px);
+		}
+
+		to {
+			opacity: 1;
+			transform: translateX(0);
+		}
+	}
+
+	@keyframes slideInDown {
+		from {
+			opacity: 0;
+			transform: translateY(-100%);
+		}
+
+		to {
+			opacity: 1;
+			transform: translateY(0);
+		}
+	}
+
+	@keyframes slideOutUp {
+		from {
+			opacity: 1;
+			transform: translateY(0);
+		}
+
+		to {
+			opacity: 0;
+			transform: translateY(-100%);
+		}
+	}
+
+	nav {
+		position: fixed;
+		top: 0;
+		left: 0;
+		display: flex;
+		flex-direction: column;
+		height: 100vh;
+		background: #f8f8f8;
+		z-index: 1000;
+		width: var(--sidebar-width);
+		transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+
+		.photo {
+			width: var(--sidebar-width);
+			height: calc(var(--sidebar-width) + 4px);
+			background: url('/img/logo/photo/9.jpg') no-repeat center center;
+			background-size: contain;
+			transition: all 0.3s ease-in;
+
+			&:hover,
+			&.hovered {
+				background: url('/img/logo/photo/10.jpg') no-repeat center center;
+				background-size: contain;
+			}
+		}
+
+		.inner {
+			border-right: 1px solid var(--border-color);
+			display: flex;
+			flex-direction: column;
+			align-items: center;
+			height: 100%;
+
+			.logo {
+				margin-top: 1.5rem;
+			}
+
+			.action {
+				margin-top: auto;
+				display: flex;
+				align-items: center;
+				justify-content: center;
+				height: var(--sidebar-width);
+				width: var(--sidebar-width);
+
+				@media (min-width: 1500px) {
+					display: none;
+				}
+
+				svg {
+					cursor: pointer;
+				}
+			}
+		}
+
+		&.collapsed {
+			width: var(--sidebar-width);
+			justify-content: flex-start;
+		}
+
+		&.collapsed + .content {
+			animation: slideOutLeft 0.5s forwards;
+			pointer-events: none;
+
+			.footer {
+				opacity: 0;
+				visibility: hidden;
+				transition: opacity 0.2s ease-out, visibility 0s linear 0.2s;
+
+				.social a {
+					opacity: 0;
+				}
+			}
+		}
+
+		&.expanded + .content {
+			animation: slideInLeft 0.5s forwards;
+			pointer-events: auto;
+
+			.footer {
+				opacity: 1;
+				visibility: visible;
+				animation: fadeInContent 0.5s cubic-bezier(0.4, 0, 0.2, 1) 0.3s both;
+				margin-top: auto;
+
+				.social {
+					a {
+						&:nth-child(1) {
+							animation: slideInFromLeft 0.4s cubic-bezier(0.4, 0, 0.2, 1) 0.4s both;
+						}
+
+						&:nth-child(2) {
+							animation: slideInFromLeft 0.4s cubic-bezier(0.4, 0, 0.2, 1) 0.5s both;
+						}
+
+						&:nth-child(3) {
+							animation: slideInFromLeft 0.4s cubic-bezier(0.4, 0, 0.2, 1) 0.6s both;
+						}
+
+						&:nth-child(4) {
+							animation: slideInFromLeft 0.4s cubic-bezier(0.4, 0, 0.2, 1) 0.7s both;
+						}
+
+						&:nth-child(5) {
+							animation: slideInFromLeft 0.4s cubic-bezier(0.4, 0, 0.2, 1) 0.8s both;
+						}
+
+						&:nth-child(6) {
+							animation: slideInFromLeft 0.4s cubic-bezier(0.4, 0, 0.2, 1) 0.9s both;
+						}
+
+						&:nth-child(7) {
+							animation: slideInFromLeft 0.4s cubic-bezier(0.4, 0, 0.2, 1) 1s both;
+						}
+
+						&:nth-child(8) {
+							animation: slideInFromLeft 0.4s cubic-bezier(0.4, 0, 0.2, 1) 1.1s both;
+						}
+					}
+				}
+			}
+		}
+
+		&.exploded + .content {
+			.footer {
+				opacity: 1;
+				visibility: visible;
+
+				.social a {
+					opacity: 1;
+				}
+
+				p {
+					opacity: 1;
+				}
+			}
+		}
+	}
+
+	main.panel {
+		display: flex;
+		flex-direction: column;
+		flex-grow: 1;
+		overflow-y: auto;
+		margin-left: var(--sidebar-width);
+		position: relative;
+		height: 100vh;
+		transition: margin-left 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+
+		&::before {
+			content: '';
+			position: fixed;
+			top: 0;
+			left: var(--sidebar-width);
+			right: 0;
+			bottom: 0;
+			background: rgba(0, 0, 20, 0.3);
+			z-index: 800;
+			opacity: 0;
+			pointer-events: none;
+			transition: opacity 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+		}
+	}
+
+	&:has(nav.expanded) main.panel::before {
+		opacity: 1;
+		pointer-events: auto;
+	}
+}
+
+@media screen and (min-width: 1500px) {
+	.sidepane {
+		main.panel {
+			margin-left: 465px !important;
+
+			&::before {
+				display: none;
+			}
+		}
+
+		&.break-point-2200 main.panel {
+			margin-left: 65px !important;
+		}
+	}
+}
+
+@media (max-width: 1200px) {
+	.sidepane {
+		nav.exploded {
+			width: 20%;
+			min-width: 350px;
+
+			.cards {
+				margin-left: 100px;
+
+				.card {
+					width: 400px;
+					padding-right: 1rem;
+					box-shadow: var(--shadow-sm);
+					background: #fff;
+
+					.icon {
+						aspect-ratio: 1 / 1;
+
+						img {
+							width: 100%;
+							height: 100%;
+							object-fit: cover;
+						}
+					}
+				}
+			}
+
+			.footer {
+				.social {
+					display: grid;
+					grid-template-columns: repeat(3, 1fr);
+
+					a {
+						opacity: 1;
+					}
+				}
+
+				p {
+					margin-top: .5rem;
+					text-align: center;
+				}
+			}
+		}
+	}
+}
+
+@media (max-width: 800px) {
+	.sidepane {
+		nav.exploded {
+			width: 200px;
+			min-width: 200px;
+
+			.cards {
+				margin-left: 30px;
+			}
+		}
+	}
+}
+
+@media (max-width: 650px) {
+	.sidepane {
+		nav {
+			height: var(--sidebar-width);
+			flex-direction: row;
+			display: block;
+			width: 100%;
+
+			.photo {
+				width: var(--sidebar-width);
+				height: var(--sidebar-width);
+				float: left;
+			}
+
+			.inner {
+				border-right: none;
+				flex-direction: row;
+				width: calc(100% - var(--sidebar-width));
+
+				.action {
+					margin-top: 0;
+					margin-left: auto;
+				}
+			}
+
+			&.collapsed {
+				width: 100%;
+			}
+
+			&.collapsed + .content {
+				animation: slideOutUp 0.5s forwards;
+			}
+
+			&.expanded + .content {
+				animation: slideInDown 0.5s forwards;
+			}
+		}
+
+		main.panel {
+			margin-left: 0;
+			margin-top: var(--sidebar-width);
+			height: calc(100vh - var(--sidebar-width));
+
+			&::before {
+				top: var(--sidebar-width);
+				left: 0;
+			}
+		}
+	}
+}

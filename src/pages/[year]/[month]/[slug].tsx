@@ -1,16 +1,18 @@
-import { PostComponent } from '../../../components'
-import { SeoProps } from '../../../database/SEOProps'
 import { Post } from '../../../models/Post'
-import { getPostBySlug, getPosts } from '../../../services/postsServices'
+import { IndividualPost } from '../../../modules/Blog'
+import { postServices } from '../../../services/postsServices'
+import { useLayout } from '../../../providers/LayoutProvider'
+import { useEffect } from 'react'
+import { ContentSEO } from '../../../database/seo'
 
-// TODO: usar o que já está no post
 const mountPath = (post: Post) => {
 	const postDate = new Date(post.date)
 	const monthNumber = postDate.getMonth() + 1
 	const month = monthNumber.toString().padStart(2, '0')
+
 	return {
 		params: {
-			slug: post.slug,
+			slug: post.slug.split('/').pop() || post.slug,
 			year: postDate.getFullYear().toString(),
 			month: month,
 		},
@@ -18,18 +20,25 @@ const mountPath = (post: Post) => {
 }
 
 export const getStaticPaths = async () => {
-	const result = await getPosts()
-	const posts = result.filter((post): post is Post => post instanceof Post)
+	const posts = await postServices.getPosts()
 	return {
 		paths: posts.map((post: Post) => mountPath(post)),
 		fallback: true,
 	}
 }
 
-export const getStaticProps = async (context: any) => {
-	const { slug } = context.params
+export const getStaticProps = async (
+	context: {
+		params: {
+			slug: string
+			year: string
+			month: string
+		}
+	},
+) => {
+	const { slug, year, month } = context.params
 
-	const post: any = await getPostBySlug(slug)
+	const post = await postServices.getPostBySlug(`/${year}/${month}/${slug}`)
 
 	let props = {
 		post: post,
@@ -43,15 +52,33 @@ export const getStaticProps = async (context: any) => {
 }
 
 export default function PostDetail({ post }: { post: Post }) {
+	const { sidepane } = useLayout()
+
+	useEffect(() => {
+		sidepane.setAutoExpandBreakpoint(2200)
+		if (window.innerWidth < 2200) {
+			sidepane.collapse()
+		}
+
+		return () => {
+			sidepane.setAutoExpandBreakpoint(1500)
+		}
+		// eslint-disable-next-line react-hooks/exhaustive-deps
+	}, [])
+
 	if (!post)
 		return <div />
 
-
-	// TODO: adicionar description no post
 	return (
 		<>
-			<SeoProps title={post.title} description={''} featureImage={post.featureImage} ogType='article' publishedTime={post.date} tags={post.hashtags} />
-			<PostComponent post={post} />
+			<ContentSEO
+				featureImage={post.cover}
+				title={post.title}
+				description={post.abstract}
+				date={post.date}
+				tags={post.hashtags}
+				ogType='article' />
+			<IndividualPost post={post} />
 		</>
 	)
 }

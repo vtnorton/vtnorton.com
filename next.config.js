@@ -12,10 +12,10 @@ const nextConfig = {
 		talksDb: process.env.TALKS_DB,
 		host: process.env.HOST,
 	},
-	webpack: (config) => {
-		config.optimization.minimize = false
-		return config
-	},
+	// webpack: (config) => {
+	// 	config.optimization.minimize = false
+	// 	return config
+	// },
 	images: {
 		domains: ['mirrors.creativecommons.org'],
 	},
@@ -23,14 +23,31 @@ const nextConfig = {
 		locales: ['pt-BR'],
 		defaultLocale: 'pt-BR',
 	},
+	sassOptions: {
+		sourceMap: true,
+		silenceDeprecations: ['legacy-js-api'],
+	},
+	async redirects() {
+		return [
+			{
+				source: '/portfolio/palestra/:id',
+				destination: '/palestra/:id',
+				permanent: true,
+			},
+		]
+	},
 	async rewrites() {
 		return [
 			{
 				source: '/rss',
 				destination: '/api/rss.tsx',
 			},
+			{
+				source: '/olawolff',
+				destination: '/portfolio/ola-wolff.tsx',
+			},
 		]
 	},
 }
 
-module.exports = nextConfig
+export default nextConfig

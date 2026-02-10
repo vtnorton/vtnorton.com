@@ -1,5 +1,0 @@
-export * from './EventsSection'
-export * from './PostMortemSection'
-export * from './ProfileSection'
-export * from './HeartthrobSection'
-export * from './AthenaPromoSection'

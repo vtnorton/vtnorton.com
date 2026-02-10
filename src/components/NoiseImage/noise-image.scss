@@ -1,0 +1,76 @@
+.noise-image {
+	position: relative;
+	overflow: hidden;
+	width: 100%;
+	height: 100%;
+
+	img {
+		display: block;
+		width: 100%;
+		height: 100%;
+		object-fit: cover;
+	}
+
+	@keyframes noise {
+		0% {
+			transform: translate(0, 0)
+		}
+
+		10% {
+			transform: translate(-5%, -5%)
+		}
+
+		20% {
+			transform: translate(-10%, 5%)
+		}
+
+		30% {
+			transform: translate(5%, -10%)
+		}
+
+		40% {
+			transform: translate(-5%, 15%)
+		}
+
+		50% {
+			transform: translate(-10%, 5%)
+		}
+
+		60% {
+			transform: translate(15%, 0)
+		}
+
+		70% {
+			transform: translate(0, 10%)
+		}
+
+		80% {
+			transform: translate(-15%, 0)
+		}
+
+		90% {
+			transform: translate(10%, 5%)
+		}
+
+		100% {
+			transform: translate(5%, 0)
+		}
+	}
+
+	.noise {
+		background: url('/img/other/noise.png') repeat;
+		opacity: 0.06;
+		inset: -200%;
+		width: 400%;
+		height: 400%;
+		position: absolute;
+		animation: noise 8s steps(10) infinite;
+		pointer-events: none;
+	}
+
+	.overlay {
+		background-color: #000;
+		position: absolute;
+		inset: 0;
+	}
+}

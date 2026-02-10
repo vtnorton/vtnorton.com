@@ -1,0 +1,41 @@
+.fui-Button {
+	font-family: Consolas, "Courier New", monospace !important;
+	font-weight: normal !important;
+	width: fit-content;
+	display: flex;
+	align-items: center;
+
+	&.no-margin {
+		margin-left: -23px !important;
+	}
+
+	.arrow {
+		margin-left: 5px;
+		margin-top: 2px;
+		transition: all 0.2s ease-in-out;
+		opacity: .8;
+	}
+
+	&.transparent {
+		padding-left: 0;
+		padding-right: 0;
+	}
+
+	&.only-icon {
+		min-width: unset !important;
+		padding-left: 8px !important;
+		padding-right: 8px !important;
+
+		.arrow {
+			margin-top: 0 !important;
+			margin-left: 0 !important;
+			height: 20px;
+		}
+	}
+
+	&:hover {
+		.arrow {
+			transform: rotate(45deg);
+		}
+	}
+}

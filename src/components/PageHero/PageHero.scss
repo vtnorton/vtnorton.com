@@ -1,0 +1,104 @@
+.hero {
+	background: #1b1b1b;
+	height: 65vh;
+	position: relative;
+
+	.hero-background-wrapper {
+		position: absolute;
+		top: 0;
+		left: 0;
+		width: 100%;
+		height: 100%;
+		overflow: hidden;
+		z-index: 0;
+	}
+
+	.hero-background {
+		position: absolute;
+		top: 0;
+		left: 0;
+		width: 100%;
+		height: 100%;
+		background-size: cover;
+		background-position: center;
+		transition: transform 0.5s ease;
+	}
+
+	&:hover .hero-background {
+		transform: scale(1.03);
+	}
+
+	.hero-overlay {
+		background: rgba(0, 0, 0, .65);
+		width: 100%;
+		height: 65vh;
+		position: absolute;
+		top: 0;
+		left: 0;
+		z-index: 1;
+	}
+
+	.hero-inner {
+		position: relative;
+		z-index: 5;
+		height: 65vh;
+
+		.container {
+			position: absolute;
+			left: 50%;
+			transform: translate(-50%, 0);
+			bottom: calc(180px + var(--spacing-lg));
+			padding: 0 var(--spacing-xl);
+		}
+
+		h1 {
+			font-size: 3rem;
+			color: #fff;
+		}
+
+		p {
+			font-size: 1.5rem;
+			line-height: 125%;
+			font-family: 'Neutra Text Alt', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+			color: #f5f5f5;
+		}
+
+		&::after {
+			content: '';
+			background: url('/img/other/bg-cover-right-bottom.png') no-repeat;
+			height: 50px;
+			width: 50px;
+			position: absolute;
+			right: 0;
+			bottom: 0;
+		}
+	}
+}
+
+.bg-wolf {
+	background-image: linear-gradient(to bottom right, #00782E, #B8C72C) !important;
+}
+
+.bg-porfolio {
+	background-image: linear-gradient(to bottom right, #0559C1, #0585C1) !important;
+}
+
+.page-hero-next-item {
+	position: relative;
+	margin-top: -180px !important;
+	z-index: 10;
+}
+
+@media screen and (max-width: 1200px) {
+	section {
+		&.page-hero-next-item {
+			margin-top: 0 !important;
+		}
+	}
+}
+
+@media screen and (max-width: 990px) {
+	.hero {
+		background-size: auto;
+	}
+}

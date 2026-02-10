@@ -1,0 +1,129 @@
+.awards {
+	display: flex;
+	justify-content: space-between;
+	min-height: 380px;
+	gap: 2.5rem;
+	margin-bottom: calc(var(--spacing-lg) * -1);
+
+	.award {
+		justify-content: center;
+		flex: 1;
+		display: flex;
+		flex-direction: column;
+		gap: 0.8rem;
+		opacity: 0.65;
+
+		.award-info {
+			margin-top: .8rem;
+			padding-top: .8rem;
+			border-top: 1px solid #ddd;
+			display: block;
+
+			span {
+				font-family: 'Neutra Text Alt', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+				font-size: 1.5rem;
+				color: var(--dark-blue);
+				display: block;
+				margin-bottom: .5rem;
+			}
+
+			.award-info-hover {
+				transform: translateY(4px);
+				opacity: 0;
+				height: 0;
+				margin: 0;
+				transition: all 0.3s ease;
+			}
+
+			p {
+				font-size: 1rem;
+				line-height: 135%;
+
+				&:last-of-type {
+					text-align: right;
+				}
+			}
+		}
+
+		img {
+			height: 50px;
+			width: fit-content;
+		}
+
+		&:hover {
+			opacity: 1;
+
+			.award-info {
+				border-top: 1px solid var(--border-color);
+
+				span {
+					color: var(--accent-color);
+				}
+
+				.award-info-hover {
+					transform: translateY(0);
+					opacity: 1;
+					height: 130px;
+				}
+			}
+		}
+	}
+}
+
+.clients {
+	.f-carousel {
+		--f-carousel-slide-width: 100%;
+		margin-bottom: 0 !important;
+
+		.f-carousel__viewport {
+			margin: 0 1rem;
+			width: calc(100% - 3rem);
+		}
+
+		.f-carousel__slide {
+			display: flex;
+			justify-content: space-evenly;
+			align-items: center;
+
+			img {
+				max-height: 42px;
+				object-fit: contain;
+				filter: grayscale(100%) brightness(0);
+				opacity: 0.35;
+				transition: all 0.3s ease;
+
+				&:hover {
+					filter: grayscale(0%);
+					opacity: 1;
+				}
+			}
+		}
+	}
+
+	@media (min-width: 768px) {
+		.f-carousel {
+			--f-carousel-slide-width: calc(100% / 4);
+		}
+	}
+}
+
+.numbers-cta {
+	padding: 1rem 0 0;
+	display: flex;
+	gap: 2rem;
+	align-items: center;
+
+	p {
+		margin: 0;
+		font-size: 14px;
+		line-height: 1.2rem;
+		color: var(--dark-blue);
+		letter-spacing: -0.56px;
+		font-weight: 600;
+
+		&:last-of-type {
+			color: var(--default-text);
+			font-weight: 400;
+		}
+	}
+}

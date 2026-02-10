@@ -1,0 +1,38 @@
+.construction-banner {
+	position: sticky;
+	top: 0;
+	z-index: 20;
+	background: var(--dark-blue);
+}
+
+.construction-banner__inner {
+	padding: 12px var(--spacing-lg);
+	display: flex;
+	flex-wrap: wrap;
+	align-items: baseline;
+	gap: 6px;
+	font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+	font-size: 0.98rem;
+	line-height: 1.35rem;
+	color: var(--bg);
+}
+
+.construction-banner__title {
+	color: var(--bg);
+	font-weight: 700;
+}
+
+.construction-banner__text a {
+	color: var(--bg);
+	text-decoration: underline;
+}
+
+.construction-banner__text a:hover {
+	text-decoration-thickness: 2px;
+}
+
+@media (max-width: 650px) {
+	.construction-banner__inner {
+		padding: 12px var(--spacing-lg);
+	}
+}

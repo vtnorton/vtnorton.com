@@ -1,31 +1,35 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import { NotionPage } from './Notion/NotionPage'
 
 export class Post extends NotionPage {
-	public url: string
-	public fullSlug: string
 	public slug: string
 	public hashtags: string[]
+	public abstract?: string
 
 	constructor(result: any) {
 		super(result, 'post')
 
-		// TODO: verificar a necessidade da url
-		this.url = result.url
-
-		// TODO: verificar a necessidade do slug e se pode substituir pelo full slug
-		this.slug = result.properties['Slug'].rich_text[0].text.content
-
-		this.fullSlug = this.mountPostSlug(result)
+		this.slug = this.mountPostSlug(result)
 		this.hashtags = this.getHashtags(result.properties['Hashtags'])
+		this.abstract = this.concatenateAbsctract(result.properties['Abstract'])
+	}
+
+	concatenateAbsctract = (result: any): string => {
+		let abstract = ''
+		result.rich_text.forEach((item: any) => {
+			abstract += item.text.content
+		})
+		return abstract
 	}
 
 	mountPostSlug = (result: any): string => {
+		const slug = result.properties['Slug'].rich_text[0].text.content
 		const postDate = new Date(result.properties.Date.date.start)
 		const year = postDate.getFullYear().toString()
 		const monthNumber = postDate.getMonth() + 1
 		const month = monthNumber.toString().padStart(2, '0')
 
-		return `/${year}/${month}/${this.slug}`
+		return `/${year}/${month}/${slug}`
 	}
 
 	getHashtags = (hashtags: any): string[] => {

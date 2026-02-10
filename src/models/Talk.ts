@@ -1,7 +1,11 @@
-import { TalkStatus } from '../interfaces/Talk'
 import { NotionPage } from './Notion/NotionPage'
 
-// TODO: tirar da pasta de models e colocar na pasta de models (ou alguma outra arquitetura)
+export enum TalkStatus {
+	Presented = 'Apresentada',
+	SoonTM = 'Planos de fazer',
+	Call4Pappers = 'Call 4 Pappers',
+}
+
 export class Talk extends NotionPage {
 
 	public description: string
@@ -12,6 +16,7 @@ export class Talk extends NotionPage {
 	public video: string
 	public status: TalkStatus
 
+	// eslint-disable-next-line @typescript-eslint/no-explicit-any
 	constructor(result: any) {
 		super(result, 'talk')
 

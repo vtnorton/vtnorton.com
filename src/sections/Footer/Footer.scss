@@ -1,0 +1,41 @@
+footer {
+	padding: var(--spacing-lg);
+	margin: 0 auto 3rem;
+	font-family: 'Consolas', 'Courier New', Courier, monospace;
+	text-align: center;
+
+	.animated-logo svg {
+		max-width: 100px;
+		margin-bottom: .8rem;
+	}
+
+	.social {
+		width: fit-content;
+		margin: .5rem auto 0;
+	}
+
+	p {
+		max-width: 680px;
+		margin: 0 auto .5rem;
+		font-size: .8rem;
+		line-height: 125%;
+
+		img {
+			height: 22px !important;
+			margin-top: .5rem;
+			margin-left: 3px;
+			vertical-align: text-bottom;
+		}
+
+		a {
+			color: var(--accent-color)
+		}
+	}
+}
+
+@media screen and (max-width: 990px) {
+	footer {
+		padding: 35px;
+		margin-bottom: 1rem !important;
+	}
+}

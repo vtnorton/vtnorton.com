@@ -1,13 +1,13 @@
 import React from 'react'
-
-import { FooterComponent, PageHeroComponent } from '../../components'
-import { SeoProps } from '../../database/SEOProps'
+import { ContentSEO } from '../../database/seo'
+import { Footer } from '../../sections/Footer/Footer'
+import { PageHero } from '../../components/PageHero'
 
 export default function TermosFormula() {
 	return (
 		<>
-			<SeoProps title='Termo de uso e política de privacidade' description='Este termo de uso e política de privacidade se aplica ao aplicativo Formula - Code Editor' featureImage='/img/pages/blog.jpg' />
-			<PageHeroComponent backgroundUrl='/img/pages/blog.jpg' title='Termo de uso e política de privacidade' description='Este termo de uso e política de privacidade se aplica ao aplicativo Formula - Code Editor'>
+			<ContentSEO title='Termo de uso e política de privacidade' description='Este termo de uso e política de privacidade se aplica ao aplicativo Formula - Code Editor' featureImage='/img/pages/blog.jpg' />
+			<PageHero backgroundUrl='/img/pages/blog.jpg' title='Termo de uso e política de privacidade' description='Este termo de uso e política de privacidade se aplica ao aplicativo Formula - Code Editor'>
 				<section className='section'>
 					<div className='showcase'>
 						<p>
@@ -26,9 +26,9 @@ export default function TermosFormula() {
 						<p>Todas as páginas da web linkadas no aplicativo abrem no navegador padrão do seu sistema, externamente do aplicativo.</p>
 					</div>
 				</section>
-			</PageHeroComponent>
+			</PageHero>
 
-			<FooterComponent />
+			<Footer />
 		</>
 	)
 }

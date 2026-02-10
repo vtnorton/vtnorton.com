@@ -1,0 +1,235 @@
+section {
+	padding: var(--spacing-xl);
+	position: relative;
+	width: 100%;
+	margin: 0 auto 3rem;
+	background: #f8f8f8;
+	box-shadow: 0 4px 2rem rgba(0, 0, 0, 0.25);
+
+	&.section-remove-padding-button {
+		padding-bottom: 0;
+	}
+
+	&.section-remove-padding-top {
+		padding-top: 0;
+	}
+
+	&.section-full-width {
+		padding-left: 0;
+		padding-right: 0;
+
+		.escape-padding {
+			padding: var(--spacing-xl);
+		}
+	}
+
+	&.section-with-image {
+		display: grid;
+		grid-template-columns: 1fr 1fr;
+		position: relative;
+
+		.section-content {
+			margin-right: 10rem;
+			display: flex;
+			flex-direction: column;
+			gap: 2rem;
+		}
+
+		.section-image {
+			width: fit-content;
+
+			.section-image-blur {
+				position: absolute;
+				z-index: 0;
+				right: 0;
+				top: 0;
+				width: 50%;
+				height: 100%;
+				background-attachment: fixed;
+				background-repeat: no-repeat;
+				background-size: contain;
+				background-position-x: right;
+				z-index: 0;
+			}
+
+			img {
+				position: sticky;
+				z-index: 2;
+				margin-left: -7rem;
+				margin-top: 2rem;
+				top: 2rem;
+				width: 100%;
+				min-height: 200px;
+				-webkit-clip-path: polygon(0 0, 0 100%, calc(100% - 50px) 100%, 100% calc(100% - 50px), 100% 0);
+				clip-path: polygon(0 0, 0 100%, calc(100% - 50px) 100%, 100% calc(100% - 50px), 100% 0);
+			}
+		}
+
+		&.section-half-width {
+			display: flex;
+			flex-direction: column-reverse;
+
+			.section-content {
+				margin-right: 0 !important;
+			}
+
+			.section-image {
+				.section-image-blur {
+					width: 100%;
+					height: 15rem;
+				}
+
+				img {
+					margin-top: 1rem;
+					max-width: 350px;
+					margin-left: 0;
+				}
+			}
+		}
+	}
+
+	&.section-paragraphs {
+		.section-content {
+			width: 60%;
+		}
+	}
+
+	h2:first-of-type {
+		margin-bottom: 1.5rem;
+	}
+
+	.content-with-image {
+		display: flex;
+		gap: 2rem;
+		position: relative;
+
+		&.content-with-image--right {
+			flex-direction: row-reverse;
+			justify-content: flex-end;
+		}
+
+		.content-with-image__content {
+			display: flex;
+			flex-direction: column;
+			gap: 1.5rem;
+		}
+
+		.content-with-image__image {
+			width: fit-content;
+			max-width: 54%;
+			height: fit-content;
+
+			&.content-with-image--sticky {
+				position: sticky;
+				top: 2rem;
+			}
+
+			&.content-with-image__image--small {
+				max-width: 40%;
+			}
+
+			small {
+				font-family: 'Neutra Text Alt', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+				color: var(--light-gray);
+				text-align: center;
+				display: inline-block;
+				width: 100%;
+				margin-top: .5rem;
+			}
+		}
+	}
+}
+
+@media screen and (max-width: 1300px) {
+	section {
+		&.section-with-image {
+			grid-template-columns: 2fr 1fr;
+
+			.section-content {
+				margin-right: 10rem;
+			}
+
+			.section-image {
+				.section-image-blur {
+					width: 30%;
+				}
+
+				img {
+					margin-left: calc(var(--spacing-xl) * -1);
+				}
+			}
+		}
+
+		.content-with-image .content-with-image__image {
+			max-width: 40%;
+		}
+	}
+}
+
+@media screen and (max-width: 990px) {
+	section {
+		&.section-with-image {
+			display: flex;
+			flex-direction: column-reverse;
+
+			.section-content {
+				margin-right: 0;
+			}
+
+			.section-image {
+				.section-image-blur {
+					width: 100%;
+					height: 15rem;
+					background-attachment: local;
+					background-size: cover;
+				}
+
+				img {
+					margin-top: 1rem;
+					max-width: 350px;
+					margin-left: 0;
+				}
+			}
+		}
+
+		.content-with-image {
+			flex-direction: column;
+
+			.content-with-image__content {
+				max-width: 100%;
+			}
+
+			.content-with-image__image {
+				margin: 0 auto;
+				width: fit-content;
+			}
+		}
+	}
+}
+
+@media screen and (max-width: 700px) {
+	section {
+		.content-with-image {
+			flex-direction: column;
+
+			&.content-with-image--right {
+				flex-direction: column-reverse;
+				justify-content: center;
+				align-items: center;
+
+				.content-with-image--sticky {
+					position: static;
+				}
+			}
+
+			.content-with-image__content {
+				max-width: 100%;
+			}
+
+			.content-with-image__image {
+				margin: 0;
+				width: fit-content;
+			}
+		}
+	}
+}
