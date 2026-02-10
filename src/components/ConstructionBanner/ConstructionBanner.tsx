@@ -11,7 +11,7 @@ export const ConstructionBanner = () => {
 						rel='noopener noreferrer'>
 						5 atualizações por dia
 					</a>
-					. Realmente, em breve!
+					.
 				</span>
 			</div>
 		</div>
