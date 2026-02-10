@@ -26,6 +26,11 @@
 			& + p {
 				color: #99a;
 				letter-spacing: -0.56px;
+
+				a {
+					color: var(--accent-color);
+					text-decoration: underline;
+				}
 			}
 		}
 	}
