@@ -6,7 +6,7 @@ import { Section } from '../../components/Section'
 import { Button } from '../../components/Button'
 import { ProfileSection } from '../../sections/Profile/Profile'
 import { Footer } from '../../sections/Footer/Footer'
-import { Talk } from '../../models/Talk'
+import { Talk, TalkStatus } from '../../models/Talk'
 import { palestrasServices } from '../../services/palestrasServices'
 import { NextProject } from '../../components/NextProject/NextProject'
 import { ContentSEO } from '../../database/seo'
@@ -21,8 +21,9 @@ const mountPath = (talk: Talk) => {
 
 export const getStaticPaths = async () => {
 	const talks: Talk[] = await palestrasServices.getAllTalks()
+	const presentedTalks = talks.filter((talk: Talk) => talk.status === TalkStatus.Presented)
 	return {
-		paths: talks.map((talk: Talk) => mountPath(talk)),
+		paths: presentedTalks.map((talk: Talk) => mountPath(talk)),
 		fallback: true,
 	}
 }
@@ -30,17 +31,22 @@ export const getStaticPaths = async () => {
 export const getStaticProps = async (context: { params: { id: string } }) => {
 	const { id } = context.params
 
-	const { talk, nextTalk } = await palestrasServices.getTalk(id)
+	try {
+		const { talk, nextTalk } = await palestrasServices.getTalk(id)
+		let props = {
+			talk: talk,
+			nextTalk: nextTalk,
+		}
 
-	let props = {
-		talk: talk,
-		nextTalk: nextTalk,
-	}
-
-	props = JSON.parse(JSON.stringify(props))
-	return {
-		props,
-		revalidate: 60 * 60 * 3,
+		props = JSON.parse(JSON.stringify(props))
+		return {
+			props,
+			revalidate: 60 * 60 * 3,
+		}
+	} catch (error) {
+		return {
+			notFound: true,
+		}
 	}
 }
 
