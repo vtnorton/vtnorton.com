@@ -53,7 +53,9 @@ export default function Portfolio() {
 				/* GITHUB            // SKILLS / RADAR TECH */
 			}
 
-			<div className='container'>
+			<div className='container' style={{
+				marginTop: '5rem',
+			}}>
 				<ProfileSection />
 			</div>
 
