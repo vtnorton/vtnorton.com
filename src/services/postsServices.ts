@@ -41,8 +41,7 @@ const getPostBySlug = async (slug: string): Promise<Post | undefined> => {
 		60 * 60 * 8,
 	)
 
-	const posts = allPosts.filter((post): post is Post => post instanceof Post)
-	const post: Post | null = posts.find((p: Post) => p.slug === slug) ?? null
+	const post = allPosts.find((p) => p.slug === slug)
 
 	if (!post)
 		return undefined
