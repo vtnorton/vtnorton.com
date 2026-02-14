@@ -1,5 +1,4 @@
 import React, { useEffect, useState, useRef, useCallback } from 'react'
-import axios from 'axios'
 import { Post } from '../../../models/Post'
 import { PostFeedItem } from './PostFeedItem'
 import { PaginatedResponse } from '../../../types/PaginatedResponse'
@@ -27,15 +26,23 @@ export default function BlogFeed({
 	const loadPosts = useCallback(async (pageNumber: number) => {
 		setLoading(true)
 		try {
-			const response = await axios.get<PaginatedResponse<Post>>(endpoint, {
-				params: {
-					page: pageNumber,
-					limit: POSTS_PER_PAGE,
-					tag: selectedTag || undefined,
-				},
+			const params = new URLSearchParams({
+				page: String(pageNumber),
+				limit: String(POSTS_PER_PAGE),
 			})
 
-			const { content: newPosts, pagination } = response.data
+			if (selectedTag) {
+				params.set('tag', selectedTag)
+			}
+
+			const response = await fetch(`${endpoint}?${params.toString()}`)
+
+			if (!response.ok) {
+				throw new Error(`Erro ao obter os dados da API: ${response.status}`)
+			}
+
+			const data = await response.json() as PaginatedResponse<Post>
+			const { content: newPosts, pagination } = data
 
 			setPosts((prevPosts) => [...prevPosts, ...newPosts])
 			setHasMore(pagination.hasMore)
