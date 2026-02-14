@@ -17,7 +17,12 @@ const nextConfig = {
 	// 	return config
 	// },
 	images: {
-		domains: ['mirrors.creativecommons.org'],
+		remotePatterns: [
+			{
+				protocol: 'https',
+				hostname: 'mirrors.creativecommons.org',
+			},
+		],
 	},
 	i18n: {
 		locales: ['pt-BR'],
