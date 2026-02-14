@@ -7,7 +7,7 @@ import { RelatedPosts } from './RelatedPosts'
 import { useRouter } from 'next/router'
 import { NoiseImage } from '../../../components/NoiseImage'
 
-export const IndividualPost = ({ post }: { post: Post }) => {
+export const IndividualPost = ({ post, relatedPosts }: { post: Post; relatedPosts: Post[] }) => {
 	const [showRelatedPosts, setShowRelatedPosts] = useState(false)
 	const contentRef = useRef<HTMLDivElement>(null)
 	const router = useRouter()
@@ -103,7 +103,7 @@ export const IndividualPost = ({ post }: { post: Post }) => {
 
 					<div className={`related-posts ${showRelatedPosts ? 'visible' : ''}`}>
 						<h4>Mais posts</h4>
-						<RelatedPosts post={post} />
+						<RelatedPosts posts={relatedPosts} />
 					</div>
 				</div>
 			</div>
@@ -111,7 +111,7 @@ export const IndividualPost = ({ post }: { post: Post }) => {
 
 			<div className='related-posts mobile'>
 				<h4>Mais posts</h4>
-				<RelatedPosts post={post} />
+				<RelatedPosts posts={relatedPosts} />
 			</div>
 		</article>
 	)

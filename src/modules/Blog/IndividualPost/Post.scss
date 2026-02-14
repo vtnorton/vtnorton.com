@@ -103,6 +103,17 @@ article.post {
 		overflow-y: scroll;
 		padding-left: var(--spacing-lg);
 
+		a {
+			color: var(--accent-color);
+			text-decoration: underline;
+			transition: all 0.2s ease;
+
+			&:hover {
+				color: var(--dark-blue);
+				text-decoration-thickness: 2px;
+			}
+		}
+
 		li {
 			margin: 0;
 			font-size: 1.1rem;

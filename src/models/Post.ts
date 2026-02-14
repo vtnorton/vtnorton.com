@@ -3,6 +3,7 @@ import { NotionPage } from './Notion/NotionPage'
 
 export class Post extends NotionPage {
 	public slug: string
+	public categories: string[]
 	public hashtags: string[]
 	public abstract?: string
 
@@ -10,6 +11,7 @@ export class Post extends NotionPage {
 		super(result, 'post')
 
 		this.slug = this.mountPostSlug(result)
+		this.categories = this.getCategories(result.properties['Categoria'])
 		this.hashtags = this.getHashtags(result.properties['Hashtags'])
 		this.abstract = this.concatenateAbsctract(result.properties['Abstract'])
 	}
@@ -30,6 +32,13 @@ export class Post extends NotionPage {
 		const month = monthNumber.toString().padStart(2, '0')
 
 		return `/${year}/${month}/${slug}`
+	}
+
+	getCategories = (categories: any): string[] => {
+		if (!categories || !categories.multi_select)
+			return []
+
+		return categories.multi_select.map((item: any) => item.name)
 	}
 
 	getHashtags = (hashtags: any): string[] => {

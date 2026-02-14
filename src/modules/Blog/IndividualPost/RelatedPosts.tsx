@@ -1,12 +1,15 @@
 import { Post } from '../../../models/Post'
 import { BlogGridItem } from '../Grid/BlogGridItem'
 
-export const RelatedPosts = ({ post }: { post: Post }) => {
+export const RelatedPosts = ({ posts }: { posts: Post[] }) => {
+	if (!posts || posts.length === 0)
+		return null
+
 	return (
 		<div className='blog-grid-3'>
-			<BlogGridItem item={post} />
-			<BlogGridItem item={post} />
-			<BlogGridItem item={post} />
+			{posts.map((post) => (
+				<BlogGridItem key={post.slug} item={post} />
+			))}
 		</div>
 	)
 }

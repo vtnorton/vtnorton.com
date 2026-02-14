@@ -107,9 +107,8 @@ blockquote p {
 }
 
 a {
-	color: var(--accent-color);
-	text-decoration: underline;
-	transition: all 0.2s ease;
+	text-decoration: none;
+	color: inherit;
 
 	&:hover {
 		color: var(--dark-blue);

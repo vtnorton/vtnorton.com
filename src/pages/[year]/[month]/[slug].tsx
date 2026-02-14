@@ -39,9 +39,13 @@ export const getStaticProps = async (
 	const { slug, year, month } = context.params
 
 	const post = await postServices.getPostBySlug(`/${year}/${month}/${slug}`)
+	const relatedPosts = post
+		? await postServices.getRelatedPosts(post, 3)
+		: []
 
 	let props = {
 		post: post,
+		relatedPosts,
 	}
 
 	props = JSON.parse(JSON.stringify(props))
@@ -51,7 +55,7 @@ export const getStaticProps = async (
 	}
 }
 
-export default function PostDetail({ post }: { post: Post }) {
+export default function PostDetail({ post, relatedPosts }: { post: Post; relatedPosts: Post[] }) {
 	const { sidepane } = useLayout()
 
 	useEffect(() => {
@@ -78,7 +82,7 @@ export default function PostDetail({ post }: { post: Post }) {
 				date={post.date}
 				tags={post.hashtags}
 				ogType='article' />
-			<IndividualPost post={post} />
+			<IndividualPost post={post} relatedPosts={relatedPosts} />
 		</>
 	)
 }
