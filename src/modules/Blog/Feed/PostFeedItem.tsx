@@ -29,7 +29,7 @@ export const PostFeedItem = ({
 				<NoiseImage src={post.cover} alt={post.title} className='cover-image' />
 				<div className='intro'>
 					<a href={post.slug}><h2>{post.title}</h2></a>
-					<p className='metadata'>Publicado {getDate(post.date)}</p>
+					<p className='metadata small'>Publicado {getDate(post.date)}</p>
 					<TagGroup role='list' size='extra-small'>
 						{post.hashtags.map((tag) => (
 							<InteractionTag onClick={() => selectTag(tag)} role='listitem' shape='circular' appearance='outline' key={tag}>

@@ -68,9 +68,6 @@
 
 			p {
 				opacity: 0;
-				font-size: 14px;
-				line-height: 1.2rem;
-				font-weight: 500;
 				color: #fff;
 				transition: all .4s ease-in-out;
 			}
@@ -150,7 +147,7 @@
 
 				p {
 					opacity: 1;
-					color: var(--default-text);
+					color: #99a;
 				}
 			}
 

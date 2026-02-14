@@ -20,7 +20,7 @@ export const NumberSquare = ({
 		>
 			<h2>/{title}/</h2>
 			<div className='number'>{number}</div>
-			<p>{description}</p>
+			<p className='small'>{description}</p>
 		</div>
 	)
 }

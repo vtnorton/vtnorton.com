@@ -10,7 +10,7 @@ export const FancyTableItem = ({ item }: { item: FancyTableItems }) => {
 			</div>
 			<div className='ft-row-content'>
 				<h4>/{item.title}</h4>
-				<p>{item.description}</p>
+				<p className='small'>{item.description}</p>
 				<p><Button appearance='primary' shape='circular' size='large' onlyIcon></Button></p>
 			</div>
 		</a>
