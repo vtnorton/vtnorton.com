@@ -108,7 +108,14 @@ blockquote p {
 
 a {
 	text-decoration: none;
-	color: inherit;
+	color: var(--accent-color);
+	text-decoration: underline;
+	transition: all 0.2s ease;
+
+	&:hover {
+		color: var(--dark-blue);
+		text-decoration-thickness: 2px;
+	}
 }
 
 ::selection {
