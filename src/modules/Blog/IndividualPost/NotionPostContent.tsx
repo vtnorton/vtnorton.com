@@ -28,6 +28,8 @@ const Tweet = ({ id }: { id: string }) => {
 	return <TweetEmbed tweetId={id} />
 }
 
+const Collection = () => null
+
 export const NotionPostContent = React.forwardRef<HTMLDivElement, { content: any }>(({ content }, ref) => {
 	return (
 		<div className='post-wrapper' ref={ref}>
@@ -39,6 +41,7 @@ export const NotionPostContent = React.forwardRef<HTMLDivElement, { content: any
 					Code,
 					Tweet,
 					Modal,
+					Collection,
 				}} />
 		</div>
 	)
