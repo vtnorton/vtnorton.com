@@ -1,7 +1,7 @@
 import { kv } from '@vercel/kv'
 
 export async function handleCache<T>(cacheKey: string, getFunction: () => Promise<T[]>, ttl?: number): Promise<T[]> {
-	if (process.env.NODE_ENV === 'development')
+	if (process.env.HOST === 'localhost')
 		return getFunction()
 
 	const cachedItens = (await kv.get(cacheKey)) as T[]

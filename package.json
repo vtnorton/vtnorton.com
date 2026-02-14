@@ -25,6 +25,7 @@
     "@vercel/kv": "^3.0.0",
     "animate.css": "^4.1.1",
     "axios": "^1.13.2",
+    "date-fns": "^4.1.0",
     "globals": "^16.5.0",
     "lottie-react": "^2.4.1",
     "next": "^16.1.3",
