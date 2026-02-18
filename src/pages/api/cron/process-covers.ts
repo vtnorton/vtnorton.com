@@ -2,7 +2,7 @@ import type { NextApiRequest, NextApiResponse } from 'next'
 import { coverProcessingService } from '../../../services/coverProcessingService'
 
 export const config = {
-	maxDuration: 300,
+	maxDuration: 60,
 }
 
 export default async function handler(

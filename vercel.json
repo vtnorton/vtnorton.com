@@ -6,7 +6,7 @@
 	},
 	"functions": {
 		"src/pages/api/cron/process-covers.ts": {
-			"maxDuration": 300
+			"maxDuration": 60
 		}
 	},
 	"crons": [

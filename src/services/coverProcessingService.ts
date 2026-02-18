@@ -94,24 +94,25 @@ const processSingleCover = async (item: NotionPage): Promise<ItemResult> => {
 	}
 }
 
-const BATCH_SIZE = 3
-
-const processBatch = async (items: NotionPage[]): Promise<ItemResult[]> => {
-	return await Promise.all(items.map((item) => processSingleCover(item)))
-}
+const TIME_BUDGET_MS = 50_000
 
 const processAllCovers = async (): Promise<ProcessingResult> => {
+	const startTime = Date.now()
 	const items = await getRecentItems()
 	const details: ItemResult[] = []
 
-	for (let i = 0; i < items.length; i += BATCH_SIZE) {
-		const batch = items.slice(i, i + BATCH_SIZE)
-		const batchResults = await processBatch(batch)
-		details.push(...batchResults)
+	for (const item of items) {
+		const elapsed = Date.now() - startTime
+		if (elapsed > TIME_BUDGET_MS) {
+			break
+		}
+
+		const result = await processSingleCover(item)
+		details.push(result)
 	}
 
 	return {
-		total: details.length,
+		total: items.length,
 		processed: details.filter((d) => d.status === 'processed').length,
 		skipped: details.filter((d) => d.status === 'skipped').length,
 		errors: details.filter((d) => d.status === 'error').length,
