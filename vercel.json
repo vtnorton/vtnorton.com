@@ -4,6 +4,11 @@
 			"NEXT_CACHE": "true"
 		}
 	},
+	"functions": {
+		"src/pages/api/cron/process-covers.ts": {
+			"maxDuration": 300
+		}
+	},
 	"crons": [
 		{
 			"path": "/api/cron/process-covers",

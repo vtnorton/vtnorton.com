@@ -94,14 +94,20 @@ const processSingleCover = async (item: NotionPage): Promise<ItemResult> => {
 	}
 }
 
+const BATCH_SIZE = 3
+
+const processBatch = async (items: NotionPage[]): Promise<ItemResult[]> => {
+	return await Promise.all(items.map((item) => processSingleCover(item)))
+}
+
 const processAllCovers = async (): Promise<ProcessingResult> => {
 	const items = await getRecentItems()
-
 	const details: ItemResult[] = []
 
-	for (const item of items) {
-		const result = await processSingleCover(item)
-		details.push(result)
+	for (let i = 0; i < items.length; i += BATCH_SIZE) {
+		const batch = items.slice(i, i + BATCH_SIZE)
+		const batchResults = await processBatch(batch)
+		details.push(...batchResults)
 	}
 
 	return {
