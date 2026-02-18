@@ -22,6 +22,10 @@ const nextConfig = {
 				protocol: 'https',
 				hostname: 'mirrors.creativecommons.org',
 			},
+			{
+				protocol: 'https',
+				hostname: 'vtnphotoswebsite.blob.core.windows.net',
+			},
 		],
 	},
 	i18n: {

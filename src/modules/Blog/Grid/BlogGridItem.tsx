@@ -1,5 +1,5 @@
 import { Post } from '../../../models/Post'
-import { getDate } from '../../../utils/postDate'
+import { getDate } from '../../../utils/dateUtils'
 import { FeatureImage } from './FeatureImage'
 
 // TODO: acertar data, tá ficando um dia após o dia real da postagem

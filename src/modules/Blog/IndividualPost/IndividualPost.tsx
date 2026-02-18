@@ -1,5 +1,5 @@
 import React, { useEffect, useRef, useState } from 'react'
-import { getDate } from '../../../utils/postDate'
+import { getDate } from '../../../utils/dateUtils'
 import { Post } from '../../../models/Post'
 import { NotionPostContent } from './NotionPostContent'
 import { InteractionTag, InteractionTagPrimary, TagGroup } from '@fluentui/react-components'

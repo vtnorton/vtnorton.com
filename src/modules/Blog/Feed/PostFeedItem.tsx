@@ -1,7 +1,7 @@
 import { InteractionTag, InteractionTagPrimary, TagGroup } from '@fluentui/react-components'
 import { Section } from '../../../components/Section'
 import { Post } from '../../../models/Post'
-import { getDate } from '../../../utils/postDate'
+import { getDate } from '../../../utils/dateUtils'
 import { useRouter } from 'next/router'
 import { Button } from '../../../components/Button'
 import { NoiseImage } from '../../../components/NoiseImage'

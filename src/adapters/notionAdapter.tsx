@@ -39,4 +39,16 @@ export class NotionAdapter {
 		})
 		return await notionApi.getPage(pageId)
 	}
+
+	async updatePageCover(pageId: string, coverUrl: string): Promise<void> {
+		await this.notion.pages.update({
+			page_id: pageId,
+			cover: {
+				type: 'external',
+				external: {
+					url: coverUrl,
+				},
+			},
+		})
+	}
 }

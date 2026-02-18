@@ -3,5 +3,11 @@
 		"env": {
 			"NEXT_CACHE": "true"
 		}
-	}
+	},
+	"crons": [
+		{
+			"path": "/api/cron/process-covers",
+			"schedule": "0 2 * * *"
+		}
+	]
 }
