@@ -28,6 +28,10 @@ export const SidePane = ({
 				if (sidepane.state !== 'expanded' && sidepane.state !== 'exploded') {
 					sidepane.expand()
 				}
+			} else {
+				if (sidepane.state === 'expanded' && !sidepane.isPinned) {
+					sidepane.collapse()
+				}
 			}
 		}
 

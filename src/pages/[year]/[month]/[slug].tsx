@@ -2,7 +2,7 @@ import { Post } from '../../../models/Post'
 import { IndividualPost } from '../../../modules/Blog'
 import { postServices } from '../../../services/postsServices'
 import { useLayout } from '../../../providers/LayoutProvider'
-import { useEffect } from 'react'
+import { useLayoutEffect } from 'react'
 import { ContentSEO } from '../../../database/seo'
 
 const mountPath = (post: Post) => {
@@ -58,7 +58,7 @@ export const getStaticProps = async (
 export default function PostDetail({ post, relatedPosts }: { post: Post; relatedPosts: Post[] }) {
 	const { sidepane } = useLayout()
 
-	useEffect(() => {
+	useLayoutEffect(() => {
 		sidepane.setAutoExpandBreakpoint(2200)
 		if (window.innerWidth < 2200) {
 			sidepane.collapse()
