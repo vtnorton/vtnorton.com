@@ -39,3 +39,31 @@
 		}
 	}
 }
+
+.to-present-talk {
+	h3 {
+		color: var(--dark-blue);
+	}
+
+	ul {
+		padding: 0;
+		list-style: none;
+
+		li {
+			font-family: 'Neutra Text Alt Bold', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+			font-size: 1.1rem;
+			padding: .2rem 0;
+			line-height: 135%;
+			transition: all .3s ease-in-out;
+			color: var(--dark-blue);
+			cursor: pointer;
+
+			&:hover {
+				padding-left: .5rem;
+				color: var(--accent-color);
+			}
+		}
+	}
+
+	p {}
+}
