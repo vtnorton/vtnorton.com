@@ -65,7 +65,8 @@
 				}
 			}
 
-			.fui-InteractionTagPrimary {
+			.fui-InteractionTagPrimary,
+			.fui-Tag {
 				border-color: var(--gold) !important;
 			}
 
@@ -97,6 +98,10 @@
 					&:last-of-type {
 						width: 80%;
 					}
+				}
+
+				strong {
+					font-weight: 600;
 				}
 			}
 

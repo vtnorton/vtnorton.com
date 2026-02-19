@@ -9,13 +9,13 @@ export const TalksContent = ({ items }: { items: FancyTableItems[] }) => {
 				descriptionTitle: 'Descrição',
 				mainTitle: 'Palestra',
 			}} />
-			{/* <div className='numbers-cta'>
+			<div className='numbers-cta'>
 				<Button href='/portfolio/palestras' target='_blank' rel='noopener noreferrer' shape='square' size='large' appearance='primary'>Veja mais palestras</Button>
 				<div className='community-stats'>
 					<p>Palestrei para mais de 50 eventos</p>
 					<p>começaram com exibição de código e viraram conexões reais.</p>
 				</div>
-			</div> */}
+			</div>
 		</div>
 	)
 }
