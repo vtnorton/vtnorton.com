@@ -210,5 +210,13 @@ article.post {
 			padding: 35px;
 			z-index: 10;
 		}
+
+		.header {
+			max-height: auto;
+
+			.info {
+				margin: 1rem 0;
+			}
+		}
 	}
 }

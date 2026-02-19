@@ -44,3 +44,12 @@
 		margin: 0 !important;
 	}
 }
+
+.fui-TagGroup {
+	display: flex !important;
+	flex-wrap: wrap !important;
+
+	.fui-InteractionTag {
+		margin-bottom: .2rem !important;
+	}
+}
