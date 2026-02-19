@@ -8,11 +8,15 @@ type LayoutContextType = {
 
 const LayoutContext = createContext<LayoutContextType | undefined>(undefined)
 
-export const LayoutProvider: React.FC<{ children: ReactNode }> = ({ children }) => {
+export const LayoutProvider: React.FC<{ children: ReactNode, initialBreakpoint?: number }> = ({ children, initialBreakpoint = 1500 }) => {
 	const [sidepaneState, setSidePaneState] = useState<SideBarStateOptions>('collapsed')
 	const [isPinned, setIsPinned] = useState(false)
-	const [autoExpandBreakpoint, setAutoExpandBreakpoint] = useState(1500)
+	const [autoExpandBreakpoint, setAutoExpandBreakpoint] = useState(initialBreakpoint)
 	const [isWidgetHovered, setWidgetHovered] = useState(false)
+
+	React.useEffect(() => {
+		setAutoExpandBreakpoint(initialBreakpoint)
+	}, [initialBreakpoint])
 
 	const sidepane = {
 		state: sidepaneState,

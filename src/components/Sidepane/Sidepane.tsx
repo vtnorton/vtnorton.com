@@ -1,4 +1,4 @@
-import { ReactNode, useEffect, useRef, useState } from 'react'
+import { ReactNode, useLayoutEffect, useRef, useState } from 'react'
 import { useLayout } from '../../providers/LayoutProvider'
 import { IoApps, IoClose } from 'react-icons/io5'
 import { SidepaneContent } from './SidepaneContent'
@@ -18,7 +18,7 @@ export const SidePane = ({
 	const [isLargeScreen, setIsLargeScreen] = useState(false)
 	const [windowWidth, setWindowWidth] = useState(0)
 
-	useEffect(() => {
+	useLayoutEffect(() => {
 		const handleResize = () => {
 			const large = window.innerWidth >= sidepane.autoExpandBreakpoint
 			setWindowWidth(window.innerWidth)
@@ -27,10 +27,6 @@ export const SidePane = ({
 			if (large) {
 				if (sidepane.state !== 'expanded' && sidepane.state !== 'exploded') {
 					sidepane.expand()
-				}
-			} else {
-				if (sidepane.state === 'expanded' && !sidepane.isPinned) {
-					sidepane.collapse()
 				}
 			}
 		}
