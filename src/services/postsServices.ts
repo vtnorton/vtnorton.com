@@ -5,7 +5,7 @@ import { handleCache } from '../middleware/cache'
 import { Post } from '../models/Post'
 import { NotionFilter } from '../types/notionTypes'
 import { completeWithRandomPosts, hasSameCategory, selectPostsByTagOrder } from '../utils/postUtils'
-import { itemTypeFilter, sharedFilter } from '../utils/postsQuery'
+import { itemTypeFilter, postsSharedFilter } from '../utils/query/postsQuery'
 
 const NOTION_DB_DEVREL = process.env.DEVREL_DATASOURE as string
 const RELATED_POSTS_COUNT = 3
@@ -17,7 +17,7 @@ const getPosts = async (filter?: NotionFilter): Promise<Array<Post>> => {
 	const response: Array<Post> = []
 
 	const fullFilter = [
-		...sharedFilter(),
+		...postsSharedFilter(),
 		{
 			or: [
 				itemTypeFilter('Post'),

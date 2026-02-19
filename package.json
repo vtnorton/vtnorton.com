@@ -39,8 +39,7 @@
     "react-multi-carousel": "^2.8.6",
     "react-notion-x": "^7.7.3",
     "react-tweet-embed": "^2.0.0",
-    "sharp": "^0.34.5",
-    "youtube-v3-api": "^1.1.1"
+    "sharp": "^0.34.5"
   },
   "devDependencies": {
     "@types/node": "^24.10.9",

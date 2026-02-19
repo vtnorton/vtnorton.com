@@ -1,7 +1,7 @@
-import { TalkStatus } from '../models/Talk'
-import { NotionFilter } from '../types/notionTypes'
+import { TalkStatus } from '../../models/Talk'
+import { NotionFilter } from '../../types/notionTypes'
 
-export const sharedFilter = (): NotionFilter => {
+export const talksSharedFilter = (): NotionFilter => {
 	return [
 		{
 			or: [

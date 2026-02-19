@@ -1,6 +1,6 @@
-import { NotionFilter } from '../types/notionTypes'
+import { NotionFilter } from '../../types/notionTypes'
 
-export const sharedFilter = (): NotionFilter => {
+export const postsSharedFilter = (): NotionFilter => {
 	const CLIENT_ID = process.env.CLIENT_ID
 
 	return [

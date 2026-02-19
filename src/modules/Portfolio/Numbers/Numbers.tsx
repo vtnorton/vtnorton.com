@@ -7,8 +7,13 @@ import { PodcastsContent } from './Content/PodcastsContent'
 import { VideoContent } from './Content/VideoContent'
 import { FancyTableItems } from '../../../components/FancyTable'
 import { Talk } from '../../../models/Talk'
+import { PortfolioCounts } from '../../../types/PortfolioCounts'
 
-export const Numbers = () => {
+interface NumbersProps {
+	counts: PortfolioCounts
+}
+
+export const Numbers = ({ counts }: NumbersProps) => {
 	const [activeIndex, setActiveIndex] = useState<string | null>(null)
 	const [talkItems, setTalkItems] = useState<FancyTableItems[]>([])
 
@@ -94,7 +99,7 @@ export const Numbers = () => {
 					<NumberSquare
 						id={'palestras'}
 						title={'palestras'}
-						number={'16+'}
+						number={`${counts.talks}+`}
 						description={'Conversas que começaram com "será que posso tentar explicar isso?".'}
 						isActive={activeIndex === 'palestras'}
 						onClick={handleToggle}
@@ -102,7 +107,7 @@ export const Numbers = () => {
 					<NumberSquare
 						id={'videos'}
 						title={'videos'}
-						number={'>15'}
+						number={`>${counts.videos}`}
 						description={'Experimentos em vídeo: alguns planejados, outros nem tanto.'}
 						isActive={activeIndex === 'videos'}
 						onClick={handleToggle}
@@ -110,7 +115,7 @@ export const Numbers = () => {
 					<NumberSquare
 						id={'podcasts'}
 						title={'podcasts'}
-						number={'12'}
+						number={`${counts.podcasts}`}
 						description={'Conversas gravadas sobre código, carreira, cotidiano e tentativas.'}
 						isActive={activeIndex === 'podcasts'}
 						onClick={handleToggle}

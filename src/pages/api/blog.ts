@@ -4,7 +4,7 @@ import { handleCache } from '../../middleware/cache'
 import { postServices } from '../../services/postsServices'
 import { PaginatedResponse } from '../../types/PaginatedResponse'
 import { CACHE_KEYS } from '../../database/cacheKeys'
-import { itemCategoryFilter } from '../../utils/postsQuery'
+import { itemCategoryFilter } from '../../utils/query/postsQuery'
 
 const getFilter = (type: string | null) => {
 	if (type === 'personal') {

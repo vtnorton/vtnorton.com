@@ -1,7 +1,7 @@
 import { NotionAdapter } from '../adapters/notionAdapter'
 import { Talk, TalkStatus } from '../models/Talk'
 import { NotionResult } from '../types/notionTypes'
-import { sharedFilter } from '../utils/talksQuery'
+import { talksSharedFilter } from '../utils/query/talksQuery'
 
 const TALKS_DATASOURCE = process.env.TALKS_DATASOURCE as string
 
@@ -9,7 +9,7 @@ const getAllTalks = async (): Promise<Array<Talk>> => {
 	const notion = new NotionAdapter(TALKS_DATASOURCE)
 	const response: Array<Talk> = []
 
-	const results = await notion.query(sharedFilter())
+	const results = await notion.query(talksSharedFilter())
 	results.forEach(async (result: NotionResult) => {
 		const post = new Talk(result)
 		response.push(post)
