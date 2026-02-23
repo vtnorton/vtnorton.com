@@ -11,6 +11,7 @@ export default function Blog() {
 	const [selectedTag, setSelectedTag] = useState<string | null>(null)
 	const [type, setType] = useState<string>('')
 	const [pageTitle, setPageTitle] = useState('Meu blog')
+	const [feedReady, setFeedReady] = useState(false)
 	const pageDescription = 'Este é meu espaço pra escrever sobre cinema, política, meu trampo como dev — postagens técnicas ou não — enfim, um blog old-school. Meu espaço sem compromisso na web, que talvez não devesse estar aqui, mas meu ímpeto de escrever sobre tudo me faz manter.'
 
 	useEffect(() => {
@@ -26,8 +27,11 @@ export default function Blog() {
 				setPageTitle('Meu blog pessoal')
 				setType('personal')
 			} else {
+				setType('')
 				setPageTitle('Meu blog')
 			}
+
+			setFeedReady(true)
 		}
 	}, [router.isReady, router.query.tag, router.query.type])
 
@@ -60,7 +64,7 @@ export default function Blog() {
 						endpoint={'/api/blog?type=' + type}
 						selectedTag={selectedTag}
 						setSelectedTag={setSelectedTag}
-						isReady={router.isReady} />
+						isReady={feedReady} />
 					<div className='widgets'>
 						<p>Em breve, algo aqui...</p>
 					</div>

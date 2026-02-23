@@ -18,13 +18,26 @@ export default function BlogFeed({
 	isReady?: boolean
 }) {
 	const [posts, setPosts] = useState<Post[]>([])
-	const [page, setPage] = useState(1)
 	const [loading, setLoading] = useState(false)
-	const [hasMore, setHasMore] = useState(true)
+
+	const pageRef = useRef(1)
+	const hasMoreRef = useRef(true)
+	const loadingRef = useRef(false)
+	const abortControllerRef = useRef<AbortController | null>(null)
 	const lastPostRef = useRef<HTMLDivElement>(null)
 
 	const loadPosts = useCallback(async (pageNumber: number) => {
+		if (loadingRef.current) return
+
+		if (abortControllerRef.current) {
+			abortControllerRef.current.abort()
+		}
+		const controller = new AbortController()
+		abortControllerRef.current = controller
+
+		loadingRef.current = true
 		setLoading(true)
+
 		try {
 			const params = new URLSearchParams({
 				page: String(pageNumber),
@@ -36,7 +49,9 @@ export default function BlogFeed({
 			}
 
 			const separator = endpoint.includes('?') ? '&' : '?'
-			const response = await fetch(`${endpoint}${separator}${params.toString()}`)
+			const response = await fetch(`${endpoint}${separator}${params.toString()}`, {
+				signal: controller.signal,
+			})
 
 			if (!response.ok) {
 				throw new Error(`Erro ao obter os dados da API: ${response.status}`)
@@ -45,15 +60,20 @@ export default function BlogFeed({
 			const data = await response.json() as PaginatedResponse<Post>
 			const { content: newPosts, pagination } = data
 
+			pageRef.current = pageNumber
+			hasMoreRef.current = pagination.hasMore
+
 			if (pageNumber === 1) {
 				setPosts(newPosts)
 			} else {
 				setPosts((prevPosts) => [...prevPosts, ...newPosts])
 			}
-			setHasMore(pagination.hasMore)
 		} catch (error) {
-			console.error('Erro ao obter os dados da API:', error)
+			if ((error as Error).name !== 'AbortError') {
+				console.error('Erro ao obter os dados da API:', error)
+			}
 		} finally {
+			loadingRef.current = false
 			setLoading(false)
 		}
 	}, [endpoint, selectedTag])
@@ -61,26 +81,27 @@ export default function BlogFeed({
 	useEffect(() => {
 		if (!isReady) return
 
+		pageRef.current = 1
+		hasMoreRef.current = true
 		setPosts([])
-		setPage(1)
-		setHasMore(true)
 		loadPosts(1)
-	}, [selectedTag, isReady, loadPosts])
 
-	useEffect(() => {
-		if (page > 1) {
-			loadPosts(page)
+		return () => {
+			if (abortControllerRef.current) {
+				abortControllerRef.current.abort()
+			}
 		}
-	}, [page, loadPosts])
+		// eslint-disable-next-line react-hooks/exhaustive-deps
+	}, [endpoint, selectedTag, isReady])
 
 	const handleObserver = useCallback(
 		(entries: IntersectionObserverEntry[]) => {
 			const [target] = entries
-			if (target.isIntersecting && hasMore && !loading) {
-				setPage((prev) => prev + 1)
+			if (target.isIntersecting && hasMoreRef.current && !loadingRef.current) {
+				loadPosts(pageRef.current + 1)
 			}
 		},
-		[hasMore, loading],
+		[loadPosts],
 	)
 
 	useEffect(() => {

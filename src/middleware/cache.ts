@@ -13,7 +13,7 @@ export async function handleCache<T>(cacheKey: string, getFunction: () => Promis
 		ttl = 60 * 60 * 24
 
 	const itens: T[] = await getFunction()
-	await kv.setex(cacheKey, 60 * 60 * 24, itens)
+	await kv.setex(cacheKey, ttl, itens)
 
 	return itens
 }
