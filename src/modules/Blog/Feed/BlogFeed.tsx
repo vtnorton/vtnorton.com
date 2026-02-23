@@ -35,7 +35,8 @@ export default function BlogFeed({
 				params.set('tag', selectedTag)
 			}
 
-			const response = await fetch(`${endpoint}?${params.toString()}`)
+			const separator = endpoint.includes('?') ? '&' : '?'
+			const response = await fetch(`${endpoint}${separator}${params.toString()}`)
 
 			if (!response.ok) {
 				throw new Error(`Erro ao obter os dados da API: ${response.status}`)
