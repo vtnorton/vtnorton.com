@@ -17,7 +17,14 @@ const getFilter = (type: string | null) => {
 	if (type === 'tech') {
 		return {
 			cacheKey: CACHE_KEYS.TECH_BLOG_POSTS,
-			filter: [itemCategoryFilter('Tech'), itemCategoryFilter('Dev Advocate')],
+			filter: [
+				{
+					or: [
+						itemCategoryFilter('Tech'),
+						itemCategoryFilter('Dev Advocate'),
+					],
+				},
+			],
 		}
 	}
 

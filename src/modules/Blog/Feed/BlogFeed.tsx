@@ -45,7 +45,11 @@ export default function BlogFeed({
 			const data = await response.json() as PaginatedResponse<Post>
 			const { content: newPosts, pagination } = data
 
-			setPosts((prevPosts) => [...prevPosts, ...newPosts])
+			if (pageNumber === 1) {
+				setPosts(newPosts)
+			} else {
+				setPosts((prevPosts) => [...prevPosts, ...newPosts])
+			}
 			setHasMore(pagination.hasMore)
 		} catch (error) {
 			console.error('Erro ao obter os dados da API:', error)
