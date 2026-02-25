@@ -16,6 +16,8 @@ interface NumbersProps {
 export const Numbers = ({ counts }: NumbersProps) => {
 	const [activeIndex, setActiveIndex] = useState<string | null>(null)
 	const [talkItems, setTalkItems] = useState<FancyTableItems[]>([])
+	const firstRowIds = ['premios', 'clientes']
+	const secondRowIds = ['palestras', 'videos', 'podcasts']
 
 	useEffect(() => {
 		const abortController = new AbortController()
@@ -49,7 +51,7 @@ export const Numbers = ({ counts }: NumbersProps) => {
 		setActiveIndex(activeIndex === id ? null : id)
 	}
 
-	const renderExpandedContent = (id: string) => {
+	const renderExpandedContent = (id: string, isMobileInline = false) => {
 		if (activeIndex !== id) return null
 
 		const content = {
@@ -61,7 +63,7 @@ export const Numbers = ({ counts }: NumbersProps) => {
 		}
 
 		return (
-			<div className='number-square-expanded'>
+			<div className={`number-square-expanded ${isMobileInline ? 'mobile-inline' : ''}`}>
 				<div className='container'>
 					{content[id as keyof typeof content]}
 				</div>
@@ -81,6 +83,7 @@ export const Numbers = ({ counts }: NumbersProps) => {
 						isActive={activeIndex === 'premios'}
 						onClick={handleToggle}
 					/>
+					{renderExpandedContent('premios', true)}
 					<NumberSquare
 						id={'clientes'}
 						title={'clientes'}
@@ -89,12 +92,11 @@ export const Numbers = ({ counts }: NumbersProps) => {
 						isActive={activeIndex === 'clientes'}
 						onClick={handleToggle}
 					/>
+					{renderExpandedContent('clientes', true)}
 				</div>
 			</div>
-			{(activeIndex === 'premios' || activeIndex === 'clientes') && renderExpandedContent(activeIndex)}
-			<div className='second-row' style={{
-				borderTop: activeIndex === 'premios' || activeIndex === 'clientes' ? '1px solid var(--border-color)' : 'none',
-			}}>
+			{activeIndex && firstRowIds.includes(activeIndex) && renderExpandedContent(activeIndex)}
+			<div className={`second-row ${activeIndex && firstRowIds.includes(activeIndex) ? 'first-row-active' : ''}`}>
 				<div className='container'>
 					<NumberSquare
 						id={'palestras'}
@@ -104,6 +106,7 @@ export const Numbers = ({ counts }: NumbersProps) => {
 						isActive={activeIndex === 'palestras'}
 						onClick={handleToggle}
 					/>
+					{renderExpandedContent('palestras', true)}
 					<NumberSquare
 						id={'videos'}
 						title={'videos'}
@@ -112,6 +115,7 @@ export const Numbers = ({ counts }: NumbersProps) => {
 						isActive={activeIndex === 'videos'}
 						onClick={handleToggle}
 					/>
+					{renderExpandedContent('videos', true)}
 					<NumberSquare
 						id={'podcasts'}
 						title={'podcasts'}
@@ -120,9 +124,10 @@ export const Numbers = ({ counts }: NumbersProps) => {
 						isActive={activeIndex === 'podcasts'}
 						onClick={handleToggle}
 					/>
+					{renderExpandedContent('podcasts', true)}
 				</div>
 			</div>
-			{(activeIndex === 'palestras' || activeIndex === 'videos' || activeIndex === 'podcasts') && renderExpandedContent(activeIndex)}
+			{activeIndex && secondRowIds.includes(activeIndex) && renderExpandedContent(activeIndex)}
 		</div>
 	)
 }

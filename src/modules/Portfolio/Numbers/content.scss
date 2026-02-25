@@ -32,7 +32,12 @@
 				opacity: 0;
 				height: 0;
 				margin: 0;
+				overflow: hidden;
 				transition: all 0.3s ease;
+
+				@media (max-width: 767px) {
+					height: 130px;
+				}
 			}
 
 			p {
@@ -63,7 +68,10 @@
 				.award-info-hover {
 					transform: translateY(0);
 					opacity: 1;
-					height: 130px;
+
+					@media (min-width: 767px) {
+						height: 130px;
+					}
 				}
 			}
 		}
@@ -73,19 +81,30 @@
 .clients {
 	.f-carousel {
 		--f-carousel-slide-width: 100%;
+		--f-carousel-spacing: 0;
 		margin-bottom: 0 !important;
+		width: 100%;
 
 		.f-carousel__viewport {
-			margin: 0 1rem;
-			width: calc(100% - 3rem);
+			margin: 0;
+			width: 100%;
 		}
 
 		.f-carousel__slide {
 			display: flex;
-			justify-content: space-evenly;
+			justify-content: center;
 			align-items: center;
 
+			a {
+				display: flex;
+				justify-content: center;
+				align-items: center;
+				width: 100%;
+			}
+
 			img {
+				width: auto;
+				max-width: min(100%, 240px);
 				max-height: 42px;
 				object-fit: contain;
 				filter: grayscale(100%) brightness(0);
@@ -103,6 +122,10 @@
 	@media (min-width: 768px) {
 		.f-carousel {
 			--f-carousel-slide-width: calc(100% / 4);
+
+			.f-carousel__slide a {
+				width: auto;
+			}
 		}
 	}
 }
@@ -124,6 +147,61 @@
 		&:last-of-type {
 			color: var(--default-text);
 			font-weight: 400;
+		}
+	}
+}
+
+@media (max-width: 767px) {
+	.awards {
+		display: grid;
+		grid-template-columns: 1fr;
+		min-height: 0;
+		gap: 1rem;
+		margin-bottom: 0;
+
+		.award {
+			opacity: 1;
+			gap: 0.6rem;
+			padding: 1rem;
+			margin: 0 -1rem;
+			border: 1px solid #d7d8e2;
+			background: #f3f3f8;
+
+			img {
+				height: auto;
+				max-height: 44px;
+				max-width: min(240px, 72%);
+			}
+
+			.award-info {
+				margin-top: 0.25rem;
+				padding-top: 0.75rem;
+				border-top: 1px solid #d7d8e2;
+
+				span {
+					font-size: 1.15rem;
+					margin-bottom: 0.35rem;
+					line-height: 1.2;
+				}
+
+				.award-info-hover {
+					transform: none;
+					opacity: 1;
+					height: auto;
+					margin-top: 0.35rem;
+				}
+
+				p {
+					font-size: 0.98rem;
+					line-height: 1.5;
+
+					&:last-of-type {
+						text-align: left;
+						color: var(--dark-blue);
+						font-weight: 600;
+					}
+				}
+			}
 		}
 	}
 }
