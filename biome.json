@@ -43,14 +43,9 @@
 			"correctness": {
 				"noUnusedVariables": "error",
 				"noInvalidUseBeforeDeclaration": "error",
-				"useHookAtTopLevel": "error"
+				"useHookAtTopLevel": "error",
+				"noImgElement": "off"
 			}
 		}
-	},
-	"files": {
-		"experimentalScannerIgnores": [
-			"next-env.d.ts",
-			"pnpm-lock.yaml"
-		]
 	}
 }
