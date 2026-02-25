@@ -185,7 +185,7 @@
 	}
 
 	@media (max-width: 767px) {
-		--mobile-inline-gap: clamp(1.25rem, 5vw, 1.75rem);
+		--mobile-inline-gap: calc(var(--spacing-xl) + calc(var(--spacing-lg) / 2));
 
 		.first-row,
 		.second-row {
