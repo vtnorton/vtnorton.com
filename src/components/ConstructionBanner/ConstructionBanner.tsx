@@ -9,7 +9,7 @@ export const ConstructionBanner = () => {
 						href='https://github.com/vtnorton/vtnorton.com/commits/main/'
 						target='_blank'
 						rel='noopener noreferrer'>
-						5 atualizações por dia
+						2 atualizações por dia
 					</a>
 					.
 				</span>
