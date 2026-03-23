@@ -18,7 +18,7 @@ export const PostFeedItem = ({
 	const selectTag = (tag: string) => {
 		router.push({
 			pathname: router.pathname,
-			query: { tag },
+			query: { ...router.query, tag },
 		}, undefined, { shallow: true })
 		setSelectedTag(tag)
 	}

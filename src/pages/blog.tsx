@@ -36,9 +36,10 @@ export default function Blog() {
 	}, [router.isReady, router.query.tag, router.query.type])
 
 	const handleTagDismiss = () => {
+		const { tag: _tag, ...restQuery } = router.query
 		router.push({
 			pathname: router.pathname,
-			query: {},
+			query: restQuery,
 		}, undefined, { shallow: true })
 		setSelectedTag(null)
 	}
