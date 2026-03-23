@@ -4,7 +4,6 @@ import { postServices } from '../../../services/postsServices'
 import { useLayout } from '../../../providers/LayoutProvider'
 import { useLayoutEffect } from 'react'
 import { ContentSEO } from '../../../database/seo'
-import { useRouter } from 'next/router'
 
 const mountPath = (post: Post) => {
 	const postDate = new Date(post.date)
@@ -24,7 +23,7 @@ export const getStaticPaths = async () => {
 	const posts = await postServices.getPosts()
 	return {
 		paths: posts.map((post: Post) => mountPath(post)),
-		fallback: true,
+		fallback: 'blocking',
 	}
 }
 
@@ -58,7 +57,6 @@ export const getStaticProps = async (
 
 export default function PostDetail({ post, relatedPosts }: { post: Post; relatedPosts: Post[] }) {
 	const { sidepane } = useLayout()
-	const router = useRouter()
 
 	useLayoutEffect(() => {
 		sidepane.setAutoExpandBreakpoint(2200)
@@ -71,9 +69,6 @@ export default function PostDetail({ post, relatedPosts }: { post: Post; related
 		}
 		// eslint-disable-next-line react-hooks/exhaustive-deps
 	}, [])
-
-	if (router.isFallback)
-		return <div />
 
 	if (!post)
 		return <div />
