@@ -8,19 +8,10 @@ import { ContentSEO } from '../../../database/seo'
 
 export const getServerSideProps = async (context: GetServerSidePropsContext) => {
 	const { slug, year, month } = context.params as { slug: string; year: string; month: string }
-	const requestedSlug = `/${year}/${month}/${slug}`
 
-	// Busca direto do Notion, sem passar por cache
-	const allPosts = await postServices.getPosts()
-
-	console.log('[PostDetail] requestedSlug:', requestedSlug)
-	console.log('[PostDetail] total posts from Notion:', allPosts.length)
-	console.log('[PostDetail] all slugs:', allPosts.map((p) => p.slug))
-
-	const post = allPosts.find((p) => p.slug === requestedSlug)
+	const post = await postServices.getPostBySlug(`/${year}/${month}/${slug}`)
 
 	if (!post) {
-		console.log('[PostDetail] POST NOT FOUND for slug:', requestedSlug)
 		return { notFound: true }
 	}
 
@@ -32,6 +23,11 @@ export const getServerSideProps = async (context: GetServerSidePropsContext) => 
 	}
 
 	props = JSON.parse(JSON.stringify(props))
+
+	context.res.setHeader(
+		'Cache-Control',
+		'public, s-maxage=3600, stale-while-revalidate=59',
+	)
 
 	return { props }
 }
