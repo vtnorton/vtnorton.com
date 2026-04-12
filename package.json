@@ -4,6 +4,9 @@
   "private": true,
   "scripts": {
     "dev": "next dev --webpack",
+    "dev:new": "next dev --webpack --port 3001",
+    "dev:old": "yarn --cwd ../old.vtnorton.com dev",
+    "dev:compare": "concurrently -k -n old,new -c yellow,cyan \"yarn --cwd ../old.vtnorton.com dev\" \"next dev --webpack --port 3001\"",
     "build": "next build -d",
     "start": "next dev",
     "start:prod": "next start",
@@ -47,6 +50,7 @@
     "@types/node": "^24.10.9",
     "@types/react": "^19.2.8",
     "@types/react-dom": "^19.2.3",
+    "concurrently": "^9.2.1",
     "discord-api-types": "^0.38.37",
     "sass": "^1.97.2",
     "typescript": "^5.9.3"
