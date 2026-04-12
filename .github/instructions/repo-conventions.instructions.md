@@ -59,6 +59,10 @@ This is my personal blog and portfólio, its a website that I want to look fancy
 - Use descriptive names, including auxiliary verbs when applicable (for example `isLoading`, `hasError`, `canSubmit`).
 - Prefer simple solutions before introducing complex abstractions.
 - Break larger logic into multiple small private functions with clear names.
+- Prefer files with a single clear responsibility instead of mixing page logic, helper logic, types, constants, and unrelated UI concerns in one place.
+- Avoid defining local types in the same file when they can live in a dedicated adjacent types file.
+- Prefer dedicated neighboring files for types, constants, and helpers instead of keeping them embedded in large page or component files.
+- If a file starts mixing multiple responsibilities, split it into smaller adjacent files with clear names.
 
 ### React Safety Rules
 

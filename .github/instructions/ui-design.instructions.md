@@ -43,6 +43,7 @@ applyTo: ["src/**/*.tsx", "src/**/*.scss"]
 - Always run and inspect the page in browser tools for UI work with the browser maximized at 1920x1080 and verify the desktop result before considering the task complete.
 - Always validate the same UI in small-screen viewports as part of completion criteria.
 - Perform validation in that order: large screen first, then small screens.
+- Any mobile-first visual pass, snapshot, or screenshot is considered incorrect for this repository and must be repeated after a proper 1920x1080 desktop review.
 - For comparison work, use the legacy repo at `../old.vtnorton.com` when a page still exists there but not yet in the new repo.
 - Use `pnpm dev:compare` for side-by-side checks: legacy on port 3000 and current site on port 3001.
 - If a page does not yet exist in the current repo, use the legacy implementation as visual and structural reference, but modernize the final implementation to current patterns.

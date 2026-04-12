@@ -1,0 +1,4 @@
+instructions: você precisa usar as instruções em .github, sempre use essas instruções antes de tocar em qualquer coisa, são tres aruqivos, leia os tres arquivos antes
+automation:
+  auto_pr_review: false
+  auto_issue_session: true
