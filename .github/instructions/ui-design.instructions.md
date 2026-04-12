@@ -5,6 +5,11 @@ applyTo: ["src/**/*.tsx", "src/**/*.scss"]
 ---
 # vtnorton UI and Design
 
+## Strategy
+
+- This project is desktop-first, not mobile-first.
+- Design and evaluate the primary experience on large screens first, then adapt for smaller screens without losing quality.
+
 ## Core Intent
 
 - Treat UI work as product-quality frontend craft, not just functional implementation.
@@ -25,6 +30,7 @@ applyTo: ["src/**/*.tsx", "src/**/*.scss"]
 ## Responsive Quality
 
 - Always treat responsive behavior as part of the task, not a follow-up.
+- Follow a desktop-first workflow: finalize the large-screen layout first, then implement and validate small-screen adaptations.
 - Check layouts at desktop and mobile breakpoints before considering UI work done.
 - Use the repository breakpoints and spacing system already defined in `src/styles/variables.scss` and `src/styles/theme.scss`.
 - Prevent horizontal overflow, broken grids, clipped content, and touch-hostile interactions.
@@ -33,7 +39,10 @@ applyTo: ["src/**/*.tsx", "src/**/*.scss"]
 ## Visual QA Workflow
 
 - Use available tools to validate UI behavior whenever the task affects visuals.
-- Always run and inspect the page in browser tools for UI work and verify both desktop and mobile states before considering the task complete.
+- Follow the MCP viewport baseline from `.github/instructions/ui-mcp-viewport.instructions.md` before any visual conclusion.
+- Always run and inspect the page in browser tools for UI work with the browser maximized at 1920x1080 and verify the desktop result before considering the task complete.
+- Always validate the same UI in small-screen viewports as part of completion criteria.
+- Perform validation in that order: large screen first, then small screens.
 - For comparison work, use the legacy repo at `../old.vtnorton.com` when a page still exists there but not yet in the new repo.
 - Use `pnpm dev:compare` for side-by-side checks: legacy on port 3000 and current site on port 3001.
 - If a page does not yet exist in the current repo, use the legacy implementation as visual and structural reference, but modernize the final implementation to current patterns.
@@ -73,6 +82,7 @@ applyTo: ["src/**/*.tsx", "src/**/*.scss"]
 ## Tool and Validation Expectations
 
 - Use the available tools, browser inspection, screenshots, and comparison workflows when validating UI.
+- Validate UI at both extremes: 1920x1080 (maximized desktop) and small-screen/mobile sizes.
 - Check for regressions in layout, spacing, overflow, and interaction behavior.
 - Run project checks relevant to the change so Biome and existing project rules stay green.
 - If visual confidence is low, ask targeted design questions instead of making broad assumptions.
