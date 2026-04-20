@@ -25,7 +25,7 @@ export default function OlaWolff() {
 				backgroundUrl='/img/portfolio/ola-wolff.jpg'>
 				<>
 					<Section>
-						<SectionContentWithImage image={'/img/portfolio/olawolff/iphone.png'} imageAlt={''} side='right' sticky>
+						<SectionContentWithImage image={{ imageUrl: '/img/portfolio/olawolff/iphone.png', imageAlt: '' }} side='right' sticky>
 							<h2>Olá Wolff, diminuindo a burocracia com um chatbot</h2>
 							<p>O mundo muda todo dia. Ideias nascem, tecnologias amadurecem e, quando as duas se encontram, coisas andam. Com o Olá Wolff, a proposta era direta: facilitar o que sempre foi difícil: a abertura de empresas.</p>
 							<p>É um serviço baseado em inteligência artificial para acelerar o processo de constituição empresarial, tirar dúvidas de empreendedores, reduzir fricções burocráticas e conduzir a formalização.</p>
@@ -35,7 +35,7 @@ export default function OlaWolff() {
 
 					<Section>
 						<h2 style={{ marginBottom: '1.5rem' }}>A marca e o seu guia</h2>
-						<SectionContentWithImage image={'/img/portfolio/olawolff/logos.svg'} imageAlt={''} >
+						<SectionContentWithImage image={{ imageUrl: '/img/portfolio/olawolff/logos.svg', imageAlt: '' }} >
 							<p>Começou como um símbolo de conversa. Evoluiu com uma tipografia mais suave e um degradê nas cores da bandeira nacional.</p>
 							<p>A vírgula virou o ponto-chave. Queríamos a sensação de que uma conversa estava começando e a vírgula se tornou o próprio ícone do projeto.</p>
 							<p>A marca foi registrada no INPI. Criamos um guia completo, com aplicações e regras de uso. Clique na imagem para expandir.</p>
@@ -106,7 +106,12 @@ export default function OlaWolff() {
 			<div className='container'>
 				<Section>
 					<h2>Usabilidade do chat</h2>
-					<SectionContentWithImage image={'/img/portfolio/olawolff/mobile.jpg'} imageAlt={'Imagem real do produto em desenvolvimento em um visão mobile'} imageCaption>
+					<SectionContentWithImage
+						image={{
+							imageUrl: '/img/portfolio/olawolff/mobile.jpg',
+							imageAlt: 'Imagem real do produto em desenvolvimento em um visão mobile',
+							imageCaption: 'Imagem real do produto em desenvolvimento em um visão mobile',
+						}}>
 						<p>
 							O chat era, muito provavelmente, a parte mais importante de todo o projeto. Fizemos várias versões, refinamos com o uso e sempre com um objetivo: parecer natural. Queríamos que a pessoa sentisse que havia alguém do outro lado, sem exagero. Buscávamos uma experiência familiar para o nosso público, majoritariamente trabalhadores MEI, com diferentes níveis de intimidade com a internet.
 						</p>

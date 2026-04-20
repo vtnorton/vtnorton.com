@@ -85,6 +85,9 @@ This is my personal blog and portfólio, its a website that I want to look fancy
 - Type component props explicitly (for example with `ComponentNameProps`).
 - Prefer type over interface (legacy code used interfaces as types).
 - Use generics for wrappers/utilities like cache helpers.
+- Before creating a new shared prop/type shape, search for existing reusable types first and extend/reuse them (for example shared image shapes like `imageUrl`, `imageAlt`, and `imageCaption`) instead of duplicating fields.
+- Avoid indexed-access prop typing like `Image['imageUrl']` in component contracts. Prefer simpler shapes: either a full object prop (for example `image: Image`) or a named composed type (`type X = Image & { ... }`).
+- For image-related components, keep caption data inside the shared image type (`image.imageCaption`) instead of separate boolean caption toggles that hide caption source.
 
 ### Formatting and Linting
 

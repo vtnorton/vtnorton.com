@@ -1,7 +1,6 @@
 import { Card, CardHeader, CardPreview, Link, Tag } from '@fluentui/react-components'
 import { PageHero } from '../../components/PageHero'
 import { Section, SectionContentWithImage } from '../../components/Section'
-import { ImageBlur } from '../../components/Section/SectionProps'
 import { Step, VerticalSteper } from '../../components/VerticalStepper'
 import { Footer } from '../../sections/Footer/Footer'
 import { ContactCardRegular, PeopleCommunityRegular } from '@fluentui/react-icons'
@@ -9,13 +8,14 @@ import { PhotoGallery } from '../../components/PhotoGallery'
 import { Button } from '../../components/Button'
 import { SuperVizEventsTalks } from '../../components/SuperVizEventsTalks/SuperVizEventsTalks'
 import { ContentSEO } from '../../database/seo'
+import type { ImageBlur } from '../../types/Image'
 
 export default function SuperViz() {
 	const pageTitle = 'Brand Awareness da SuperViz, através de eventos'
 	const pageDescription = 'Durante o segundo semestre de 2024, encabecei na SuperViz a estratégia de participação em eventos de tecnologia, com o objetivo de aumentar o reconhecimento da marca e gerar leads qualificados.'
 	const imageBlurForHackathon: ImageBlur = {
-		imageURL: '/img/portfolio/superviz/hackathon_logo.png',
-		imageBlurURL: '/img/portfolio/superviz/hackatohn-2.0.jpg',
+		imageUrl: '/img/portfolio/superviz/hackathon_logo.png',
+		imageBlurUrl: '/img/portfolio/superviz/hackatohn-2.0.jpg',
 		imageAlt: 'Logo do Hackathon da SuperViz 2.0',
 	}
 
@@ -60,7 +60,13 @@ export default function SuperViz() {
 					<br />
 
 					<div className='patrocinios'>
-						<SectionContentWithImage side='right' image={'/img/portfolio/superviz/patrocinio.jpg'} imageAlt={'Imãs de geladeria como brinde da SuperViz'} sticky >
+						<SectionContentWithImage
+							side='right'
+							image={{
+								imageUrl: '/img/portfolio/superviz/patrocinio.jpg',
+								imageAlt: 'Imãs de geladeria como brinde da SuperViz',
+							}}
+							sticky>
 							<VerticalSteper>
 								<Step title='CodeCon Summit'>
 									<>
@@ -212,7 +218,11 @@ export default function SuperViz() {
 				<Section>
 					<h2>Palestras e Compartilhamento de Conhecimento</h2>
 
-					<SectionContentWithImage image={'/img/portfolio/superviz/speaking.jpg'} imageAlt={'Sala de palestra da CodeCon Summit lotada'}>
+					<SectionContentWithImage
+						image={{
+							imageUrl: '/img/portfolio/superviz/speaking.jpg',
+							imageAlt: 'Sala de palestra da CodeCon Summit lotada',
+						}}>
 						<p>Tão importante, se não mais, que patrocinar eventos é poder levar conteúdo para eles. Desta forma, por mais que o número de pessoas que atendam a palestra não seja tão expressivo quanto os que participam da experiência nos stands patrocinados, a qualidade do conteúdo e a profundidade das discussões técnicas geram um impacto muito mais significativo e duradouro.</p>
 						<p>Como Developer Advocate, é importante que as palestras foquem no conteúdo técnico e educativo, em vez de serem comerciais, o que afastaria o público-alvo. Afinal, o papel principal não é vender o produto, mas sim compartilhar conhecimento. </p>
 						<p>Segue abaixo as palestras feitas durante o segundo semestre de 2024 para a SuperViz:</p>
@@ -297,9 +307,12 @@ export default function SuperViz() {
 				<Section className='superviz-activation'>
 					<h2>Ativações e Interações Criativas</h2>
 					<SectionContentWithImage
-						imageSize='small' imageCaption
-						image={'/img/portfolio/superviz/dashboard.jpg'}
-						imageAlt={'Leaderboard com informações de quem estava online e como estava o status e pontuação de cada participante no nosso stand.'}>
+						imageSize='small'
+						image={{
+							imageUrl: '/img/portfolio/superviz/dashboard.jpg',
+							imageAlt: 'Leaderboard com informações de quem estava online e como estava o status e pontuação de cada participante no nosso stand.',
+							imageCaption: 'Leaderboard com informações de quem estava online e como estava o status e pontuação de cada participante no nosso stand.',
+						}}>
 						<p>
 							Tudo o que preciso em um evento é <s>uma permissão para fazer bagunça</s> um espaço para poder estar lá oficialmente, tendo isso a criatividade é o limite!
 						</p>
@@ -317,8 +330,10 @@ export default function SuperViz() {
 							<h3>O jogo mais viciante que eu fiz</h3>
 							<SectionContentWithImage
 								imageSize='small'
-								image={'/img/portfolio/superviz/game-you.png'}
-								imageAlt={'Leaderboard com informações de quem estava online e como estava o status e pontuação de cada participante no nosso stand.'}>
+								image={{
+									imageUrl: '/img/portfolio/superviz/game-you.png',
+									imageAlt: 'Leaderboard com informações de quem estava online e como estava o status e pontuação de cada participante no nosso stand.',
+								}}>
 								<p>
 									Dentro da ativação tinha vários itens como se inscrever para participar do nosso Hackathon, dar uma estrela no GitHub e se juntar ao nosso Discord. Mas o que mais viciou foi um jogo inspirado no Infinite Craft - <Link href='/2024/03/multiplayer-infinite-craft'>e na minha tentativa de deixa-lo multiplayer</Link> -, onde os participantes podiam combinar diferentes elementos para criar novos. O jogo começava com elementos básicos ("Fire", "Water", "Earth", "Wind", "Coffee", "JavaScript", "Developer") e uma IA gerava novos elementos baseados nas combinações dos jogadores, como "Fire" + "JavaScript" = "Firebase".
 								</p>

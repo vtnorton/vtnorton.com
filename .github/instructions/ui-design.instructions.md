@@ -60,6 +60,8 @@ applyTo: ["src/**/*.tsx", "src/**/*.scss"]
 - Do not assume one page is enough to validate a shared component. Cross-check at least the touched page plus the main reference pages that already use that component well.
 - For `SectionContentWithImage`, review the main variants across `src/pages/portfolio/formula.tsx`, `src/pages/portfolio/ola-wolff.tsx`, and `src/pages/portfolio/superviz.tsx`.
 - For stateful shell elements such as the sidebar, validate both the static look and the resize transition behavior.
+- SUPER IMPORTANT: When modifying CSS or markup of a shared component to support a new page, always compare the result against the production site (`vtnorton.com`) on every page that uses the same component. If the change breaks or visually alters an existing page, revert the shared change and scope the new behavior to the page that needs it instead.
+- Prefer scoping new visual behavior to page-level SCSS instead of modifying shared component SCSS when the change is only needed by one page.
 
 ## Component-Specific QA Traps
 

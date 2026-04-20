@@ -119,6 +119,11 @@ section {
 			max-width: 54%;
 			height: fit-content;
 
+			img {
+				max-width: 100%;
+				height: auto;
+			}
+
 			&.content-with-image--sticky {
 				position: sticky;
 				top: 2rem;

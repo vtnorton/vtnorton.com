@@ -1,0 +1,116 @@
+.slider {
+	width: 100%;
+	max-width: 1500px;
+	margin: 0 auto;
+	display: flex;
+	flex-direction: column;
+	gap: 1.25rem;
+
+	.viewport {
+		overflow: hidden;
+		box-shadow: 0 4px 30px rgba(0, 0, 0, 0.25);
+		background: #e8e8e8;
+	}
+
+	.track {
+		display: flex;
+		transition: transform 1000ms ease;
+		will-change: transform;
+	}
+
+	.slide {
+		flex: 0 0 100%;
+		min-width: 100%;
+	}
+
+	.item {
+		width: 100%;
+		height: 0;
+		padding-top: 50.207%;
+		position: relative;
+		overflow: hidden;
+
+		a {
+			position: absolute;
+			inset: 0;
+			display: block;
+		}
+
+		img {
+			display: inline-block;
+			position: absolute;
+			top: 50%;
+			transform: translateY(-50%);
+			min-height: 100%;
+			width: auto;
+			margin-left: auto;
+			margin-right: auto;
+			left: 0;
+			right: 0;
+			max-height: 100%;
+		}
+	}
+
+	.dots {
+		display: flex;
+		justify-content: center;
+		gap: 5px;
+
+		button {
+			width: 3rem;
+			height: .5rem;
+			display: block;
+			background: #b1b1b1;
+			border: 0;
+			padding: 0;
+			cursor: pointer;
+			transition: all 0.3s ease;
+
+			&:hover {
+				background: #999;
+			}
+
+			&.active {
+				background: #666;
+
+				&:hover {
+					background: #333;
+				}
+			}
+		}
+	}
+}
+
+.slider-lightbox {
+	.fancybox__carousel {
+		padding-bottom: 2.5rem;
+	}
+
+	.f-carousel__dots {
+		bottom: .75rem;
+	}
+}
+
+@media screen and (max-width: 990px) {
+	.slider {
+		gap: 1rem;
+	}
+}
+
+@media screen and (max-width: 620px) {
+	.slider {
+		.dots {
+			button {
+				width: 2.25rem;
+				height: .4rem;
+			}
+		}
+	}
+
+	.slider-lightbox {
+		.fancybox__carousel {
+			padding-bottom: 2rem;
+		}
+	}
+}
+

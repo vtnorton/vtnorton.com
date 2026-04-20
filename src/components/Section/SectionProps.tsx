@@ -1,13 +1,9 @@
-import { ReactNode } from 'react'
+import type { ReactNode } from 'react'
 
-export interface ImageBlur {
-	imageURL: string,
-	imageBlurURL?: string
-	solidColor?: string
-	imageAlt: string
-}
+import type { ImageBlur } from '../../types/Image'
+import type { Image } from '../../types/Image'
 
-export interface SectionProps {
+export type SectionProps = {
 	full?: boolean
 	half?: boolean
 	removePaddingButton?: boolean
@@ -18,11 +14,9 @@ export interface SectionProps {
 	paragraph?: boolean
 }
 
-export interface SectionContentWithImageProps {
+export type SectionContentWithImageProps = {
 	children: ReactNode
-	image: string,
-	imageAlt: string,
-	imageCaption?: boolean,
+	image: Image
 	imageSize?: 'normal' | 'small',
 	sticky?: boolean,
 	side?: 'left' | 'right'

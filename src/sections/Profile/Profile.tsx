@@ -1,11 +1,11 @@
 import { Button } from '../../components/Button'
 import { Section } from '../../components/Section'
-import { ImageBlur } from '../../components/Section/SectionProps'
+import type { ImageBlur } from '../../types/Image'
 
 export const ProfileSection = () => {
 	const imageBlur: ImageBlur = {
-		imageURL: '/img/sections/profile.jpg',
-		imageBlurURL: '/img/sections/profile-blur.jpg',
+		imageUrl: '/img/sections/profile.jpg',
+		imageBlurUrl: '/img/sections/profile-blur.jpg',
 		imageAlt: 'Foto do Vitor Norton, homem branco alto, cabelo comprido e azul',
 	}
 
