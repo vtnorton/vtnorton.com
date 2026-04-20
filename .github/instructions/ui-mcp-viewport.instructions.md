@@ -16,6 +16,7 @@ applyTo: ["src/**/*.tsx", "src/**/*.scss"]
 - If a new page/tab is opened, or navigation resets dimensions, set viewport to 1920x1080 again before continuing analysis.
 - Only after desktop validation, run small-screen checks.
 - Any mobile snapshot, screenshot, or visual conclusion taken before the 1920x1080 desktop pass is invalid and must be redone in the correct order.
+- When responsive behavior depends on UI state, perform the mobile check by resizing the same page from desktop to mobile so transition bugs are caught, not just static mobile layouts.
 
 ## Required Order
 
@@ -29,6 +30,7 @@ applyTo: ["src/**/*.tsx", "src/**/*.scss"]
 - A UI analysis is incomplete if it does not include desktop validation at 1920x1080.
 - A UI analysis is incomplete if it does not include at least one small-screen validation pass.
 - A UI analysis is invalid if the first viewport-specific inspection happened on mobile instead of desktop.
+- A responsive UI analysis is incomplete if it does not verify that desktop-only expanded or pinned states collapse correctly after resizing to mobile.
 
 ## Desktop-first Rule
 

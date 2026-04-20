@@ -53,6 +53,8 @@ This is my personal blog and portfólio, its a website that I want to look fancy
 - Co-locate one SCSS file per component using kebab-case naming.
 - Prefer direct imports from the source file path instead of creating pass-through re-export files.
 - Prefer named exports in source files; keep default exports for Next.js page files.
+- Do not add configurable props unless there is a real call-site need in the current scope.
+- If all known call sites require a prop and making it required does not break intended usage, keep it required instead of optional.
 
 ### Naming and Simplicity
 
@@ -93,6 +95,7 @@ This is my personal blog and portfólio, its a website that I want to look fancy
 ### Miscellaneous Rules
 - When planning and implementing big features, ask about backward compatibility expectations before implementation.
 - Always ask questions when requirements or expectations are unclear, especially for UI work where assumptions can lead to misaligned results.
+- Before introducing new class names, component variants, prop-based style knobs, or naming patterns that are not already established in the touched area, ask the user first instead of inventing them.
 
 ## Preferred Patterns
 
@@ -110,6 +113,7 @@ This is my personal blog and portfólio, its a website that I want to look fancy
 - Prefer class-based styling in SCSS for static styles and keep inline styles for dynamic values only.
 - Prefer solving presentation with SCSS before adding JavaScript/TypeScript for styling behavior.
 - Avoid selector patterns like `.card-title_h4`; prefer semantic descendant selectors like `.card h4` when appropriate.
+- Prefer nested descendant naming inside a block (for example `.slider { .viewport { ... } .track { ... } }`) instead of redundant block-prefixed descendants like `.slider__viewport` when those descendants are only used within that block scope.
 - Keep class naming consistent with existing patterns like `vtn_` and feature-scoped class blocks.
 
 ### Next.js and SEO Patterns
