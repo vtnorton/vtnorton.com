@@ -65,11 +65,8 @@ applyTo: ["src/**/*.tsx", "src/**/*.scss"]
 
 ## Component-Specific QA Traps
 
-- Buttons on dark or photographic backgrounds must not rely on default outline styling if it creates weak contrast. Border, text, and hover states must be explicitly readable in context.
 - `SectionContentWithImage` has multiple presentation branches. Validate both the plain image branch and the `imageCaption` branch, and confirm the image block never tucks under the text, creates accidental overlap, or leaves useless blank bars caused by inherited section padding.
 - `SectionContentWithImage` spacing should feel composed, not merely non-broken. Check horizontal breathing room between text and image, the vertical rhythm around captions, and whether sticky media still looks intentional at large widths.
-- `VerticalSteper` markers must use intentional typography and contrast. Do not allow numbered markers to fall back to default serif fonts or low-contrast text colors.
-- When turning repeated “cards” into repeated `Section` blocks, redesign the content hierarchy inside each section. Labels, numbers, descriptions, and dividers usually need a new composition once the old card shell is gone.
 
 ## Visual References for This Repo
 

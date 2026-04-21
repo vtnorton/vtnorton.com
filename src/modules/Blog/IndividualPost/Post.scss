@@ -1,3 +1,5 @@
+@use './notion-body-text';
+
 article.post {
 	position: relative;
 	z-index: 9;
@@ -114,10 +116,23 @@ article.post {
 			}
 		}
 
-		li {
-			margin: 0;
-			font-size: 1.1rem;
-			line-height: 150%;
+		ul {
+			list-style: none;
+			padding-left: 0;
+
+			li {
+				position: relative;
+				padding-left: 1.25rem;
+				margin: .5rem 0 0 0;
+				@include notion-body-text.notion-body-text;
+
+				&::before {
+					content: '–';
+					position: absolute;
+					left: 0;
+					top: 0;
+				}
+			}
 		}
 	}
 }

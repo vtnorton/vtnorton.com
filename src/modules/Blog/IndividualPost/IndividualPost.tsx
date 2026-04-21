@@ -93,7 +93,7 @@ export const IndividualPost = ({ post, relatedPosts }: { post: Post; relatedPost
 						</div>
 
 						<TagGroup role='list' size='medium'>
-							{post.hashtags.map((tag, index) => (
+							{post.hashtags?.map((tag, index) => (
 								<InteractionTag key={`${tag}-${index}`} onClick={() => selectTag(tag)} role='listitem' shape='circular' appearance='outline'>
 									<InteractionTagPrimary>#{tag}</InteractionTagPrimary>
 								</InteractionTag>

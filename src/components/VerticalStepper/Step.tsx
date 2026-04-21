@@ -4,7 +4,7 @@ export const Step = ({ children, title, number }: { children: unknown, title: st
 		<div className='vertical-step'>
 			<div className='step-instructions'>
 				<div className='step-title'>
-					<code>{number}</code>
+					<code></code>
 					<h3>{title}</h3>
 				</div>
 				<div className='step-description'>

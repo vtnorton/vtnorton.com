@@ -4,3 +4,7 @@ export const CACHE_KEYS = {
 	ALL_BLOG_POSTS: 'all-blog-posts',
 	PALESTRAS: 'palestras-all',
 }
+
+export const getProjectChangelogsCacheKey = (projectSlug: string): string => {
+	return `project-${projectSlug}-changelogs`
+}

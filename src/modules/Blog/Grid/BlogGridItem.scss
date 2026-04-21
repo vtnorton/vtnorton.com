@@ -1,3 +1,9 @@
+.blog-grid {
+	margin: 0;
+	display: grid;
+	grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+}
+
 .blog-item {
 	padding: 50px;
 	height: 300px;
@@ -164,4 +170,10 @@
 
 .blog-item.blog-overlay:hover .blog-item-more {
 	opacity: 1
+}
+
+@media screen and (max-width: 990px) {
+	.blog-grid {
+		grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+	}
 }

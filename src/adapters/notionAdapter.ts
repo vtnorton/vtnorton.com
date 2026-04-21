@@ -16,20 +16,29 @@ export class NotionAdapter {
 	}
 
 	async query(filter: NotionFilter): Promise<Array<NotionResult>> {
-		// TODO: if reponse contains start_cursor, implement pagination to fetch all results from all pages
-		const response = await this.notion.dataSources.query({
-			data_source_id: this.datasourceId,
-			filter: {
-				and: filter,
-			},
-			sorts: [
-				{
-					property: 'Date',
-					direction: 'descending',
+		const allResults: Array<NotionResult> = []
+		let startCursor: string | undefined = undefined
+
+		do {
+			const response = await this.notion.dataSources.query({
+				data_source_id: this.datasourceId,
+				filter: {
+					and: filter,
 				},
-			],
-		})
-		return response.results
+				sorts: [
+					{
+						property: 'Date',
+						direction: 'descending',
+					},
+				],
+				...(startCursor ? { start_cursor: startCursor } : {}),
+			})
+
+			allResults.push(...response.results)
+			startCursor = response.has_more && response.next_cursor ? response.next_cursor : undefined
+		} while (startCursor !== undefined)
+
+		return allResults
 	}
 
 	async getPageContent(pageId: string) {
@@ -37,6 +46,7 @@ export class NotionAdapter {
 		const notionApi = new NotionAPI({
 			authToken: NOTION_TOKEN,
 		})
+		
 		return await notionApi.getPage(pageId)
 	}
 

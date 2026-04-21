@@ -5,9 +5,9 @@ export class NotionPage {
 	public cover: string
 	public date: string
 	public content?: any
-	public type: 'post' | 'talk'
+	public type: 'post' | 'talk' | 'changelog'
 
-	constructor(result: any, type: 'post' | 'talk') {
+	constructor(result: any, type: 'post' | 'talk' | 'changelog') {
 		this.id = result.id
 		this.title = result.properties.Name.title[0].text.content
 		this.date = this.getDate(result.properties['Date'])
