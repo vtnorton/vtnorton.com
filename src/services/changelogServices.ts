@@ -64,7 +64,21 @@ const getChangelog = async (
 	return post
 }
 
+const getAllStaticPaths = async (): Promise<{ project: string; version: string }[]> => {
+	const paths: { project: string; version: string }[] = []
+
+	for (const product of products) {
+		const changelogs = await getChangelogsByProjectSlug(product.slug)
+		for (const changelog of changelogs) {
+			paths.push({ project: product.slug, version: changelog.version })
+		}
+	}
+
+	return paths
+}
+
 export const changelogServices = {
 	getChangelogsByProjectSlug,
 	getChangelog,
+	getAllStaticPaths,
 }
