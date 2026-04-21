@@ -113,11 +113,35 @@ This is my personal blog and portfólio, its a website that I want to look fancy
 
 - Use global SCSS architecture already in `src/styles/`.
 - Reuse CSS variables from `src/styles/variables.scss` before introducing new hard-coded values.
+- Prefer variables/tokens for spacing, sizing, color, radius, and shadows instead of raw literals.
+- Prefer `rem` units over `px` for sizing and spacing values.
 - Prefer class-based styling in SCSS for static styles and keep inline styles for dynamic values only.
 - Prefer solving presentation with SCSS before adding JavaScript/TypeScript for styling behavior.
 - Avoid selector patterns like `.card-title_h4`; prefer semantic descendant selectors like `.card h4` when appropriate.
 - Prefer nested descendant naming inside a block (for example `.slider { .viewport { ... } .track { ... } }`) instead of redundant block-prefixed descendants like `.slider__viewport` when those descendants are only used within that block scope.
 - Keep class naming consistent with existing patterns like `vtn_` and feature-scoped class blocks.
+
+### Style Tokens from `src/styles/variables.scss`
+
+- Always prefer these existing tokens before introducing new values.
+- Keep using these exact names to preserve consistency across components/pages.
+
+| Token | Value | Use case |
+| --- | --- | --- |
+| `--spacing-md` | `25px` | Medium gaps and vertical rhythm inside sections/components. |
+| `--spacing-lg` | `50px` (`35px` <= 650px, `25px` <= 450px) | Standard section spacing and larger block separation. |
+| `--spacing-xl` | `75px` (`50px` <= 1400px, `35px` <= 650px, `25px` <= 450px) | Hero/major section spacing and big layout rhythm. |
+| `--title` | `#162C44` | Titles and high-emphasis headings. |
+| `--default-text` | `#666675` | Default paragraph/body text. |
+| `--light-gray` | `#787878` | Secondary text and metadata. |
+| `--border-color` | `#ccc` | Dividers and subtle borders. |
+| `--accent-color` | `#0559C1` | Primary interactive accents (links, highlights, CTA emphasis). |
+| `--light-accent-color` | `#0585C1` | Secondary accent states and supporting highlights. |
+| `--dark-blue` | `#162C44` | Strong dark UI accents and brand-deep text. |
+| `--gold` | `#E09E36` | Highlight accents used sparingly for emphasis. |
+| `--bg` | `#e8e8ee` | Soft surface/background areas. |
+| `--shadow-sm` | `0 4px 15px rgba(0, 0, 0, 0.25)` | Small/medium elevation (cards, compact elevated blocks). |
+| `--shadow` | `0 4px 2rem rgba(0, 0, 0, 0.25)` | Stronger elevation (hero surfaces, high-prominence containers). |
 
 ### Next.js and SEO Patterns
 

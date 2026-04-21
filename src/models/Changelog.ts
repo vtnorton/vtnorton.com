@@ -1,17 +1,13 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
-import { products } from '../database/products'
+import { products, type Product } from '../database/products'
 import { NotionPage } from './Notion/NotionPage'
 
-type ChangelogProject = {
-	id: string
-	name: string
-	slug: string
-}
+const previewPattern = /preview|beta|alpha|canary|dev/i
 
 export class Changelog extends NotionPage {
 	public version: string
 	public isPreview: boolean
-	public project: ChangelogProject
+	public project: Product
 	public fullSlug: string
 	public description: string
 
@@ -31,7 +27,7 @@ export class Changelog extends NotionPage {
 		this.version = this.title
 		this.fullSlug = `/changelogs/${this.project.slug}/${this.version}`
 		this.title = `[${this.project.name}] ${this.version}`
-		this.isPreview = result.properties['Preview']?.checkbox ?? false
+		this.isPreview = previewPattern.test(this.version)
 		this.description = this.concatenateDescription(result.properties['Abstract'])
 	}
 

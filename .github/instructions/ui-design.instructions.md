@@ -85,6 +85,9 @@ applyTo: ["src/**/*.tsx", "src/**/*.scss"]
 
 - Prefer SCSS over CSS-in-JS or inline static styling.
 - Reuse CSS variables before introducing new colors, spacing, or shadow values.
+- Prefer variables/tokens for spacing, sizing, radius, and shadows instead of raw literals.
+- Prefer `rem` over `px` for spacing and sizing values.
+- Use the token catalog defined in `.github/instructions/repo-conventions.instructions.md` (`Style Tokens from src/styles/variables.scss`) as the default palette/spacing source.
 - Prefer solving presentation and interaction states in SCSS before adding JavaScript for UI effects.
 - Keep inline styles for truly dynamic values only, such as dynamic background images or calculated values passed from props.
 - Prefer semantic descendant selectors over awkward utility-like class names.
