@@ -200,29 +200,25 @@ export default function Formula({ posts, changelogs }: { posts: Post[]; changelo
 				</Section>
 			</div> */}
 
-			{posts.length > 0 && (
-				<div className='container'>
-					<Section>
-						<h2>Posts relacionados</h2>
-						{/* <p>
+			<div className='container'>
+				<Section>
+					<h2>Posts relacionados</h2>
+					{/* <p>
 							Falar sobre as séries
 						</p> */}
 
-						<BlogGrid posts={posts} />
-					</Section>
-				</div>
-			)}
+					<BlogGrid posts={posts} />
+				</Section>
 
-			{changelogs.length > 0 && (
-				<div className='container'>
-					<Section>
-						<h2>Changelogs</h2>
-						<ChangelogList changelogs={changelogs} />
-					</Section>
+				<div className='section-row section-row--features'>
+					{formulaFeatures.map((feature) => (
+						<Section key={feature.title} className='mini-section--feature'>
+							<h3>{feature.title}</h3>
+							<p className='body'>{feature.description}</p>
+						</Section>
+					))}
 				</div>
-			)}
 
-			<div className='container'>
 				{/* <Section className='value'>
 					<SectionContentWithImage
 						image={{
@@ -274,14 +270,10 @@ export default function Formula({ posts, changelogs }: { posts: Post[]; changelo
 					</SectionContentWithImage>
 				</Section> */}
 
-				<div className='section-row section-row--features'>
-					{formulaFeatures.map((feature) => (
-						<Section key={feature.title} className='mini-section--feature'>
-							<h3>{feature.title}</h3>
-							<p className='body'>{feature.description}</p>
-						</Section>
-					))}
-				</div>
+				<Section>
+					<h2>Changelogs</h2>
+					<ChangelogList changelogs={changelogs} />
+				</Section>
 
 				<Section removePaddingButton removePaddingTop>
 					<NextProject name='Olá Wolff' imageUrl='/img/portfolio/ola-wolff.jpg' link='/portfolio/ola-wolff' />
