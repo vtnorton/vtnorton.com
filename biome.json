@@ -43,8 +43,7 @@
 			"correctness": {
 				"noUnusedVariables": "error",
 				"noInvalidUseBeforeDeclaration": "error",
-				"useHookAtTopLevel": "error",
-				"noImgElement": "off"
+				"useHookAtTopLevel": "error"
 			}
 		}
 	}

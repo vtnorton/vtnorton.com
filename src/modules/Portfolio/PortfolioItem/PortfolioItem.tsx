@@ -11,15 +11,9 @@ export const PortfolioItem = ({ year, background, description, logo, url }: Port
 			<div className='portfolio-content'>
 				<div className='container'>
 					<div className='start'>
-						{url === '/portfolio/formula' ?
-							(<Button as='a' href={url} size='medium' appearance='outline' shape='square' disabled>
-								Em breve
-							</Button>)
-							:
-							(<Button as='a' href={url} size='medium' appearance='primary' shape='square'>
-								Ver mais
-							</Button>)
-						}
+						<Button as='a' href={url} size='medium' appearance='primary' shape='square'>
+							Ver mais
+						</Button>
 					</div>
 
 					<div className='middle'>
