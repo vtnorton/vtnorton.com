@@ -203,11 +203,10 @@ export default function Formula({ posts, changelogs }: { posts: Post[]; changelo
 			{posts.length > 0 && (
 				<div className='container'>
 					<Section>
-						<h2>O Formula também virou escrita, release note e memória de produto.</h2>
-						<p>
-							Como simplificação do changelog, esta seleção puxa textos do blog que ajudam a contar a trajetória do
-							projeto com mais contexto do que uma lista de versões conseguiria.
-						</p>
+						<h2>Posts relacionados</h2>
+						{/* <p>
+							Falar sobre as séries
+						</p> */}
 
 						<BlogGrid posts={posts} />
 					</Section>
@@ -217,7 +216,7 @@ export default function Formula({ posts, changelogs }: { posts: Post[]; changelo
 			{changelogs.length > 0 && (
 				<div className='container'>
 					<Section>
-						<h2>Histórico de releases do Formula.</h2>
+						<h2>Changelogs</h2>
 						<ChangelogList changelogs={changelogs} />
 					</Section>
 				</div>
