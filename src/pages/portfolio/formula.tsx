@@ -203,7 +203,7 @@ export default function Formula({ posts, changelogs }: { posts: Post[]; changelo
 
 			<div className='container'>
 				<Section>
-					<SectionTitle eyebrow="Conteúdo" title="Posts relacionados" />
+					<SectionTitle eyebrow='Mais detalhes técnicos' title='Posts relacionados' />
 					{/* <p>
 							Falar sobre as séries
 						</p> */}
@@ -272,7 +272,7 @@ export default function Formula({ posts, changelogs }: { posts: Post[]; changelo
 				</Section> */}
 
 				<Section>
-					<SectionTitle eyebrow="Histórico" title="Changelogs" />
+					<SectionTitle eyebrow='O que foi feito' title='Changelogs' />
 					<ChangelogList changelogs={changelogs} />
 				</Section>
 
