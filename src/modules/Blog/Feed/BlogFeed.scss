@@ -1,40 +1,38 @@
 .blog-feed {
 	display: flex;
 	flex-direction: column;
-	gap: 1.5rem;
+	gap: 1.75rem;
 	width: -webkit-fill-available;
+	margin-top: 2rem;
 
 	section {
-		padding-top: 1rem;
-		padding-bottom: 2rem;
+		padding-top: 1.5rem;
+		padding-bottom: 1.75rem;
 
 		.section-content {
 			.feed-item {
-				display: flex;
-				flex-direction: row;
-				gap: 1rem;
-				align-items: flex-end;
-				margin-bottom: 1.5rem;
+				display: grid;
+				grid-template-columns: minmax(220px, 280px) minmax(0, 1fr);
+				gap: 1.75rem;
+				align-items: end;
+				margin-top: -4rem;
+				margin-bottom: 1rem;
 
 				.cover-image {
-					width: 300px;
-					margin-top: -3.5rem;
+					width: 100%;
 					aspect-ratio: 1.2 / 1;
 					object-fit: cover;
-					box-shadow: var(--shadow-sm);
 				}
 
 				.intro {
 					flex: 1;
-
-					h2,
-					.skeleton-title {
-						font-size: 1.7rem;
-						line-height: 120%;
-						margin-bottom: .3rem;
-					}
+					display: flex;
+					flex-direction: column;
+					gap: .5rem;
 
 					.skeleton-title {
+						font-size: var(--text-xl);
+						line-height: 1.1;
 						width: 75%;
 					}
 
@@ -65,15 +63,8 @@
 				}
 			}
 
-			.fui-InteractionTagPrimary,
-			.fui-Tag {
-				border-color: var(--gold) !important;
-			}
-
 			p:not(.metadata) {
 				margin-bottom: .8rem;
-				font-size: 1.1rem;
-				line-height: 1.8rem;
 				display: -webkit-box;
 				-webkit-line-clamp: 4;
 				line-clamp: 4;
@@ -81,16 +72,6 @@
 				overflow: hidden;
 				text-overflow: ellipsis;
 				position: relative;
-
-				&::after {
-					content: '';
-					position: absolute;
-					bottom: 0;
-					right: 0;
-					width: 60%;
-					height: 1.8rem;
-					background: linear-gradient(to right, transparent, #f8f8f8);
-				}
 
 				.fui-SkeletonItem {
 					margin-bottom: 0.6rem;
@@ -106,8 +87,6 @@
 			}
 
 			a {
-				margin-left: -1rem;
-
 				&:first-of-type {
 					margin-left: 0;
 				}
@@ -141,7 +120,7 @@
 			.section-content {
 				.feed-item {
 					.cover-image {
-						max-width: 250px;
+						max-width: 260px;
 						margin-top: -3rem;
 						aspect-ratio: 1.4 / 1;
 					}

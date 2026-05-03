@@ -5,6 +5,7 @@ import { ChangelogList } from '../../components/ChangelogList'
 import { NextProject } from '../../components/NextProject/NextProject'
 import { PageHero } from '../../components/PageHero'
 import { Section, SectionContentWithImage } from '../../components/Section'
+import { SectionTitle } from '../../components/SectionTitle'
 import { Slider } from '../../components/Slider/Slider'
 import { Step, VerticalSteper } from '../../components/VerticalStepper'
 import { ContentSEO } from '../../database/seo'
@@ -202,7 +203,7 @@ export default function Formula({ posts, changelogs }: { posts: Post[]; changelo
 
 			<div className='container'>
 				<Section>
-					<h2>Posts relacionados</h2>
+					<SectionTitle eyebrow="Conteúdo" title="Posts relacionados" />
 					{/* <p>
 							Falar sobre as séries
 						</p> */}
@@ -271,7 +272,7 @@ export default function Formula({ posts, changelogs }: { posts: Post[]; changelo
 				</Section> */}
 
 				<Section>
-					<h2>Changelogs</h2>
+					<SectionTitle eyebrow="Histórico" title="Changelogs" />
 					<ChangelogList changelogs={changelogs} />
 				</Section>
 

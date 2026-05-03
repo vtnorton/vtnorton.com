@@ -145,7 +145,7 @@
 
 	.superviz-hackathon {
 		.section-content {
-			margin-right: 5rem !important;
+			margin-right: clamp(2rem, 4vw, 4rem) !important;
 		}
 
 		.section-image {
@@ -158,6 +158,7 @@
 
 	.patrocinios {
 		width: 100% !important;
+		margin-top: .5rem;
 	}
 
 	.flex {
@@ -169,6 +170,7 @@
 		display: grid;
 		grid-template-columns: repeat(2, minmax(0, 1fr));
 		gap: 2rem;
+		margin-top: .5rem;
 	}
 
 	.superviz-activation {
@@ -184,9 +186,23 @@
 			gap: 1rem;
 		}
 
+		.activation-extra {
+			display: flex;
+			flex-direction: column;
+			gap: 1rem;
+		}
+
 		.content-with-image__image img {
 			width: 540px !important;
 		}
+	}
+
+	.superviz-hackathon__links {
+		display: flex;
+		flex-direction: column;
+		align-items: flex-start;
+		gap: .9rem;
+		margin-top: .5rem;
 	}
 }
 
@@ -300,27 +316,19 @@
 		.headline {
 			display: flex;
 			flex-direction: column;
-			gap: .65rem;
+			gap: .5rem;
 		}
 
 		.body {
 			margin-top: auto;
-			padding-top: 1rem;
+			padding-top: .85rem;
 			font-size: 1rem;
 			line-height: 1.6rem;
 		}
 
-		.eyebrow {
-			color: var(--accent-color);
-			font-family: Consolas, 'Courier New', Courier, monospace;
-			font-size: .8rem;
-			letter-spacing: .08em;
-			text-transform: uppercase;
-		}
-
 		.value {
 			color: var(--title);
-			font-family: 'Neutra Text Alt Bold', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+			font-family: var(--font-heading);
 			font-size: clamp(3rem, 4vw, 4.25rem);
 			line-height: .9;
 		}
@@ -329,21 +337,21 @@
 	.mini-section--feature {
 		display: flex;
 		flex-direction: column;
-		gap: 1.25rem;
+		gap: 1rem;
 		justify-content: space-between;
 		min-height: 190px;
 
 		.body {
 			margin-top: auto;
-			padding-top: 1rem;
+			padding-top: .85rem;
 			font-size: 1rem;
 			line-height: 1.6rem;
 		}
 
 		h3 {
-			font-size: 1.55rem;
-			line-height: 1.1;
-			max-width: 12ch;
+			font-size: clamp(1.3rem, 1.45vw, 1.55rem);
+			line-height: 1.15;
+			max-width: 14ch;
 		}
 	}
 

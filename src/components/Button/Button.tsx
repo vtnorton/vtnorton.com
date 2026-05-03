@@ -1,4 +1,4 @@
-import { ButtonProps, Button as FluentButton } from '@fluentui/react-components'
+import { type ButtonProps, Button as FluentButton } from '@fluentui/react-components'
 import { FiArrowUpRight } from 'react-icons/fi'
 
 export const Button = (
@@ -10,19 +10,26 @@ export const Button = (
 	}:
 		ButtonProps & { onlyIcon?: boolean },
 ) => {
-	let classNames = 'vtn_button'
+	const classNames = []
 
 	if (className)
-		classNames += ' ' + className
+		classNames.push(className)
+
+	if (props.size === 'small')
+		classNames.push('button-size-small')
+	else if (props.size === 'large')
+		classNames.push('button-size-large')
+	else
+		classNames.push('button-size-medium')
 
 	if (props.appearance === 'transparent')
-		classNames += ' transparent'
+		classNames.push('transparent')
 
 	if (onlyIcon)
-		classNames += ' only-icon'
+		classNames.push('only-icon')
 
 	return (
-		<FluentButton className={classNames} {...props}>
+		<FluentButton className={classNames.join(' ')} {...props}>
 			{children} <span className='arrow'><FiArrowUpRight size={20} /></span>
 		</FluentButton>
 	)

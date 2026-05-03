@@ -13,7 +13,7 @@ article.post {
 		position: absolute;
 		overflow: hidden;
 		height: 100%;
-		background-color: #222;
+		background-color: var(--dark-blue);
 		z-index: 0;
 
 		.noise-image {

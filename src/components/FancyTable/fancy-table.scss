@@ -59,7 +59,7 @@
 			}
 
 			h4 {
-				font-family: "Neutra Text Alt Bold", "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+				font-family: var(--font-heading);
 				font-size: 1.6rem;
 				letter-spacing: -1px;
 				color: var(--dark-blue);
@@ -147,7 +147,7 @@
 
 				p {
 					opacity: 1;
-					color: #99a;
+					color: var(--text-subtle);
 				}
 			}
 

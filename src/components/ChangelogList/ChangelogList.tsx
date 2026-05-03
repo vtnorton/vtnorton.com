@@ -24,7 +24,7 @@ export const ChangelogList = ({ changelogs }: { changelogs: Changelog[] }) => {
 						as='a'
 						href={item.fullSlug}
 						className='action'
-						size='medium'
+						size='small'
 						appearance='secondary'
 						shape='square'
 					>

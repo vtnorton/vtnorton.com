@@ -10,6 +10,7 @@
 	--title: #162C44;
 	--default-text: #666675;
 	--light-gray: #787878;
+	--text-subtle: #9999aa;
 	--border-color: #ccc;
 	// Colors
 	--accent-color: #0559C1;
@@ -17,6 +18,25 @@
 	--dark-blue: #162C44;
 	--gold: #E09E36;
 	--bg: #e8e8ee;
+	// Surfaces
+	--bg-surface: #f8f8f8;
+	--bg-muted: #eeeef3;
+	// Radius scale
+	--radius-sm: 2px;
+	--radius-md: 6px;
+	--radius-lg: 12px;
+	// Font families (self-hosted; body/mono set by next/font CSS vars)
+	--font-heading: 'Neutra Text Alt Bold', 'Segoe UI', Tahoma, sans-serif;
+	--font-heading-alt: 'Neutra Text Alt', 'Segoe UI', Tahoma, sans-serif;
+	// Type scale (fluid)
+	--text-display: clamp(2.5rem, 5vw, 4rem);
+	--text-xl: clamp(1.6rem, 2.3vw, 2.15rem);
+	--text-lg: clamp(1.32rem, 1.8vw, 1.7rem);
+	--text-md: clamp(1.05rem, 1.25vw, 1.35rem);
+	--text-sm: clamp(0.9rem, 1vw, 1.1rem);
+	--text-ui-sm: clamp(0.84rem, 0.8rem + 0.16vw, 0.9rem);
+	--text-ui: clamp(0.92rem, 0.86rem + 0.2vw, 1rem);
+	--text-ui-lg: clamp(1rem, 0.96rem + 0.2vw, 1.08rem);
 }
 
 @media (max-width: 1400px) {

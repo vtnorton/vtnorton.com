@@ -1,11 +1,10 @@
 @use './content.scss';
 
 .numbers {
-	--box-color: #eeeef3;
 	overflow-x: clip;
 
 	.number-square-expanded {
-		background: var(--box-color);
+		background: var(--bg-muted);
 		overflow: hidden;
 		max-height: 0;
 		animation: expandVertical 1.2s cubic-bezier(0.4, 0, 0.2, 1) forwards;
@@ -25,11 +24,11 @@
 		padding: 0 var(--spacing-md);
 
 		h3 {
-			font-size: 1.5rem;
-			font-family: 'Neutra Text Alt', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+			font-size: var(--text-md);
+			font-family: var(--font-heading);
 
 			& + p {
-				color: #99a;
+				color: var(--text-subtle);
 				letter-spacing: -0.56px;
 
 				a {
@@ -115,7 +114,7 @@
 
 		h2 {
 			font-size: 11px;
-			font-family: 'Consolas', 'Courier New', Courier, monospace;
+			font-family: var(--font-mono, 'Consolas', 'Courier New', Courier, monospace);
 			letter-spacing: -0.33px;
 			text-transform: uppercase;
 			line-height: 1rem;
@@ -126,7 +125,7 @@
 		}
 
 		.number {
-			font-family: 'Neutra Text Alt Bold', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+			font-family: var(--font-heading);
 			font-size: 4rem;
 			letter-spacing: -5px;
 			color: var(--title);
@@ -166,7 +165,7 @@
 				border-left: 1px solid var(--border-color);
 			}
 
-			background: var(--box-color);
+			background: var(--bg-muted);
 
 			h2 {
 				color: var(--dark-blue);
@@ -179,7 +178,7 @@
 				left: 0;
 				width: 100%;
 				height: 1px;
-				background: var(--box-color);
+				background: var(--bg-muted);
 			}
 		}
 	}
@@ -217,7 +216,7 @@
 
 		.number-square-expanded.mobile-inline {
 			display: block;
-			background: var(--box-color);
+			background: var(--bg-muted);
 			border-bottom: 1px solid var(--border-color);
 			width: 100%;
 

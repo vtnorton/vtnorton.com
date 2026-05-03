@@ -1,7 +1,7 @@
 footer {
 	padding: var(--spacing-lg);
 	margin: 0 auto 3rem;
-	font-family: 'Consolas', 'Courier New', Courier, monospace;
+	font-family: var(--font-mono, 'IBM Plex Mono', Consolas, 'Courier New', monospace);
 	text-align: center;
 
 	.animated-logo svg {
@@ -11,14 +11,15 @@ footer {
 
 	.social {
 		width: fit-content;
-		margin: .5rem auto 0;
+		margin: .5rem auto 1.25rem;
 	}
 
 	p {
 		max-width: 680px;
 		margin: 0 auto .5rem;
 		font-size: .8rem;
-		line-height: 125%;
+		line-height: 1.6;
+		color: var(--text-subtle);
 
 		img {
 			height: 22px !important;
@@ -30,6 +31,10 @@ footer {
 		a {
 			color: var(--accent-color)
 		}
+	}
+
+	p + p {
+		margin-top: .75rem;
 	}
 }
 

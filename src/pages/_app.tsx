@@ -5,6 +5,7 @@ import { BrandVariants, createLightTheme, FluentProvider, Theme } from '@fluentu
 import 'animate.css'
 
 import '../styles/global.scss'
+import { bodyFont, monoFont } from '../styles/fonts'
 import { LayoutProvider } from '../providers/LayoutProvider'
 import { SidePane } from '../components/Sidepane/Sidepane'
 
@@ -42,13 +43,15 @@ export default function App({ Component, pageProps }: AppProps) {
 				<title>Meu Blog</title>
 			</Head>
 
-			<FluentProvider theme={lightTheme}>
-				<LayoutProvider initialBreakpoint={initialBreakpoint}>
-					<SidePane>
-						<Component {...pageProps} />
-					</SidePane>
-				</LayoutProvider>
-			</FluentProvider>
+			<div className={`${bodyFont.variable} ${monoFont.variable}`}>
+				<FluentProvider theme={lightTheme}>
+					<LayoutProvider initialBreakpoint={initialBreakpoint}>
+						<SidePane>
+							<Component {...pageProps} />
+						</SidePane>
+					</LayoutProvider>
+				</FluentProvider>
+			</div>
 		</>
 	)
 }

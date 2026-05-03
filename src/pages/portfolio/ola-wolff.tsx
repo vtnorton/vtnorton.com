@@ -2,6 +2,7 @@ import React from 'react'
 
 import { Code20Regular } from '@fluentui/react-icons'
 import { Section, SectionContentWithImage } from '../../components/Section'
+import { SectionTitle } from '../../components/SectionTitle'
 import { Footer } from '../../sections/Footer/Footer'
 import { PageHero } from '../../components/PageHero'
 import { PhotoGallery } from '../../components/PhotoGallery'
@@ -105,7 +106,7 @@ export default function OlaWolff() {
 
 			<div className='container'>
 				<Section>
-					<h2>Usabilidade do chat</h2>
+					<SectionTitle eyebrow="UX" title="Usabilidade do chat" />
 					<SectionContentWithImage
 						image={{
 							imageUrl: '/img/portfolio/olawolff/mobile.jpg',
@@ -125,7 +126,7 @@ export default function OlaWolff() {
 				</Section>
 
 				<Section>
-					<h2>Funções do chat</h2>
+					<SectionTitle eyebrow="Produto" title="Funções do chat" />
 					<p>Conheça algumas das funções mais desafiadoras na construção de uma experiência consistente para as nossas personas.</p>
 
 					<div className='chat-features'>
@@ -165,7 +166,7 @@ export default function OlaWolff() {
 			<div className='container'>
 				<img className='image-hero-wolff' src='/img/portfolio/olawolff/pages.png' />
 				<Section className='backend'>
-					<h2>Backend, backoffice &amp; pipelines</h2>
+					<SectionTitle eyebrow="Engenharia" title="Backend, backoffice & pipelines" />
 
 					<div className='backend-item'>
 						<h3>Trabalho junto a Junta Comercial e orgãos públicos</h3>

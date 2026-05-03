@@ -16,11 +16,11 @@
 		.award-info {
 			margin-top: .8rem;
 			padding-top: .8rem;
-			border-top: 1px solid #ddd;
+			border-top: 1px solid var(--border-color);
 			display: block;
 
 			span {
-				font-family: 'Neutra Text Alt', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+				font-family: var(--font-heading-alt);
 				font-size: 1.5rem;
 				color: var(--dark-blue);
 				display: block;
@@ -70,7 +70,7 @@
 					opacity: 1;
 
 					@media (min-width: 767px) {
-						height: 130px;
+						height: 170px;
 					}
 				}
 			}
@@ -164,8 +164,8 @@
 			gap: 0.6rem;
 			padding: 1rem;
 			margin: 0 -1rem;
-			border: 1px solid #d7d8e2;
-			background: #f3f3f8;
+			border: 1px solid var(--border-color);
+			background: var(--bg-surface);
 
 			img {
 				height: auto;

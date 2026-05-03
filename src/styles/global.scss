@@ -9,3 +9,10 @@
 @use 'pages/blog.scss';
 @use 'pages/portfolio-pages.scss';
 @use 'pages/talks.scss';
+
+// FancyBox overrides — ensure caption uses site font, not FancyBox's own CSS
+.fancybox__caption {
+	font-family: var(--font-body, 'Plus Jakarta Sans', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif) !important;
+	color: var(--text-subtle) !important;
+	font-size: .85rem !important;
+}

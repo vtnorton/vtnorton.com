@@ -1,9 +1,24 @@
 .fui-Button {
-	font-family: Consolas, "Courier New", monospace !important;
-	font-weight: normal !important;
-	width: fit-content;
 	display: flex;
 	align-items: center;
+
+	&.button-size-small {
+		font-size: var(--text-ui-sm) !important;
+		line-height: 1.2 !important;
+		letter-spacing: .01em;
+	}
+
+	&.button-size-medium {
+		font-size: var(--text-ui) !important;
+		line-height: 1.25 !important;
+		letter-spacing: .01em;
+	}
+
+	&.button-size-large {
+		font-size: var(--text-ui-lg) !important;
+		line-height: 1.25 !important;
+		letter-spacing: .01em;
+	}
 
 	&.no-margin {
 		margin-left: -23px !important;

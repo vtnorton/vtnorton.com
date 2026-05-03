@@ -4,7 +4,7 @@
 	align-items: center;
 	overflow: hidden;
 	height: 100%;
-	background: #0c2743;
+	background: var(--dark-blue);
 	margin: 0 -75px;
 	padding: 50px 75px;
 
@@ -17,7 +17,7 @@
 		display: block;
 		position: absolute;
 		top: 50%;
-		background: #E09E36;
+		background: var(--gold);
 		border-radius: 100%;
 		z-index: 1;
 		-webkit-transition: all 0.4s linear;
@@ -70,7 +70,7 @@
 		}
 
 		span {
-			font-family: 'Consolas', 'Courier New', Courier, monospace;
+			font-family: var(--font-mono, 'Consolas', 'Courier New', Courier, monospace);
 		}
 	}
 }

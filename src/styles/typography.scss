@@ -39,7 +39,7 @@ h2,
 h3,
 h4,
 h5 {
-	font-family: 'Neutra Text Alt Bold', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+	font-family: var(--font-heading);
 	color: var(--dark-blue);
 }
 
@@ -53,41 +53,63 @@ h6 {
 }
 
 h1 {
-	font-size: 2.5em;
-	line-height: 150%;
+	font-size: var(--text-display);
+	line-height: 1.05;
+	letter-spacing: -0.04em;
 }
 
 h2 {
-	font-size: 2rem;
+	font-size: var(--text-xl);
+	line-height: 1.12;
+	letter-spacing: -0.028em;
 	font-weight: 800;
 }
 
 h3 {
-	font-size: 1.8rem;
+	font-size: var(--text-lg);
+	line-height: 1.15;
+	letter-spacing: -0.02em;
 	font-weight: 600;
 }
 
 h4 {
-	font-size: 1.3rem;
+	font-size: var(--text-md);
+	line-height: 1.25;
+	letter-spacing: -0.01em;
 	font-weight: 600;
-	line-height: 135%;
 }
 
 h5 {
-	font-size: 1.1rem;
+	font-size: var(--text-sm);
+	line-height: 1.35;
 	font-weight: 600;
 }
 
 p {
-	font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+	font-family: var(--font-body, 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif);
 	margin-bottom: .5rem;
-	font-size: 1.1rem;
+	font-size: 1rem;
 	color: var(--default-text);
-	line-height: 1.8rem;
+	line-height: 1.7;
+}
+
+p + p {
+	margin-top: .75rem;
+}
+
+.eyebrow {
+	display: block;
+	font-family: var(--font-mono, Consolas, 'Courier New', monospace);
+	font-size: .8rem;
+	font-weight: 400;
+	line-height: 1;
+	letter-spacing: .12em;
+	text-transform: uppercase;
+	color: var(--accent-color);
 }
 
 small {
-	font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+	font-family: var(--font-body, 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif);
 	font-size: 0.9rem;
 	color: var(--light-gray);
 	line-height: 120%;
@@ -98,7 +120,7 @@ small {
 	line-height: 1.2rem;
 	letter-spacing: -0.56px;
 	font-weight: 500;
-	color: #99a;
+	color: var(--text-subtle);
 }
 
 em {

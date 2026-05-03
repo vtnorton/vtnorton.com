@@ -1,0 +1,10 @@
+.section-title {
+	display: flex;
+	flex-direction: column;
+	gap: .65rem;
+	margin-bottom: 1.25rem;
+
+	.eyebrow {
+		margin-bottom: 0;
+	}
+}
