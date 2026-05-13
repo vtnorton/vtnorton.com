@@ -1,0 +1,252 @@
+name: Assign Issue to Copilot
+
+on:
+  workflow_dispatch:
+    inputs:
+      issue_number:
+        description: 'The number of the issue to assign to Copilot'
+        required: true
+      repository_owner:
+        description: 'Repository owner (org or user)'
+        required: true
+        type: string
+      repository_name:
+        description: 'Repository name'
+        required: true
+        type: string
+      port_run_id:
+        description: 'Port run ID, used for reporting back to Port'
+        required: false
+      issue_context_to_comment:
+        description: 'Context to add to the issue comment'
+        required: false
+        type: string
+      trigger_user_email:
+        description: 'Email of the triggering user'
+        required: false
+        type: string
+        default: ''
+
+jobs:
+  assign_to_copilot:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Validate inputs
+        run: |
+          echo "Target repository: ${{ inputs.repository_owner }}/${{ inputs.repository_name }}"
+          echo "Issue number: ${{ inputs.issue_number }}"
+
+      - name: Report progress to Port - Starting
+        if: ${{ inputs.port_run_id != '' }}
+        uses: port-labs/port-github-action@v1
+        with:
+          clientId: ${{ secrets.PORT_CLIENT_ID }}
+          clientSecret: ${{ secrets.PORT_CLIENT_SECRET }}
+          baseUrl: https://api.port.io
+          operation: PATCH_RUN
+          runId: ${{ inputs.port_run_id }}
+          logMessage: 'Workflow started for issue #${{ inputs.issue_number }} in ${{ inputs.repository_owner }}/${{ inputs.repository_name }}'
+
+      - name: Check if Copilot is enabled and get Bot ID
+        id: get_copilot_id
+        run: |
+          response=$(gh api graphql -f query='
+            query {
+              repository(owner: "${{ inputs.repository_owner }}", name: "${{ inputs.repository_name }}") {
+                suggestedActors(capabilities: [CAN_BE_ASSIGNED], first: 100) {
+                  nodes {
+                    login
+                    __typename
+                    ... on Bot {
+                      id
+                    }
+                    ... on User {
+                      id
+                    }
+                  }
+                }
+              }
+            }
+          ')
+
+          # Extract Copilot bot ID
+          copilot_id=$(echo "$response" | jq -r '.data.repository.suggestedActors.nodes[] | select(.login == "copilot-swe-agent") | .id')
+
+          if [ -z "$copilot_id" ]; then
+            echo "Error: Copilot coding agent is not enabled in repository ${{ inputs.repository_owner }}/${{ inputs.repository_name }}"
+            exit 1
+          fi
+
+          echo "copilot_id=$copilot_id" >> $GITHUB_OUTPUT
+          echo "Found Copilot bot with ID: $copilot_id"
+        env:
+          # Use PAT instead of GITHUB_TOKEN for cross-org access
+          GH_TOKEN: ${{ secrets.PORT_GITHUB_TOKEN }}
+
+      - name: Report progress to Port - Found Copilot Bot
+        if: ${{ inputs.port_run_id != '' }}
+        uses: port-labs/port-github-action@v1
+        with:
+          clientId: ${{ secrets.PORT_CLIENT_ID }}
+          clientSecret: ${{ secrets.PORT_CLIENT_SECRET }}
+          baseUrl: https://api.port.io
+          operation: PATCH_RUN
+          runId: ${{ inputs.port_run_id }}
+          logMessage: 'Found Copilot bot with ID: ${{ steps.get_copilot_id.outputs.copilot_id }}'
+
+      - name: Get Issue ID
+        id: get_issue_id
+        run: |
+          response=$(gh api graphql -f query='
+            query {
+              repository(owner: "${{ inputs.repository_owner }}", name: "${{ inputs.repository_name }}") {
+                issue(number: ${{ inputs.issue_number }}) {
+                  id
+                  title
+                  state
+                }
+              }
+            }
+          ')
+
+          issue_id=$(echo "$response" | jq -r '.data.repository.issue.id')
+          issue_title=$(echo "$response" | jq -r '.data.repository.issue.title')
+          issue_state=$(echo "$response" | jq -r '.data.repository.issue.state')
+
+          if [ -z "$issue_id" ] || [ "$issue_id" = "null" ]; then
+            echo "Error: Issue #${{ inputs.issue_number }} not found in ${{ inputs.repository_owner }}/${{ inputs.repository_name }}"
+            exit 1
+          fi
+
+          if [ "$issue_state" = "CLOSED" ]; then
+            echo "Warning: Issue #${{ inputs.issue_number }} is closed"
+          fi
+
+          echo "issue_id=$issue_id" >> $GITHUB_OUTPUT
+          echo "issue_title=$issue_title" >> $GITHUB_OUTPUT
+          echo "Found issue: $issue_title (ID: $issue_id)"
+        env:
+          GH_TOKEN: ${{ secrets.PORT_GITHUB_TOKEN }}
+
+      - name: Report progress to Port - Found Issue
+        if: ${{ inputs.port_run_id != '' }}
+        uses: port-labs/port-github-action@v1
+        with:
+          clientId: ${{ secrets.PORT_CLIENT_ID }}
+          clientSecret: ${{ secrets.PORT_CLIENT_SECRET }}
+          baseUrl: https://api.port.io
+          operation: PATCH_RUN
+          runId: ${{ inputs.port_run_id }}
+          logMessage: "Found issue '${{ steps.get_issue_id.outputs.issue_title }}' (ID: ${{ steps.get_issue_id.outputs.issue_id }})"
+
+      - name: Comment on issue before assignment
+        id: comment_on_issue
+        if: ${{ inputs.issue_context_to_comment != '' }}
+        run: |
+          gh issue comment ${{ inputs.issue_number }} \
+            --repo "${{ inputs.repository_owner }}/${{ inputs.repository_name }}" \
+            --body "$ISSUE_CONTEXT"
+        env:
+          GH_TOKEN: ${{ secrets.PORT_GITHUB_TOKEN }}
+          ISSUE_CONTEXT: ${{ inputs.issue_context_to_comment }}
+
+      - name: Report progress to Port - Commented on issue
+        if: ${{ inputs.port_run_id != '' }}
+        uses: port-labs/port-github-action@v1
+        with:
+          clientId: ${{ secrets.PORT_CLIENT_ID }}
+          clientSecret: ${{ secrets.PORT_CLIENT_SECRET }}
+          baseUrl: https://api.port.io
+          operation: PATCH_RUN
+          runId: ${{ inputs.port_run_id }}
+          logMessage: 'Added initial comment to issue #${{ inputs.issue_number }}.'
+
+      - name: Get Trigger User from Port
+        id: port_user_lookup
+        if: ${{ inputs.trigger_user_email != '' && inputs.trigger_user_email != 'null' }}
+        uses: port-labs/port-github-action@v1
+        with:
+          clientId: ${{ secrets.PORT_CLIENT_ID }}
+          clientSecret: ${{ secrets.PORT_CLIENT_SECRET }}
+          baseUrl: https://api.port.io
+          operation: GET
+          identifier: ${{ inputs.trigger_user_email }}
+          blueprint: _user
+
+      - name: Extract GitHub Username
+        id: extract_username
+        if: ${{ inputs.trigger_user_email != '' && inputs.trigger_user_email != 'null' }}
+        run: |
+          username=$(echo '${{ steps.port_user_lookup.outputs.entity }}' | jq -r '.entity.properties.git_hub_username // .properties.git_hub_username')
+          if [ "$username" = "null" ] || [ -z "$username" ]; then
+            echo "No GitHub username found for ${{ inputs.trigger_user_email }}"
+            echo "github_username=" >> $GITHUB_OUTPUT
+          else
+            echo "Found GitHub username: $username"
+            echo "github_username=$username" >> $GITHUB_OUTPUT
+          fi
+
+      - name: Assign issue to Copilot
+        id: assign_issue
+        run: |
+          actor_ids="[\"${{ steps.get_copilot_id.outputs.copilot_id }}\"]"
+
+          # Only try to add the initiator if the extract_username step actually ran
+          if [ "${{ inputs.trigger_user_email }}" != "null" ] && [ -n "${{ steps.extract_username.outputs.github_username }}" ]; then
+            user_id=$(gh api graphql -f query="query { user(login: \"${{ steps.extract_username.outputs.github_username }}\") { id }}" | jq -r '.data.user.id')
+            if [ -n "$user_id" ] && [ "$user_id" != "null" ]; then
+              echo "Found user ID for initiator: $user_id"
+              actor_ids="[\"${{ steps.get_copilot_id.outputs.copilot_id }}\", \"$user_id\"]"
+            else
+              echo "No valid GitHub user ID found for initiator"
+            fi
+          else
+            echo "Skipping initiator assignment (no trigger_user_email or username)"
+          fi
+          response=$(gh api graphql -f query="
+            mutation {
+              replaceActorsForAssignable(input: {
+                assignableId: \"${{ steps.get_issue_id.outputs.issue_id }}\", 
+                actorIds: $actor_ids
+              }) {
+                assignable {
+                  ... on Issue {
+                    id
+                    title
+                    assignees(first: 10) {
+                      nodes {
+                        login
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          ")
+
+          assignees=$(echo "$response" | jq -r '.data.replaceActorsForAssignable.assignable.assignees.nodes[].login' 2>/dev/null)
+
+          if echo "$assignees" | grep -q "Copilot"; then
+            echo "✅ Successfully assigned issue to Copilot"
+          else
+            echo "❌ Failed to assign issue to Copilot"
+            exit 1
+          fi
+        env:
+          GH_TOKEN: ${{ secrets.PORT_GITHUB_TOKEN }}
+
+      - name: Report back to Port (if triggered from Port)
+        if: ${{ inputs.port_run_id != '' }}
+        uses: port-labs/port-github-action@v1
+        with:
+          clientId: ${{ secrets.PORT_CLIENT_ID }}
+          clientSecret: ${{ secrets.PORT_CLIENT_SECRET }}
+          baseUrl: https://api.port.io
+          operation: PATCH_RUN
+          runId: ${{ inputs.port_run_id }}
+          status: 'SUCCESS'
+          logMessage: |
+            ✅ Workflow completed successfully.
+            Assigned issue #${{ inputs.issue_number }} to GitHub Copilot.
+            Repository: ${{ inputs.repository_owner }}/${{ inputs.repository_name }}
+            Issue: ${{ steps.get_issue_id.outputs.issue_title }}
