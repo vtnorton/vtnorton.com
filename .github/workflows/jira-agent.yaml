@@ -1,0 +1,14 @@
+name: Jira Agent
+
+on:
+  repository_dispatch:
+    types: [jira_issue_created]
+
+jobs:
+  investigate:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Print payload
+        run: |
+          echo '${{ toJson(github.event.client_payload) }}'
