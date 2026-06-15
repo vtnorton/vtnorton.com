@@ -15,27 +15,96 @@
 }
 
 .notion-inline-code {
-	font-size: .9rem;
-	line-height: .9rem;
+	font-family: var(--font-mono), 'Consolas', monospace;
+	font-size: .85em;
+	font-weight: 500;
 	background: #f5f5f5;
-	padding: 4px 8px;
-	border: 1px solid #ccc;
-	border-radius: 30px;
+	// Keep vertical padding tiny so the chip doesn't inflate the line box.
+	padding: 1px 6px;
+	border: 1px solid var(--border-color);
+	border-radius: var(--radius-sm);
 }
 
 .notion-code {
 	margin-bottom: 1rem;
 }
 
-.notion-text,
-.notion-quote {
+// Match code blocks to the paragraph vertical rhythm. The Prism base sets a tiny
+// bottom margin, which made the (normal) gap above each block read as oversized.
+.post-wrapper .notion-code {
+	margin: 0.2rem 0 2rem;
+}
+
+.notion-text {
 	margin: 0.2rem 0 2rem;
 	@include notion-body-text.notion-body-text;
+}
+
+.notion-quote {
+	@include notion-body-text.notion-body-text;
+	margin: 0.2rem 0 2rem;
+	padding: 0.35rem 0 0.35rem 1.25rem;
+	border-left: 3px solid var(--gold);
+	background: rgba(224, 158, 54, 0.06);
+	color: #555;
+	font-style: italic;
+	// Notion stores soft line breaks as "\n"; preserve them so multi-line
+	// callouts (e.g. the TL;DR list) don't collapse into one running paragraph.
+	white-space: pre-wrap;
+
+	b,
+	strong {
+		font-style: normal;
+		color: #333;
+	}
+}
+
+// Stacked quote blocks (a label followed by its body) should read as one
+// callout: collapse the gap so the accent border runs continuously.
+.notion-quote + .notion-quote {
+	margin-top: -2rem;
+	padding-top: 0;
+}
+
+// Notion simple tables ship without any base styling here — give them borders,
+// padding and a distinct header so comparison tables are legible.
+.notion-simple-table {
+	width: 100%;
+	margin: 0.2rem 0 2rem;
+	border: 1px solid var(--border-color);
+
+	td {
+		border: 1px solid var(--border-color);
+		padding: 0.5rem 0.75rem;
+		vertical-align: top;
+	}
+
+	.notion-simple-table-cell {
+		@include notion-body-text.notion-body-text;
+		font-size: 0.95rem;
+		line-height: 1.55;
+	}
+
+	.notion-simple-table-header-row {
+		background: var(--bg-surface);
+
+		.notion-simple-table-cell {
+			font-weight: 700;
+			color: #000;
+		}
+	}
 }
 
 .notion-blank,
 .notion-hash-link {
 	display: none;
+}
+
+// Notion renders each list item as its own list element, so the spacing between
+// items comes from the item's own top margin. Add breathing room only where the
+// list actually ends (the next block is not another list item).
+.notion-list + :not(.notion-list) {
+	margin-top: 2rem;
 }
 
 .notion-row {
@@ -139,5 +208,13 @@
 				margin-right: 0 !important;
 			}
 		}
+	}
+
+	// Tables can't shrink below their content on narrow screens; let them scroll
+	// horizontally instead of clipping the right-most columns off-screen.
+	.notion-simple-table {
+		display: block;
+		overflow-x: auto;
+		-webkit-overflow-scrolling: touch;
 	}
 }
