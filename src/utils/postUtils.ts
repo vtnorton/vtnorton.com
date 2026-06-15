@@ -1,9 +1,6 @@
 import { parseISO } from 'date-fns'
 import type { Post } from '../models/Post'
 
-// Uma postagem só é considerada publicada quando sua data já chegou. Esse
-// recorte é feito na leitura (e não na query do Notion) para que o "agora" não
-// fique congelado dentro do snapshot do cache.
 export const isPublishedByDate = (post: Post): boolean => {
 	if (!post.date) return false
 

@@ -4,10 +4,8 @@ export const postsSharedFilter = (): NotionFilter => {
 	const CLIENT_ID = process.env.CLIENT_ID
 
 	return [
-		// O filtro de data NÃO entra aqui de propósito: se entrasse, o "agora"
-		// ficaria congelado no snapshot do cache por toda a janela de TTL. O
-		// recorte por data é feito na leitura (filterPublishedPosts), garantindo
-		// que posts agendados apareçam assim que a data chega.
+		// Filtro de data fica fora da query de propósito: aplicado na leitura
+		// (filterPublishedPosts) para o "agora" não congelar no snapshot do cache.
 		{
 			or: [
 				{

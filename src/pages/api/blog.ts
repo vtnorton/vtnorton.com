@@ -56,8 +56,6 @@ export default async function handler(
 		CACHE_TTL_SECONDS,
 	)
 
-	// Recorte por data feito na leitura: posts agendados para o futuro ficam no
-	// cache, mas só entram no feed quando a data chega.
 	let allPosts = filterPublishedPosts(cachedPosts)
 
 	if (tag) {
