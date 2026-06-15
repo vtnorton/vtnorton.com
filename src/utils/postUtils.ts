@@ -1,19 +1,32 @@
-import { Post } from '../models/Post'
+import { parseISO } from 'date-fns'
+import type { Post } from '../models/Post'
+
+// Uma postagem só é considerada publicada quando sua data já chegou. Esse
+// recorte é feito na leitura (e não na query do Notion) para que o "agora" não
+// fique congelado dentro do snapshot do cache.
+export const isPublishedByDate = (post: Post): boolean => {
+	if (!post.date) return false
+
+	return parseISO(post.date) <= new Date()
+}
+
+export const filterPublishedPosts = (posts: Post[]): Post[] => {
+	return posts.filter(isPublishedByDate)
+}
 
 export const shufflePosts = (posts: Post[]): Post[] => {
 	const shuffledPosts = [...posts]
 
 	for (let index = shuffledPosts.length - 1; index > 0; index--) {
-		const randomIndex = Math.floor(Math.random() * (index + 1));
-		[shuffledPosts[index], shuffledPosts[randomIndex]] = [shuffledPosts[randomIndex], shuffledPosts[index]]
+		const randomIndex = Math.floor(Math.random() * (index + 1))
+		;[shuffledPosts[index], shuffledPosts[randomIndex]] = [shuffledPosts[randomIndex], shuffledPosts[index]]
 	}
 
 	return shuffledPosts
 }
 
 export const hasSameCategory = (referencePost: Post, candidatePost: Post): boolean => {
-	if (!referencePost.categories || referencePost.categories.length === 0)
-		return false
+	if (!referencePost.categories || referencePost.categories.length === 0) return false
 
 	return candidatePost.categories?.some((category) => referencePost.categories.includes(category)) || false
 }
@@ -31,39 +44,26 @@ export const selectPostsByTagOrder = (
 	let selected = [...selectedPosts]
 
 	for (const tag of referencePost.hashtags) {
-		if (selected.length >= maxPosts)
-			break
+		if (selected.length >= maxPosts) break
 
 		const postsForTag = shufflePosts(candidatePosts).filter((candidatePost) => {
-			if (isAlreadySelected(selected, candidatePost))
-				return false
+			if (isAlreadySelected(selected, candidatePost)) return false
 
 			return candidatePost.hashtags?.includes(tag)
 		})
 
-		selected = [
-			...selected,
-			...postsForTag.slice(0, maxPosts - selected.length),
-		]
+		selected = [...selected, ...postsForTag.slice(0, maxPosts - selected.length)]
 	}
 
 	return selected
 }
 
-export const completeWithRandomPosts = (
-	candidatePosts: Post[],
-	selectedPosts: Post[],
-	maxPosts: number,
-): Post[] => {
-	if (selectedPosts.length >= maxPosts)
-		return selectedPosts
+export const completeWithRandomPosts = (candidatePosts: Post[], selectedPosts: Post[], maxPosts: number): Post[] => {
+	if (selectedPosts.length >= maxPosts) return selectedPosts
 
 	const randomCandidates = shufflePosts(candidatePosts).filter(
 		(candidatePost) => !isAlreadySelected(selectedPosts, candidatePost),
 	)
 
-	return [
-		...selectedPosts,
-		...randomCandidates.slice(0, maxPosts - selectedPosts.length),
-	]
+	return [...selectedPosts, ...randomCandidates.slice(0, maxPosts - selectedPosts.length)]
 }

@@ -1,15 +1,13 @@
-import { NotionFilter } from '../../types/notionTypes'
+import type { NotionFilter } from '../../types/notionTypes'
 
 export const postsSharedFilter = (): NotionFilter => {
 	const CLIENT_ID = process.env.CLIENT_ID
 
 	return [
-		{
-			property: 'Date',
-			date: {
-				on_or_before: new Date().toISOString(),
-			},
-		},
+		// O filtro de data NÃO entra aqui de propósito: se entrasse, o "agora"
+		// ficaria congelado no snapshot do cache por toda a janela de TTL. O
+		// recorte por data é feito na leitura (filterPublishedPosts), garantindo
+		// que posts agendados apareçam assim que a data chega.
 		{
 			or: [
 				{
