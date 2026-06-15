@@ -5,6 +5,10 @@ export const CACHE_KEYS = {
 	PALESTRAS: 'palestras-all',
 }
 
+export const BLOG_CACHE_KEYS = [CACHE_KEYS.ALL_BLOG_POSTS, CACHE_KEYS.TECH_BLOG_POSTS, CACHE_KEYS.PERSONAL_BLOG_POSTS]
+
+export const CACHE_TTL_SECONDS = 60 * 60
+
 export const getProjectChangelogsCacheKey = (projectSlug: string): string => {
 	return `project-${projectSlug}-changelogs`
 }

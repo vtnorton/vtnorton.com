@@ -1,15 +1,11 @@
-import { NotionFilter } from '../../types/notionTypes'
+import type { NotionFilter } from '../../types/notionTypes'
 
 export const postsSharedFilter = (): NotionFilter => {
 	const CLIENT_ID = process.env.CLIENT_ID
 
 	return [
-		{
-			property: 'Date',
-			date: {
-				on_or_before: new Date().toISOString(),
-			},
-		},
+		// Filtro de data fica fora da query de propósito: aplicado na leitura
+		// (filterPublishedPosts) para o "agora" não congelar no snapshot do cache.
 		{
 			or: [
 				{
