@@ -49,7 +49,7 @@ const nextConfig = {
 		return [
 			{
 				source: '/rss',
-				destination: '/api/rss.tsx',
+				destination: '/api/rss',
 			},
 			{
 				source: '/olawolff',

@@ -1,9 +1,10 @@
 import type { NextApiRequest, NextApiResponse } from 'next'
-import { Post } from '../../models/Post'
+import { CACHE_KEYS, CACHE_TTL_SECONDS } from '../../database/cacheKeys'
 import { handleCache } from '../../middleware/cache'
+import type { Post } from '../../models/Post'
 import { postServices } from '../../services/postsServices'
-import { PaginatedResponse } from '../../types/PaginatedResponse'
-import { CACHE_KEYS } from '../../database/cacheKeys'
+import type { PaginatedResponse } from '../../types/PaginatedResponse'
+import { filterPublishedPosts } from '../../utils/postUtils'
 import { itemCategoryFilter } from '../../utils/query/postsQuery'
 
 const getFilter = (type: string | null) => {
@@ -19,10 +20,7 @@ const getFilter = (type: string | null) => {
 			cacheKey: CACHE_KEYS.TECH_BLOG_POSTS,
 			filter: [
 				{
-					or: [
-						itemCategoryFilter('Tech'),
-						itemCategoryFilter('Dev Advocate'),
-					],
+					or: [itemCategoryFilter('Tech'), itemCategoryFilter('Dev Advocate')],
 				},
 			],
 		}
@@ -39,8 +37,7 @@ export default async function handler(
 	req: NextApiRequest,
 	res: NextApiResponse<PaginatedResponse<Post> | { error: string }>,
 ) {
-	if (req.method !== 'GET')
-		return res.status(405).json({ error: 'Method not allowed' })
+	if (req.method !== 'GET') return res.status(405).json({ error: 'Method not allowed' })
 
 	const page = req.query.page ? parseInt(req.query.page.toString()) : 1
 	const limit = req.query.limit ? parseInt(req.query.limit.toString()) : 10
@@ -53,16 +50,16 @@ export default async function handler(
 		return res.status(400).json({ error: 'Invalid pagination parameters' })
 	}
 
-	let allPosts = await handleCache<Post>(
+	const cachedPosts = await handleCache<Post>(
 		cacheKey,
-		() => filter ? postServices.getPosts(filter) : postServices.getPosts(),
-		60 * 60 * 8,
+		() => (filter ? postServices.getPosts(filter) : postServices.getPosts()),
+		CACHE_TTL_SECONDS,
 	)
 
+	let allPosts = filterPublishedPosts(cachedPosts)
+
 	if (tag) {
-		allPosts = allPosts.filter((post) =>
-			post.hashtags.map((t) => t.toLowerCase()).includes(tag.toLowerCase()),
-		)
+		allPosts = allPosts.filter((post) => post.hashtags.map((t) => t.toLowerCase()).includes(tag.toLowerCase()))
 	}
 
 	const total = allPosts.length
