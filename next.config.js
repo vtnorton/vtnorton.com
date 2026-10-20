@@ -1,3 +1,11 @@
+const comingSoonRedirectSources = ['/blog', '/portfolio/:path*', '/palestra/:path*', '/olawolff']
+
+const comingSoonRedirects = comingSoonRedirectSources.map((source) => ({
+	source,
+	destination: '/',
+	permanent: false,
+}))
+
 /** @type {import('next').NextConfig} */
 const nextConfig = {
 	reactStrictMode: true,
@@ -38,6 +46,7 @@ const nextConfig = {
 	},
 	async redirects() {
 		return [
+			...comingSoonRedirects,
 			{
 				source: '/portfolio/palestra/:id',
 				destination: '/palestra/:id',

@@ -1,17 +1,18 @@
+import { type BrandVariants, createLightTheme, FluentProvider, type Theme } from '@fluentui/react-components'
 import type { AppProps } from 'next/app'
 import Head from 'next/head'
 import { useRouter } from 'next/router'
-import { BrandVariants, createLightTheme, FluentProvider, Theme } from '@fluentui/react-components'
 import 'animate.css'
 
 import '../styles/global.scss'
-import { bodyFont, monoFont } from '../styles/fonts'
-import { LayoutProvider } from '../providers/LayoutProvider'
 import { SidePane } from '../components/Sidepane/Sidepane'
+import { LayoutProvider } from '../providers/LayoutProvider'
+import { bodyFont, monoFont } from '../styles/fonts'
 
 export default function App({ Component, pageProps }: AppProps) {
 	const router = useRouter()
 	const isPostPage = router.pathname === '/[year]/[month]/[slug]'
+	const isComingSoonPage = router.pathname === '/'
 	const initialBreakpoint = isPostPage ? 2200 : 1500
 
 	const myNewTheme: BrandVariants = {
@@ -45,11 +46,15 @@ export default function App({ Component, pageProps }: AppProps) {
 
 			<div className={`${bodyFont.variable} ${monoFont.variable}`}>
 				<FluentProvider theme={lightTheme}>
-					<LayoutProvider initialBreakpoint={initialBreakpoint}>
-						<SidePane>
-							<Component {...pageProps} />
-						</SidePane>
-					</LayoutProvider>
+					{isComingSoonPage ? (
+						<Component {...pageProps} />
+					) : (
+						<LayoutProvider initialBreakpoint={initialBreakpoint}>
+							<SidePane>
+								<Component {...pageProps} />
+							</SidePane>
+						</LayoutProvider>
+					)}
 				</FluentProvider>
 			</div>
 		</>
