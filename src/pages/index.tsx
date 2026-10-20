@@ -1,8 +1,23 @@
+import type { GetStaticProps } from 'next'
 import Head from 'next/head'
-import { mockedComingSoonStatus } from '../database/mockedComingSoonStatus'
 import { ComingSoon } from '../modules/ComingSoon/ComingSoon'
+import { comingSoonStatusService } from '../services/comingSoonStatusService'
+import type { ComingSoonStatus } from '../types/ComingSoonStatus'
 
-const Index = () => {
+type IndexProps = {
+	status: ComingSoonStatus
+}
+
+export const config = {
+	maxDuration: 60,
+}
+
+export const getStaticProps: GetStaticProps<IndexProps> = async () => {
+	const status = await comingSoonStatusService.getComingSoonStatus()
+	return { props: { status } }
+}
+
+const Index = ({ status }: IndexProps) => {
 	return (
 		<>
 			<Head>
@@ -11,7 +26,7 @@ const Index = () => {
 				<meta name='viewport' content='width=device-width, initial-scale=1' />
 				<meta name='theme-color' content='#f7f7f4' />
 			</Head>
-			<ComingSoon status={mockedComingSoonStatus} />
+			<ComingSoon status={status} />
 		</>
 	)
 }
