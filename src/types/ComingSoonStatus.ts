@@ -8,14 +8,17 @@ export const ProgressCategory = {
 
 export type ProgressCategory = (typeof ProgressCategory)[keyof typeof ProgressCategory]
 
-export type ProgressCounter = {
-	category: ProgressCategory
+export type Progress = {
 	completed: number
 	total: number
+}
+
+export type ProgressCounter = {
+	category: ProgressCategory
+	progress: Progress | null
 }
 
 export type ComingSoonStatus = {
 	lastUpdatedAt: string
 	counters: ProgressCounter[]
-	povSlotCount: number
 }

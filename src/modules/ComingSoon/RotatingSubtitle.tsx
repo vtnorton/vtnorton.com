@@ -1,4 +1,5 @@
 import { type CSSProperties, Fragment, useEffect, useState } from 'react'
+import { prefersReducedMotion } from './prefersReducedMotion'
 import { subtitleSentences } from './subtitleSentences'
 
 type SentenceWord = {
@@ -39,10 +40,6 @@ const toRotatingSentence = (text: string): RotatingSentence => {
 }
 
 const rotatingSentences = subtitleSentences.map(toRotatingSentence)
-
-const prefersReducedMotion = (): boolean => {
-	return window.matchMedia('(prefers-reduced-motion: reduce)').matches
-}
 
 export const RotatingSubtitle = () => {
 	const [activeIndex, setActiveIndex] = useState(0)

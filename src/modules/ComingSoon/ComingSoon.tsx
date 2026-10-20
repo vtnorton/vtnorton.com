@@ -9,6 +9,8 @@ type ComingSoonProps = {
 	status: ComingSoonStatus
 }
 
+const POV_SLOT_COUNT = 8
+
 export const ComingSoon = ({ status }: ComingSoonProps) => {
 	return (
 		<main className='coming-soon'>
@@ -31,7 +33,7 @@ export const ComingSoon = ({ status }: ComingSoonProps) => {
 
 			<div>
 				<SectionRule folio='/003/' />
-				<PovSlots count={status.povSlotCount} />
+				<PovSlots count={POV_SLOT_COUNT} />
 			</div>
 		</main>
 	)
