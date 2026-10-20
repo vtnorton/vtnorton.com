@@ -1,0 +1,22 @@
+name: Coming soon refresh
+
+on:
+  schedule:
+    - cron: '*/5 * * * *'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  refresh:
+    runs-on: ubuntu-latest
+    timeout-minutes: 2
+    steps:
+      - name: Refresh the home when the drawn time has passed
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: >-
+          curl --fail-with-body --silent --show-error --max-time 90
+          --header "Authorization: Bearer $GITHUB_TOKEN"
+          https://vtnorton.com/api/cron/coming-soon-refresh
