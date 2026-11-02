@@ -8,11 +8,16 @@ type IndexProps = {
 	status: ComingSoonStatus
 }
 
-const REVALIDATE_SECONDS = 300
+const MIN_REVALIDATE_SECONDS = 5 * 60
+const MAX_REVALIDATE_SECONDS = 12 * 60 * 60
+
+const drawRevalidateSeconds = (): number => {
+	return Math.round(MIN_REVALIDATE_SECONDS + Math.random() * (MAX_REVALIDATE_SECONDS - MIN_REVALIDATE_SECONDS))
+}
 
 export const getStaticProps: GetStaticProps<IndexProps> = async () => {
 	const status = await comingSoonStatusService.getComingSoonStatus()
-	return { props: { status }, revalidate: REVALIDATE_SECONDS }
+	return { props: { status }, revalidate: drawRevalidateSeconds() }
 }
 
 const Index = ({ status }: IndexProps) => {
