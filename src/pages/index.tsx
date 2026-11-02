@@ -9,7 +9,7 @@ type IndexProps = {
 }
 
 const MIN_REVALIDATE_SECONDS = 5 * 60
-const MAX_REVALIDATE_SECONDS = 12 * 60 * 60
+const MAX_REVALIDATE_SECONDS = 3 * 60 * 60
 
 const drawRevalidateSeconds = (): number => {
 	return Math.round(MIN_REVALIDATE_SECONDS + Math.random() * (MAX_REVALIDATE_SECONDS - MIN_REVALIDATE_SECONDS))
