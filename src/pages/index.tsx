@@ -8,13 +8,11 @@ type IndexProps = {
 	status: ComingSoonStatus
 }
 
-export const config = {
-	maxDuration: 60,
-}
+const REVALIDATE_SECONDS = 300
 
 export const getStaticProps: GetStaticProps<IndexProps> = async () => {
 	const status = await comingSoonStatusService.getComingSoonStatus()
-	return { props: { status } }
+	return { props: { status }, revalidate: REVALIDATE_SECONDS }
 }
 
 const Index = ({ status }: IndexProps) => {
